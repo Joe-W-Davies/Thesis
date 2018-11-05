@@ -1,0 +1,11 @@
+*.log
+*.aux
+*.lof
+*.lot
+*.out
+*.toc
+*.cut
+
+.texpadtmp/
+Resources/
+Docs/
