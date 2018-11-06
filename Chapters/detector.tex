@@ -8,7 +8,7 @@ Its purpose is to provide collisions sufficient in energy and number to precisel
 Four detectors, one of which is the Compact Muon Solenoid (CMS), are situated around the LHC ring.
 CMS is a general-purpose detector designed to precisely measure a wide range of physics objects.
 Together, the LHC and CMS facilitate a wide-ranging program of physics studies, from SM precision measurements to dark matter searches, 
-and including the production and analysis of the Higgs boson.
+and including exploration of electroweak symmetry breaking via production of the Higgs boson.
 This chapter will describe the design and operation of both the LHC and the CMS detector.
 
 \section{The Large Hadron Collider}
@@ -57,9 +57,12 @@ In 2012 this was increased to 8\,TeV, and a total of 23.3\,\fb of data were coll
 Analyses based upon this Run 1 dataset were able to discover the Higgs boson.
 After a shutdown for upgrades to the machine, Run 2 ran from 2015 to 2018 at a constant 13\,TeV centre-of-mass energy.
 The LHC was able to exceed its design luminosity in each of the years, eventually levelling the luminosity at $2\times10^{34}\,\textrm{cm}^{-2}\,\textrm{s}^{-1}$ for the majority of 2018 operations.
+A number of additional inleastic proton-proton collisions in addition to a collision of interest, known as pileup, occur at a rate proportional to the instantaneous luminosity.
+The mean number of pileup events was 27 per bunch crossing in 2016, and 37 in both 2017 and 2018 data-taking.
 Figure \ref{fig:detector_Run1andRun2lumi} summarises the data collected in each year.
 The latest \Hgg results on which this thesis is based have utilised the 2016 and 2017 datasets; 
-plans for the final Run 2 result combining the 2016-2018 datasets are described in Chapter 9.
+plans for the final Run 2 result combining the 2016-2018 datasets are described in Chapter ~\ref{chap:conclusion}.
+Furthermore, future upgrades to both the LHC and the CMS detector are discussed in Chapter~\ref{chap:hgcal}.
 
 \begin{figure}[h!]
   \centering
@@ -71,6 +74,49 @@ plans for the final Run 2 result combining the 2016-2018 datasets are described 
 \end{figure}
 
 \section{The CMS detector}
+
+CMS is a general purpose detector~\cite{CMSdetector} designed to capture the full range of objects required to achieve the goals of the LHC physics programme.
+The apparatus must be able to cope with very high pileup events at a very high rate; around 1000 charged particles are produced every 25\,ns.
+Fine spatial and temporal granularity is required to obtain the sufficiently low occupancy necessary to perform well in these conditions.
+The resulting quantity of detector channels presents challenges for the detector electronics.
+Furthermore, the detector and its electronics must withstand high doses of radiation and fluence.
+
+In addition to these technical constraints, CMS has four key physics requirements.
+These are summarised as:
+\begin{itemize}
+  \item{\textbf{Muon identification and resolution} 
+  muons must be identified and well-measured over wide range in energy and angle, 
+  with good dimuon mass resolution and the capability to accurately determine their charge.}
+  \item{\textbf{Charged particle measurement}
+  good momentum resolution along with efficient reconstruction and triggering on $\tau$ particles and $b$-jets.}
+  \item{\textbf{Electromagnetic energy resolution}
+  good energy resolution and isolation for electrons and photons, whilst maintaining high acceptance.}
+  \item{\textbf{Missing energy resolution}
+  accurate missing energy calculation and mass resolution of dijet objects.}
+\end{itemize}
+
+The design of CMS fulfils each of these requirements.
+The hermetic detector is cyclindrical in shape, housing the eponymous 4T solenoidal magnet in the central section.
+Its other key components include the silicon tracker, homogeneous crystal electromagnetic calorimeter and a sampling hadronic calorimeter.
+The tracker and calorimeters lie inside the bore of the magnet coil; the muon detection system is instead interleaved with the return yoke.
+Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic}, and described in detail in the remainder of this chapter.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Detector/CMSschematic.png}
+  \caption[A schematic view of CMS.]
+  {A schematic view of the CMS detector.
+  Part of the detector is cut away in order to display each subsystem.
+  Figure taken from Ref.~\cite{SketchUp}.}
+  \label{fig:detector_CMSschematic}
+\end{figure}
+
+A cylindrical cooordinate system is frequently used by CMS, with its centre at the nominal proton-proton interaction point.
+The positive $z$-axis is defined to be parallel to the beampipe in the direction of the Jura mountains, anti-clockwise when viewed from above.
+The azimuthal angle $\phi$ is measured from the $z$-axis, and polar angle $\theta$ from the plane perpendicular to the $z$-axis.
+Other common quantities are: pseudorapidity, defined as $\eta = -\ln{\tan{\theta/2}}$; 
+momentum in the direction transverse to the plane of the LHC, \pt; 
+and the negative vector sum of particle energies, $E^{\textrm{miss}}_{T}$.
 
 \subsection{Solenoid}
 \subsection{Tracking}

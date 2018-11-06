@@ -562,7 +562,7 @@
   howpublished = {\url{http://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults}}
 }
 
-@misc{SketchupCMS,
+@misc{SketchUp,
   author={Tai Sakuma and Thomas McCauley},
   title={Detector and Event Visualization with SketchUp at the CMS Experiment},
   journal={Journal of Physics: Conference Series},
@@ -607,7 +607,7 @@
   url           = "https://cds.cern.ch/record/1260465",
 }
 
-@article{CMSatLHC,
+@article{CMSdetector,
   collaboration         = "CMS",
   title          = "{The CMS experiment at the CERN LHC}",
   journal        = "JINST",
