@@ -86,17 +86,21 @@ These are summarised as:
 \begin{itemize}
   \item{\textbf{Muon identification and resolution} 
   muons must be identified and well-measured over wide range in energy and angle, 
-  with good dimuon mass resolution and the capability to accurately determine their charge.}
+  with good dimuon mass resolution and the capability to accurately determine their charge.
+  This is veyr important for Higgs searches, particularly in the $ZZ$ decay channel.}
   \item{\textbf{Charged particle measurement}
-  good momentum resolution along with efficient reconstruction and triggering on $\tau$ particles and $b$-jets.}
+  good momentum resolution along with efficient reconstruction and triggering on $\tau$ particles and $b$-jets.
+  High jet reconstruction performance is essential in the majority of physics measurements.}
   \item{\textbf{Electromagnetic energy resolution}
-  good energy resolution and isolation for electrons and photons, whilst maintaining high acceptance.}
+  good energy resolution and isolation for electrons and photons, whilst maintaining high acceptance.
+  These properties are vital for Higgs measurements, especially in the diphoton decay channel.}
   \item{\textbf{Missing energy resolution}
-  accurate missing energy calculation and mass resolution of dijet objects.}
+  accurate missing energy calculation and mass resolution of dijet objects.
+  Missing energy is the key signature in many analyses searching for supersymmetry.}
 \end{itemize}
 
 The design of CMS fulfils each of these requirements.
-The hermetic detector is cyclindrical in shape, housing the eponymous 4T solenoidal magnet in the central section.
+The hermetic detector is cyclindrical in shape, housing the eponymous 4\,T solenoidal magnet in the central section.
 Its other key components include the silicon tracker, homogeneous crystal electromagnetic calorimeter and a sampling hadronic calorimeter.
 The tracker and calorimeters lie inside the bore of the magnet coil; the muon detection system is instead interleaved with the return yoke.
 Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic}, and described in detail in the remainder of this chapter.
@@ -111,15 +115,30 @@ Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic},
   \label{fig:detector_CMSschematic}
 \end{figure}
 
-A cylindrical cooordinate system is frequently used by CMS, with its centre at the nominal proton-proton interaction point.
+A cylindrical cooordinate system is frequently to describe events within the CMS, with its centre at the nominal proton-proton interaction point.
+The central part is referred to as the barrel, with two endcaps closing the cylinder.
 The positive $z$-axis is defined to be parallel to the beampipe in the direction of the Jura mountains, anti-clockwise when viewed from above.
 The azimuthal angle $\phi$ is measured from the $z$-axis, and polar angle $\theta$ from the plane perpendicular to the $z$-axis.
 Other common quantities are: pseudorapidity, defined as $\eta = -\ln{\tan{\theta/2}}$; 
 momentum in the direction transverse to the plane of the LHC, \pt; 
 and the negative vector sum of particle energies, $E^{\textrm{miss}}_{T}$.
+High pseudorapidity values, corresponding to a direction close to the beampipe, are referred to as being forward.
 
 \subsection{Solenoid}
+
+The central feature of the CMS detector is the superconducting solenoid, whose 220 tonne cold mass is maintained at 4.5\,K.%using liquid helium cooling - 1.8K redundancy
+The coil of the magnet measures 6\,m in diameter, is 13\,m long, and provides a maximum field strength of 4\,T, storing  total energy of 1.6\,GJ.
+During normal operation however the current is reduced to approximtely 95\% of its capacity, resulting in a field strength of 3.8\,T.
+This ensures the longevity of the solenoid.
+The magnetic flux is returned by a 10,000 tonne yoke, composed of three disk-like layers in both the barrel and endcaps.
+
+The extremely high bending power of the CMS magnet enables precise measurement of charged particle tracks , 
+and hence excellent momentum resolution up to very high particle momenta.
+Its layout drives the design of the rest of the detector.
+
 \subsection{Tracking}
+
+
 \subsection{Electromagnetic calorimeter}
 \subsection{Hadronic calorimeter}
 \subsection{Muon system}
