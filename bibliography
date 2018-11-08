@@ -123,7 +123,7 @@
       SLACcitation   = "%%CITATION = ARXIV:1407.0558;%%"
 }
 
-@article{ECALPerformance,
+@article{ECALperformance,
   author={A Benaglia},
   title={The CMS ECAL performance with examples},
   journal={Journal of Instrumentation},

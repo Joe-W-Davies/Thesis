@@ -109,7 +109,7 @@ Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic},
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CMSschematic.png}
-  \caption[A schematic view of CMS.]
+  \caption[A schematic view of the CMS detector.]
   {A schematic view of the CMS detector.
   Part of the detector is cut away in order to display each subsystem.
   Figure taken from Ref.~\cite{SketchUp}.}
@@ -194,16 +194,101 @@ However the overall impact on the \Hgg analysis was relatively small, since the
 
 \subsection{Electromagnetic calorimeter}
 
-The CMS ECAL is a homogeneous detector which uses lead tungstate ($\textrm{PbWO}_4$) crystals as the active material.
-A total of 61,200 crystals cover the barrel area (EB), with 7324 in each of the endcaps (EE).
-An additional preshower detector is present in front of the endcaps, in order to remove $\pi_0$ rejection.
-The total coverage in pseudirapdiity extends to $|\eta|=3$; however full energy resolution is maintained only to ~$|\eta|=2.5$.
+The CMS ECAL is a homogeneous detector which uses lead tungstate (\pbw) crystals as the active material.
+A total of 61200 crystals cover the barrel area (EB), with 7324 in each of the endcaps (EE).
+Readout is performed by silicon avalanche photodiodes (APDs) and vacuum phototriodes (VPTs) in the barrel and endcap regions respectively.
+An additional preshower detector is present in front of the endcaps, in order to improve $\pi_0$ rejection.
+The total coverage in pseudorapidity reaches $|\eta|=3$; full energy resolution is maintained to ~$|\eta|=2.5$.
 The ECAL is the most important CMS detector in the \Hgg analysis, 
 and the ECAL design itself was driven by the need to precisely reconstruct the two photons produced in Higgs boson decays.
 Hence this section is dedicated to describing the ECAL in some detail.
+The overall structure is shown in Figure~\ref{fig:detector_ECALschematic}.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Detector/ECALschematic.png}
+  \caption[Schematic view of the CMS ECAL.]
+  {A schematic view of the CMS ECAL showing the various subsystems.
+  Part of the detector is cut away for clarity.
+  Figure taken from Ref.~\cite{ECALperformance}.}
+  \label{fig:detector_ECALschematic}
+\end{figure}
 
+The choice of \pbw for was motivated by the need for the ative material to be fast, dense, and radiation hard.
+The short response time is necessary to collect the energy deposit before the next bunch crossing; 
+\pbw crystals emit approximately 80\% of the total scintillation light in 25\,ns.
+Their high density (8.28\,g/$\textrm{cm}^3$) facilitates the compactness and granularity of the detector without compromising on the containment of electromagnetic showers.
+A radiation length of 0.89\,cm means the 22\,cm (23\,cm) crystals cover a 24.7\,$X_0$ (25.8\,$X_0$) in the longitudinal direction. %mean distance travelled before reaching 1/e of original energy via brem
+Lateral containment is also excellent, with a Moli\`ere radius of 2.2\,cm. %radius of cylinder containing 90% of average deposition; two contain 95% therefore.
+
+The EB extends to $|\eta|=1.479$, as shown in Figure~\ref{fig:detector_ECALquadrant}.
+Each crystal has a tapered shape which covers $0.0174\times0.0174$ in $\eta-\phi$, 
+which is around $22\times22\,\textrm{mm}^2$ at the front face and $26\times26\,\textrm{mm}^2$ at the back.
+The geometry is ``pseudo-projective"; the axis of each crystal is rotated by approximately $3^{\circ}$ in both $\eta$ and $\phi$ relative to the vector from the interaction point.
+This ensures that particle cannot follow a trajectory entirely within a crack in the detector.
+Crystals are then grouped into supermodules, each covering $20^{\circ}$ in $\phi$.
+Each EE comprises two so-called ``Dees", built from 5-by-5 supercrystals, reaching $|\eta|=3$.
+The crystals in the EE are slightly shorter and wider than in the EB, 
+and the offset angle varies between $2^{\circ}$ and $8^{\circ}$.
+The preshower detectors (ES) in front of the endcaps are sampling calorimeters, 
+each composed of two layers of lead with silicon strip sensors behind. %3X0 in total
+Measurements of both energy and transverse shower shape are made by the ES.
+The setup as a whole is displayed using one quadrant of the detector in Figure~\ref{fig:detector_ECALquadrant}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Detector/ECALquadrant.png}
+  \caption[The stucture in pseudorapdity of the CMS ECAL.]
+  {The stucture in pseudorapidity of the ECAL.
+  Figure taken from Ref.~\cite{ECALperformance}.}
+  \label{fig:detector_ECALquadrant}
+\end{figure}
+
+To reconstruct the shower energy, the photodetectors amplify the scintillation light to produce around 4500 photoeletrons per GeV.
+After digitisation by 12-bit analogue-to-digital converters (ADCs), ten consecutive amplitude measurements are stored in a buffer.
+Once a trigger is recieved, the se recordings are sent to the off-detector electronics. 
+There the original energy deposition in the crystal can be inferred with knowledge of the typical pulse shape of each channel.
+
+The intrinsic energy resolution ($\sigma_E/E$) of the ECAL can be modelled by the equation
+\begin{equation}
+  \left(\frac{\sigma}{E} \right)^{2} =  
+  \left(\frac{S}{\sqrt{E}} \right)^{2} +  
+  \left(\frac{N}{E} \right)^{2} +  
+  C^{2},
+\label{eq:detector_ECALresolution}
+\end{equation}
+where $S$ is the stochastic term, $N$ is the noise term and $C$ is the constant term.
+%S: event-to-event fluctuations in the lateral shower containment, a photostatistics contribution of 2.1%,
+%N: electronics noise, digitization noise, pileup noise.
+%C: non-uniformity of the longitudinal light collection, intercalibration errors, leakage of energy from the back of the crystal.
+For energy in units of GeV, the values in beam tests are found to be: %with electrons aligned with crystal centres 
+$S$ = 2.8\%, $N$ = 12\%, and $C$ = 0.3\%.
+Here energy values are computed simply summing $5\times5$ arrays of crystals.
+In real conditions, further corrections are applied to achieve similar performance to that in beam tests.
+
+A series of calibrations are required in order to generate accurate shower energy estimates.
+Furthermore, not all the energy from a given shower will be contained within one crystal.
+Typically showers are spread in the $\phi$ direction due to the effect of the magnetic field on particles produced via secondary interactions.
+Therefore nearby crystals are merged into ``superclusters" (SC), 
+which are then used to estimate the energy of the candidate object using the equation~\ref{fig:ECALperformance}
+\begin{equation}
+E_{e/\gamma}\, =\, F_{e/\gamma}\, G\, \Sigma_i S_i (t) C_i A_i + E_{ES}
+\end{equation}
+where the individual channel amplitudes ($A_i$), corrected for variations in time ($S_i (t)$) and by channel ($C_i$), 
+are summed and multiplied by the global ADC-to-GeV conversion factor ($G$).
+After any contribution from the preshower detector is added ($E_{ES}$), 
+a final correction ($F_{e/\gamma}$) for effects due to upstream material, geometry, and imperfect clustering is applied. 
+%This is the famous regression, I tihnk. So geometry = location within ECAL
+The $S_i (t)$ monitor the radiation-induced change in transparency over time by measuring the response of each crystal to 440\,nm laser light every 40 minutes. %also recovers by "spontaneous annealing"
+The intercalibration factors $C_i$ reflect the need to have an equal response from each crystal in the detector.
+These are computed both using the $\phi-\textrm{symmetry}$ of the detector and the known mass of $\pi^{0}$ and $\eta$ diphoton decays.
+The global scale $G$ is derived by requiring the measured dielectron mass of the $Z$ boson to match its known true value.
+Finally, the particle-dependent $F_{e/\gamma}$ corrections are estimated using a multivariate analysis (MVA) which mostly accounts for the varying material budget in front of the ECAL.
+After this lengthy procedure, the final energy resolution on the high \pt, unconverted photons which drive the \Hgg sensitivity is approximately 1\%.
 
 \subsection{Hadronic calorimeter}
+
+
+
 \subsection{Muon system}
 \subsection{Trigger system}
