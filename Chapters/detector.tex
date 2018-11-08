@@ -40,14 +40,14 @@ Prior to being injected into the LHC beam pipes, bunches of protons pass are acc
 First, protons are obtained by stripping the electrons from hydrogen atoms using a strong electric field.
 The protons produced are then accelerated up to an energy of 50 MeV by Linear Accelerator 2 (LINAC 2).
 LINAC 2 leads into the Proton Synchrotron Booster (PSB), where they reach an energy of 1.4 GeV before passing into the Proton Synchrotron (PS).
-Here the beam is accelerated up to 25 GeV before being transferred to the Super Proton Synchtroron (SPS).
+Here the beam is accelerated up to 25 GeV before being transferred to the Super Proton Synchrotron (SPS).
 The SPS is the last step before the protons enter the LHC itself at an energy of 540 GeV.
 Therefore the LHC is responsible for the final acceleration from 540 GeV to the full energy.
 Thus far, the energy reached for stable operation is 6.5\,TeV per beam; the full design energy is expected to be achieved in future.
 
 The key components of the LHC are its 1232 main dipole magnets, 392 main quadrupole magnets and 16 radiofrequency (RF) cavities.
 Superfluid helium cools the dipole magnets to 1.9K, at which temperature they produce the 8.3T magnetic field required to keep the beams in circular orbit.
-Quadropole magnets are used principally to focus the beams near the interaction points, which increases the probability of a high-energy proton-proton collision.
+Quadrupole magnets are used principally to focus the beams near the interaction points, which increases the probability of a high-energy proton-proton collision.
 The RF cavities deliver an accelerating field of 5MV/m at a frequency of 400MHz, and furthermore maintain the shape of the 2808 proton bunches per beam.
 Collisions occur at the four interaction points, where bunches are induced to collide at a frequency of 25ns. 
 
@@ -57,7 +57,7 @@ In 2012 this was increased to 8\,TeV, and a total of 23.3\,\fb of data were coll
 Analyses based upon this Run 1 dataset were able to discover the Higgs boson.
 After a shutdown for upgrades to the machine, Run 2 ran from 2015 to 2018 at a constant 13\,TeV centre-of-mass energy.
 The LHC was able to exceed its design luminosity in each of the years, eventually levelling the luminosity at $2\times10^{34}\,\textrm{cm}^{-2}\,\textrm{s}^{-1}$ for the majority of 2018 operations.
-A number of additional inleastic proton-proton collisions in addition to a collision of interest, known as pileup, occur at a rate proportional to the instantaneous luminosity.
+A number of additional inelastic proton-proton collisions in addition to a collision of interest, known as pileup, occur at a rate proportional to the instantaneous luminosity.
 The mean number of pileup events was 27 per bunch crossing in 2016, and 37 in both 2017 and 2018 data-taking.
 Figure \ref{fig:detector_Run1andRun2lumi} summarises the data collected in each year.
 The latest \Hgg results on which this thesis is based have utilised the 2016 and 2017 datasets; 
@@ -87,7 +87,7 @@ These are summarised as:
   \item{\textbf{Muon identification and resolution} 
   muons must be identified and well-measured over wide range in energy and angle, 
   with good dimuon mass resolution and the capability to accurately determine their charge.
-  This is veyr important for Higgs searches, particularly in the $ZZ$ decay channel.}
+  This is very important for Higgs searches, particularly in the $ZZ$ decay channel.}
   \item{\textbf{Charged particle measurement}
   good momentum resolution along with efficient reconstruction and triggering on $\tau$ particles and $b$-jets.
   High jet reconstruction performance is essential in the majority of physics measurements.}
@@ -100,11 +100,12 @@ These are summarised as:
 \end{itemize}
 
 The design of CMS fulfils each of these requirements.
-The hermetic detector is cyclindrical in shape, housing the eponymous 4\,T solenoidal magnet in the central section.
-Its other key components include the silicon tracker, homogeneous crystal electromagnetic calorimeter and a sampling hadronic calorimeter.
+The hermetic detector is cylindrical in shape, housing the eponymous 4\,T solenoidal magnet in the central section.
+Its other key components include the silicon tracker, homogeneous crystal electromagnetic calorimeter (ECAL) and a sampling hadronic calorimeter (HCAL).
 The tracker and calorimeters lie inside the bore of the magnet coil; the muon detection system is instead interleaved with the return yoke.
 Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic}, and described in detail in the remainder of this chapter.
 
+%TODO add transverse view as well? Quite like that one.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CMSschematic.png}
@@ -115,7 +116,7 @@ Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic},
   \label{fig:detector_CMSschematic}
 \end{figure}
 
-A cylindrical cooordinate system is frequently to describe events within the CMS, with its centre at the nominal proton-proton interaction point.
+A cylindrical coordinate system is frequently to describe events within the CMS, with its centre at the nominal proton-proton interaction point.
 The central part is referred to as the barrel, with two endcaps closing the cylinder.
 The positive $z$-axis is defined to be parallel to the beampipe in the direction of the Jura mountains, anti-clockwise when viewed from above.
 The azimuthal angle $\phi$ is measured from the $z$-axis, and polar angle $\theta$ from the plane perpendicular to the $z$-axis.
@@ -128,7 +129,7 @@ High pseudorapidity values, corresponding to a direction close to the beampipe, 
 
 The central feature of the CMS detector is the superconducting solenoid, whose 220 tonne cold mass is maintained at 4.5\,K.%using liquid helium cooling - 1.8K redundancy
 The coil of the magnet measures 6\,m in diameter, is 13\,m long, and provides a maximum field strength of 4\,T, storing  total energy of 1.6\,GJ.
-During normal operation however the current is reduced to approximtely 95\% of its capacity, resulting in a field strength of 3.8\,T.
+During normal operation however the current is reduced to approximately 95\% of its capacity, resulting in a field strength of 3.8\,T.
 This ensures the longevity of the solenoid.
 The magnetic flux is returned by a 10,000 tonne yoke, composed of three disk-like layers in both the barrel and endcaps.
 
@@ -138,8 +139,71 @@ Its layout drives the design of the rest of the detector.
 
 \subsection{Tracking}
 
+The innermost subsystem of CMS is the silicon tracker, which is 2.5\,m long and 6m in diameter. 
+Proximity to the beampipe implies the tracker must withstand a high radiation dose over its expected 10-year lifetime without degradation in performance.
+It is responsible for reconstructing the curved tracks produced when charged particles are deflected by the magnetic field. %homogenous across the tracker
+Furthermore, it is used to identify interaction vertices; 
+this applies both for locating the primary vetex of the hard interaction and for identifying secondary vertices, produced for example in $b$ decays.
+The tracker must be sufficiently granular to disambiguate tracks not only from the primary vertex but from additional pileup vertices.
+Furthermore, its response must be fast enough to correctly assign tracks to the correct bunch crossing.
+Finer granularity and precise timing capability require a high density of on detector electronics, and corresponding cooling capability.
+This results in an increased material budget in front of the detector calorimetry, which adversely affects the achievable energy resolution; 
+a compromise between the two objectives is necessary.
+The final all-silicon design satisfies the requirements above, and is displayed in Figure~\ref{fig:detector_tracker}.
+
+%TODO update this with a prettier picture
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Detector/TrackerUgly.png}
+  \caption[The CMS tracker.]
+  {The various sections of the CMS tracking system.
+  The black circle represents the nominal interaction point.
+  Figure taken from Ref.~\cite{CMSdetector}.}
+  \label{fig:detector_tracker}
+\end{figure}
+
+The intial CMS tracker design comprises an inner pixel detector and a strip detector, covering the pseudorapdity range $|\eta|\,<\,2.5$.
+The pixel detector provides precise two-dimensonal (2D) space measurements in the $\phi$ and $z$ directions.
+In the barrel, there are three modules arranged in cyclindrical layers at radii of 4.4, 7.3, and 10.2\.cm. 
+Two disc layers are present in each endcap, ensuring the presence of at least three tracking points across almost the full range in $\eta$.
+Each cell measures $100\mu\textrm{m}\times150\,\mu\textrm{m}$, resulting in a total of 66\,million pixels covering an area of $1\,\textrm{m}^2$.
+This results in an optimal position resolution of 10 and $20\,\mu\textrm{m}$ in the transverse and longitundinal direction respectively.
+
+Beyond the pixel detector, the strip tracker provides one-dimensional measurements using 320 and $500\,\mu\textrm{m}$ thick silicon micro-strip sensors.
+The strip tracker consists of three separate subcomponents, as illustrated in Figure~\ref{fig:detector_tracker}.
+The Tracker Inner Barrel and Disks (TIB and TID) together consist of four barrel layers and three endcap disks, covering a radius between 20 and 55\,cm. %look up why the pitch is important
+The TIB/TID provide as many as four $\phi$ measurements, depending on the track pesudorapidity.
+Adjacent to the TIB/TID is the Tracker Outer Barrel (TOB), which extends up to 116\,cm in radius and 118\,cm in $z$.
+A further 6 $\phi$ measurements are made by the TOB.
+In both the TIB/TID and the TOB, the first two layers have a second strip module mounted back-to-back with the first, permitting a 2D measurement in $\phi$-$z$.
+Finall the Tracker EndCaps (TECs) complete the CMS tracking apparatus.
+Each has 9 disks providing a $\phi$ measurement, with the first, second and fifth containing a second module to facilitate 2D $\phi-z$ measurements.
+In sum therefore, the tracker performs aproximately nine measurements in the range $|\eta|\,<\,2.5$, of which around four are 2D.
+It achieves a momentum resolution of better than 2\% for high \pt (100\,GeV) charged particle tracks up to $|\eta|=1.6$.%beyond this degrades due to reduced lever arm - ??
+In the \Hgg analysis, the tracker plays an important role in identifying the diphoton interaction vertex. %and photon/electron ID
+The low material budget also maintains the excellent intrinsic photon energy resolution of the ECAL.
+%rises from 0.4 radiation lengths ($X_0$) centrally to 1,8\,$X_0$ at $|\eta|=1.4$, before falling to 1\,$X_0$ at $|\eta|=2.5$
+
+During the year-end technical stop between 2016 and 2017, an upgraded pixel detector was installed~\cite{PixelUpgrade}.
+The motivation for the upgrade was to maintain or improve existing performance despite the greater than expected instantaneous luminosities provided by the LHC.
+The original pixel detector consequently suffered from data loss at high occupancy, lower efficiency at high pileup, and degradation in performance due to radiation damage.
+Key improvements in the upgraded version include a fourth layer, a new readout chip, slightly reduced material budget and greater radiation hardness.
+The installation was successful and smooth operation was reached during 2017 data-taking.
+Performance in several areas, such as $b$-tagging, was enhanced as a result.
+However the overall impact on the \Hgg analysis was relatively small, since the 
 
 \subsection{Electromagnetic calorimeter}
+
+The CMS ECAL is a homogeneous detector which uses lead tungstate ($\textrm{PbWO}_4$) crystals as the active material.
+A total of 61,200 crystals cover the barrel area (EB), with 7324 in each of the endcaps (EE).
+An additional preshower detector is present in front of the endcaps, in order to remove $\pi_0$ rejection.
+The total coverage in pseudirapdiity extends to $|\eta|=3$; however full energy resolution is maintained only to ~$|\eta|=2.5$.
+The ECAL is the most important CMS detector in the \Hgg analysis, 
+and the ECAL design itself was driven by the need to precisely reconstruct the two photons produced in Higgs boson decays.
+Hence this section is dedicated to describing the ECAL in some detail.
+
+
+
 \subsection{Hadronic calorimeter}
 \subsection{Muon system}
 \subsection{Trigger system}
