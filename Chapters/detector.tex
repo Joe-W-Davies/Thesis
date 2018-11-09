@@ -122,7 +122,7 @@ The positive $z$-axis is defined to be parallel to the beampipe in the direction
 The azimuthal angle $\phi$ is measured from the $z$-axis, and polar angle $\theta$ from the plane perpendicular to the $z$-axis.
 Other common quantities are: pseudorapidity, defined as $\eta = -\ln{\tan{\theta/2}}$; 
 momentum in the direction transverse to the plane of the LHC, \pt; 
-and the negative vector sum of particle energies, $E^{\textrm{miss}}_{T}$.
+and the negative vector sum of particle energies, \met.
 High pseudorapidity values, corresponding to a direction close to the beampipe, are referred to as being forward.
 
 \subsection{Solenoid}
@@ -143,7 +143,7 @@ The innermost subsystem of CMS is the silicon tracker, which is 2.5\,m long and 
 Proximity to the beampipe implies the tracker must withstand a high radiation dose over its expected 10-year lifetime without degradation in performance.
 It is responsible for reconstructing the curved tracks produced when charged particles are deflected by the magnetic field. %homogenous across the tracker
 Furthermore, it is used to identify interaction vertices; 
-this applies both for locating the primary vetex of the hard interaction and for identifying secondary vertices, produced for example in $b$ decays.
+this applies both for locating the primary vertex of the hard interaction and for identifying secondary vertices, produced for example in $b$ decays.
 The tracker must be sufficiently granular to disambiguate tracks not only from the primary vertex but from additional pileup vertices.
 Furthermore, its response must be fast enough to correctly assign tracks to the correct bunch crossing.
 Finer granularity and precise timing capability require a high density of on detector electronics, and corresponding cooling capability.
@@ -162,24 +162,24 @@ The final all-silicon design satisfies the requirements above, and is displayed 
   \label{fig:detector_tracker}
 \end{figure}
 
-The intial CMS tracker design comprises an inner pixel detector and a strip detector, covering the pseudorapdity range $|\eta|\,<\,2.5$.
-The pixel detector provides precise two-dimensonal (2D) space measurements in the $\phi$ and $z$ directions.
-In the barrel, there are three modules arranged in cyclindrical layers at radii of 4.4, 7.3, and 10.2\.cm. 
+The initial CMS tracker design comprises an inner pixel detector and a strip detector, covering the pseudorapidity range $|\eta|\,<\,2.5$.
+The pixel detector provides precise two-dimensional (2D) space measurements in the $\phi$ and $z$ directions.
+In the barrel, there are three modules arranged in cylindrical layers at radii of 4.4, 7.3, and 10.2\.cm. 
 Two disc layers are present in each endcap, ensuring the presence of at least three tracking points across almost the full range in $\eta$.
 Each cell measures $100\mu\textrm{m}\times150\,\mu\textrm{m}$, resulting in a total of 66\,million pixels covering an area of $1\,\textrm{m}^2$.
-This results in an optimal position resolution of 10 and $20\,\mu\textrm{m}$ in the transverse and longitundinal direction respectively.
+This results in an optimal position resolution of 10 and $20\,\mu\textrm{m}$ in the transverse and longitudinal direction respectively.
 
 Beyond the pixel detector, the strip tracker provides one-dimensional measurements using 320 and $500\,\mu\textrm{m}$ thick silicon micro-strip sensors.
 The strip tracker consists of three separate subcomponents, as illustrated in Figure~\ref{fig:detector_tracker}.
 The Tracker Inner Barrel and Disks (TIB and TID) together consist of four barrel layers and three endcap disks, covering a radius between 20 and 55\,cm. %look up why the pitch is important
-The TIB/TID provide as many as four $\phi$ measurements, depending on the track pesudorapidity.
+The TIB/TID provide as many as four $\phi$ measurements, depending on the track pseudorapidity.
 Adjacent to the TIB/TID is the Tracker Outer Barrel (TOB), which extends up to 116\,cm in radius and 118\,cm in $z$.
 A further 6 $\phi$ measurements are made by the TOB.
-In both the TIB/TID and the TOB, the first two layers have a second strip module mounted back-to-back with the first, permitting a 2D measurement in $\phi$-$z$.
-Finall the Tracker EndCaps (TECs) complete the CMS tracking apparatus.
+In both the TIB/TID and the TOB, the first two layers have a second strip module mounted back-to-back with the first, permitting a 2D measurement in $\phi-z$.
+Finally the Tracker EndCaps (TECs) complete the CMS tracking apparatus.
 Each has 9 disks providing a $\phi$ measurement, with the first, second and fifth containing a second module to facilitate 2D $\phi-z$ measurements.
-In sum therefore, the tracker performs aproximately nine measurements in the range $|\eta|\,<\,2.5$, of which around four are 2D.
-It achieves a momentum resolution of better than 2\% for high \pt (100\,GeV) charged particle tracks up to $|\eta|=1.6$.%beyond this degrades due to reduced lever arm - ??
+In sum therefore, the tracker performs approximately nine measurements in the range $|\eta|\,<\,2.5$, of which around four are 2D.
+It achieves a momentum resolution of better than 2\% for high \pt (100\,GeV) charged particle tracks up to $|\eta|=1.6$. %beyond this degrades due to reduced lever arm - ??
 In the \Hgg analysis, the tracker plays an important role in identifying the diphoton interaction vertex. %and photon/electron ID
 The low material budget also maintains the excellent intrinsic photon energy resolution of the ECAL.
 %rises from 0.4 radiation lengths ($X_0$) centrally to 1,8\,$X_0$ at $|\eta|=1.4$, before falling to 1\,$X_0$ at $|\eta|=2.5$
@@ -190,7 +190,7 @@ The original pixel detector consequently suffered from data loss at high occupan
 Key improvements in the upgraded version include a fourth layer, a new readout chip, slightly reduced material budget and greater radiation hardness.
 The installation was successful and smooth operation was reached during 2017 data-taking.
 Performance in several areas, such as $b$-tagging, was enhanced as a result.
-However the overall impact on the \Hgg analysis was relatively small, since the 
+However the overall impact on the \Hgg analysis was relatively small.
 
 \subsection{Electromagnetic calorimeter}
 
@@ -214,7 +214,7 @@ The overall structure is shown in Figure~\ref{fig:detector_ECALschematic}.
   \label{fig:detector_ECALschematic}
 \end{figure}
 
-The choice of \pbw for was motivated by the need for the ative material to be fast, dense, and radiation hard.
+The choice of \pbw for was motivated by the need for the active material to be fast, dense, and radiation hard.
 The short response time is necessary to collect the energy deposit before the next bunch crossing; 
 \pbw crystals emit approximately 80\% of the total scintillation light in 25\,ns.
 Their high density (8.28\,g/$\textrm{cm}^3$) facilitates the compactness and granularity of the detector without compromising on the containment of electromagnetic showers.
@@ -238,15 +238,15 @@ The setup as a whole is displayed using one quadrant of the detector in Figure~\
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/ECALquadrant.png}
-  \caption[The stucture in pseudorapdity of the CMS ECAL.]
-  {The stucture in pseudorapidity of the ECAL.
+  \caption[The structure in pseudorapidity of the CMS ECAL.]
+  {The structure in pseudorapidity of the ECAL.
   Figure taken from Ref.~\cite{ECALperformance}.}
   \label{fig:detector_ECALquadrant}
 \end{figure}
 
 To reconstruct the shower energy, the photodetectors amplify the scintillation light to produce around 4500 photoeletrons per GeV.
 After digitisation by 12-bit analogue-to-digital converters (ADCs), ten consecutive amplitude measurements are stored in a buffer.
-Once a trigger is recieved, the se recordings are sent to the off-detector electronics. 
+Once a trigger is received, these recordings are sent to the off-detector electronics. 
 There the original energy deposition in the crystal can be inferred with knowledge of the typical pulse shape of each channel.
 
 The intrinsic energy resolution ($\sigma_E/E$) of the ECAL can be modelled by the equation
@@ -255,7 +255,7 @@ The intrinsic energy resolution ($\sigma_E/E$) of the ECAL can be modelled by th
   \left(\frac{S}{\sqrt{E}} \right)^{2} +  
   \left(\frac{N}{E} \right)^{2} +  
   C^{2},
-\label{eq:detector_ECALresolution}
+\label{eq:detector_resolution}
 \end{equation}
 where $S$ is the stochastic term, $N$ is the noise term and $C$ is the constant term.
 %S: event-to-event fluctuations in the lateral shower containment, a photostatistics contribution of 2.1%,
@@ -270,9 +270,10 @@ A series of calibrations are required in order to generate accurate shower energ
 Furthermore, not all the energy from a given shower will be contained within one crystal.
 Typically showers are spread in the $\phi$ direction due to the effect of the magnetic field on particles produced via secondary interactions.
 Therefore nearby crystals are merged into ``superclusters" (SC), 
-which are then used to estimate the energy of the candidate object using the equation~\ref{fig:ECALperformance}
+which are then used to estimate the energy of the candidate object using the equation~\cite{ECALperformance}:
 \begin{equation}
 E_{e/\gamma}\, =\, F_{e/\gamma}\, G\, \Sigma_i S_i (t) C_i A_i + E_{ES}
+\label{eq:}
 \end{equation}
 where the individual channel amplitudes ($A_i$), corrected for variations in time ($S_i (t)$) and by channel ($C_i$), 
 are summed and multiplied by the global ADC-to-GeV conversion factor ($G$).
@@ -288,7 +289,42 @@ After this lengthy procedure, the final energy resolution on the high \pt, uncon
 
 \subsection{Hadronic calorimeter}
 
+Surrounding the ECAL is the HCAL, a brass and scintillator sampling calorimeter covering the entire region $|eta|<5$.
+The HCAL measures the energy of neutral hadrons, and plays an important role in the reconstruction of jets and \met.
+Four subdetectors form the full calorimeter, as illustrated in Figure~\ref{fig:detector_HCAL}.
+The barrel (HB) covers the central region $|\eta|<1.3$
+Wavelength-shifting fibres contained within scintillator tiles channel emitted light to photodetetors.
+Division into 16 $\eta$ sectors and 16 wedges in $\phi$ results in a granularity of $0.087\times0.087$.
+The HB has 14 brass layers surrounded by a layer of steel at the front and back, 
+which totals between 5.8 and and 10.6 interaction lengths ($\lambda_I$) depending on $\eta$. %as a function of eta. TODO look up interaction length definition
+This is not sufficient to completely contain the energy of hadronic showers, due to the space restriction imposed by the magnet coil.
+Consequently an additional outer hadron calorimeter (HO) is present beyond the solenoid.
+The HO uses the solenoid coil as an absorber, with the same scintillator technology as the HB.
+Once the HO is taken into account, the minimum depth becomes 11.8\,$\lambda_I$, 
+which significantly reduces energy leakages and ensures a Gaussian energy profile for neutral hadrons.
+The hadronic endcaps (HE) reach across a wide pseudorapidity range, covering _$1.3 < |\eta| < 3.0$.
+This more forward region requires highly radiation hard material, for which reason brass is chosen. %also because not magnetic
+The HE design minimises the size of the barrel-endcap transition region, and results in a depth of at least 10\,$\lambda_I$.
+Its granularity matches the HB up to $\eta=1.6$, but reduces to $0.17\times0.17$ beyond that.
+Finally, the very forward region contains the HF (forward calorimeter).
+Its design is driven primarily by the need to withstand an extremely high radiation dose.
+Good performance must also be maintained, since the HF plays an important role in forward jet reconstruction, which occur for example in VBF \Hgg events.
+The chosen active material is quartz fibre, with a steel absorber structure.
+The fibres generate light via Cherenkov radiation, which is detected by photomultipliers.
+Two different lengths of fibre are utilised; 
+around half run the full length of the HF, whilst the other half begin at a depth of 22cm from the HF front face.
+Since almost all the the energy of an electron or photon is deposited in the first half, 
+whereas a hadronic object will produce approximately equal signals in each half, this enables electromagnetic showers to be disambiguated from hadronic showers.
+%Parameters of the CMS HCAL, following Equation~\ref{eq:resolution}, are .
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Detector/HCAL.png}
+  \caption[The structure in pseudorapidity of the CMS HCAL.]
+  {The structure in pseudorapidity of the HCAL.
+  Figure taken from Ref.~\cite{CMSdetector}.}
+  \label{fig:detector_HCAL}
+\end{figure}
 
 \subsection{Muon system}
 \subsection{Trigger system}
