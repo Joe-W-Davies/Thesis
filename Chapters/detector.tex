@@ -145,7 +145,7 @@ It is responsible for reconstructing the curved tracks produced when charged par
 Furthermore, it is used to identify interaction vertices; 
 this applies both for locating the primary vertex of the hard interaction and for identifying secondary vertices, produced for example in $b$ decays.
 The tracker must be sufficiently granular to disambiguate tracks not only from the primary vertex but from additional pileup vertices.
-Furthermore, its response must be fast enough to correctly assign tracks to the correct bunch crossing.
+Its response must also be fast enough to correctly assign tracks to the correct bunch crossing.
 Finer granularity and precise timing capability require a high density of on detector electronics, and corresponding cooling capability.
 This results in an increased material budget in front of the detector calorimetry, which adversely affects the achievable energy resolution; 
 a compromise between the two objectives is necessary.
@@ -164,7 +164,7 @@ The final all-silicon design satisfies the requirements above, and is displayed 
 
 The initial CMS tracker design comprises an inner pixel detector and a strip detector, covering the pseudorapidity range $|\eta|\,<\,2.5$.
 The pixel detector provides precise two-dimensional (2D) space measurements in the $\phi$ and $z$ directions.
-In the barrel, there are three modules arranged in cylindrical layers at radii of 4.4, 7.3, and 10.2\.cm. 
+In the barrel, there are three modules arranged in cylindrical layers at radii of 4.4, 7.3, and 10.2\,cm. 
 Two disc layers are present in each endcap, ensuring the presence of at least three tracking points across almost the full range in $\eta$.
 Each cell measures $100\mu\textrm{m}\times150\,\mu\textrm{m}$, resulting in a total of 66\,million pixels covering an area of $1\,\textrm{m}^2$.
 This results in an optimal position resolution of 10 and $20\,\mu\textrm{m}$ in the transverse and longitudinal direction respectively.
@@ -227,6 +227,7 @@ which is around $22\times22\,\textrm{mm}^2$ at the front face and $26\times26\,\
 The geometry is ``pseudo-projective"; the axis of each crystal is rotated by approximately $3^{\circ}$ in both $\eta$ and $\phi$ relative to the vector from the interaction point.
 This ensures that particle cannot follow a trajectory entirely within a crack in the detector.
 Crystals are then grouped into supermodules, each covering $20^{\circ}$ in $\phi$.
+
 Each EE comprises two so-called ``Dees", built from 5-by-5 supercrystals, reaching $|\eta|=3$.
 The crystals in the EE are slightly shorter and wider than in the EB, 
 and the offset angle varies between $2^{\circ}$ and $8^{\circ}$.
@@ -292,6 +293,7 @@ After this lengthy procedure, the final energy resolution on the high \pt, uncon
 Surrounding the ECAL is the HCAL, a brass and scintillator sampling calorimeter covering the entire region $|eta|<5$.
 The HCAL measures the energy of neutral hadrons, and plays an important role in the reconstruction of jets and \met.
 Four subdetectors form the full calorimeter, as illustrated in Figure~\ref{fig:detector_HCAL}.
+
 The barrel (HB) covers the central region $|\eta|<1.3$
 Wavelength-shifting fibres contained within scintillator tiles channel emitted light to photodetetors.
 Division into 16 $\eta$ sectors and 16 wedges in $\phi$ results in a granularity of $0.087\times0.087$.
@@ -302,19 +304,23 @@ Consequently an additional outer hadron calorimeter (HO) is present beyond the s
 The HO uses the solenoid coil as an absorber, with the same scintillator technology as the HB.
 Once the HO is taken into account, the minimum depth becomes 11.8\,$\lambda_I$, 
 which significantly reduces energy leakages and ensures a Gaussian energy profile for neutral hadrons.
+
 The hadronic endcaps (HE) reach across a wide pseudorapidity range, covering _$1.3 < |\eta| < 3.0$.
 This more forward region requires highly radiation hard material, for which reason brass is chosen. %also because not magnetic
 The HE design minimises the size of the barrel-endcap transition region, and results in a depth of at least 10\,$\lambda_I$.
 Its granularity matches the HB up to $\eta=1.6$, but reduces to $0.17\times0.17$ beyond that.
+
 Finally, the very forward region contains the HF (forward calorimeter).
 Its design is driven primarily by the need to withstand an extremely high radiation dose.
 Good performance must also be maintained, since the HF plays an important role in forward jet reconstruction, which occur for example in VBF \Hgg events.
 The chosen active material is quartz fibre, with a steel absorber structure.
 The fibres generate light via Cherenkov radiation, which is detected by photomultipliers.
+Fibres are bundled together with a granularity of $0.175\times0.175$.
 Two different lengths of fibre are utilised; 
 around half run the full length of the HF, whilst the other half begin at a depth of 22cm from the HF front face.
-Since almost all the the energy of an electron or photon is deposited in the first half, 
-whereas a hadronic object will produce approximately equal signals in each half, this enables electromagnetic showers to be disambiguated from hadronic showers.
+Almost all the the energy of an electron or photon is deposited in the first half, 
+whereas a hadronic object will produce approximately equal signals in each half.
+This enables electromagnetic showers to be disambiguated from hadronic showers.
 %Parameters of the CMS HCAL, following Equation~\ref{eq:resolution}, are .
 
 \begin{figure}[h!]
@@ -327,4 +333,46 @@ whereas a hadronic object will produce approximately equal signals in each half,
 \end{figure}
 
 \subsection{Muon system}
+
+The muon system at CMS is composed of three separate gaseous chamber detectors.
+The system is required to identify muons, precisely measure their momentum, and inform the triggering decision.
+Good muon performance is crucial to the success of CMS, particularly for the very powerful $H \rightarrow ZZ^* \rightarrow 4\mu$ decay maode.
+Interleaved with the return yoke of the CMS magnet, the muon system comprises a cylindrical barrel system and two endcap planes, 
+covering a total area of 25000\,$\textrm{m}^2$.
+
+The barrel drift tube (DT) covers the central region up to $|\eta|=1.2$ with four layers, known as stations, between layers of the return yoke.
+Drift chambers containing a mixture of Ar and $\textrm{CO}_2$ gases are used; this is possible due to the low rate and uniform magnetic field in the barrel region.
+Each station has eight chambers providing a measurement of the $\phi$ direction and four measuring the $z$ coordinate.
+At high \pt, the identification efficiency using the DT alone is over 95\%.
+
+In the endcap region there is both a higher muon rate and higher neutron background, which necessitates the use of a more radiation hard technology. %and the magnetic field less uniform
+The four Cathode Strip Chamber (CSC) stations overlap with the DT from $0.9|\eta|=1.2$.
+Beyond this, a muon will pass through at least three CSCs between a $\eta=1.2$ and $\eta=2.4$.
+The CSCs have fast timing capbility, which enables them to inform the trigger and also correctly identify the bunch crossing with efficiency > 99\%.
+
+The final component of the muon system is the Resistive Plate Chamber (RPC) system.
+The six RPC layers are embedded within the DT but operate independently.
+Position resolution is coarser, but the timing resolution is fast.
+This facilitates a complementary trigger input, as well as helping to remove track ambiguities arising from multiple hits in a single chamber. % especially good for low pT tracks which don't reach further back stations
+
+Overall, the muon system alone achieves a momentum resolution of around 10\% for central muons up to $\pt=200\,GeV$.
+This worsens to between 15\% and 40\% for 1\,TeV muons, dependent on pseudorapidity.
+Once combined with the information from the tracker however, this immproves to 5\% in the barrel and 10\% in the endcaps.
+
+Summarising the lateral structure of CMS, 
+Figure~\ref{fig:detector_CMSslice} shows the characteristic paths followed by the different particles types of particles produced in LHC proton-proton collisons.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Detector/CMSslice.png}
+  \caption[A cross-sectional view of the CMS detector]
+  {A cross-sectional view of a slice of the CMS detector, 
+  illustrating the path of a muon (blue line) 
+  and the muon chambers interleaved with the return yoke.
+  Figure taken from Ref.~\cite{CMSslice}.}
+  \label{fig:detector_CMSslice}
+\end{figure}
+
 \subsection{Trigger system}
+
+

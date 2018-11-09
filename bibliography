@@ -728,6 +728,16 @@ year          = "1997",
   year          = "1997",
 }
 
+@unpublished{CMSslice,
+      author        = "Barney, David",
+      title         = "{CMS Detector Slice}",
+      month         = "Jan",
+      year          = "2016",
+      reportNumber  = "CMS-PHO-GEN-2016-001",
+      url           = "https://cds.cern.ch/record/2120661",
+      note          = "CMS Collection.",
+}
+
 @article{ecalShower,
   title ="{A Review of clustering algoritms and energy corrections
     in the Electromagnetic Calorimeter}",
