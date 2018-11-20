@@ -1,4 +1,13 @@
-@article{CMS_Higgs_disc,
+@book{LEP,
+      title         = "{LEP design report}",
+      publisher     = "CERN",
+      address       = "Geneva",
+      year          = "1984",
+      url           = "http://cds.cern.ch/record/102083",
+      note          = "Copies shelved as reports in LEP, PS and SPS libraries",
+}
+
+@article{CMSdiscovery,
       author         = "Chatrchyan, Serguei and others",
       title          = "{Observation of a new boson at a mass of 125 GeV with the
                         CMS experiment at the LHC}",
@@ -332,7 +341,7 @@
       SLACcitation   = "%%CITATION = HEP-EX/9807003;%%"
 }
 
-@article{ATLAS_Higgs_disc,
+@article{ATLASdiscovery,
       author         = "Aad, Georges and others",
       title          = "{Observation of a new particle in the search for the
                         Standard Model Higgs boson with the ATLAS detector at the

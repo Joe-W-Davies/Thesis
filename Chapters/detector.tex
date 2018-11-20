@@ -13,19 +13,20 @@ This chapter will describe the design and operation of both the LHC and the CMS 
 
 \section{The Large Hadron Collider}
 
-The LHC is situated in the tunnel that previously housed the Large Electron Positron collider (LEP), 
+The LHC is situated in the tunnel that previously housed the Large Electron Positron collider (LEP)~\cite{LEP}, 
 around 100\,m below ground across the French-Swiss border near CERN.
-It is the final machine in a series of accelerators which form the CERN accelerator complex; 
+It is the final machine in a series of accelerators which form the CERN accelerator complex~\cite{CERNcomplex}; 
 these  act as the injection system for the LHC.
 The two counter-circulating beams cross at four interaction points, at each of which a detector is situated.
 Directly opposite CMS is a second general purpose detector, ATLAS~\cite{ATLAS}, 
-whose physics objectives are identical to those of CMS but with different design decisions.
+whose physics objectives are identical to those of CMS but whose design and operation are independent. 
 The other two detectors, LHCb~\cite{LHCb} and ALICE~\cite{ALICE}, focus on flavour and heavy-ion physics respectively.
 Whilst the LHC is capable of producing heavy ion collisions in addition to proton-proton collisions, 
 the remainder of this section will be dedicated to its proton-proton operations.
 A schematic of the full CERN accelerator complex and the LHC experiments is shown in Figure~\ref{fig:detector_CERNschematic}.
 The operation of the LHC and the data it has accumulated so far is described in detail below.
 
+%FIXME this is too small
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CERNschematic.pdf}
@@ -35,7 +36,8 @@ The operation of the LHC and the data it has accumulated so far is described in 
   \label{fig:detector_CERNschematic}
 \end{figure}
 
-The LHC design parameters allow for proton-proton collisions to occur at a maximum centre-of-mass energy of 14\,TeV with an instantaneous luminosity of up to $10^{34}\,\textrm{cm}^{-2}\,\textrm{s}^{-1}$.
+The LHC design parameters allow for proton-proton collisions to occur at a maximum centre-of-mass energy of 14\,TeV 
+with an instantaneous luminosity of up to $1/,\times\,10^{34}\,\textrm{cm}^{-2}\,\textrm{s}^{-1}$.
 Prior to being injected into the LHC beam pipes, bunches of protons pass are accelerated in several stages. 
 First, protons are obtained by stripping the electrons from hydrogen atoms using a strong electric field.
 The protons produced are then accelerated up to an energy of 50 MeV by Linear Accelerator 2 (LINAC 2).
@@ -54,7 +56,7 @@ Collisions occur at the four interaction points, where bunches are induced to co
 The operation of the LHC to date has comprised two separate runs.
 Run 1 commenced in 2010 with $\sqrt{s}$ = 7\,TeV, continuing into 2011 at the same centre-of-mass energy to give a total of 6.1\,\fb of data.
 In 2012 this was increased to 8\,TeV, and a total of 23.3\,\fb of data were collected.
-Analyses based upon this Run 1 dataset were able to discover the Higgs boson.
+Analyses based upon this Run 1 dataset were able to discover the Higgs boson~\cite{ATLASdiscovery,CMSdiscovery}.
 After a shutdown for upgrades to the machine, Run 2 ran from 2015 to 2018 at a constant 13\,TeV centre-of-mass energy.
 The LHC was able to exceed its design luminosity in each of the years, eventually levelling the luminosity at $2\times10^{34}\,\textrm{cm}^{-2}\,\textrm{s}^{-1}$ for the majority of 2018 operations.
 A number of additional inelastic proton-proton collisions in addition to a collision of interest, known as pileup, occur at a rate proportional to the instantaneous luminosity.
@@ -76,7 +78,7 @@ Furthermore, future upgrades to both the LHC and the CMS detector are discussed 
 \section{The CMS detector}
 
 CMS is a general purpose detector~\cite{CMSdetector} designed to capture the full range of objects required to achieve the goals of the LHC physics programme.
-The apparatus must be able to cope with very high pileup events at a very high rate; around 1000 charged particles are produced every 25\,ns.
+The apparatus must be able to cope with high pileup at a very high rate; around 1000 charged particles are produced every 25\,ns.
 Fine spatial and temporal granularity is required to obtain the sufficiently low occupancy necessary to perform well in these conditions.
 The resulting quantity of detector channels presents challenges for the detector electronics.
 Furthermore, the detector and its electronics must withstand high doses of radiation and fluence.
@@ -85,12 +87,12 @@ In addition to these technical constraints, CMS has four key physics requirement
 These are summarised as:
 \begin{itemize}
   \item{\textbf{Muon identification and resolution} 
-  muons must be identified and well-measured over wide range in energy and angle, 
+  muons must be identified and well-measured over a wide range in energy and angle, 
   with good dimuon mass resolution and the capability to accurately determine their charge.
   This is very important for Higgs searches, particularly in the $ZZ$ decay channel.}
   \item{\textbf{Charged particle measurement}
-  good momentum resolution along with efficient reconstruction and triggering on $\tau$ particles and $b$-jets.
-  High jet reconstruction performance is essential in the majority of physics measurements.}
+  good momentum resolution along with efficient reconstruction and triggering on $\tau$ leptons and $b$-jets.
+  Excellent jet reconstruction is essential in the majority of physics measurements.}
   \item{\textbf{Electromagnetic energy resolution}
   good energy resolution and isolation for electrons and photons, whilst maintaining high acceptance.
   These properties are vital for Higgs measurements, especially in the diphoton decay channel.}
@@ -105,7 +107,6 @@ Its other key components include the silicon tracker, homogeneous crystal electr
 The tracker and calorimeters lie inside the bore of the magnet coil; the muon detection system is instead interleaved with the return yoke.
 Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic}, and described in detail in the remainder of this chapter.
 
-%TODO add transverse view as well? Quite like that one.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CMSschematic.png}
@@ -116,13 +117,13 @@ Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic},
   \label{fig:detector_CMSschematic}
 \end{figure}
 
-A cylindrical coordinate system is frequently to describe events within the CMS, with its centre at the nominal proton-proton interaction point.
+A cylindrical coordinate system is frequently to describe events within CMS, with its centre at the nominal proton-proton interaction point.
 The central part is referred to as the barrel, with two endcaps closing the cylinder.
 The positive $z$-axis is defined to be parallel to the beampipe in the direction of the Jura mountains, anti-clockwise when viewed from above.
 The azimuthal angle $\phi$ is measured from the $z$-axis, and polar angle $\theta$ from the plane perpendicular to the $z$-axis.
 Other common quantities are: pseudorapidity, defined as $\eta \, = \, -\ln{\tan{\theta/2}}$; 
 momentum in the direction transverse to the plane of the LHC, \pt; 
-and the negative vector sum of particle energies, \met.
+and the magnitude of the negative vector sum of particle momenta in the transverse plane, \met.
 High pseudorapidity values, corresponding to a direction close to the beampipe, are referred to as being forward.
 
 \subsection{Solenoid}
@@ -158,6 +159,7 @@ The final all-silicon design satisfies the requirements above, and is displayed 
   \caption[The CMS tracker.]
   {The various sections of the CMS tracking system.
   The black circle represents the nominal interaction point.
+  Abbreviations are described in the following text.
   Figure taken from Ref.~\cite{CMSdetector}.}
   \label{fig:detector_tracker}
 \end{figure}
@@ -174,7 +176,7 @@ The strip tracker consists of three separate subcomponents, as illustrated in Fi
 The Tracker Inner Barrel and Disks (TIB and TID) together consist of four barrel layers and three endcap disks, covering a radius between 20 and 55\,cm. %look up why the pitch is important
 The TIB/TID provide as many as four $\phi$ measurements, depending on the track pseudorapidity.
 Adjacent to the TIB/TID is the Tracker Outer Barrel (TOB), which extends up to 116\,cm in radius and 118\,cm in $z$.
-A further 6 $\phi$ measurements are made by the TOB.
+A further 6 $\phi$ measurements are made in the TOB.
 In both the TIB/TID and the TOB, the first two layers have a second strip module mounted back-to-back with the first, permitting a 2D measurement in $\phi-z$.
 Finally the Tracker EndCaps (TECs) complete the CMS tracking apparatus.
 Each has 9 disks providing a $\phi$ measurement, with the first, second and fifth containing a second module to facilitate 2D $\phi-z$ measurements.
@@ -199,7 +201,7 @@ A total of 61200 crystals cover the barrel area (EB), with 7324 in each of the e
 Readout is performed by silicon avalanche photodiodes (APDs) and vacuum phototriodes (VPTs) in the barrel and endcap regions respectively.
 An additional preshower detector is present in front of the endcaps, in order to improve $\pi_0$ rejection.
 The total coverage in pseudorapidity reaches $|\eta|\,=\,3$; full energy resolution is maintained to ~$|\eta|\,=\,2.5$.
-The ECAL is the most important CMS detector in the \Hgg analysis, 
+The ECAL is the most important sub-detector in the \Hgg analysis, 
 and the ECAL design itself was driven by the need to precisely reconstruct the two photons produced in Higgs boson decays.
 Hence this section is dedicated to describing the ECAL in some detail.
 The overall structure is shown in Figure~\ref{fig:detector_ECALschematic}.
@@ -214,18 +216,18 @@ The overall structure is shown in Figure~\ref{fig:detector_ECALschematic}.
   \label{fig:detector_ECALschematic}
 \end{figure}
 
-The choice of \pbw for was motivated by the need for the active material to be fast, dense, and radiation hard.
+The choice of \pbw was motivated by the need for the active material to be fast, dense, and radiation hard.
 The short response time is necessary to collect the energy deposit before the next bunch crossing; 
 \pbw crystals emit approximately 80\% of the total scintillation light in 25\,ns.
 Their high density (8.28\,g/$\textrm{cm}^3$) facilitates the compactness and granularity of the detector without compromising on the containment of electromagnetic showers.
-A radiation length of 0.89\,cm means the 22\,cm (23\,cm) crystals cover a 24.7\,$X_0$ (25.8\,$X_0$) in the longitudinal direction. %mean distance travelled before reaching 1/e of original energy via brem
+A radiation length of 0.89\,cm means the 22\,cm barrel (23\,cm endcap) crystals cover a 24.7\,$X_0$ (25.8\,$X_0$) in the longitudinal direction. %mean distance travelled before reaching 1/e of original energy via brem
 Lateral containment is also excellent, with a Moli\`ere radius of 2.2\,cm. %radius of cylinder containing 90% of average deposition; two contain 95% therefore.
 
 The EB extends to $|\eta|\,=\,1.479$, as shown in Figure~\ref{fig:detector_ECALquadrant}.
 Each crystal has a tapered shape which covers $0.0174\times0.0174$ in $\eta-\phi$, 
 which is around $22\times22\,\textrm{mm}^2$ at the front face and $26\times26\,\textrm{mm}^2$ at the back.
 The geometry is ``pseudo-projective"; the axis of each crystal is rotated by approximately $3^{\circ}$ in both $\eta$ and $\phi$ relative to the vector from the interaction point.
-This ensures that particle cannot follow a trajectory entirely within a crack in the detector.
+This ensures that a particle cannot follow a trajectory entirely within a crack in the detector.
 Crystals are then grouped into supermodules, each covering $20^{\circ}$ in $\phi$.
 
 Each EE comprises two so-called ``Dees", built from 5-by-5 supercrystals, reaching $|\eta|\,=\,3$.
@@ -263,7 +265,7 @@ where $S$ is the stochastic term, $N$ is the noise term and $C$ is the constant 
 %N: electronics noise, digitization noise, pileup noise.
 %C: non-uniformity of the longitudinal light collection, intercalibration errors, leakage of energy from the back of the crystal.
 For energy in units of GeV, the values in beam tests are found to be: %with electrons aligned with crystal centres 
-$S$ = 2.8\%, $N$ = 12\%, and $C$ = 0.3\%.
+$S$ = 2.8\%, $N$ = 12\%, and $C$ = 0.3\%~\cite{CMSdetector}.
 Here energy values are computed simply summing $5\times5$ arrays of crystals.
 In real conditions, further corrections are applied to achieve similar performance to that in beam tests.
 
@@ -290,7 +292,7 @@ After this lengthy procedure, the final energy resolution on the high \pt, uncon
 
 \subsection{Hadronic calorimeter}
 
-Surrounding the ECAL is the HCAL, a brass and scintillator sampling calorimeter covering the entire region $|eta|<5$.
+Surrounding the ECAL is the HCAL, a brass and scintillator sampling calorimeter covering the entire region $|\eta|\,<\,5$.
 The HCAL measures the energy of neutral hadrons, and plays an important role in the reconstruction of jets and \met.
 Four subdetectors form the full calorimeter, as illustrated in Figure~\ref{fig:detector_HCAL}.
 
@@ -299,11 +301,11 @@ Wavelength-shifting fibres contained within scintillator tiles channel emitted l
 Division into 16 $\eta$ sectors and 16 wedges in $\phi$ results in a granularity of $0.087\times0.087$.
 The HB has 14 brass layers surrounded by a layer of steel at the front and back, 
 which totals between 5.8 and and 10.6 interaction lengths ($\lambda_I$) depending on $\eta$. %as a function of eta. TODO look up interaction length definition
-This is not sufficient to completely contain the energy of hadronic showers, due to the space restriction imposed by the magnet coil.
+This is not sufficient to completely contain hadronic showers, due to the space restriction imposed by the magnet coil.
 Consequently an additional outer hadron calorimeter (HO) is present beyond the solenoid.
 The HO uses the solenoid coil as an absorber, with the same scintillator technology as the HB.
 Once the HO is taken into account, the minimum depth becomes 11.8\,$\lambda_I$, 
-which significantly reduces energy leakages and ensures a Gaussian energy profile for neutral hadrons.
+which significantly reduces energy leakage. % and ensures a Gaussian energy profile for neutral hadrons.
 
 The hadronic endcaps (HE) reach across a wide pseudorapidity range, covering $1.3\,<\,|\eta|\,<\,3.0$.
 This more forward region requires highly radiation hard material, for which reason brass is chosen. %also because not magnetic
@@ -312,7 +314,7 @@ Its granularity matches the HB up to $\eta\,=\,1.6$, but reduces to $0.17\times0
 
 Finally, the very forward region contains the HF (forward calorimeter).
 Its design is driven primarily by the need to withstand an extremely high radiation dose.
-Good performance must also be maintained, since the HF plays an important role in forward jet reconstruction, which occur for example in VBF \Hgg events.
+Good performance must also be maintained, since the HF plays an important role in forward jet reconstruction, which occurs for example in VBF \Hgg events.
 The chosen active material is quartz fibre, with a steel absorber structure.
 The fibres generate light via Cherenkov radiation, which is detected by photomultipliers.
 Fibres are bundled together with a granularity of $0.175\times0.175$.
@@ -347,7 +349,7 @@ At high \pt, the identification efficiency using the DT alone is over 95\%.
 
 In the endcap region there is both a higher muon rate and higher neutron background, which necessitates the use of a more radiation hard technology. %and the magnetic field less uniform
 The four Cathode Strip Chamber (CSC) stations overlap with the DT from $0.9\,<|\eta|\,=\,1.2$.
-Beyond this, a muon will pass through at least three CSCs between a $\eta\,=\,1.2$ and $\eta\,=\,2.4$.
+Beyond this, a muon will pass through at least three CSCs between $\eta\,=\,1.2$ and $\eta\,=\,2.4$.
 The CSCs have fast timing capability, which enables them to inform the trigger and also correctly identify the bunch crossing with efficiency greater than 99\%.
 
 The final component of the muon system is the Resistive Plate Chamber (RPC) system.
@@ -360,7 +362,7 @@ This worsens to between 15\% and 40\% for 1\,TeV muons, dependent on pseudorapid
 Once combined with the information from the tracker however, this improves to 5\% in the barrel and 10\% in the endcaps.
 
 Summarising the lateral structure of CMS, 
-Figure~\ref{fig:detector_CMSslice} shows the characteristic paths followed by the different particles types of particles produced in LHC proton-proton collisions.
+Figure~\ref{fig:detector_CMSslice} shows the characteristic paths followed by the different types of particles produced in LHC proton-proton collisions.
 
 \begin{figure}[h!]
   \centering
@@ -386,7 +388,7 @@ The L1T must make a decision on an event within approximately $3.2\,\mu s$, and 
 The full resolution interpretation of an event is buffered until the final trigger decision is made. %total of 128 bunch crossings stored in buffer!!
 Simple algorithms, for example the energy sum from arrays within a calorimeter, are used to identify high energy objects of interest.
 The computations necessary are performed mostly by customised, reprogrammable electronics known as Field Programmable Gate Arrays (FPGAs).
-Once a decision has been made, if the event passes the L1T selection the full readout is transmitted to the HLT.
+Once a decision has been made, if the event passes the L1T selection, the full readout is transmitted to the HLT.
 
 The HLT is a software system composed of around 1000 commercially available processors.
 It must further reduce the event rate to 1\,kHz, which corresponds to a factor of ~100.
