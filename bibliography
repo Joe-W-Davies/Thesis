@@ -24,7 +24,17 @@
       SLACcitation   = "%%CITATION = ARXIV:1207.7235;%%"
 }
 
-@techreport{HGC,
+@article{UpgradeTP,
+      author         = "Contardo, D. and Klute, M. and Mans, J. and Silvestris,
+                        L. and Butler, J.",
+      title          = "{Technical Proposal for the Phase-II Upgrade of the CMS
+                        Detector}",
+      year           = "2015",
+      reportNumber   = "CERN-LHCC-2015-010, LHCC-P-008, CMS-TDR-15-02",
+      SLACcitation   = "%%CITATION = CERN-LHCC-2015-010;%%"
+}
+
+@techreport{HGCAL,
       author        = "Collaboration, CMS",
       title         = "{The Phase-2 Upgrade of the CMS Endcap Calorimeter}",
       institution   = "CERN",
@@ -37,6 +47,21 @@
       note          = "Technical Design Report of the endcap calorimeter for the
                        Phase-2 upgrade of the CMS experiment, in view of the
                        HL-LHC run.",
+}
+
+@article {ClusteringAlgo,
+  author = {Rodriguez, Alex and Laio, Alessandro},
+  title = {Clustering by fast search and find of density peaks},
+  volume = {344},
+  number = {6191},
+  pages = {1492--1496},
+  year = {2014},
+  doi = {10.1126/science.1242072},
+  publisher = {American Association for the Advancement of Science},
+  issn = {0036-8075},
+  URL = {http://science.sciencemag.org/content/344/6191/1492},
+  eprint = {http://science.sciencemag.org/content/344/6191/1492.full.pdf},
+  journal = {Science}
 }
 
 @article{HLLHC,
@@ -591,7 +616,6 @@
   pages={S08001},
   doi="10.1088/1748-0221/3/08/S08001",
   year={2008},
-  abstract={}
 }
 
 @techreport{LHC_design_report,
@@ -645,7 +669,6 @@
   pages={S08005},
   url={http://stacks.iop.org/1748-0221/3/i=08/a=S08005},
   year={2008},
-  abstract={The LHCb experiment is dedicated to precision measurements of CP violation and rare decays of B hadrons at the Large Hadron Collider (LHC) at CERN (Geneva). The initial configuration and expected performance of the detector and associated systems, as established by test beam measurements and simulation studies, is described.}
 }
 
 @article{ALICE,
@@ -657,7 +680,6 @@
   pages={S08002},
   url={http://stacks.iop.org/1748-0221/3/i=08/a=S08002},
   year={2008},
-  abstract={ALICE (A Large Ion Collider Experiment) is a general-purpose, heavy-ion detector at the CERN LHC which focuses on QCD, the strong-interaction sector of the Standard Model. It is designed to address the physics of strongly interacting matter and the quark-gluon plasma at extreme values of energy density and temperature in nucleus-nucleus collisions. Besides running with Pb ions, the physics programme includes collisions with lighter ions, lower energy running and dedicated proton-nucleus runs. ALICE will also take data with proton beams at the top LHC energy to collect reference data for the heavy-ion programme and to address several QCD topics for which ALICE is complementary to the other LHC detectors. The ALICE detector has been built by a collaboration including currently over 1000 physicists and engineers from 105 Institutes in 30 countries. Its overall dimensions are 16 × 16 × 26 m 3 with a total weight of approximately 10 000 t. The experiment consists of 18 different detector systems each with its own specific technology choice and design constraints, driven both by the physics requirements and the experimental conditions expected at LHC. The most stringent design constraint is to cope with the extreme particle multiplicity anticipated in central Pb-Pb collisions. The different subsystems were optimized to provide high-momentum resolution as well as excellent Particle Identification (PID) over a broad range in momentum, up to the highest multiplicities predicted for LHC. This will allow for comprehensive studies of hadrons, electrons, muons, and photons produced in the collision of heavy nuclei. Most detector systems are scheduled to be installed and ready for data taking by mid-2008 when the LHC is scheduled to start operation, with the exception of parts of the Photon Spectrometer (PHOS), Transition Radiation Detector (TRD) and Electro Magnetic Calorimeter (EMCal). These detectors will be completed for the high-luminosity ion run expected in 2010. This paper describes in detail the detector components as installed for the first data taking in the summer of 2008.}
 }
 
 @book{CMSPhysics,
