@@ -7,138 +7,6 @@
       url           = "http://cds.cern.ch/record/102083",
 }
 
-@article{CMSdiscovery,
-      author         = "Chatrchyan, Serguei and others",
-      title          = "{Observation of a new boson at a mass of 125 GeV with the
-                        CMS experiment at the LHC}",
-      collaboration  = "CMS",
-      journal        = "Phys. Lett.",
-      volume         = "B716",
-      year           = "2012",
-      pages          = "30-61",
-      doi            = "10.1016/j.physletb.2012.08.021",
-      eprint         = "1207.7235",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ex",
-      reportNumber   = "CMS-HIG-12-028, CERN-PH-EP-2012-220",
-      SLACcitation   = "%%CITATION = ARXIV:1207.7235;%%"
-}
-
-@article{UpgradeTP,
-      author         = "Contardo, D. and Klute, M. and Mans, J. and Silvestris,
-                        L. and Butler, J.",
-      title          = "{Technical Proposal for the Phase-II Upgrade of the CMS
-                        Detector}",
-      year           = "2015",
-      reportNumber   = "CERN-LHCC-2015-010, LHCC-P-008, CMS-TDR-15-02",
-      SLACcitation   = "%%CITATION = CERN-LHCC-2015-010;%%"
-}
-
-@techreport{HGCAL,
-      author        = "Collaboration, CMS",
-      title         = "{The Phase-2 Upgrade of the CMS Endcap Calorimeter}",
-      institution   = "CERN",
-      address       = "Geneva",
-      number        = "CERN-LHCC-2017-023. CMS-TDR-019",
-      month         = "Nov",
-      year          = "2017",
-      reportNumber  = "CERN-LHCC-2017-023",
-      url           = "https://cds.cern.ch/record/2293646",
-      note          = "Technical Design Report of the endcap calorimeter for the
-                       Phase-2 upgrade of the CMS experiment, in view of the
-                       HL-LHC run.",
-}
-
-@article {ClusteringAlgo,
-  author = {Rodriguez, Alex and Laio, Alessandro},
-  title = {Clustering by fast search and find of density peaks},
-  volume = {344},
-  number = {6191},
-  pages = {1492--1496},
-  year = {2014},
-  doi = {10.1126/science.1242072},
-  publisher = {American Association for the Advancement of Science},
-  issn = {0036-8075},
-  URL = {http://science.sciencemag.org/content/344/6191/1492},
-  eprint = {http://science.sciencemag.org/content/344/6191/1492.full.pdf},
-  journal = {Science}
-}
-
-@article{HLLHC,
-      author         = "Apollinari, G. and Brüning, O. and Nakamoto, T. and
-                        Rossi, Lucio",
-      title          = "{High Luminosity Large Hadron Collider HL-LHC}",
-      journal        = "CERN Yellow Report",
-      year           = "2015",
-      number         = "5",
-      pages          = "1-19",
-      doi            = "10.5170/CERN-2015-005.1",
-      eprint         = "1705.08830",
-      archivePrefix  = "arXiv",
-      primaryClass   = "physics.acc-ph",
-      reportNumber   = "FERMILAB-DESIGN-2017-02",
-      SLACcitation   = "%%CITATION = ARXIV:1705.08830;%%"
-}
-
-@techreport{LumiUncert,
-      title         = "{CMS Luminosity Measurements for the 2016 Data Taking
-                       Period}",
-      institution   = "CERN",
-      collaboration = "CMS Collaboration",
-      address       = "Geneva",
-      number        = "CMS-PAS-LUM-17-001",
-      year          = "2017",
-      reportNumber  = "CMS-PAS-LUM-17-001",
-      url           = "https://cds.cern.ch/record/2257069",
-}
-
-@article{StewartTackmann,
-      author         = "Stewart, Iain W. and Tackmann, Frank J.",
-      title          = "{Theory Uncertainties for Higgs and Other Searches Using
-                        Jet Bins}",
-      journal        = "Phys. Rev.",
-      volume         = "D85",
-      year           = "2012",
-      pages          = "034011",
-      doi            = "10.1103/PhysRevD.85.034011",
-      eprint         = "1107.2117",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ph",
-      SLACcitation   = "%%CITATION = ARXIV:1107.2117;%%"
-}
-
-@article{GangalTackmann,
-      author         = "Gangal, Shireen and Tackmann, Frank J.",
-      title          = "{Next-to-leading-order uncertainties in Higgs+2 jets from
-                        gluon fusion}",
-      journal        = "Phys. Rev.",
-      volume         = "D87",
-      year           = "2013",
-      number         = "9",
-      pages          = "093008",
-      doi            = "10.1103/PhysRevD.87.093008",
-      eprint         = "1302.5437",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ph",
-      reportNumber   = "DESY-13-029",
-      SLACcitation   = "%%CITATION = ARXIV:1302.5437;%%"
-}
-
-@article{Kappa,
-      author         = "Andersen, J R and others",
-      editor         = "Heinemeyer, S and Mariotti, C and Passarino, G and
-                        Tanaka, R",
-      title          = "{Handbook of LHC Higgs Cross Sections: 3. Higgs Properties}",
-      collaboration  = "LHC Higgs Cross Section Working Group",
-      doi            = "10.5170/CERN-2013-004",
-      year           = "2013",
-      eprint         = "1307.1347",
-      archivePrefix  = "arXiv",
-      primaryClass   = "hep-ph",
-      reportNumber   = "CERN-2013-004, FERMILAB-CONF-13-667-T",
-      SLACcitation   = "%%CITATION = ARXIV:1307.1347;%%"
-}
-
 @article{CMSHiggsPhotonReco,
       author         = "Khachatryan, Vardan and others",
       title          = "{Observation of the diphoton decay of the Higgs boson and
@@ -239,6 +107,170 @@
       primaryClass   = "physics.ins-det",
       reportNumber   = "CMS-EGM-13-001, CERN-PH-EP-2015-004",
       SLACcitation   = "%%CITATION = ARXIV:1502.02701;%%"
+}
+
+@article{HLLHC,
+      author         = "Apollinari, G. and Brüning, O. and Nakamoto, T. and
+                        Rossi, Lucio",
+      title          = "{High Luminosity Large Hadron Collider HL-LHC}",
+      journal        = "CERN Yellow Report",
+      year           = "2015",
+      number         = "5",
+      pages          = "1-19",
+      doi            = "10.5170/CERN-2015-005.1",
+      eprint         = "1705.08830",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics.acc-ph",
+      reportNumber   = "FERMILAB-DESIGN-2017-02",
+      SLACcitation   = "%%CITATION = ARXIV:1705.08830;%%"
+}
+
+@article{UpgradeTP,
+      author         = "Contardo, D. and Klute, M. and Mans, J. and Silvestris,
+                        L. and Butler, J.",
+      title          = "{Technical Proposal for the Phase-II Upgrade of the CMS
+                        Detector}",
+      year           = "2015",
+      reportNumber   = "CERN-LHCC-2015-010, LHCC-P-008, CMS-TDR-15-02",
+      SLACcitation   = "%%CITATION = CERN-LHCC-2015-010;%%"
+}
+
+@techreport{MTD,
+      author        = "Collaboration, CMS",
+      title         = "{TECHNICAL PROPOSAL FOR A MIP TIMING DETECTOR IN THE CMS
+                       EXPERIMENT PHASE 2 UPGRADE}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2017-027. LHCC-P-009",
+      month         = "Dec",
+      year          = "2017",
+      reportNumber  = "CERN-LHCC-2017-027",
+      url           = "https://cds.cern.ch/record/2296612",
+      note          = "This document describes a MIP timing detector for the
+                       Phase-2 upgrade of the CMS experiment, in view of HL-LHC
+                       running",
+}
+
+@techreport{HGCAL,
+      author        = "Collaboration, CMS",
+      title         = "{The Phase-2 Upgrade of the CMS Endcap Calorimeter}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2017-023. CMS-TDR-019",
+      month         = "Nov",
+      year          = "2017",
+      reportNumber  = "CERN-LHCC-2017-023",
+      url           = "https://cds.cern.ch/record/2293646",
+      note          = "Technical Design Report of the endcap calorimeter for the
+                       Phase-2 upgrade of the CMS experiment, in view of the
+                       HL-LHC run.",
+}
+
+@article {ClusteringAlgo,
+  author = {Rodriguez, Alex and Laio, Alessandro},
+  title = {Clustering by fast search and find of density peaks},
+  volume = {344},
+  number = {6191},
+  pages = {1492--1496},
+  year = {2014},
+  doi = {10.1126/science.1242072},
+  publisher = {American Association for the Advancement of Science},
+  issn = {0036-8075},
+  URL = {http://science.sciencemag.org/content/344/6191/1492},
+  journal = {Science}
+}
+
+@article{PUPPI,
+      author         = "Bertolini, Daniele and Harris, Philip and Low, Matthew
+                        and Tran, Nhan",
+      title          = "{Pileup Per Particle Identification}",
+      journal        = "JHEP",
+      volume         = "10",
+      year           = "2014",
+      pages          = "059",
+      doi            = "10.1007/JHEP10(2014)059",
+      eprint         = "1407.6013",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "FERMILAB-PUB-14-238-PPD, EFI-14-18, MIT-CTP-4558",
+      SLACcitation   = "%%CITATION = ARXIV:1407.6013;%%"
+}
+
+@article{CMSdiscovery,
+      author         = "Chatrchyan, Serguei and others",
+      title          = "{Observation of a new boson at a mass of 125 GeV with the
+                        CMS experiment at the LHC}",
+      collaboration  = "CMS",
+      journal        = "Phys. Lett.",
+      volume         = "B716",
+      year           = "2012",
+      pages          = "30-61",
+      doi            = "10.1016/j.physletb.2012.08.021",
+      eprint         = "1207.7235",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CMS-HIG-12-028, CERN-PH-EP-2012-220",
+      SLACcitation   = "%%CITATION = ARXIV:1207.7235;%%"
+}
+
+
+@techreport{LumiUncert,
+      title         = "{CMS Luminosity Measurements for the 2016 Data Taking
+                       Period}",
+      institution   = "CERN",
+      collaboration = "CMS Collaboration",
+      address       = "Geneva",
+      number        = "CMS-PAS-LUM-17-001",
+      year          = "2017",
+      reportNumber  = "CMS-PAS-LUM-17-001",
+      url           = "https://cds.cern.ch/record/2257069",
+}
+
+@article{StewartTackmann,
+      author         = "Stewart, Iain W. and Tackmann, Frank J.",
+      title          = "{Theory Uncertainties for Higgs and Other Searches Using
+                        Jet Bins}",
+      journal        = "Phys. Rev.",
+      volume         = "D85",
+      year           = "2012",
+      pages          = "034011",
+      doi            = "10.1103/PhysRevD.85.034011",
+      eprint         = "1107.2117",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1107.2117;%%"
+}
+
+@article{GangalTackmann,
+      author         = "Gangal, Shireen and Tackmann, Frank J.",
+      title          = "{Next-to-leading-order uncertainties in Higgs+2 jets from
+                        gluon fusion}",
+      journal        = "Phys. Rev.",
+      volume         = "D87",
+      year           = "2013",
+      number         = "9",
+      pages          = "093008",
+      doi            = "10.1103/PhysRevD.87.093008",
+      eprint         = "1302.5437",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "DESY-13-029",
+      SLACcitation   = "%%CITATION = ARXIV:1302.5437;%%"
+}
+
+@article{Kappa,
+      author         = "Andersen, J R and others",
+      editor         = "Heinemeyer, S and Mariotti, C and Passarino, G and
+                        Tanaka, R",
+      title          = "{Handbook of LHC Higgs Cross Sections: 3. Higgs Properties}",
+      collaboration  = "LHC Higgs Cross Section Working Group",
+      doi            = "10.5170/CERN-2013-004",
+      year           = "2013",
+      eprint         = "1307.1347",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "CERN-2013-004, FERMILAB-CONF-13-667-T",
+      SLACcitation   = "%%CITATION = ARXIV:1307.1347;%%"
 }
 
 @article{HiggsLifetime,
@@ -932,7 +964,7 @@ year = "1998"
       SLACcitation   = "%%CITATION = ARXIV:1804.02716;%%"
 }
 
-@article{env_method,
+@article{Envelope,
       author         = "Dauncey, P. D. and Kenzie, M. and Wardle, N. and Davies,
                         G. J.",
       title          = "{Handling uncertainties in background shapes}",
@@ -948,7 +980,7 @@ year = "1998"
       SLACcitation   = "%%CITATION = ARXIV:1408.6865;%%"
 }
 
-@article{LHCHXS,
+@article{YR4,
       author         = "de Florian, D. and others",
       title          = "{Handbook of LHC Higgs Cross Sections: 4. Deciphering the
                         Nature of the Higgs Sector}",
