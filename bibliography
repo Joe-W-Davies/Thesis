@@ -125,14 +125,79 @@
       SLACcitation   = "%%CITATION = ARXIV:1705.08830;%%"
 }
 
-@article{UpgradeTP,
-      author         = "Contardo, D. and Klute, M. and Mans, J. and Silvestris,
-                        L. and Butler, J.",
-      title          = "{Technical Proposal for the Phase-II Upgrade of the CMS
-                        Detector}",
-      year           = "2015",
-      reportNumber   = "CERN-LHCC-2015-010, LHCC-P-008, CMS-TDR-15-02",
-      SLACcitation   = "%%CITATION = CERN-LHCC-2015-010;%%"
+@techreport{UpgradeTP,
+      author        = "Contardo, D and Klute, M and Mans, J and Silvestris, L and
+                       Butler, J",
+      title         = "{Technical Proposal for the Phase-II Upgrade of the CMS
+                       Detector}",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2015-010. LHCC-P-008. CMS-TDR-15-02",
+      month         = "Jun",
+      year          = "2015",
+      reportNumber  = "CERN-LHCC-2015-010",
+      url           = "https://cds.cern.ch/record/2020886",
+}
+
+@techreport{Tracker_Phase2TDR,
+      author        = "Collaboration, CMS",
+      title         = "{The Phase-2 Upgrade of the CMS Tracker}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2017-009. CMS-TDR-014",
+      month         = "Jun",
+      year          = "2017",
+      reportNumber  = "CERN-LHCC-2017-009",
+      url           = "https://cds.cern.ch/record/2272264",
+}
+
+@techreport{Barrel_Phase2TDR,
+      author        = "Collaboration, CMS",
+      title         = "{The Phase-2 Upgrade of the CMS Barrel Calorimeters}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2017-011. CMS-TDR-015",
+      month         = "Sep",
+      year          = "2017",
+      reportNumber  = "CERN-LHCC-2017-011",
+      url           = "https://cds.cern.ch/record/2283187",
+}
+
+@techreport{Muon_Phase2TDR,
+      author        = "Collaboration, CMS",
+      title         = "{The Phase-2 Upgrade of the CMS Muon Detectors}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2017-012. CMS-TDR-016",
+      month         = "Sep",
+      year          = "2017",
+      reportNumber  = "CERN-LHCC-2017-012",
+      url           = "https://cds.cern.ch/record/2283189",
+}
+
+@techreport{Trigger_Phase2TDR,
+      author        = "Collaboration, CMS",
+      title         = "{The Phase-2 Upgrade of the CMS L1 Trigger Interim
+                       Technical Design Report}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2017-013. CMS-TDR-017",
+      month         = "Sep",
+      year          = "2017",
+      reportNumber  = "CERN-LHCC-2017-013",
+      url           = "https://cds.cern.ch/record/2283192",
+}
+
+@techreport{DAQ_Phase2TDR,
+      author        = "Collaboration, CMS",
+      title         = "{The Phase-2 Upgrade of the CMS DAQ Interim Technical
+                       Design Report}",
+      institution   = "CERN",
+      address       = "Geneva",
+      number        = "CERN-LHCC-2017-014. CMS-TDR-018",
+      month         = "Sep",
+      year          = "2017",
+      reportNumber  = "CERN-LHCC-2017-014",
+      url           = "https://cds.cern.ch/record/2283193",
 }
 
 @techreport{MTD,
@@ -146,9 +211,6 @@
       year          = "2017",
       reportNumber  = "CERN-LHCC-2017-027",
       url           = "https://cds.cern.ch/record/2296612",
-      note          = "This document describes a MIP timing detector for the
-                       Phase-2 upgrade of the CMS experiment, in view of HL-LHC
-                       running",
 }
 
 @techreport{HGCAL,
