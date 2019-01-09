@@ -16,10 +16,58 @@ This requires the two photons to be correctly identified and their positions and
 Furthermore, the location of the interaction vertex from which the photons originated must be established in order to calculate the opening angle.
 Additional objects in the event, including jets and leptons, are further used to improve the sensitivity of the analysis and measure different Higgs production processes.
 
-This section describes the CMS procedure for reconstructing physics objects using the particle flow algorithm.
+This section describes the official CMS procedure for reconstructing physics objects using the particle flow algorithm \cite{ParticleFlow}.
 In addition, the photon and vertex identification techniques specific to the \Hgg analysis are detailed.
+%TODO consider adding an appendix for machine learning/BDTs?
 
 \section{Particle flow}
+The global event description at CMS is formed using the particle-flow algorithm (PF).
+The goal of PF is to optimally combine the information of all the CMS subdetectors, 
+enabling the best possible identification and energy measurements for all types of objects.
+Inputs to the PF algorithm are tracks from originating from the tracker and muon system, 
+and calorimeter clusters from the ECAL and HCAL.
+CMS is able to benefit from the PF approach due to its strong magnetic field, 
+alongside the fine segmentation and hermeticity of the tracker, calorimeters, and muon system.
+Together these allow different types of objects to be separately identified, 
+and the energy measurement to come from the subdetector with the best resolution.
+
+Tracks are reconstructed from hits in the tracker using multiple iterations of a combinatorial track-finding procedure \cite{TrackReco}.
+Each iteration proceeds in the following way.
+Firstly, track seeds comprising of two or three hits are chosen, defining the initial track parameters.
+Then an extrapolation is performed along the expected track paths, adding any additional hits consistent with the path hypothesis.
+Next the track parameters are re-estimated, and the track candidate collection is pruned based on quality criteria.
+All the selected hits are then removed from consideration in the following iterations.
+In this way, the first iteration identifies the most obvious tracks, normally those with high \pt and near to the interaction point.
+The complexity of the subsequent iteration is reduced since many hits have been removed
+This therefore permits lower thresholds to be used and lower \pt or highly displaced tracks to be found.
+Additionally, muon tracks are constructed independently from hits in the muon system.
+
+In the calorimeters, a clustering algorithm is used to collect together energy deposits belonging to each shower. %no clustering in HF
+The procedure in the ECAL is described here, since it is an important input to the \Hgg analysis; the HCAL proceudre is similar.
+The clustering algorithm begins by selecting cluster seeds, which have an energy above a threshold and higher than any neighbouring crystal.
+So-called topological clusters are then constructed iteratively by adding deposits which share a side or corner with one already in the cluster, 
+provided their energy exceeds a threshold dependent on the noise level. %extra E_T requirement in the endcaps
+If a crystal could be included in more than one topological cluster, its energy is shared between them assuming a Gaussian shower shape.
+Finally, topological clusters are grouped into so-called superclusters (SCs).
+This step is designed to recover energy lost via bremssrahlung; 
+radiated showers typically have the same $\eta$ but are spread in $\phi$ by the magnetic field.
+
+Given these tracks and calorimeter clusters as inputs, the particle flow algorithm forms collections of candidates for five types of particle:
+\begin{itemize}
+  \item{\textbf{Muons:} a path extrapolated from the tracker is consistent with a muon track. 
+                        The energy is inferred from the curvature of the track.} %actually uses muon info too when pT > 200 GeV.
+  \item{\textbf{Electrons:} an ECAL supercluster is present and associated with a track from the inner tracker. 
+                            The energy is measured using a combination of the track \pt and the SC energy.}
+  \item{\textbf{Photons: an ECAL supercluster is present and no track is associated with it.
+                          The Energy is measured using the ECAL SC only.}}
+  \item{\textbf{Neutral hadrons: matched ECAL and HCAL clusters with no assocaited track.
+                                 Energy measurement is the sum of the cluster energies.}}
+  \item{\textbf{Charged hadrons: a track is matched to ECAL and HCAL clusters.
+                                 The track curvature is used together with the calorimieter deposits to calculate the energy.}}
+\end{itemize}
+
+In this way, the central CMS software provides analyses with physics objects ready for analyses.
+The remainder of this chapter describes how these objects are used in the \Hgg analysis.
 
 \section{Samples}
 \subsection{Data}
@@ -37,7 +85,7 @@ In addition, the photon and vertex identification techniques specific to the \Hg
 \section{Jet reconstruction}
 
 \section{Reconstruction of other objects}
-\subsection{Electons}
+\subsection{Electrons}
 \subsection{Muons}
 \subsection{Taus}
 \subsection{Missing energy}
