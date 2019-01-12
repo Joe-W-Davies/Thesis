@@ -8,6 +8,7 @@ Photon pairs resulting from Higgs decays produce a narrow signal peak, centred a
 This can be measured on top of the smoothly falling background distribution, produced by other SM processes.
 The Higgs mass is inferred from two photons by constructing the diphoton invariant mass, which is given by the following expression
 \begin{equation}
+\label{eq:obj_mgg}
 \mgg = \sqrt{ 2 E_{\gamma_1} E_{\gamma_2} (1 - \cos{\theta}) }
 \end{equation}
 where $E_{\gamma_1}$ and $E_{\gamma_2}$ are the energies of each photons, and $\theta$ is the opening angle between them.
@@ -20,7 +21,6 @@ This section describes the official CMS procedure for reconstructing physics obj
 In addition, the photon and vertex identification techniques specific to the \Hgg analysis are detailed.
 The approach used is almost identical between the 2016 and 2017 datasets; 
 any differences are highlighted in the text.
-%TODO consider adding an appendix for machine learning/BDTs?
 
 \section{Particle flow}
 The global event description at CMS is formed using the particle-flow algorithm (PF).
@@ -46,14 +46,16 @@ Additionally, muon tracks are constructed independently from hits in the muon sy
 
 In the calorimeters, a clustering algorithm is used to collect together energy deposits belonging to each shower. %no clustering in HF
 The procedure in the ECAL is described here, since it is an important input to the \Hgg analysis; the HCAL procedure is similar.
-The clustering algorithm begins by selecting cluster seeds, which have an energy above a threshold and higher than any neighbouring crystal.
+The clustering algorithm begins by selecting cluster seeds, which have an energy above a threshold and higher than any neighbouring crystal \cite{PhotonReco}.
 So-called topological clusters are then constructed iteratively by adding deposits which share a side or corner with one already in the cluster, 
-provided their energy exceeds a threshold dependent on the noise level. %extra E_T requirement in the endcaps
+provided their energy exceeds a threshold dependent on the noise level. %extra E_T requirement in the endcaps. 
+%Threshold is 2sigma noisce, ~80 MeV in barrel and up to 300 MeV in endcaps
 If a crystal could be included in more than one topological cluster, its energy is shared between them assuming a Gaussian shower shape.
 Finally, topological clusters are grouped into so-called superclusters (SCs).
 This step is designed to recover energy lost via bremsstrahlung; 
 radiated showers typically have the same $\eta$ but are spread in $\phi$ by the magnetic field.
 
+\newpage
 Given these tracks and calorimeter clusters as inputs, the particle flow algorithm forms collections of candidates for five types of particle:
 \begin{itemize}
   \item{\textbf{Muons:} a path extrapolated from the tracker is consistent with a muon track. 
@@ -72,14 +74,72 @@ The remainder of this chapter describes how these objects are used in the \Hgg a
 
 \section{Samples}
 \subsection{Data}
+
+This analysis is based on a total of \SI{77.4}{\fbinv} of p-p collision data collected by CMS at $\sqrt{s}\,=\,\SI{13}{TeV}$.
+Of this, \SI{35.9}{\fbinv} was collected during 2016 and \SI{41.5}{\fbinv} in 2017.
+
+Data selected for use in the analysis must first be selected by the CMS trigger system, 
+which reduces the total event rate to an acceptable level.
+This two-step system requires each high-level trigger (HLT) path to be seeded by at least one electromagnetic candidate at the level one trigger (L1T).
+A higher efficiency is obtained if only one of the two photons is required to be present at L1T level; 
+however since this results in a high event rate, a stringent \pt selection is required.
+The threshold is dependent on instantaneous luminosity and the photon isolation, 
+but is typically set at \SI{40}{GeV}.
+This results in loss of efficiency in \Hgg events, so asymmetric HLT paths seeded by two electromagnetic candidates are also used.
+During 2016 data-taking, the \pt thresholds at L1 were 22 and \SI{15}{GeV} for the leading and subleading candidates.
+In 2017, this was increased to 25 and \SI{14}{GeV} respectively. %TODO check this is bc of PU/int lumi only
+
+At the HLT, a clustering procedure similar to that used offline is performed. 
+This allows shower shape and photon isolation variables to be included in the selection criteria.
+These include the ratio of energy in a $3\times3$ grid of crystals to the SC energy (\RNINE), 
+and the ratio of energy in the HCAL behind the SC to the SC energy.
+Together with asymmetric requirements on the photon \pt and a cut on the diphoton mass, 
+these form the HLT selection.
+In 2016, the HLT \pt thresholds were 30 and \SI{18}{GeV} respectively;
+this increased to 30 and \SI{22}{GeV} in 2017.
+
+The efficiency of the trigger selection is measured using the tag and probe technique in \Zee events where the electrons are reconstructed as photons.
+In this method, dielectrons consistent with decays from the $Z$ boson are selected, 
+and a tight identification requirement is placed on one electron (known as the tag).
+The second electron (the probe) must then pass a very loose requirement, 
+and the efficiency of the additional HLT selection criteria can be measured.
+The trigger efficiency is over 97\% in the barrel and above 95\% in the endcaps.
+In simulation, its effect is accounted for by applying weights binned in \pt, $\eta$ and \RNINE.
+
 \subsection{Simulation}
+
+Various types of events are simulated with Monte Carlo (MC) techniques for use in training event classifiers, 
+producing the signal model, and for performing validation of the analysis.
+
+The signal simulation used to produce the final signal model is generated using \textsc{MadGraph5_{}aMC@NLO}, 
+which is next-to-leading order in perturbative QCD.
+This is interfaced to \textsc{PYTHIA}~\cite{pythia} to perform the parton showering and hadronisation, 
+using the tune \textsc{CUETP8M1}.
+Events from ggH production are then reweighted to agree with the next-to-next-to-leading order program \textsc{NNLOPS}~\cite{NNLOPS}.
+Additional independent signal samples are produced using \textsc{POWHEG}~\cite{powheg};
+these are used to optimise the analysis category definitions without bias.
+
+Simulated background events are not used to produce the final results of the analysis, 
+but are used to train several of the classifiers used in the analysis.
+The predominant source of back is the irreducible SM production of two prompt (real) photons, 
+which is simulated using the \textsc{SHERPA}~\cite{sherpa} program. %Born processes up to three jets and boxes at LO
+There are two types of reducible background: $\gamma$ + jet events where the jet is misidentified as a photon (``prompt-fake" events), 
+and events where two jets are misidentified as photons (``fake-fake" events).
+These are both modelled using \textsc{PYTHIA}, 
+with filters applied to increase the number of events containing jets with high electromagnetic energy fractions.
+The Drell-Yan used extensively in the analysis validation are simulated using \textsc{MadGraph5_{}aMC@NLO}. 
+
+The CMS detector itself is modelled using \textsc{GEANT4}, 
+which includes additional pileup interactions.
+The number of pileup events is corrected to agree with data, 
+where an average of 23 and 32 pileup interactions were observed in 2016 and 2017 data-taking respectively.
 
 \section{Photon reconstruction}
 
 Photons to be used in the \Hgg analysis are selected from the PF list of photon candidates.
 A correction is then made to the SC energy using a multivariate regression technique.
 After that, data and MC are brought into agreement by applying additional scale and smearing corrections to the photon energies.
-A set of pre-selection criteria is applied to obtain the final set of photons considered in the analysis.
+A set of preselection criteria is applied to obtain the final set of photons considered in the analysis.
 One of these criteria is a cut on the output score of the photon identification BDT, 
 which is trained to reduce the contamination from other objects which mimic real photons.
 
@@ -91,74 +151,221 @@ The full set of variables used in this section and their definitions are given b
 \\ \\
 \textbf{Shower shape variables:}
 \begin{itemize}[noitemsep]
-\item \emph{$E_{2\times2}/E_{5\times5}$}: the ratio of the energy in the 2x2 grid
-  containing the most energetic cells in the SC to the energy in
-  the 5x5 grid centered on the SC seed.
-\item \emph{$cov_{i\eta i\phi}$}: the covariance of the single crystal $\eta$
-  and $\phi$ values in within the 5x5 grid centered on the
-  SC seed.
-\item \emph{$\sigma_{i\eta i\eta}$}: the standard deviation 
-  shower in terms of number of crystal cells. 
-\item \emph{$\RNINE$}: $E_{3x3}/E_{SC}$ where $E_{3x3}$ is the energy sum of the
-  3x3 grid surrounding the SC seed and $E_{SC}$ is the energy sum of the SC. 
-\item \emph{$\sigma_{\eta}$}: the standard deviation
-  of single crystal $\eta$ values within the SC, weighted by the logarithm of the crystal energy.
-\item \emph{$\sigma_{\phi}$}: the standard deviation
-  of single crystal $\phi$ values within the SC, weighted by the logarithm of the crystal energy.
-\item \emph{Preshower $\sigma_{RR}$}: the standard deviation of the shower
-  spread in the x-y plane of the preshower detector (endcap only).
+  \item \emph{$E_{2\times2}/E_{5\times5}$}: the ratio of the energy in the 2x2 grid
+    containing the most energetic cells in the SC to the energy in
+    the 5x5 grid centred on the SC seed.
+  \item \emph{$cov_{i\eta i\phi}$}: the covariance of the single crystal $\eta$
+    and $\phi$ values in within the 5x5 grid centred on the
+    SC seed.
+  \item \emph{$\sigma_{i\eta i\eta}$}: the standard deviation 
+    shower in terms of number of crystal cells. 
+  \item \emph{$\RNINE$}: $E_{3x3}/E_{SC}$ where $E_{3x3}$ is the energy sum of the
+    3x3 grid surrounding the SC seed and $E_{SC}$ is the energy sum of the SC. 
+  \item \emph{$\sigma_{\eta}$}: the standard deviation
+    of single crystal $\eta$ values within the SC, weighted by the logarithm of the crystal energy.
+  \item \emph{$\sigma_{\phi}$}: the standard deviation
+    of single crystal $\phi$ values within the SC, weighted by the logarithm of the crystal energy.
+  \item \emph{$\sigma_{RR}$}: the standard deviation of the shower
+    spread in the x-y plane of the preshower detector (endcap only).
 \end{itemize}
 
 \textbf{Isolation variables:}
 \begin{itemize}[noitemsep]
-\item H/E: the ratio of the energy in the HCAL cells behind the SC
-  and the SC energy.
-\item \emph{$\mathcal{I}_{\text{ph}}$}: 
-  photon isolation,
-  defined as the sum of the transverse energy of the particles
-  identified as photons falling inside a cone of radius
-  $R=0.3$
-  around the photon candidate direction.
-\item \emph{$\mathcal{I}_{\text{tk}}$}: 
-  track isolation in a hollow cone
-  the sum of the transverse momenta
-  of all tracks in a cone of radius $R=0.3$
-  around the photon candidate direction (with tracks in an
-  inner cone of size $R=0.04$ not included in the sum).
-  %the cone is hollow because the isolation definition is 
-  %also used for electrons, and the track from the electron
-  %itself is excluded;
-\item \emph{$\mathcal{I}_{\text{ch}}$}: 
-  charged hadron isolation,
-  the sum of the transverse momenta of
-  charged particles inside a cone of radius $R<0.3$ around the
-  photon candidate.
+  \item H/E: the ratio of the energy in the HCAL cells behind the SC
+    and the SC energy.
+  \item \emph{$\mathcal{I}_{\text{ph}}$}: 
+    photon isolation,
+    defined as the sum of the transverse energy of the particles
+    identified as photons falling inside a cone of radius
+    $R=0.3$
+    around the photon candidate direction.
+  \item \emph{$\mathcal{I}_{\text{tk}}$}: 
+    track isolation in a hollow cone
+    the sum of the transverse momenta
+    of all tracks in a cone of radius $R=0.3$
+    around the photon candidate direction (with tracks in an
+    inner cone of size $R=0.04$ not included in the sum).
+    %the cone is hollow because the isolation definition is 
+    %also used for electrons, and the track from the electron
+    %itself is excluded;
+  \item \emph{$\mathcal{I}_{\text{ch}}$}: 
+    charged hadron isolation,
+    the sum of the transverse momenta of
+    charged particles inside a cone of radius $R<0.3$ around the
+    photon candidate.
 \end{itemize}
 
 \textbf{Miscellaneous:}
 \begin{itemize}[noitemsep]
-\item \emph{Electron veto}: rejects the photon candidate if its 
-         supercluster is matched to an electron track.
-\item \emph{$\rho$}: the median energy  density per unit area in the event.
-\item \emph{$E_{SC}$}: the raw energy of the supercluster
-  corresponding to the reconstructed photon, before corrections.
+  \item \emph{Electron veto}: rejects the photon candidate if its 
+    supercluster is matched to an electron track.
+  \item \emph{$\rho$}: the median energy  density per unit area in the event.
+  \item \emph{\Eraw}: the raw energy of the supercluster, before corrections.
+  \item \emph{\Etrue}: the true photon energy.
 \end{itemize}
 
 \subsection{Photon energy}
-\subsection{Photon pre-selection}
-\subsection{Photon identification}
+
+The photon supercluster energy is computed from the calibrated ECAL SC, as described in Section~\ref{sec:detector_ECAL}.
+However, this energy estimate is imperfect for several reasons.
+Firstly, the SC may not capture the all energy of the electromagnetic shower and therefore underestimate the photon energy.
+This can occur when the photon interacts with material before the ECAL and therefore begins to shower before reaching the ECAL, 
+resulting in both energy lost in the material and a dispersed shower which is not contained by the SC.
+In addition, leakage can occur into the gaps between crystals and modules in the ECAL, 
+as well as through the back of the ECAL if the showering begins near the end of a crystal.
+
+The energy estimate provided by the uncorrected SC (\Eraw) can therefore be significantly improved upon by the use of a multivariate regression.
+This provides an additional energy correction to each reconstructed photon, so that the photon energy in simulation agrees with the true photon energy.
+The training objective for the regressor is to learn the parameters of the $\Etrue/\Eraw$ probability distribution function, 
+which is parameterised as a Gaussian core with power law tails on each side. %i.e. DCB + 1G
+There are a large number of inputs to the regressor which account for different effects.
+These include information relating to the shower shape, the position of the SC, the seed crystal, and the energy density in the event.
+
+The shower shape and position variables enable the difference in shower containment due to variations in the ECAL geometry, 
+and the showering induced by upstream material, to be corrected.
+Variables relating to the seed crystal position within the SC and energy ratios formed using the seed account for the local shower containment.
+The energy density and number of vertices accounts for any additional energy included due to pileup.
+
+The most probable value of the pdf returned by the regression is used to correct the supercluster energy for each photon.
+The distribution is also used to infer the per-photon uncertainty on the energy.
+This resolution estimate is then used in the classification of events, as described in Chapter~\ref{chap:categorisation}.
+
+After the regression, additional corrections are applied to account for differences between data and simulation.
+The first of these is to correct the energy scale in data;
+the detector response changes to damage from radiation during LHC operation and subsequent recovery during LHC down time.
+This can cause the measured energy to both drift slowly and change discontinuously over time.
+Corrections are derived using \Zee events where the electrons are reconstructed as photons, using the known $Z$ boson mass.
+These corrections are extracted differentially in time, and binned in the photon $\eta$ (two bins in each of barrel and endcap) and \RNINE (two bins).
+Their magnitude varies from 0.1-0.3\% in the barrel and from 0.2 to 2\% in the endcaps.
+
+Finally, the energy resolution in simulation is corrected to match that in data.
+This is implemented as a Gaussian smearing using the same bins as the energy corrections.
+The size of the corrections range from approximately 0.1 to 2.7\%.
+Once all the corrections have been applied, the photon energy resolution ranges from around 1 to 2.5\% in the barrel
+and from 2.5\% to 3.5\% in the barrel.
+Validation of the energy after corrections is shown in Figures~\ref{fig:obj_mee_2016} and \ref{fig:obj_mee_2016}, 
+where data is compared to simulation in \Zee events with electrons reconstructed as photons.
+Full details of the entire energy correction procedure can be found in Ref.\cite{PhotonReco}.
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{Figures/Objects/meeBarrel_2016}
+    \caption{Barrel-barrel dielectrons.}
+    \label{fig:obj_meeBarrel_2016}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{Figures/Objects/meeEndcap_2016}
+    \caption{Barrel-endcap and endcap-endcap dielectrons.}
+    \label{fig:obj_meeEndcap_2016}
+  \end{subfigure}
+  \caption{Comparison of the dielectron invariant mass distributions in data and simulation
+  (after energy smearing) for \Zee
+  events where electrons are reconstructed as photons.
+  The \RNINE variable is required to be greater than 0.94.
+  The simulated distributions are
+  normalised to the integral of the data distribution in the range $87 < m_{ee} < 93$ GeV to highlight
+  the agreement in the bulk of the distributions.}
+  \label{fig:obj_mee_2016}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{Figures/Objects/meeBarrel_2017}
+    \caption{Barrel-barrel dielectrons.}
+    \label{fig:obj_meeBarrel_2017}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{Figures/Objects/meeEndcap_2017}
+    \caption{Barrel-endcap and endcap-endcap dielectrons.}
+    \label{fig:obj_meeEndcap_2017}
+  \end{subfigure}
+  \caption{Comparison of the dielectron invariant mass distributions in data and simulation
+  (after energy smearing) for \Zee
+  events where electrons are reconstructed as photons.
+  The \RNINE variable is required to be greater than 0.94.
+  The simulated distributions are
+  normalised to the integral of the data distribution in the range $87 < m_{ee} < 93 GeV$ to highlight
+  the agreement in the bulk of the distributions.}
+  \label{fig:obj_mee_2017}
+\end{figure}
+
+\subsection{Photon preselection}
+
+To be further considered in the \Hgg analysis, 
+photons must pass a set of criteria designed to reduce the contamination from objects faking photons.
+This preselection is similar to but more stringent than that required at trigger level.
+The full set of requirements is:
+\begin{itemize}[noitemsep]
+  \item to be within the ECAL acceptance; this means $|\eta|\,<\,2.5$ and excluding the endcap transition region $1.44\,<\,|\eta|\,<\,1.57$.
+  \item Passing the electron veto
+  \item $\pt > 30 (20)$ GeV for the leading (subleading) photon in 2016. 
+  The thresholds are 35 and 25 GeV respectively in 2017, due to the tighter trigger requirements.
+  \item $\mathcal{I}_{\text{ch}} < 20$ GeV or $\mathcal{I}_{\text{ch}} / \pt < 0.3$, if $\RNINE < 0.8$.
+  \item an additional set of \RNINE and $\eta$-dependant shower shape and isolation requirements, 
+  summarised in Table~\ref{tab:obj_preselection}.
+\end{itemize}
+
+\begin{table}[htbp]
+  \begin{center}
+    \begin{tabular}{l|c|c|c|c|c}
+      \hline
+      \multicolumn{1}{c|}{} & \RNINE & H/E     & $\sigma_{\eta \eta}$ & $\mathcal{I}_{\text{ph}}$ & $\mathcal{I}_{\text{tk}}$ \\
+      \hline
+      \multirow{2}{*}{Barrel}
+      & $[0.5, 0.85]$  & $<0.08$ & $<0.015$ & $<4.0$ & $<6.0$
+      \\
+      & $> 0.85$   & $<0.08$ & --       & -- & --
+      \\ \hline
+      \multirow{2}{*}{Endcaps}
+      & $[0.8, 0.90]$  & $<0.08$ & $<0.035$ & $<4.0$ & $<6.0$
+      \\
+      & $> 0.90$     & $<0.08$ & --       & -- & --
+      \\ \hline
+    \end{tabular}
+  \end{center}
+  \caption{Summary of photon preselection requirements.}
+  \label{tab:obj_preselection}
+\end{table}
+
+The efficiency of these preselection criteria, aside from the electron veto, is measured using \Zee events.
+To measure the electron veto efficiency, \Zmumug events are used.
+Efficiencies range from over 94\% for high \RNINE photons in the barrel, 
+to around 50\% for low \RNINE photons in the endcaps.
+Very good agreement is observed between data and simulation. %0.1-0.3\% in barrel, 0.5-1\% in endcap
+
+\subsection{Photon identification}
+
+An additional part of the photon preselection is the photon identification BDT.
+Its purpose is to discriminate between real photons and photon candidates passing the preselection which originate from other objects, 
+such as jet fragments.
+The BDT is trained using $\gamma$ + jet events passing the preselection described above, with real photons treated as signal and fake photons as background.
+The inputs are similar to the those used in the energy regression:
+\begin{itemize}
+  \item Shower shape variables $E_{2\times2}/E_{5\times5}$, $cov_{i\eta i\phi}$, $\sigma_{i\eta i\eta}$, $\RNINE$, $\sigma_{\eta}$, $\sigma_{\phi}$, $\sigma_{RR}$
+  \item Isolation variables $\mathcal{I}_{\text{ph}}$, $\mathcal{I}_{\text{tk}}$, $\mathcal{I}_{\text{ch}}$
+  \item Pileup-sensitive variables $\rho$ and the number of interaction vertices
+  \item Photon $\eta$, energy, and ratio of preshower to total energy (endcap only)
+\end{itemize}
+
+A loose selection on the photon identification BDT at -0.9 completes the analysis preselection.
+The output score on preselected diphoton events is shown in Figure~\ref{fig:obj_IDMVA}.
+Additional validation using \Zee events is demonstrated in Figures~\ref{fig:obj_IDMVAZee}.
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{Figures/Objects/IDMVA_2016}
     \caption{2016}
     \label{fig:obj_IDMVA_2016}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/IDMVA_2017}
+  \begin{subfigure}{0.49\textwidth}
+    %\includegraphics[width=\textwidth]{Figures/Objects/IDMVA_2017}
+    \includegraphics[width=\textwidth]{Figures/Objects/IDMVA_2016}
     \caption{2017}
     \label{fig:obj_IDMVA_2016}
+  \end{subfigure}
   \caption{Distribution of the photon identification BDT score of the lowest scoring photon
   of diphoton pairs with an invariant mass in the range $100 < \mgg < \SI{180}{GeV}$, for events passing
   the preselection in the 13 TeV data set (points), and for simulated background events (blue
@@ -166,54 +373,55 @@ The full set of variables used in this section and their definitions are given b
   The sum of all background distributions is scaled up to data. The red histogram corresponds
   to simulated Higgs boson signal events}
   \label{fig:obj_IDMVA}
-  \end{subfigure}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{Figures/Objects/IDMVAZee_2016}
     \caption{2016}
     \label{fig:obj_IDMVAZee_2016}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{Figures/Objects/IDMVAZee_2017}
     \caption{2017}
     \label{fig:obj_IDMVAZee_2016}
+  \end{subfigure}
   \caption{Distribution of the photon identification BDT
   for \Zee events in data and simulation, where the electrons are reconstructed as
   photons. The systematic uncertainty applied to the shape from simulation (hashed region) is
   also shown.}
   \label{fig:obj_IDMVAZee}
-  \end{subfigure}
 \end{figure}
 
 \section{Vertex reconstruction}
 
-The determination of the primary vertex from which the two photons
-originate has a direct impact on the diphoton invariant mass resolution.
-If the position along the beam axis ($z$) of the interaction producing
-the diphoton is known to better than about \SI{1}{cm}, the invariant mass
-resolution is dominated by the photon energy resolution.
-For comparison, the distribution in $z$ of the position of the vertices reconstructed
-from the observed tracks has an \textsc{RMS} spread of about \SI{3.4}{cm}.
+As can be seen in Equation~\ref{eq:obj_mgg}, 
+the only parameters affecting the diphoton mass are the photon energies and the opening angle between them.
+Since there are multiple p-p interactions at each bunch crossing, multiple vertices are present in each event, spread along the $z$-axis.
+The choice of the vertex from which the diphoton originated has a direct impact on the angle $\theta$, 
+and therefore the diphoton mass resolution.
+Provided the chosen vertex is within ~\SI{1}{cm} of the true interaction vertex (the ``correct vertex" is chosen), 
+the mass resolution is dominated by the photon energy resolution and the contribution from the angle is negligible.
+A BDT is therefore trained to identify the most likely diphoton interaction vertex.
 
 \subsection{Vertex selection}
 
-The diphoton vertex assignment relies on a BDT (the vertex identification BDT)
-whose inputs are observables related to tracks
-recoiling against the diphoton system:
+The vertex identification BDT is trained with simulated \Hgg signal events, 
+with the objective of selecting the true interaction vertex.
+Since photons do not produce tracks, its inputs  are variables related to tracks
+recoiling against the diphoton system. 
+These are:
 \begin{itemize}
         \item $\sum_{i}|\vec{\pt^{i}}|^{2}$,
         \item $\displaystyle -\sum_{i}(\vec{\pt}^{i}\cdot \frac{\vec{\pt}^{\gamma\gamma}}{|\vec{\pt}^{\gamma\gamma}|})$,
         \item $(|\sum_{i}\vec{\pt}^{i}| - \pt^{\gamma\gamma})/(|\sum_{i}\vec{\pt}^{i}| + \pt^{\gamma\gamma})$,
 \end{itemize}
-where $\vec{\pt}^{i}$ is the transverse momentum of the $i$-th track
+where $\vec{\pt}^{i}$ is the \pt of the $i$-th track
 associated with a given vertex and $\vec{\pt}^{\gamma\gamma}$ is the
-transverse momentum of the diphoton system. The sum runs over all
-charged particle flow candidates associated with the given vertex.\\
-In the presence of tracks from photons converted in the tracker material,
-two additional input variables are used:
+
+If one or more of the photons have converted into electrons in the tracker, 
+two more variables are used in addition to those above:
 \begin{itemize}
         \item the number of conversions,
         \item the pull $|z_{\text{vtx}} - z_e| /\sigma_{z}$ between the
@@ -224,24 +432,37 @@ two additional input variables are used:
                 on $z_e$.
 \end{itemize}
 
+The inclusive efficiency is approximately 82\% in 2016 conditions.
+which decreases only slightly to 81\% in 2017.
+This shows that the vertex identification procedure is robust to increases in pileup.
+It also represents a substantial improvement compared to the default CMS vertex, %chosen using largest sum of squared track pT
+which is correct in around 74\% of events.
+%WV worsens resolution byt about 1 GeV
+
+The performance of the vertex identification BDT is
+validated using $\Zmumu$ events.
+The tracks from the muons are ignored in order to mimic the diphoton system.
+Comparison between data and simulation in these events is shown in Figure~\ref{fig:obj_vtxid}
+
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{Figures/Objects/vtxid_2016}
     \caption{2016}
     \label{fig:obj_vtxid_2016}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/vtxid_2017}
+  \begin{subfigure}{0.49\textwidth}
+    %\includegraphics[width=\textwidth]{Figures/Objects/vtxid_2017}
+    \includegraphics[width=\textwidth]{Figures/Objects/vtxid_2016}
     \caption{2017}
     \label{fig:obj_vtxid_2016}
+  \end{subfigure}
   \caption{
   Validation of the \Hgg vertex identification algorithm on \Zmumu events
   omitting the muon tracks. Simulated events are weighted to match the distributions of pileup
   and location of primary vertices in data.
   }
   \label{fig:obj_vtxid}
-  \end{subfigure}
 \end{figure}
 
 \subsection{Vertex probability}
@@ -249,12 +470,6 @@ two additional input variables are used:
 A second vertex-related multivariate discriminant (vertex probability BDT),
 is designed to estimate, event-by-event, the probability for the vertex
 assignment to be within \SI{1}{cm} of the diphoton interaction point.
-%It is hereafter labelled as $\t
-%ext{BDT}_{\text{VTX PROB}}$.
-%This, in conjunction with the event-by-event estimate of the energy
-%resolution of each photon, is used to estimate the diphoton mass
-%resolution, which is then used to classify events (see
-%Section~\ref{sec:classification}).
 The vertex probability BDT is trained on simulated $\Hgg$ events using
 the following input variables:
 \begin{itemize}
@@ -267,44 +482,16 @@ the following input variables:
         \item the number of photons with an associated conversion track.
 \end{itemize}
 
-%The per-event probability to choose the vertex within 1\cm of the true
-%one is parametrized as a function of the $\text{BDT}_{\text{VTX PROB}}$
-%output with a $4^{th}$ order
-%polynomial separately for converted and unconverted photons.
-
-The performance of the vertex identification BDT is
-validated using $\Zmumu$ events (Figure~\ref{fig:obj_vtxid}), where
-the vertices are refitted, with the muon tracks omitted from the fit to
-mimic a diphoton system.
-In addition, the
-use of tracks from converted photons to locate the vertex is validated
-using $\gamma\,+\,\textrm{jet}$ events. Discrepancies between data and simulation are
-corrected for in the analysis and a systematic uncertainty is introduced by
-varying the ratio of data and simulation within their uncertainties.
-
-In the simulated samples the width of the beam spot 
-was about a factor 1.5 larger than
-what was subsequently observed in data. To correct for this,
-simulated events in which the selected vertex is more than /SI{0.1}{cm}
-away from the generated one are weighted such that the width of the
-distribution of the primary vertices is the same as the beam spot
- width in data.
-
-The efficiency of correctly assigning the diphoton to be within
-\SI{1}{cm} of the true vertex in $\Hgg$ simulated events is shown in
-Figure~\ref{fig:obj_vtxprob} as a function of the \pt of the diphoton
-pair and as a function of the number of primary vertices in the event.
-The inclusive efficiency is about 81\%.
-
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{Figures/Objects/vtxprob_vspt}
     \label{fig:obj_vtxprob_vspt}
   \end{subfigure}
-  \begin{subfigure}{0.45\textwidth}
+  \begin{subfigure}{0.49\textwidth}
     \includegraphics[width=\textwidth]{Figures/Objects/vtxprob_vsnvtx}
     \label{fig:obj_vtxprob_vsnvtx}
+  \end{subfigure}
   \caption{
   Comparison of the true vertex identification efficiency and the average estimated
   vertex probability as a function of the reconstructed diphoton \pt (left) and of the number of
@@ -313,13 +500,88 @@ The inclusive efficiency is about 81\%.
   of pileup and location of primary vertices in data.
   }
   \label{fig:obj_vtxprob}
-  \end{subfigure}
 \end{figure}
+
+The vertex choice efficiency, together with the estimated vertex probability,
+in simulated \Hgg signal events is shown in Figure~\ref{fig:obj_vtxprob}.
+The simulated performance is shown as a function of both the \pt of the diphoton
+system and of the number of vertices in the event.
 
 \section{Jet reconstruction}
 
+The collimated collection of particles produced by the hadronisation of quarks or gluons are referred to as jets.
+Around 60\% of the average jet energy comes from charged hadrons, whose energy is well-measured by the tracker,
+and another 30\% from photons, whose energy is measured precisely by the ECAL.
+The remaining 10\% of energy from neutral hadrons is measured with worse resolution by the HCAL.
+Jets are important in the \Hgg analysis because they enter the definition of the STXS signal bin definitions, 
+and are used to categorise the events targeting those bins.
+
+At CMS jets are formed using the \akt clustering algorithm~\cite{AntiKt} with distance parameter $R=0.4$. % check definitions of infrared and collinear safe etc
+It is an iterative algorithm that defines a distance metric dependent on the \pt and angular parameters of clusters, 
+and groups together clusters starting with the nearest two objects.
+Once the shortest distance is between an object and the beampipe, the process stops and the clustered objects defined as a jet.
+This is then repeated until all clusters have been collected into jets.
+
+The inputs to the \akt algorithm are PF candidates with charged hadron subtraction (CHS)~\cite{JEC}. 
+CHS reduces the contribution from pileup by identifying any charged hadrons associated with vertices other than the primary vertex.
+Since the tracker coverage extends only to $|\eta|=2.5$, more forward jets do not have this pileup removed.
+Once the jets have been constructed, a set of corrections are applied to correct the jet energy scale and resolution in both data and simulation.
+The correction procedure can be summarised as~\cite{JEC}:
+\begin{itemize}
+  \item corrections are made for the pileup contribution to jets, as a function of the event energy density, 
+        and the jet \pt, $\eta$ and area.
+        Any remaining differences between data and MC are then derived using pileup-only events.
+  \item the reconstructed jet energy is corrected to agree with the true jet energy in both data and MC.
+        This is performed as a function of \pt and $\eta$ to account for variation in response across the detector.
+  \item residual differences between data and MC are corrected in two steps.
+        First $\eta$-dependent corrections are applied using dijet events, 
+        where the scale of a jet is corrected using a jet of similar \pt in the reference, well-measured $\eta < 1.3$ region.
+        The \pt-dependent corrections are derived using events with a jet recoiling against a photon or $Z$ boson.
+        This corrects the absolute scale of the jet.
+  %\item finally, corrections dependent on the jet flavour are applied.%state optional? if not look up
+\end{itemize}
+%The final uncertainties on the jet energy scale are below 3% across the phase space considered
+%by most analyses (pT > 30 GeV and |η| < 5.0). In the barrel region we reach an uncertainty
+%below 1% for pT > 30 GeV, when excluding the jet-flavor uncertainties, provided separately
+%for different jet-flavor mixtures. At its lowest, the core uncertainty 
+%(excluding optional timedependent and flavor systematics) is 0.32% for jets with pT between 165 and 330 GeV, and |η| < 0.8. 
+
+Additional selection can be applied to these calibrated jets to further reject jets originating from pileup.
+Pileup jets are typically more dispersed than real jets, since they do not have an energetic core generated by a parton.
+A pileup jet identification BDT is therefore trained using jet shape variables, 
+and additionally track variables related to the interaction vertex of the jet.
+The output score of this BDT is used to reject pileup, with thresholds dependent on the \pt and $\eta$ of jets.
+For a jet to be considered in the analysis, it must pass the pileup jet identification and have $\pt > \SI{30}{GeV}$ and $|\eta| < 4.7$.
+
 \section{Reconstruction of other objects}
-\subsection{Electrons}
+
+Additional objects can be used to specifically target rarer Higgs production modes, such as $VH$ and $ttH$.
+Whilst not used directly in this analysis, they are important in both Refs~\cite{HIG-16-040} and \cite{HIG-18-018}.
+
 \subsection{Muons}
-\subsection{Taus}
-\subsection{Missing energy}
+
+Muons can be produced in the decays of $W$ or $Z$ bosons arising in $VH$ events.
+The reconstruction of muons can be seeded either by tracks found in the muon system, 
+or by tracks from the inner tracker that are extrapolated to the muon system, or both.
+Identification criteria ensuring the muon is isolated, 
+applied by checking that the \pt and tracks and calorimeter deposits are consistent with the \pt of the muon track, 
+reduces the mis-identification of other charged hadrons.
+The energy is inferred from the curvature of the inner track for $\pt < \SI{200}{GeV}$.
+Above this value, additional information from the muon tracks is used to accurately fit the track
+and improve the precision of the \pt measurement.
+
+
+\subsection{Electrons}
+
+Similarly to muons, electrons can be present in leptonic $VH$ decays.
+Electrons are reconstructed in a very similar way to photons, but requiring instead of vetoing a matching track.
+They can be seeded either by calorimeter deposits or tracks.
+The energy measurement is performed using a BDT similar to that photons, 
+but which also incorporates track information and further accounts for energy lost by bremsstrahlung.
+
+\subsection{Missing transverse momentum}
+
+The presence of neutrinos in an event can be inferred by a global imbalance in the vector sum of the \pt of all objects, 
+resulting in so-called ``missing" transverse momentum (\met).
+The \met computation uses the corrected \pt values for objects, and with all jet energy corrections applied.
+It can be used to identify the neutrinos resulting from $W$ boson decay in $VH$ events.

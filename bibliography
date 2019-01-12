@@ -1107,3 +1107,122 @@ year = "1998"
       reportNumber   = "TIF-UNIMI-2015-1, OUTP-15-04P",
       SLACcitation   = "%%CITATION = ARXIV:1505.06736;%%"
 }
+
+@article{Madgraph,
+      author         = "Alwall, J. and Frederix, R. and Frixione, S. and Hirschi,
+                        V. and Maltoni, F. and Mattelaer, O. and Shao, H. -S. and
+                        Stelzer, T. and Torrielli, P. and Zaro, M.",
+      title          = "{The automated computation of tree-level and
+                        next-to-leading order differential cross sections, and
+                        their matching to parton shower simulations}",
+      journal        = "JHEP",
+      volume         = "07",
+      year           = "2014",
+      pages          = "079",
+      doi            = "10.1007/JHEP07(2014)079",
+      eprint         = "1405.0301",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "CERN-PH-TH-2014-064, CP3-14-18, LPN14-066, MCNET-14-09,
+                        ZU-TH-14-14",
+      SLACcitation   = "%%CITATION = ARXIV:1405.0301;%%"
+}
+
+@article{pythia,
+      author         = "Sjostrand, Torbjorn and Mrenna, Stephen and Skands, Peter
+                        Z.",
+      title          = "{A Brief Introduction to PYTHIA 8.1}",
+      journal        = "Comput. Phys. Commun.",
+      volume         = "178",
+      year           = "2008",
+      pages          = "852-867",
+      doi            = "10.1016/j.cpc.2008.01.036",
+      eprint         = "0710.3820",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "CERN-LCGAPP-2007-04, LU-TP-07-28,
+                        FERMILAB-PUB-07-512-CD-T",
+      SLACcitation   = "%%CITATION = ARXIV:0710.3820;%%"
+}
+
+@article{NNLOPS,
+      author         = "Hamilton, Keith and Nason, Paolo and Re, Emanuele and
+                        Zanderighi, Giulia",
+      title          = "{NNLOPS simulation of Higgs boson production}",
+      journal        = "JHEP",
+      volume         = "10",
+      year           = "2013",
+      pages          = "222",
+      doi            = "10.1007/JHEP10(2013)222",
+      eprint         = "1309.0017",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "MCNET-13-11, CERN-PH-TH-2013-205, OUTP-13-18P",
+      SLACcitation   = "%%CITATION = ARXIV:1309.0017;%%"
+}
+
+@article{powheg,
+      author         = "Oleari, Carlo",
+      title          = "{The POWHEG-BOX}",
+      booktitle      = "{Proceedings,  10th DESY Workshop on Elementary Particle
+                        Theory: Loops and Legs in Quantum Field Theory: Woerlitz,
+                        Germany, April 25-30, 2010}",
+      journal        = "Nucl. Phys. Proc. Suppl.",
+      volume         = "205-206",
+      year           = "2010",
+      pages          = "36-41",
+      doi            = "10.1016/j.nuclphysbps.2010.08.016",
+      eprint         = "1007.3893",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1007.3893;%%"
+}
+
+@article{sherpa,
+      author         = "Gleisberg, T. and Hoeche, Stefan. and Krauss, F. and
+                        Schonherr, M. and Schumann, S. and Siegert, F. and Winter,
+                        J.",
+      title          = "{Event generation with SHERPA 1.1}",
+      journal        = "JHEP",
+      volume         = "02",
+      year           = "2009",
+      pages          = "007",
+      doi            = "10.1088/1126-6708/2009/02/007",
+      eprint         = "0811.4622",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "FERMILAB-PUB-08-477-T, SLAC-PUB-13420, ZU-TH-17-08,
+                        DCPT-08-138, IPPP-08-69, EDINBURGH-2008-30, MCNET-08-14",
+      SLACcitation   = "%%CITATION = ARXIV:0811.4622;%%"
+}
+
+
+@article{JEC,
+      author         = "Khachatryan, Vardan and others",
+      title          = "{Jet energy scale and resolution in the CMS experiment in
+                        pp collisions at 8 TeV}",
+      collaboration  = "CMS",
+      journal        = "JINST",
+      volume         = "12",
+      year           = "2017",
+      number         = "02",
+      pages          = "P02014",
+      doi            = "10.1088/1748-0221/12/02/P02014",
+      eprint         = "1607.03663",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CMS-JME-13-004, CERN-PH-EP-2015-305",
+      SLACcitation   = "%%CITATION = ARXIV:1607.03663;%%"
+}
+
+@article{HIG-18-018,
+      author         = "CMS Collaboration",
+      title          = "{Measurement of the associated production of a Higgs
+                        boson and a pair of top-antitop quarks with the Higgs
+                        boson decaying to two photons in proton-proton collisions
+                        at $\sqrt{s}=13~\mathrm{TeV}$}",
+      collaboration  = "CMS",
+      year           = "2018",
+      reportNumber   = "CMS-PAS-HIG-18-018",
+      SLACcitation   = "%%CITATION = CMS-PAS-HIG-18-018;%%"
+}
