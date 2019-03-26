@@ -36,32 +36,17 @@
 %Figure and table caption style
 \usepackage[font=small, labelfont=bf, justification=raggedright, format=hang]{caption}
 
-%colours for yields table
-\definecolor{Gray}{gray}{0.90}
-
-\definecolor{VBF0}{rgb}{1,0.7,0.7}
-\definecolor{VBF1}{rgb}{1,0.8,0.8}
-\definecolor{VBF2}{rgb}{1,0.9,0.9}
-
-\definecolor{GGH0}{rgb}{0.6,0.6,1.0}
-\definecolor{GGH1}{rgb}{0.7,0.7,1.0}
-\definecolor{GGH2}{rgb}{0.8,0.8,1.0}
-\definecolor{GGH3}{rgb}{0.9,0.9,1.0}
-
-\definecolor{VHH}{rgb}{0.8,1.0,0.8}
-\definecolor{VHM}{rgb}{0.9,1.0,0.9}
-
-%thicker hline in tables
-\makeatletter
-\def\thickhline{%
-  \noalign{\ifnum0=`}\fi\hrule \@height \thickarrayrulewidth \futurelet
-   \reserved@a\@xthickhline}
-\def\@xthickhline{\ifx\reserved@a\thickhline
-               \vskip\doublerulesep
-               \vskip-\thickarrayrulewidth
-             \fi
-      \ifnum0=`{\fi}}
-\makeatother
+%%thicker hline in tables
+%\makeatletter
+%\def\thickhline{%
+%  \noalign{\ifnum0=`}\fi\hrule \@height \thickarrayrulewidth \futurelet
+%   \reserved@a\@xthickhline}
+%\def\@xthickhline{\ifx\reserved@a\thickhline
+%               \vskip\doublerulesep
+%               \vskip-\thickarrayrulewidth
+%             \fi
+%      \ifnum0=`{\fi}}
+%\makeatother
 
 %I've forgotten what this does
 %possibly removes headers on blank pages
@@ -103,3 +88,5 @@
 \newcommand{\lumi}{\ensuremath{\textrm{cm}^{-2}\,\textrm{s}^{-1}}\xspace}
 \newcommand{\RNINE}{\ensuremath{R_9}\xspace}
 \newcommand{\akt}{anti-\ensuremath{k_T}\xspace}
+\newcommand{\srv}{\ensuremath{\sigma_{rv}}\xspace}
+\newcommand{\swv}{\ensuremath{\sigma_{wv}}\xspace}

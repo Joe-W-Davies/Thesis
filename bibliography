@@ -1226,3 +1226,39 @@ year = "1998"
       reportNumber   = "CMS-PAS-HIG-18-018",
       SLACcitation   = "%%CITATION = CMS-PAS-HIG-18-018;%%"
 }
+
+@article{Anastasiou2015,
+      author         = "Anastasiou, Charalampos and Duhr, Claude and Dulat, Falko
+                        and Herzog, Franz and Mistlberger, Bernhard",
+      title          = "{Higgs boson gluon-fusion production in QCD at three
+                        loops}",
+      journal        = "Phys. Rev. Lett.",
+      volume         = "114",
+      year           = "2015",
+      pages          = "212001",
+      doi            = "10.1103/PhysRevLett.114.212001",
+      eprint         = "1503.06056",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "CERN-PH-TH-2015-055, CP3-15-07",
+      SLACcitation   = "%%CITATION = ARXIV:1503.06056;%%"
+}
+
+@article{Anastasiou2016,
+      author         = "Anastasiou, Charalampos and Duhr, Claude and Dulat, Falko
+                        and Furlan, Elisabetta and Gehrmann, Thomas and Herzog,
+                        Franz and Lazopoulos, Achilleas and Mistlberger, Bernhard",
+      title          = "{High precision determination of the gluon fusion Higgs
+                        boson cross-section at the LHC}",
+      journal        = "JHEP",
+      volume         = "05",
+      year           = "2016",
+      pages          = "058",
+      doi            = "10.1007/JHEP05(2016)058",
+      eprint         = "1602.00695",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "CP3-16-01, ZU-TH-27-15, NIKHEF-2016-004,
+                        CERN-TH-2016-006",
+      SLACcitation   = "%%CITATION = ARXIV:1602.00695;%%"
+}

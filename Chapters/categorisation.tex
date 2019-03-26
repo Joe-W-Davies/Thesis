@@ -3,13 +3,23 @@
 
 \section{Introduction}
 
-The sensitivity of the \Hgg analysis depends on the ability to distinguish the narrow signal peak 
+The event selection consists of the preselection described in Chapter~\ref{chap:objects}, 
+and in addition requires the two leading preselected photon candidates to have 
+$\pt^{\gamma 1} > \mgg/3$ and $\pt^{\gamma 2} > \mgg /4$ respectively, 
+with an invariant mass in the range $100 < \mgg < \SI{180}{GeV}$.
+Both photons must also satisfy the
+pseudo-rapidity requirement $|\eta|<2.5$ and must not be in the barrel-endcap
+transition region $1.44 < |\eta| < 1.57$.
+The above $\eta$ requirement is applied to the photo supercluster
+position, and the requirement on the photon $\pt$ is applied 
+after the vertex assignment.
+
+The \Hgg analysis depends on the ability to distinguish the narrow signal peak 
 from the smoothly falling background in the diphoton mass distribution.
-Events passing the preselection described in Chapter~\ref{chap:objects} 
-are therefore subject to further categorisation, in order to increase 
-the ratio of the number of signal events to the number of background events (S/B).
+Selected events are therefore subject to further categorisation, in order to 
+increase the ratio of the number of signal events to the number of background events (S/B).
 This enhances the sensitivity of the analysis, 
-meaning the expected uncertainties on the measured quantities are reduced.
+reducing the expected uncertainties on the measured quantities.
 
 Analysis categories are also constructed to target events in which the Higgs boson was 
 produced by a specific production mechanism. 
@@ -20,7 +30,7 @@ to individual production mechanisms, these dedicated categories also enable the 
 
 In the previous \Hgg analysis using the 2016 dataset \cite{HIG-16-040}, 
 dedicated categories targeting the VBF, ttH, and VH modes were construced, 
-with the remaining so-called ``Untagged" categories were composed of mostly ggH events.
+with the remaining so-called ``Untagged" categories composed mostly of ggH events.
 Here a similar approach is employed, 
 but with additional divisions targeting individual stage 1 bins for the ggH and VBF processes.
 Events selected by the 2017 \Hgg analysis targeting ttH production, 
@@ -39,12 +49,169 @@ known as the dijet BDT, is utilised to reduce the contamination from ggH events.
 
 Due to the conditions differing between the two years, 
 the analysis is optimised separately for the 2016 and 2017 datasets. 
-Once the analysis categories for each dataset are defined, simultaneous fits are
-performed to the categories from both years to measure the chosen parameters of interest. 
+A simultaneous fit to the categories from both years is then performed to estimate the 
+values of the parameters of interest and their uncertainties (described in Chapter ~\ref{chap:results}).
+The remainder of this chapter describes in detail the training of the diphoton and dijet BDTs, 
+and their use in the cateogory optimisation process for both ggH and VBF events
 
 \section{Gluon fusion categorisation}
 \subsection{Signal bin definitions}
+
+At stage 1 of the STXS framework, 
+the gluon fusion process (ggH) is divided into a total of eleven particle level bins.
+The events are split first by the number of jets, 
+defined at particle level using the anti-$k_T$ algorithm with radius parameter 0.4 
+and jet $\pt > \SI{30}{GeV}$~\cite{AntiKt}.
+All stable particles except for the decay products of the Higgs boson 
+are included in the anti-$k_T$ clustering.
+There are zero (0J), one (1J), and greater than or equal to two (2J) jets bins.
+In events with at least one jet, a further splitting 
+by the value of the transverse momentum of the Higgs boson (\ptH) is performed. 
+Four bins are defined by boundaries placed at 60, 120, and \SI{200}{GeV}.
+These bins are denoted as low, medium (med), high, and BSM, respectively.
+Finally, a separate ggH region is dedicated to the vector boson fusion-like phase space, 
+for which a pair of jets (a dijet) with invariant mass $m_{jj} > \SI{400}{GeV}$ 
+and difference in pseudorapidity $\Delta\eta > 2.8$ is required.
+The dijet is formed from the two leading jets in the event.
+This region is split into two-jet-like ($\ptHjj < \SI{25}{GeV}$) 
+and three-jet-like ($\ptHjj > \SI{25}{GeV}$) bins, 
+where \ptHjj is defined as the transverse momentum of the Higgs boson plus dijet system.
+Each bin is exclusive; events included in the VBF-like region are not included in the other ggH 2J bins.
+A table summarising the definition of each bin, its cross section, and the fraction of the 
+total ggH cross section is shown in Table \ref{tab:ggHfractions}.
+The inclusive ggH cross section is $48.52~\textrm{pb}$ at $\mH = \SI{125.09}{GeV}$, 
+computed to an accuracy of three loops in perturbative quantum chromodynamics (QCD) 
+and next-to-leading order (NLO) in electroweak perturbations (EW) 
+\cite{YR4,Anastasiou2015,Anastasiou2016}.
+Of this approximately $44.2~\textrm{pb}$ is within $|y_H| < 2.5$.
+
+\begin{table}
+  \begin{centering}
+    \begin{tabular}{ r | c | c | c } 
+    \hline
+    Region & Definition & Fraction & Cross section (pb) \\ 
+    \hline
+    0J          & Exactly zero jets, any $\ptH$               & 60.0\% & 26.49 \\ 
+    \hline
+    1J low      & Exactly one jet, $\ptH <$ 60 GeV            & 15.4\% & 6.79  \\
+    \hline
+    1J med      & Exactly one jet, 60 GeV $< \ptH <$ 120 GeV  & 10.4\% & 4.61  \\ 
+    \hline
+    1J high     & Exactly one jet, 120 GeV $< \ptH <$ 200 GeV & 1.7\% & 0.76   \\
+    \hline
+    1J BSM      & Exactly one jet, $\ptH >$ 200 GeV           & 0.4\% & 0.16   \\ 
+    \hline
+    2J low      & $\ge$ two jets, $\ptH <$ 60 GeV             & 2.9\% & 1.26   \\
+    \hline
+    2J med      & $\ge$ two jets, 60 GeV $< \ptH <$ 120 GeV   & 4.5\% & 2.00   \\ 
+    \hline
+    2J high     & $\ge$ two jets, 120 GeV $< \ptH <$ 200 GeV  & 2.3\% & 1.00   \\
+    \hline
+    2J BSM      & $\ge$ two jets, $\ptH >$ 200 GeV            & 1.0\% & 0.43   \\ 
+    \hline
+    \multirow{2}{*}{VBF-like 2J} & $\ge$ two jets, $\ptH < 200$ GeV, $|\Delta\eta| > 2.8$, & \multirow{2}{*}{0.6\%} & \multirow{2}{*}{0.27} \\ 
+                                 & $m_{jj} >$ 400 GeV, $\ptHjj <$ 25 GeV &                        &                       \\ 
+    \hline
+    \multirow{2}{*}{VBF-like 3J} & $\ge$ two jets, $\ptH < 200$ GeV, $|\Delta\eta| > 2.8$, & \multirow{2}{*}{0.9\%} & \multirow{2}{*}{0.38} \\ 
+                                 & $m_{jj} >$ 400 GeV, $\ptHjj >$ 25 GeV &                        &                       \\ 
+    \hline
+    \end{tabular}
+    \caption{The particle level definition of each ggH stage 1 bin 
+    and the corresponding fractional and absolute cross sections.
+    The fractions are estimated from simulated ggH \Hgg events 
+    within the region $|y_H| < 2.5$.
+    Details of the simulated samples can be found in Chapter~\ref{chap:objects}.
+    Each bin is exclusive; 
+    events included in the VBF-like region are not included in the other ggH 2J bins.
+    }
+    \label{tab:ggHfractions}
+  \end{centering}
+\end{table}
+
+In order to measure the stage 1 bins individually, 
+categories must be constructed which differentiate between them.
+Thus the reconstruction level event categorisation is designed to target all of the bins 
+to which some sensitivity can be obtained in the \Hgg decay channel with this dataset.
+In this case, the majority of the ggH stage 1 bins can be measured individually. 
+The exception is the two VBF-like bins, 
+which are very difficult to separate from true VBF production.
+Therefore events not entering the categories targeting VBF production 
+can be assigned to one of nine target ggH stage 1 bins.
+This assignment is performed using the reconstructed 
+diphoton transverse momentum (\ptgg) and the number of jets; 
+the detector level equivalents of the particle level quantities used to define the bins.
+%More advanced assignment procedures have been studied, 
+%and show modest improvement with respect to this version; 
+%these are described in Chapter~\ref{chap:}
+The diphoton BDT is then used to reduce the amount of background 
+and therefore improve the analysis' sensitivity to each ggH stage 1 bin.
+
 \subsection{Diphoton BDT}
+
+The diphoton BDT is trained to discriminate signal events 
+(where two photons are produced from the decay of a Higgs boson) from background events 
+(where two photons are produced by other SM processes).
+The goal of the classifier is to assign high scores to signal-like events;
+requirements can then be placed on the output score of the classifier 
+to increase the S/B for the analysis categories.
+The criteria for an event to be signal-like include having signal-like photon kinematics, 
+and having high scores from the photon identification BDT.
+In addition, events with a good diphoton mass resolution are preferred 
+since this reduces the amount of background present under the signal peak.
+
+To train the diphoton BDT, simulated events from the ggH, VBF, ttH 
+and VH production modes are treated as signal. 
+%Something about using powheg here.
+Simulated background events include the contributions from prompt-prompt, prompt-fake, 
+and fake-fake sources.
+%And also maybe something about each sample being weighted correctly
+All events are required to satisfy the analysis selection criteria.
+The input variables to the classifier are the kinematic properties of the diphoton system, 
+a per-event estimate of the diphoton mass resolution, 
+and the photon identification scores of each photon.
+The set of input variables is chosen such that the value of the Higgs boson mass cannot be inferred;
+it is for this reason that the photon momenta are divided by the diphoton mass.
+%TODO add a sentence later saying that it's checked no mass bias is introduced.
+The full list of input variables is as follows:
+\begin{itemize}
+\item the transverse momentum of each photon, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
+\item the pseudorapidity of each photon $\eta^{1,2}$;
+\item the cosine of the angle between the two photons in the transverse plane, $\cos{\Delta\phi}$;
+\item the output score of the photon identification BDT for each photon;
+\item the per-event relative mass resolution estimate, 
+      under the hypothesis that the mass was computed using the correct primary vertex \srv/\mgg;
+\item the per-event relative mass resolution estimate, 
+      under the hypothesis that the mass was computed using an incorrect primary vertex \swv/\mgg;
+\item the per-event probability estimate that the correct primary vertex was selected, 
+      using the output of the vertex probabilty BDT as described in Chapter~\ref{chap:objects};
+\end{itemize}
+
+The per-event relative mass resolution under the correct vertex hypothesis 
+depends only on the photon energy measurements performed by the ECAL.
+It is calculated by propagating the photon energy resolution estimates, 
+assuming the resolutions are independent and Gaussian distributed:
+
+\begin{equation}
+  \srv/\mgg = \frac{1}{2} \sqrt{\left(\frac{\sigma_{E_1}}{E_1}\right)^{2}
+                              + \left(\frac{\sigma_{E_2}}{E_2}\right)^{2}}
+\end{equation}
+
+where both the energy ($E_{1,2}$) and energy resolution ($\sigma_{E_{1,2}}$) estimates 
+are obtained from the regression described in Chapter\ref{chap:objects}.
+Under the incorrect vertex hypothesis, an additional term must be added to account for the 
+worsening in the diphoton mass resolution due to the uncertainty of the vertex position.
+The distance between the correct and incorrect vertices is assumed to follow a Gaussian distribution
+with a width dependent on the size of the beamspot.
+The contribution from the vertex ($\sigma_{vtx}$) can then be computed analytically 
+using the measured positions of the photons in the detector 
+and combined in quadrature with \srv to calculate \swv:
+%TODO understand this better
+
+\begin{equation}
+  \swv/\mgg = \sqrt{\left(\frac{\srv}{\mgg}\right)^{2}
+                              + \left(\frac{\sigma_{vtx}}{\mgg}\right)^{2}}
+\end{equation}
+
 \subsection{Category definitions}
 
 \section{Vector boson fusion categorisation}
