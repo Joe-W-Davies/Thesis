@@ -78,7 +78,7 @@ and three-jet-like ($\ptHjj > \SI{25}{GeV}$) bins,
 where \ptHjj is defined as the transverse momentum of the Higgs boson plus dijet system.
 Each bin is exclusive; events included in the VBF-like region are not included in the other ggH 2J bins.
 A table summarising the definition of each bin, its cross section, and the fraction of the 
-total ggH cross section is shown in Table \ref{tab:ggHfractions}.
+total ggH cross section is shown in Table \ref{tab:cat_ggHfractions}.
 The inclusive ggH cross section is $48.52~\textrm{pb}$ at $\mH = \SI{125.09}{GeV}$, 
 computed to an accuracy of three loops in perturbative quantum chromodynamics (QCD) 
 and next-to-leading order (NLO) in electroweak perturbations (EW) 
@@ -124,7 +124,7 @@ Of this approximately $44.2~\textrm{pb}$ is within $|y_H| < 2.5$.
     Each bin is exclusive; 
     events included in the VBF-like region are not included in the other ggH 2J bins.
     }
-    \label{tab:ggHfractions}
+    \label{tab:cat_ggHfractions}
   \end{centering}
 \end{table}
 
@@ -134,15 +134,15 @@ Thus the reconstruction level event categorisation is designed to target all of 
 to which some sensitivity can be obtained in the \Hgg decay channel with this dataset.
 In this case, the majority of the ggH stage 1 bins can be measured individually. 
 The exception is the two VBF-like bins, 
-which are very difficult to separate from true VBF production.
+which are difficult to separate from true VBF production.
 Therefore events not entering the categories targeting VBF production 
 can be assigned to one of nine target ggH stage 1 bins.
 This assignment is performed using the reconstructed 
-diphoton transverse momentum (\ptgg) and the number of jets; 
+diphoton transverse momentum (\ptgg) and the number of jets -- 
 the detector level equivalents of the particle level quantities used to define the bins.
 %More advanced assignment procedures have been studied, 
 %and show modest improvement with respect to this version; 
-%these are described in Chapter~\ref{chap:}
+%these are described in Chapter~\ref{chap:conclusion}
 The diphoton BDT is then used to reduce the amount of background 
 and therefore improve the analysis' sensitivity to each ggH stage 1 bin.
 
@@ -218,7 +218,7 @@ and combined in quadrature with \srv to calculate \swv:
 An example of the distribution for one of the input kinematic variables, the lead photon $\pt/\mgg$, 
 is shown in Figure~\ref{fig:cat_ptominput}.
 The background, split into its prompt--prompt, prompt--fake, and fake--fake components, 
-is compared to the data sidebands (region with $115 < \mgg < \SI{135}{GeV}$ excluded).
+is compared to the data sidebands (where the region with $115 < \mgg < \SI{135}{GeV}$ is excluded).
 Good agreement between the two is observed.
 
 %TODO add signal line to these plots
@@ -467,5 +467,76 @@ for 2016 and 2017 simulation and data respectively.
 
 \section{Vector boson fusion categorisation}
 \subsection{Signal bin definitions}
+
+The VBF process is divided into five particle level bins at stage 1 of the STXS framework.
+Events where the Higgs boson is produced in association with a vector boson (VH, where V = W or Z) 
+and the vector boson decays hadronically are included together with VBF.
+In this region, there are two bins defined analogously to the VBF-like bins for ggH production, 
+requiring a dijet with $m_{jj} > \SI{400}{GeV}$ and $\Delta\eta > 2.8$, 
+split by a \SI{25}{GeV} boundary in \ptHjj.
+In addition, there is a ``VH-like" bin, 
+which requires the presence of a dijet with $60 < m_{jj} < \SI{120}{GeV}$. 
+A ``BSM-like" bin is also defined, where the \pt of the leading jet is greater than \SI{200}{GeV}.
+All remaining events fall into the ``VBF rest" bin.
+Each bin is exclusive; all bins, except for the BSM bin, 
+are required to have the leading jet $\pt < \SI{200}{GeV}$.
+Table \ref{tab:cat_VBFfractions} shows a summary of the definition of each bin 
+and the corresponding fraction of the total VBF cross section.
+The inclusive VBF cross section is \SI{3.779}{pb} at $\mH = \SI{125.09}{GeV}$~\cite{YR4},
+computed at approximately next-to-next-to-leading (NNLO) order in QCD and NLO in EW,
+of which approximately \SI{3.52}{pb} is within $|y_H| < 2.5$.
+For hadronic VH production, 
+the cross section at $\mH = \SI{125.09}{GeV}$ of \SI{1.54}{pb}~\cite{YR4}
+is computed at NNLO in QCD and NLO in EW, 
+with around \SI{1.37}{pb} within $|y_H| < 2.5$.
+
+\begin{table}
+  \begin{centering}
+    \begin{tabular}{ r | c | c | c | c } 
+    \hline
+    Region & Definition & VBF fraction & VH fraction & Cross section (pb) \\ 
+    \hline
+    BSM                      & Leading jet $\pt > 200 GeV$             &  4.6\%                  & 5.4\%                   & 0.23                  \\ 
+    \hline
+    \multirow{2}{*}{2J-like} & $\ge$ two jets, $|\Delta\eta| > 2.8$,     & \multirow{2}{*}{25.8\%} & \multirow{2}{*}{0.4\%}  & \multirow{2}{*}{0.91} \\
+                             & $m_{jj} >$ 400 GeV, $\ptHjj <$ 25 GeV    &                         &                         &                       \\
+    \hline
+    \multirow{2}{*}{3J-like} & $\ge$ two jets, $|\Delta\eta| > 2.8$,     & \multirow{2}{*}{9.0\%} & \multirow{2}{*}{1.7\%}  & \multirow{2}{*}{0.34} \\ 
+                             & $m_{jj} >$ 400 GeV, $\ptHjj >$ 25 GeV    &                         &                         &                       \\
+    \hline
+    VH-like                  & $\ge$ two jets, $60 < m_{jj} < 120 GeV$ &  2.3\%                  & 34.5\%                  & 0.55 \\
+    \hline
+    Rest                     & All other VBF events                     & 59.2\%                  & 57.9\%                  & 2.86 \\ 
+    \hline
+    \end{tabular}
+    \caption{The particle level definition of each VBF stage 1 bin 
+    and the corresponding fractional and absolute cross sections.
+    The fractions reported are normalised relative to inclusive VBF or VH hadronic production, 
+    whilst the cross sections are the sum of the VBF and VH hadronic values.
+    The fractions are estimated from simulated VBF and hadronic VH \Hgg events 
+    within the region $|y_H| < 2.5$.
+    Details of the simulated samples can be found in Section~\ref{chap:objects}.
+    Each bin is exclusive; all bins except the BSM bin 
+    are required to have the leading jet $\pt < 200$ GeV.
+    }
+    \label{tab:cat_VBFfractions}
+  \end{centering}
+\end{table}
+
+Different categorisation scenarios are considered for the VBF process.
+Ideally categories would be constructed to target each stage 1 bin.
+However, the experimental sensitivity to the BSM-like, VH-like, and VBF rest bins is limited.
+Care is therefore taken not reduce the sensitivity to inclusive VBF production when designing 
+the categories for each of these categories.
+
+The bins which can be most precisely measured are the 2J-like and 3J-like VBF bins.
+In addition to migrations between the categories targeting each bin, 
+there is substantial contamination from events with two jets arising from ggH production.
+For this reason the dijet BDT is trained to discriminate between ggH and VBF events.
+The categorisation is then performed using the detector level versions 
+of the quantities used to define the bins: \mjj, \ptHjj, and leading jet \pt, 
+before the dijet and diphoton BDTs are used 
+to reduce the respective number of ggH and background events entering the categories.
+
 \subsection{Dijet BDT}
 \subsection{Category definitions}
