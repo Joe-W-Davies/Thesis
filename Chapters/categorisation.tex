@@ -29,7 +29,7 @@ As well as facilitating measurements of cross sections corresponding
 to individual production mechanisms, these dedicated categories also enable the S/B to be improved.
 
 In the previous \Hgg analysis using the 2016 dataset \cite{HIG-16-040}, 
-dedicated categories targeting the VBF, ttH, and VH modes were construced, 
+dedicated categories targeting the VBF, ttH, and VH modes were constructed, 
 with the remaining so-called ``Untagged" categories composed mostly of ggH events.
 Here a similar approach is employed, 
 but with additional divisions targeting individual stage 1 bins for the ggH and VBF processes.
@@ -52,7 +52,7 @@ the analysis is optimised separately for the 2016 and 2017 datasets.
 A simultaneous fit to the categories from both years is then performed to estimate the 
 values of the parameters of interest and their uncertainties (described in Chapter ~\ref{chap:results}).
 The remainder of this chapter describes in detail the training of the diphoton and dijet BDTs, 
-and their use in the cateogory optimisation process for both ggH and VBF events
+and their use in the category optimisation process for both ggH and VBF events
 
 \section{Gluon fusion categorisation}
 \subsection{Signal bin definitions}
@@ -175,7 +175,6 @@ a per-event estimate of the diphoton mass resolution,
 and the photon identification scores of each photon.
 The set of input variables is chosen such that the value of the Higgs boson mass cannot be inferred;
 it is for this reason that the photon momenta are divided by the diphoton mass.
-%TODO add a sentence later saying that it's checked no mass bias is introduced.
 The full list of input variables is as follows:
 \begin{itemize}
 \item the transverse momentum of each photon, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
@@ -187,7 +186,7 @@ The full list of input variables is as follows:
 \item the per-event relative mass resolution estimate, 
       under the hypothesis that the mass was computed using an incorrect primary vertex \swv/\mgg;
 \item the per-event probability estimate that the correct primary vertex was selected, $p_{vtx}$,
-      which is the output of the vertex probabilty BDT described in Chapter~\ref{chap:objects};
+      which is the output of the vertex probability BDT described in Chapter~\ref{chap:objects};
 \end{itemize}
 
 The per-event relative mass resolution under the correct vertex hypothesis 
@@ -219,10 +218,10 @@ and combined in quadrature with \srv to calculate \swv:
 An example of the distribution for one of the input kinematic variables, the lead photon $\pt/\mgg$, 
 is shown in Figure~\ref{fig:cat_ptominput}.
 The background, split into its prompt--prompt, prompt--fake, and fake--fake components, 
-is compared to the data sidebands (region with 115 < \mgg < 135 GeV excluded).
+is compared to the data sidebands (region with $115 < \mgg < \SI{135}{GeV}$ excluded).
 Good agreement between the two is observed.
 
-%TODO put plots in https://escott.web.cern.ch/escott/FinalFits/Stage1STXS/Pass2/2016/inputPlots/
+%TODO add signal line to these plots
 \begin{figure}[hptb]
 \centering
 \includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2016.pdf}
@@ -249,17 +248,17 @@ The weight applied, $w_{res}$, is given by the formula
 This ensures that the classifier output score is higher for events 
 which have a relatively low expected diphoton mass resolution.
 Finally, the signal and background samples are divided into a training and a test set,
-cotaining 70\% and 30\% of the total number of events respectively.
+containing 70\% and 30\% of the total number of events respectively.
 With this configuration of input variables, signal and background events, and event weights, 
-the classifier is trained and its performance evaluated using the XGBoost package~\cite{XGBoost}.
+the classifier is trained and its performance evaluated using the XGBoost software package~\cite{XGBoost}.
 
-The performance of the training is evaluated using a receiver operating chararteristic (ROC) curve, 
+The performance of the training is evaluated using a receiver operating characteristic (ROC) curve, 
 where the signal efficiency is plotted as a function of the background efficiency,
 with each point corresponding to a specific threshold value placed on the classifier output score.
 The area under the ROC curve is used to gauge the performance of a given classifier; 
 a higher area corresponds to more effective discrimination between signal and background.
-
-%TODO add some ROC curve and feature importance plots here.
+For the 2016 and 2017 trainings, the areas under the respective ROC curves are 0.77 and 0.78.
+%TODO update these numbers
 
 This metric is utilised to compare the performance of the classifier training 
 with different values of the BDT's so-called hyper-parameters.
@@ -268,10 +267,10 @@ which are not learned but instead affect how the learning algorithm behaves.
 The most important hyper-parameters affect the extent to which 
 the algorithm learns the specific detail of the training sample provided.
 If a classifier has learnt features from the training set inputs
-which are due solely to statistical fluctation and not a more general feature of the signal, 
+which are due solely to statistical fluctuations and not a more general feature of the signal, 
 over-training can result.
 To check for potential over-training, the training score as measured by area under the ROC curve 
-of the trainign set is compared with the score from the independent test set.
+of the training set is compared with the score from the independent test set.
 If the test set score is significantly higher than that of the training set, 
 the classifier has been over-trained.
 The default classifier hyper-parameters display no overtraining.
@@ -291,19 +290,180 @@ such that the total sum of weights for signal and background is equal.
 This is purely as a technical change to the training 
 designed to improve the learning outcomes of the classifier.
 When evaluating the performance, the default event weights are used.
-Equalsing the total weights in this way results in a modest improvement in performance.
+Equalising the total weights in this way results in a modest improvement in performance.
 The areas under the ROC curves become 0.80 and 0.82 for the 2016 and 2017 datasets respectively.
+%TODO update these numbers
 The improvement is relatively small, 
 but is however larger than the variation 
 in training performance induced by either changing the random seed used for training or 
 choosing different subsets of the input data for training and testing.
 Therefore we choose to use this training scenario for the final classification.
 The hyper-parameter optimisation procedure was repeated 
-and again no significant improvement was obtained.
+and no significant improvement was obtained.
 
-%TODO add rationale for validation and Zee plots here
+The ROC curves for the two different event weighting scenarios are shown in Figure~\ref{fig:cat_ROCs}.
+It is evident that the scenario with equalised weights has slightly superior performance.
+In addition, the relative importance of each feature is shown in Figure~\ref{fig:cat_importance}.
+This plot serves as validation that the classifier is learning 
+sensible features of the input dataset.
+%TODO add ROC curve and feature importance plots here.
+
+Validation of the diphoton BDT is performed using \Zee events, 
+where simulated Drell-Yan events are compared with data.
+This validation is important because although the background model used in the analysis 
+is entirely data-driven, the signal model is taken from simulation.
+Therefore it is necessary to ensure that there is reasonable agreement 
+between data and simulation for signal-like objects,
+for both the inputs to the diphoton BDT and the output score itself.
+In this \Zee control region, the electrons are reconstructed as photons, 
+and the presence of an electron pair with invariant mass $80 < m_{ee} < \SI{100}{GeV}$ is required.
+Otherwise the event selection is the same as the analysis selection for diphoton events, 
+except for the additional requirement that the leading electron $\pt > \SI{40}{GeV}$.
+This requirement is necessary to ensure that no bias is introduced by the electron trigger, 
+which has selection thresholds at $\pt = \SI{32}{GeV}~(\SI{35}{GeV})$ for 2016 (2017) data.
+
+Figure~\ref{fig:cat_diphoBDT} shows the output score of the diphoton BDT for data and simulation.
+The effect of two systematic uncertainties which affect the diphoton BDT are included;
+these are the shift in the photon identification BDT score, 
+and the uncertainty on the photon energy resolution.
+Good agreement is observed between the data and simulation in both years, 
+with all discrepancies covered by the statistical and systematic uncertainties.
+
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=0.7\textwidth]{Figures/Categorisation/DiphoBDT_2016.pdf}
+\includegraphics[width=0.7\textwidth]{Figures/Categorisation/DiphoBDT_2017.pdf}
+\caption{
+  Score of the diphoton BDT in $\Zee$
+  events where the electrons are reconstructed as photons.
+  The points show the score for data, the histogram shows
+  the score for simulated Drell--Yan events, including statistical and 
+  systematic uncertainties (pink band).
+  The top plot shows 2016 data and MC,
+  with 2017 data and MC on the bottom.
+}
+\label{fig:cat_diphoBDT}
+\end{figure}
 
 \subsection{Category definitions}
+
+Once the diphoton BDT has been constructed, 
+a category optimisation procedure can be performed for each Stage 1 bin independently.
+The reconstructed number of jets and \ptgg defines the category type into which a a given event falls.
+Then, independently for each category type, 
+an optimisation procedure is performed to define diphoton BDT boundaries 
+for a given number of subcategories.
+The Approximate Mean Significance (AMS) is used to define the figure of merit for the optimisation.
+The value of the AMS metric corresponds to the expected significance of a signal 
+from the likelihood ratio statistic for a simple counting experiment, 
+neglecting the impact of systematic uncertainties.
+Its derivation is outlined in Ref~\cite{Asymptotic}.
+The aim of this analysis is not to maximise the significance of each stage 1 bin.
+Maximising the AMS is instead a proxy for minimising the expected uncertainty for a given bin.
+The formula for the AMS is given by 
+
+\begin{equation*}
+  AMS = \sqrt{ 2 \left( (S+B) \ln{\left(1+\frac{S}{B}\right)} - S \right) }
+\end{equation*}
+
+where $S$ is 68\% (corresponding to $\pm 1\sigma_{eff}$) of the number of signal events 
+from the desired truth bin (not the total number of signal events), and $B$ is the background.
+The value of B is calculated by performing an exponential fit to the background, 
+and then integrating the number of events between $125 - \sigma_{eff} < \mH < 125 + \sigma_{eff}$.
+This formula reduces to $S/\sqrt{S+B}$ in the limit of small $S/B$.
+Results are found to be robust to the choice of metric; 
+only in bins with a very low number of events (e.g. the BSM bins) 
+does the AMS metric return different optimal diphoton BDT boundaries from the $S/\sqrt{S+B}$ metric, 
+and then the differences are relatively small.
+
+The optimisation procedure itself is performed using a random search. 
+This is found to be more computationally efficient than a grid search.
+After the diphoton BDT boundaries have been established, 
+a cross-check is performed to ensure that a sensible minimum has been found.
+This is done by scanning the diphoton BDT value individually for each category type and each boundary; 
+if a slightly better performing point is found in the vicinity, 
+it replaces the value returned by the random search.
+In general, the results of the random search are found to be robust.
+
+This optimisation process is repeated for different numbers of categories.
+No improvement beyond two categories per target STXS bin is observed, 
+except for the 0J bin, which requires three categories.
+The boundaries chosen and the expected number of signal and background events, 
+together with the expected significance, 
+are shown in Table~\ref{tab:cat_ggHsignificance2016} and Table~\ref{tab:cat_ggHsignificance2017} 
+for 2016 and 2017 simulation and data respectively.
+
+\begin{table}
+  \begin{centering}
+    \begin{tabular}{ r | c | c | c | c } 
+    \hline 
+    Category         & Diphoton BDT cut & Signal & Background & Significance ($\sigma$) \\
+    \hline 
+    0J Tag 0         & 0.851            & 145    & 1000       & 4.48                    \\
+    0J Tag 1         & 0.796            & 201    & 2973       & 3.64                    \\
+    0J Tag 2         & 0.586            & 238    & 9263       & 2.46                    \\
+    \hline           
+    1J low  Tag 0    & 0.832            & 36     & 462        & 1.67                    \\
+    1J low  Tag 1    & 0.718            & 45     & 1635       & 1.11                    \\
+    1J med  Tag 0    & 0.866            & 17     & 1042       & 1.60                    \\
+    1J med  Tag 1    & 0.749            & 39     & 7755       & 1.38                    \\
+    1J high Tag 0    & 0.908            & 5.5    & 18         & 1.14                    \\
+    1J high Tag 1    & 0.810            & 6.6    & 112        & 0.61                    \\
+    1J BSM  Tag 0    & 0.917            & 3.0    & 7.4        & 0.89                    \\
+    \hline           
+    GE2J low  Tag 0  & 0.833            & 4.8    & 142        & 0.39                    \\
+    GE2J low  Tag 1  & 0.709            & 6.7    & 571        & 0.28                    \\
+    GE2J med  Tag 0  & 0.869            & 8.3    & 65         & 0.99                    \\
+    GE2J med  Tag 1  & 0.757            & 17     & 462        & 0.80                    \\
+    GE2J high Tag 0  & 0.910            & 9.1    & 33         & 1.45                    \\
+    GE2J high Tag 1  & 0.811            & 10     & 158        & 0.81                    \\
+    GE2J BSM  Tag 0  & 0.938            & 9.7    & 9.4        & 2.48                    \\
+    GE2J BSM  Tag 1  & 0.865            & 4.9    & 27         & 0.86                    \\
+    \hline 
+    \end{tabular}
+    \caption{The chosen diphoton BDT boundaries, 
+    the expected number of signal and background events, 
+    and the expected significance of each category in the ggH phase space 
+    for 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.}
+    \label{tab:cat_ggHsignificance2016}
+  \end{centering}
+\end{table}
+
+\begin{table}
+  \begin{centering}
+    \begin{tabular}{ r | c | c | c | c } 
+    \hline 
+    Category         & Diphoton BDT cut & Signal & Background & Significance ($\sigma$) \\
+    \hline 
+    0J Tag 0         & 0.840            & 217    & 2042       & 4.72                    \\
+    0J Tag 1         & 0.769            & 250    & 5063       & 3.49                    \\
+    0J Tag 2         & 0.615            & 201    & 9669       & 2.03                    \\
+    \hline                                                                              
+    1J low  Tag 0    & 0.817            & 41     & 676        & 1.58                    \\
+    1J low  Tag 1    & 0.652            & 42     & 2466       & 0.84                    \\
+    1J med  Tag 0    & 0.881            & 8.5    & 45         & 1.18                    \\
+    1J med  Tag 1    & 0.760            & 43     & 872        & 1.46                    \\
+    1J high Tag 0    & 0.910            & 5.5    & 20         & 1.10                    \\
+    1J high Tag 1    & 0.824            & 7.6    & 109        & 0.71                    \\
+    1J BSM  Tag 0    & 0.775            & 4.9    & 1.2        & 2.02                    \\
+    \hline                                                                              
+    GE2J low  Tag 0  & 0.861            & 1.9    & 44         & 0.27                    \\
+    GE2J low  Tag 1  & 0.709            & 8.0    & 649        & 0.31                    \\
+    GE2J med  Tag 0  & 0.835            & 11     & 177        & 0.87                    \\
+    GE2J med  Tag 1  & 0.786            & 6.9    & 10         & 1.74                    \\
+    GE2J high Tag 0  & 0.916            & 6.3    & 24         & 1.17                    \\
+    GE2J high Tag 1  & 0.815            & 10     & 163        & 0.78                    \\
+    GE2J BSM  Tag 0  & 0.901            & 11     & 23         & 2.15                    \\
+    GE2J BSM  Tag 1  & 0.596            & 3.0    & 1.8        & 1.25                    \\
+    \hline 
+    \end{tabular}
+    \caption{The chosen diphoton BDT boundaries, 
+    the expected number of signal and background events, 
+    and the expected significance of each category in the ggH phase space 
+    for 2017 simulation and data, assuming an integrated luminosity of \SI{41.5}{\fbinv}.}
+    \label{tab:cat_ggHsignificance2017}
+  \end{centering}
+\end{table}
 
 \section{Vector boson fusion categorisation}
 \subsection{Signal bin definitions}
