@@ -164,7 +164,11 @@ and VH production modes are treated as signal.
 %Something about using powheg here.
 Simulated background events include the contributions from prompt-prompt, prompt-fake, 
 and fake-fake sources.
-%And also maybe something about each sample being weighted correctly
+For both signal and background, 
+events are weighted in accordance with the SM process cross-section.
+Furthermore, events from the QCD sample are down-weighted by a factor of 25;
+the limited number of events in this sample results in very high per-event weights, 
+which causes the classifier to over-estimate the importance of individual events.
 All events are required to satisfy the analysis selection criteria.
 The input variables to the classifier are the kinematic properties of the diphoton system, 
 a per-event estimate of the diphoton mass resolution, 
@@ -182,8 +186,8 @@ The full list of input variables is as follows:
       under the hypothesis that the mass was computed using the correct primary vertex \srv/\mgg;
 \item the per-event relative mass resolution estimate, 
       under the hypothesis that the mass was computed using an incorrect primary vertex \swv/\mgg;
-\item the per-event probability estimate that the correct primary vertex was selected, 
-      using the output of the vertex probabilty BDT as described in Chapter~\ref{chap:objects};
+\item the per-event probability estimate that the correct primary vertex was selected, $p_{vtx}$,
+      which is the output of the vertex probabilty BDT described in Chapter~\ref{chap:objects};
 \end{itemize}
 
 The per-event relative mass resolution under the correct vertex hypothesis 
@@ -197,7 +201,7 @@ assuming the resolutions are independent and Gaussian distributed:
 \end{equation}
 
 where both the energy ($E_{1,2}$) and energy resolution ($\sigma_{E_{1,2}}$) estimates 
-are obtained from the regression described in Chapter\ref{chap:objects}.
+are obtained from the regression described in Chapter~\ref{chap:objects}.
 Under the incorrect vertex hypothesis, an additional term must be added to account for the 
 worsening in the diphoton mass resolution due to the uncertainty of the vertex position.
 The distance between the correct and incorrect vertices is assumed to follow a Gaussian distribution
@@ -211,6 +215,93 @@ and combined in quadrature with \srv to calculate \swv:
   \swv/\mgg = \sqrt{\left(\frac{\srv}{\mgg}\right)^{2}
                               + \left(\frac{\sigma_{vtx}}{\mgg}\right)^{2}}
 \end{equation}
+
+An example of the distribution for one of the input kinematic variables, the lead photon $\pt/\mgg$, 
+is shown in Figure~\ref{fig:cat_ptominput}.
+The background, split into its prompt--prompt, prompt--fake, and fake--fake components, 
+is compared to the data sidebands (region with 115 < \mgg < 135 GeV excluded).
+Good agreement between the two is observed.
+
+%TODO put plots in https://escott.web.cern.ch/escott/FinalFits/Stage1STXS/Pass2/2016/inputPlots/
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2016.pdf}
+\includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2017.pdf}
+\caption{
+  Distribution of the lead photon $\pt/\mgg$ in background (stacked histogram) 
+  and data (black points) events.
+  The statistical uncertainty is shown by the orange band.
+  The left plot shows 2016 data and MC,
+  with 2017 data and MC on the right.
+}
+\label{fig:cat_ptominput}
+\end{figure}
+
+None of the input variables above encode the preference for events with good mass resolution.
+For this purpose, an additional weight is applied to signal events which increases the relative 
+importance of events with better values of the diphoton mass resolution. 
+The weight applied, $w_{res}$, is given by the formula
+
+\begin{equation}
+  w_{res} = \frac{p_{vtx}}{\srv} + \frac{1-p_{vtx}}{\swv}
+\end{equation}
+
+This ensures that the classifier output score is higher for events 
+which have a relatively low expected diphoton mass resolution.
+Finally, the signal and background samples are divided into a training and a test set,
+cotaining 70\% and 30\% of the total number of events respectively.
+With this configuration of input variables, signal and background events, and event weights, 
+the classifier is trained and its performance evaluated using the XGBoost package~\cite{XGBoost}.
+
+The performance of the training is evaluated using a receiver operating chararteristic (ROC) curve, 
+where the signal efficiency is plotted as a function of the background efficiency,
+with each point corresponding to a specific threshold value placed on the classifier output score.
+The area under the ROC curve is used to gauge the performance of a given classifier; 
+a higher area corresponds to more effective discrimination between signal and background.
+
+%TODO add some ROC curve and feature importance plots here.
+
+This metric is utilised to compare the performance of the classifier training 
+with different values of the BDT's so-called hyper-parameters.
+These hyper-parameters are arbitrary parameters of the BDT, 
+which are not learned but instead affect how the learning algorithm behaves.
+The most important hyper-parameters affect the extent to which 
+the algorithm learns the specific detail of the training sample provided.
+If a classifier has learnt features from the training set inputs
+which are due solely to statistical fluctation and not a more general feature of the signal, 
+over-training can result.
+To check for potential over-training, the training score as measured by area under the ROC curve 
+of the trainign set is compared with the score from the independent test set.
+If the test set score is significantly higher than that of the training set, 
+the classifier has been over-trained.
+The default classifier hyper-parameters display no overtraining.
+A coarse hyper-parameter optimisation procedure is then performed, 
+in which each hyper-parameter is varied individually.
+No significant improvement without overtraining is found, 
+and therefore the default training parameters are used.
+
+An additional parameter which can be optimised is the relative weight 
+of the signal and background samples.
+With the default sample weights corresponding to the SM sample cross section, 
+the two classes are highly imbalanced.
+This imbalance can cause suboptimal learning in the classifier.
+To check this, the classifier is trained in a scenario 
+where the signal event weights are increased by a uniform factor, 
+such that the total sum of weights for signal and background is equal.
+This is purely as a technical change to the training 
+designed to improve the learning outcomes of the classifier.
+When evaluating the performance, the default event weights are used.
+Equalsing the total weights in this way results in a modest improvement in performance.
+The areas under the ROC curves become 0.80 and 0.82 for the 2016 and 2017 datasets respectively.
+The improvement is relatively small, 
+but is however larger than the variation 
+in training performance induced by either changing the random seed used for training or 
+choosing different subsets of the input data for training and testing.
+Therefore we choose to use this training scenario for the final classification.
+The hyper-parameter optimisation procedure was repeated 
+and again no significant improvement was obtained.
+
+%TODO add rationale for validation and Zee plots here
 
 \subsection{Category definitions}
 
