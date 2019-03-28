@@ -177,10 +177,10 @@ The set of input variables is chosen such that the value of the Higgs boson mass
 it is for this reason that the photon momenta are divided by the diphoton mass.
 The full list of input variables is as follows:
 \begin{itemize}
-\item the transverse momentum of each photon, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
-\item the pseudorapidity of each photon $\eta^{1,2}$;
+\item the transverse momentum of the two leading photons, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
+\item the pseudorapidity of the two leaing photons, $\eta^{1,2}$;
 \item the cosine of the angle between the two photons in the transverse plane, $\cos{\Delta\phi}$;
-\item the output score of the photon identification BDT for each photon;
+\item the output score of the photon identification BDT for the two leading photons;
 \item the per-event relative mass resolution estimate, 
       under the hypothesis that the mass was computed using the correct primary vertex \srv/\mgg;
 \item the per-event relative mass resolution estimate, 
@@ -539,4 +539,47 @@ before the dijet and diphoton BDTs are used
 to reduce the respective number of ggH and background events entering the categories.
 
 \subsection{Dijet BDT}
+
+The dijet BDT is trained to discriminate VBF events from both background and ggH events.
+This is made possible due to the distinctive signature of VBF events, 
+which typically have two jets with large separation in pseudorapidity and high invariant mass.
+Therefore the input variables to the dijet BDT consist of primarily of jet-related variables.
+In addition, the jets in VBF events originate from quarks, 
+whereas ggH events typically originate from gluons.
+This results in subtle differences in the internal structure of the jet objects, 
+as discussed in Chapter~\ref{chap:HGCAL}.
+The variables used there do not significantly improve the dijet BDT performance;
+however it has been shown that more sophisticated techniques using neural network classifiers
+and detailed jet image inputs can improve the performance~\cite{JackThesis}.
+The full set of input variables for the dijet BDT are:
+\begin{itemize}
+\item the transverse momentum of the two leading photons, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
+\item the transverse momentum of the two leading jets, $\pt^{j1,j2}$;
+\item the invariant mass of the dijet, \mjj;
+\item the magnitude of the difference in pseudorapidity of the two leading jets, $|\Delta\eta|$;
+\item the magnitude of the difference in azimuthal angle 
+      between the two leading jets, $|\Delta\phi_{jj}|$;
+\item the magnitude of the difference in azimuthal angle 
+      between the diphoton and dijet, $|\Delta\phi_{\gamma\gamma,jj}|$;
+\item the minimum angular separation between either of the two leading photons 
+      and either of the two leading jets, $\Delta R_{\textrm{min}}(\gamma,j)$;
+\item the centrality variable, which is given by:
+\begin{equation}
+C_{\gamma\gamma} = \mathrm{exp}\left(-\frac{4}{(\eta_{j1} - \eta_{j2})^{2}}\left( \eta_{\gamma\gamma} - \frac{\eta_{j1} + \eta_{j2}}{2} \right)^{2}\right)
+\end{equation}
+where $\eta_{j1}$ and $\eta_{j2}$ are the pseudorapidities of the 
+leading and subleading jets respectively.
+\end{itemize}
+
+%TODO describe what was done in the past with the fully MC inputs here
+%including discussion of the issues and why they result in suboptimal results
+%don't forget the different preselections, and full definition of what we use now
+
+%TODO go on to describe the data-driven replacement method here
+%including full details of how it works, its validation and improvement it brings
+
 \subsection{Category definitions}
+
+%TODO here discuss the previous approach with the combined BDT, its inputs, rationale etc
+%then go on to describe the different scenarios considered, and their (dis)advantages
+%once the optimal scheme is identified, give the final tag definitions

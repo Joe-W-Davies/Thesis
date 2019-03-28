@@ -1295,3 +1295,10 @@ year = "1998"
       primaryClass   = "physics.data-an",
       SLACcitation   = "%%CITATION = ARXIV:1007.1727;%%"
 }
+
+@phdthesis{JackThesis,
+  author       = {Jack Wright}, 
+  title        = {Study of higgs boson production through vector boson fusion at the CMS experiment using a dense convolutional neural network},
+  school       = {Imperial College London},
+  year         = 2018,
+}
