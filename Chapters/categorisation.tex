@@ -161,7 +161,9 @@ since this reduces the amount of background present under the signal peak.
 
 To train the diphoton BDT, simulated events from the ggH, VBF, ttH 
 and VH production modes are treated as signal. 
-%Something about using powheg here.
+The event generator used for training the BDT (powheg) is different from that used to construct
+the final signal model.
+This ensures that the final results are not biased by re-using the same events
 Simulated background events include the contributions from prompt-prompt, prompt-fake, 
 and fake-fake sources.
 For both signal and background, 
@@ -575,6 +577,49 @@ leading and subleading jets respectively.
 %including discussion of the issues and why they result in suboptimal results
 %don't forget the different preselections, and full definition of what we use now
 
+In previous versions of the analysis \cite{HIG-16-040}, 
+both the signal and background for the dijet BDT training have been taken directly from simulation. 
+However there are a limited number of events in the prompt-fake and fake-fake backgrounds
+which pass the analysis preselection, 
+and this problem is exacerbated by applying additional requirements on the dijet system.
+%Have a go at explaining why here?
+Consequently, there are few events with which to train the dijet BDT, 
+and those events which are present have an extremely high cross-section.
+This results in multiple issues that reduce the effectiveness of the dijet BDT.
+If these high-weight events are included in the training, 
+the classifier assigns too much importance to specific instances 
+and does not succesfully learn generalised features of the input datasets.
+Attempts have been made to mitigate this, 
+the first of which is to reduce the weight of the QCD events by a factor of 25.
+In addition, the VBF preselection is loosened in 
+order to include more events in the training.
+The standard VBF preselection consists of the analysis preselection 
+with the additional requirements of $\pt > 40 (30)$ GeV for the leading (subleading) jet, 
+$\mjj > \SI{250}{GeV}$ and photon identification BDT score of greater than -0.2 for both photons.
+The loosened version reduces the \pt thresholds by \SI{10}{GeV} each, 
+the \mjj threshold to \SI{100}{GeV}, and removes the tighter photon identification requirement.
+This slightly improves the training performance; 
+however the background rejection is still suboptimal 
+due to the change in phase space and reduction in event weights.
+Furthermore, this makes the simulation very difficult to validate against data
+since the distributions are highly discontinuous.
+An illustration of the effect is shown in Figure~\ref{fig:cat_lowstats}, 
+which shows the output of the dijet BDT in the previous analysis~\cite{HIG-16-040}.
+
+An alternative solution to this problem is to use events from a data control region 
+to replace the MC samples with low numbers of events.
+This method is used for the first time in this analysis;
+the outline of the procedure is as follows:
+\begin{itemize}
+\item Define a control region by inverting the photon identification BDT requirement 
+      for events entering the VBF signal region;
+\item Use simulation to compute the relative fraction of events in the signal region and control region, 
+      for each photon, as a function of the photon kinematics;
+\item Apply these factors as event weights to the data in the control region 
+      and use these events to replace the simulation of prompt-fake and fake-fake events in the training.
+\end{itemize}
+The details of this procedure are described below.
+
 %TODO go on to describe the data-driven replacement method here
 %including full details of how it works, its validation and improvement it brings
 
@@ -583,3 +628,59 @@ leading and subleading jets respectively.
 %TODO here discuss the previous approach with the combined BDT, its inputs, rationale etc
 %then go on to describe the different scenarios considered, and their (dis)advantages
 %once the optimal scheme is identified, give the final tag definitions
+
+In previous versions of the analysis, 
+the categories targeting VBF were defined using the so-called ``combined BDT".
+The combined BDT is designed to incorporate both the dijet and diphoton information 
+in order to optimally construct the VBF categories.
+Its input variables are:
+\begin{itemize}
+\item the diphoton BDT score
+\item the dijet BDT score
+\item the transverse momentum of the two leading photons, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
+\end{itemize}
+The combined BDT is trained with VBF against the three sources of SM background, 
+using simulated events in each case.
+Gluon fusion is not included in the training because it is found to worsen the performance 
+of the combined BDT to reject true background.
+Since these backgrounds have a greater impact on the final sensitivity 
+than the contamination from other signal processes, 
+this is considered a higher priority.
+However it does mean that the ggH rejection of the combined BDT can be sub-optimal.
+Here the efficacy of the combined BDT is combined with the more direct approach of 
+defining the VBF categories by imposing thresholds on the diphoton and dijet BDT scores directly.
+
+In addition, different possible categorisation scenarios are considered.
+In Ref~\cite{HIG-16-040}, three inclusive categories are defined using the combined BDT.
+For this analysis, further splitting using kinematic variables is required 
+if the different VBF stage 1 bins are to be measured individually.
+%However it is found that optimising for each stage 1 bin independently, 
+%considering only one stage 1 bin as signal in each case, 
+%reduces the overall sensitivity to the VBF process.
+%Therefore when comparing different categorisation scenarios,
+When comparing different categorisation scenarios,
+the figure of merit considered is the total VBF significance, 
+computed using the AMS metric with all VBF bins considered as signal.
+Scenarios with additional splits following the stage 1 bin definitions 
+will then be considered preferable, 
+provided they do not substantially reduce the overall VBF significance.
+The list of scenarios considered is as follows:
+\begin{itemize}
+\item list scenarios here
+\end{itemize}
+
+A random optimisation procedure is followed for each scenario considered, 
+using the same methodology as for the ggH categories.
+In the case of the approach applying only thresholds on the diphoton and dijet BDT output scores, 
+the values of the thresholds on the two BDTs are optimised simultaneously for each category.
+The resulting significance values of each scenario for the 2016 and 2017 datasetsis 
+are shown in Tables~\ref{tab:cat_VBFscenarios2016} and \ref{tab:cat_VBFscenarios2017} respectively.
+The performance of the combined BDT approach is compared with the approach using the diphoton 
+and dijet BDT scores directly in each case.
+The results demonstrate that there is no substantial reduction in the overall VBF significance
+when the most granular categorisation scenario is optimised in this way;
+it is therefore considered the best scenario for facilitating measurements of individual stage 1 bins.
+
+Tables~\ref{tab:cat_VBFcuts2016} and \ref{tab:cat_VBFcuts2016} show the final thresholds 
+for the diphoton and dijet BDTs in each category, 
+together with the expected number of signal and background events and the per-category significance.
