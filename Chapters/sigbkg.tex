@@ -13,9 +13,70 @@ The data-driven background model considers a range of different functional forms
 represent the smoothly falling background scectrum, 
 following the approach described in Ref~\cite{Envelope}.
 The construction of both the signal and background models is described in detail in this chapter.
-In addition, the treatment of systematatic uncertainties affecting the two models is discussed here.
+In addition, the treatment of systematatic uncertainties affecting the two models is discussed.
 
 \section{Signal modelling}
+
+The signal model is a parametric function of \mH which describes the shape of the \mgg distribution, 
+together with the expected normalisation of this shape.
+An independent model is constructed for each stage 1 bin in each analysis category
+Additionally, since the \mgg shape depends on whether the right vertex (RV) 
+or wrong vertex (WV) has been chosen, the model for each of these cases is constructed separately.
+
+Each model consists of a sum of up to five Gaussian functions.
+The number of Gaussian functions required depends on the shape of the \mgg spectrum 
+and the available MC statistics.
+Alternative functional parameterisations have been studied, 
+such as the sum of a Gaussian function to represent the core of the \mgg distribution 
+and an exponential to model each tail \cite{LouieThesis}.
+This alternative parameterisation yields very similar signal models to the sum of Gaussian functions, 
+and the final results are unaffected.
+
+The parameters of the Gaussian functions are determined by performing a fit 
+to the simulated \mgg distribution for each model.
+In order to account for the fact that the mass of the Higgs boson is not known exactly, 
+the model constructed is a continuous parametric function of \mH.
+The dependence on \mH is determined by simultaneously fitting events simulated with 
+three values of \mH: 120, 125, and \SI{130}{GeV}.
+Each parameter of each Gaussian function is represented as a linear function of \mH; 
+the shape of each model then consists of $2\left(3N_{\textrm{Gaus}}-1\right)$ parameters, 
+where $N_{\textrm{Gaus}}$ is the chosen number of Gaussian functions.
+The values of these parameters are all established by the simultaneous fit across mass points.
+
+%TODO insert interpolation figure here
+
+In some cases, there is an insufficient number of simulated events available for a given stage 1 bin, 
+analysis category and vertex scenario combination. %this is set at 200
+The shape is then replaced by that of the stage 1 bin 
+which has the highest expected yield in the category under consideration.
+This replacement procedure is motivated by the fact that events subject to the same selection
+tend to have similar values of the diphoton mass resolution.
+
+After each model has been constructed, the shapes from the RV and WV scenarios are combined.
+The fraction of events in which the correct vertex is chosen 
+is also described by a linear function of \mH; 
+once determined, this is used to assign the correct normalisations for the RV and WV models.
+
+%TODO insert proc x cat signal model figure here
+
+For each category, 
+the models corresponding to the contributions from each stage 1 bin are then summed.
+To normalise the contribution from each stage 1 bin correctly, 
+the total number of expected events for each stage 0 process is obtained 
+using the cross-sections and \Hgg branching ratio from Ref.~\cite{YR4}, 
+\footnote{The exception is ggH, 
+for which the latest calculations at N3LO are used \cite{Anastasiou2016,Anastasiou2017}.}
+and the measured intergrated luminosity in data.
+The fraction of each stage 1 bin is then taken from the simulated events for each stage 0 process.
+Finally, the product of the detector efficiency and analysis acceptance 
+is modelled as a linear function of \mH, 
+determined by the ratio of the total number of expected events 
+to the number of events entering each analysis category.
+Together these allow the total signal model for each category to be computed.
+
+%TODO insert cat signal model figure here
+
+%TODO insert sum of cats
 
 \section{Background modelling}
 

@@ -1298,7 +1298,15 @@ year = "1998"
 
 @phdthesis{JackThesis,
   author       = {Jack Wright}, 
-  title        = {Study of higgs boson production through vector boson fusion at the CMS experiment using a dense convolutional neural network},
+  title        = {Study of Higgs boson production through vector boson fusion at the CMS experiment using a dense convolutional neural network},
   school       = {Imperial College London},
   year         = 2018,
+}
+
+@phdthesis{LouieThesis,
+  author       = {Louie Corpe}, 
+  title        = {Study of Higgs boson production through its decay to two photons 
+  using data collected at a centre-of-mass energy of 13 TeV with the CMS detector},
+  school       = {Imperial College London},
+  year         = 2017,
 }
