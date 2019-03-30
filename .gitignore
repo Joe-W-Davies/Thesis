@@ -5,6 +5,7 @@
 *.out
 *.toc
 *.cut
+*.DS_Store
 
 .texpadtmp/
 Resources/

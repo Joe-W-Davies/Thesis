@@ -1029,7 +1029,7 @@ year = "1998"
 @article{Envelope,
       author         = "Dauncey, P. D. and Kenzie, M. and Wardle, N. and Davies,
                         G. J.",
-      title          = "{Handling uncertainties in background shapes}",
+      title          = "{Handling uncertainties in background shapes: the discrete profiling method}",
       journal        = "JINST",
       volume         = "10",
       year           = "2015",
