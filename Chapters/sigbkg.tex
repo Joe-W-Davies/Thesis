@@ -278,3 +278,28 @@ in the latter case depending on whether the uncertainty is varied in the up or d
 \subsection{Experimental uncertainties}
 
 \subsection{Correlation of uncertainties}
+
+Since the analysis inputs and category definitions are constructed independently 
+for the 2016 and 2017 datasets, %ie add in quadrature or linearly, assuming no constraint
+the uncertainties affecting each year can either be chosen to be correlated or uncorrelated.
+If an uncertainty is deemed to be correlated, 
+then there is only one nuisance parameter in the final fit 
+whose value will affect both the 2016 and 2017 categories.
+Otherwise, if the uncertainties are uncorrelated, there is a separate nuisance parameter for each year 
+and the impact on the categories from each year is independent.
+
+In this analysis, 
+all the sources of theory systematic uncertainties are taken to be correlated between years.
+In most cases this is clearly the correct treatment, %only e.g. UEPS which might not be
+since the underlying theory predictions are the same for each year 
+and independent of the data-taking conditions.
+For the experimental uncertainties,
+most uncertainties are left uncorrelated.
+This is motivated by the fact that both the data-taking conditions 
+and the reconstruction vary between the two years.
+An exception is the uncertainty on the photon identification BDT output, 
+which is kept correlated because the uncertainty prescription is identical for both years.
+The final results were also computed with all the experimental uncertainties taken to be correlated, 
+and confirmed that the difference between the two correlation scenarios is minimal.
+This is in accordance with expectation, since the predominant source of uncertainty 
+in all the stage 1 measurements is statistical in origin.
