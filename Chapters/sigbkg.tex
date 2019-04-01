@@ -1,5 +1,6 @@
 \chapter{Signal and background modelling}
 \label{chap:sigbkg}
+%TODO add the pre-firing here somewhere?
 
 \section{Introduction}
 
@@ -11,7 +12,7 @@ with a model constructed for each particle level stage 1 bin in each reconstruct
 Both the shape and normalisation of the model are parameterised as a function of \mH.
 The data-driven background model considers a range of different functional forms to 
 represent the smoothly falling background spectrum, 
-following the approach described in Ref~\cite{Envelope}.
+following the approach described in Ref.~\cite{Envelope}.
 The construction of both the signal and background models is described in detail in this chapter.
 In addition, the treatment of systematatic uncertainties affecting the two models is discussed.
 
@@ -45,6 +46,7 @@ The values of these parameters are all established by the simultaneous fit acros
 An example of the evolution of signal model shapes as a function of \mH, 
 for the ggH 0J bin the 0J Tag 0 category, is shown in Figure~\ref{fig:sigbkg_interp}
 
+%TODO replace the unnecssary RECO in these plots
 \begin{figure}[hptb]
 \centering
 \includegraphics[width=0.49\textwidth]{Figures/SigBkg/GG2H_0J_RECO_0J_Tag0_interp_2016.pdf}
@@ -57,8 +59,9 @@ for the ggH 0J bin the 0J Tag 0 category, is shown in Figure~\ref{fig:sigbkg_int
 \label{fig:sigbkg_interp}
 \end{figure}
 
-In some cases, there is an insufficient number of simulated events available for a given stage 1 bin, 
-analysis category and vertex scenario combination. %this is set at 200
+In some cases, there is an insufficient number of simulated events available 
+to accurately model the shape for a given stage 1 bin, 
+analysis category and vertex scenario combination. %threshold on nEvents set at 200
 The shape is then replaced by that of the stage 1 bin 
 which has the highest expected yield in the category under consideration.
 This replacement procedure is motivated by the fact that events subject to the same selection
@@ -180,27 +183,28 @@ In principle, all functions which provide a sufficiently good fit to the observe
 in data could be included in the discrete profiling method.
 To apply the method in practice, 
 four different families of functions representing smoothly falling distributions are considered.
-These groups are, for an $N$-parameter function with parameters $p_0, p_1, ..., p_N$ to be determined: 
+These groups, 
+for an $N$-parameter function with parameters $p_0, p_1, ..., p_N$ to be determined, are: 
 \begin{itemize}
 \item Sum of exponential functions, where
 \begin{equation*}
-f\left(x\right) = \sum_{i=0}^{N} p_{2i}\exp{\left(p_{2i+1}x\right)}
+f_N(x) = \sum_{i=0}^{N} p_{2i}\exp{\left(p_{2i+1}x\right)}
 \end{equation*}
 \item Sum of power law functions, where
 \begin{equation*}
-f\left(x\right) = \sum_{i=0}^{N} p_{2i}x^{-p_{2i+1}}
+f_N(x) = \sum_{i=0}^{N} p_{2i}\,x^{-p_{2i+1}}
 \end{equation*}
 \item Bernstein polynomials, where
 \begin{equation*}
-f\left(x\right) = \sum_{i=0}^{N} p_{i}\binom{N}{i}x^{i}\left(1-x\right)^{N-i}
+f_N(x) = \sum_{i=0}^{N} p_{i}\binom{N}{i}x^{i}\left(1-x\right)^{N-i}
 \end{equation*}
 \item Laurent series, where
 \begin{equation*}
-f\left(x\right) = \sum_{i=0}^{N} p_{i}x^{-4 + L\left(i\right)},
+f_N(x) = \sum_{i=0}^{N} p_{i}\,x^{-4 + L(i)},
 \end{equation*}
 with
 \begin{equation*}
-L\left(i\right) = \sum_{j=0}^{i}(-1)^j j
+L(i) = \sum_{j=0}^{i}(-1)^j j
 \end{equation*}
 \end{itemize}
 
@@ -232,7 +236,9 @@ when integrating under the signal peak.
 \includegraphics[width=0.49\textwidth]{Figures/SigBkg/allPdfs_RECO_1J_PTH_120_200_Tag0_2016.pdf}
 \includegraphics[width=0.49\textwidth]{Figures/SigBkg/allPdfs_RECO_1J_PTH_120_200_Tag0_2017.pdf}
 \caption{
-The functions chosen for consideration in the final fit for the 1J high Tag 0 category.
+The functions chosen for consideration in the final fit for the 1J high Tag 0 category, 
+with the blinded data (black points), 
+where the points with $115 < \mgg < \SI{135}{GeV}$ are not shown.
 The left plot shows 2016 data, with 2017 data on the right.
 }
 \label{fig:sigbkg_functions}
@@ -243,13 +249,32 @@ All parameters of each function are free to vary and determined in the fit.
 As for the F-test above, 
 a regularisation term is added to the 2NLL for each parameter in the chosen function.
 This serves to penalise unnecessary complexity, 
-and prevents over-fitting of statistical fluctuations observed in data.
+and prevents over-fitting of statistical fluctuations observed in data. %not really true - all smoothly falling...
 Further details of the discrete profiling method, 
 including studies of the bias and coverage,
-are contained within Ref~\cite{Envelope}.
+are contained within Ref.~\cite{Envelope}.
 
 \section{Systematic uncertainties}
+
+In this analysis, the systematic uncertianty associated with the data-driven background estimation 
+is handled using the discrete profiling method, as described above.
+There are many systematic uncertainties which affect the signal model; 
+these are handled in one of two ways.
+Uncertainties which modify the shape of the \mgg distribution are incorporated into the signal model
+as nuisance parameters, where the mean and width of each Gaussian function can be affected.
+These uncertainties are typically experimental uncertainties 
+relating to the energy of the individual photons. 
+If the shape of the \mgg distribution is unaffected, 
+the uncertainty is treated as a log-normal variation in the event yield.
+These uncertainties include theory sources
+and experimental uncertainties such as those affecting the BDTs used for categorising events.
+The magnitude of each uncertainty's impact is determined individually 
+for each stage 1 bin in each analysis category.
+For log-normal nuisances the impact can be either symmetric or asymmetric,
+in the latter case depending on whether the uncertainty is varied in the up or down direction.
 
 \subsection{Theoretical uncertainties}
 
 \subsection{Experimental uncertainties}
+
+\subsection{Correlation of uncertainties}
