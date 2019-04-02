@@ -276,7 +276,7 @@
 }
 
 
-@techreport{LumiUncert,
+@techreport{Lumi2016,
       title         = "{CMS Luminosity Measurements for the 2016 Data Taking
                        Period}",
       institution   = "CERN",
@@ -286,6 +286,18 @@
       year          = "2017",
       reportNumber  = "CMS-PAS-LUM-17-001",
       url           = "https://cds.cern.ch/record/2257069",
+}
+
+@techreport{Lumi2017,
+      title         = "{CMS luminosity measurement for the 2017 data-taking
+                       period at $\sqrt{s} = 13~\mathrm{TeV}$}",
+      institution   = "CERN",
+      collaboration = "CMS Collaboration",
+      address       = "Geneva",
+      number        = "CMS-PAS-LUM-17-004",
+      year          = "2018",
+      reportNumber  = "CMS-PAS-LUM-17-004",
+      url           = "https://cds.cern.ch/record/2621960",
 }
 
 @article{StewartTackmann,
@@ -989,6 +1001,17 @@ year = "1998"
   year={2015}
 }
 
+@techreport{JetsInRun2,
+      title         = "{Jet algorithms performance in 13 TeV data}",
+      institution   = "CERN",
+      collaboration = "CMS Collaboration",
+      address       = "Geneva",
+      number        = "CMS-PAS-JME-16-003",
+      year          = "2017",
+      reportNumber  = "CMS-PAS-JME-16-003",
+      url           = "https://cds.cern.ch/record/2256875",
+}
+
 @techreport{PAS2016,
       title         = "{Measurements of properties of the Higgs boson in the
                        diphoton decay channel with the full 2016 data set}",
@@ -1013,12 +1036,16 @@ year = "1998"
 }
 
 @article{HIG-16-040,
-      author         = "Sirunyan, Albert M and others",
+      author         = "Sirunyan, A. M. and others",
       title          = "{Measurements of Higgs boson properties in the diphoton
                         decay channel in proton-proton collisions at $\sqrt{s} =$
                         13 TeV}",
       collaboration  = "CMS",
+      journal        = "JHEP",
+      volume         = "11",
       year           = "2018",
+      pages          = "185",
+      doi            = "10.1007/JHEP11(2018)185",
       eprint         = "1804.02716",
       archivePrefix  = "arXiv",
       primaryClass   = "hep-ex",
@@ -1041,6 +1068,20 @@ year = "1998"
       primaryClass   = "physics.data-an",
       SLACcitation   = "%%CITATION = ARXIV:1408.6865;%%"
 }
+
+@article{YR3,
+      author        = "Heinemeyer, S. and others",
+      title         = "{Handbook of LHC Higgs cross sections: 3. Higgs
+                       Properties}",
+      collaboration = "LHC Higgs Cross Section Working Group", 
+      doi           = "10.5170/CERN-2013-004",
+      year          = "2013",
+      eprint        = "1307.1347",
+      archivePrefix = "arXiv",
+      reportNumber  = "CERN-2013-004",
+      url           = "http://cds.cern.ch/record/1559921",
+}
+
 
 @article{YR4,
       author         = "de Florian, D. and others",

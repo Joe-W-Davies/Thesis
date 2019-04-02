@@ -14,7 +14,7 @@ The data-driven background model considers a range of different functional forms
 represent the smoothly falling background spectrum, 
 following the approach described in Ref.~\cite{Envelope}.
 The construction of both the signal and background models is described in detail in this chapter.
-In addition, the treatment of systematatic uncertainties affecting the two models is discussed.
+In addition, the treatment of systematic uncertainties affecting the two models is discussed.
 
 \section{Signal modelling}
 
@@ -46,7 +46,6 @@ The values of these parameters are all established by the simultaneous fit acros
 An example of the evolution of signal model shapes as a function of \mH, 
 for the ggH 0J bin the 0J Tag 0 category, is shown in Figure~\ref{fig:sigbkg_interp}
 
-%TODO replace the unnecssary RECO in these plots
 \begin{figure}[hptb]
 \centering
 \includegraphics[width=0.49\textwidth]{Figures/SigBkg/GG2H_0J_RECO_0J_Tag0_interp_2016.pdf}
@@ -97,7 +96,7 @@ the total number of expected events for each stage 0 process is obtained
 using the cross-sections and \Hgg branching ratio from Ref.~\cite{YR4} 
 \footnote{The exception is ggH, 
 for which the latest calculations at N3LO are used \cite{Anastasiou2015,Anastasiou2016}.},
-and the measured intergrated luminosity in data.
+and the measured integrated luminosity in data.
 The fraction of each stage 1 bin is then taken from the simulated events for each stage 0 process.
 Finally, the product of the detector efficiency and analysis acceptance 
 is modelled as a linear function of \mH, 
@@ -123,7 +122,7 @@ is shown in Figure~\ref{fig:sigbkg_cat}.
 \label{fig:sigbkg_cat}
 \end{figure}
 
-%TODO insert sum of cats
+%TODO insert sum of cats - may not be possible/easy
 
 \section{Background modelling}
 
@@ -209,13 +208,13 @@ L(i) = \sum_{j=0}^{i}(-1)^j j
 \end{itemize}
 
 Only a subset of functions from each family are considered;
-this is necessary to maintain a resonable computational efficiency for the method.
+this is necessary to maintain a reasonable computational efficiency for the method.
 For each family of functions, multiple orders can be included in the final set of candidate functions.
 A likelihood fit is performed for each order, 
 and then the procedure to decide which orders to include works as follows.
 A penalty of equal to the number of parameters in the function is added to the value of the 2NLL;
 this prevents functions of arbitrarily high order being chosen.
-First, the order is increased until a miminum goodness-of-fit threshold is reached;
+First, the order is increased until a minimum goodness-of-fit threshold is reached;
 there is no need to include functions which do not fit the data well. %threshold is 0.01 from chisq
 For each subsequent order, an F-test \cite{Fisher} is performed to gauge the size of the improvement in the fit
 quality which the increase in function complexity brings.
@@ -225,7 +224,7 @@ the difference in number of parameters between the two orders.
 If the $p$-value is below a certain threshold, %threshold value 0.05
 the higher order function is deemed to constitute a worthwhile improvement, 
 is added to the set of functions considered, and the process continues.
-Otherwise, the higher order function is not included and the procecedure is complete.
+Otherwise, the higher order function is not included and the procedure is complete.
 The different functions chosen for the 1J high Tag 0 category 
 are shown in Figure~\ref{fig:sigbkg_functions};
 it can be seen that different choices of function lead to a different number of events 
@@ -244,7 +243,7 @@ The left plot shows 2016 data, with 2017 data on the right.
 \label{fig:sigbkg_functions}
 \end{figure}
 
-In the final fit, the background function is chosen from the set of candidates as desribed above.
+In the final fit, the background function is chosen from the set of candidates as described above.
 All parameters of each function are free to vary and determined in the fit.
 As for the F-test above, 
 a regularisation term is added to the 2NLL for each parameter in the chosen function.
@@ -256,7 +255,7 @@ are contained within Ref.~\cite{Envelope}.
 
 \section{Systematic uncertainties}
 
-In this analysis, the systematic uncertianty associated with the data-driven background estimation 
+In this analysis, the systematic uncertainty associated with the data-driven background estimation 
 is handled using the discrete profiling method, as described above.
 There are many systematic uncertainties which affect the signal model; 
 these are handled in one of two ways.
@@ -275,7 +274,152 @@ in the latter case depending on whether the uncertainty is varied in the up or d
 
 \subsection{Theoretical uncertainties}
 
+The sources of theoretical uncertainties considered in this analysis are as follows:
+\begin{itemize}
+\item \textit{QCD scale uncertainty}: 
+  arising from variations of the renormalisation and factorisation scales, 
+  following the recommendations provided in Ref.~\cite{YR4}. 
+\item \textit{Uncertainty on the SM ggH production}: 
+  For ggH production, 
+  additional sources are included which account for the uncertainty in the modelling 
+  of the \ptH distributions, the number of jets in the event, 
+  and the ggH contamination in the VBF categories.
+  Two sources reflect the migration uncertainty around the \ptH bin boundaries,
+  at 60 and 120 GeV respectively; 
+  their magnitude depends on the number of jets and the \ptH in the event.
+  An additional source covers the uncertainty on \ptH 
+  arising from the treatment of the top quark mass in the ggH loop.
+  Two further sources account for the migration between the zero, one and two or more jet bins.
+  The uncertainty on the ggH production of events with a VBF-like dijet system 
+  is covered by two sources 
+  corresponding to the prediction in the two-jet-like and three-jet-like bins.
+\item \textit{PDF (parton density functions) uncertainties}:
+  the overall normalisation uncertainties are computed
+  following the PDF4LHC
+  prescription~\cite{PDF4LHC,YR3},
+  while the bin-to-bin migrations are calculated from the
+  NNPDF3.0~\cite{NNPDF3} PDF set
+  using the {\sc MC2hessian} procedure~\cite{MC2Hessian}.
+\item \textit{Uncertainty in the strong force coupling constant}: 
+  the uncertainty in the value of the strong force coupling constant $\alpha_{s}$ 
+  is included in the treatment of the PDF uncertainties, following the PDF4LHC prescription.
+\item \textit{Uncertainty in the \Hgg branching fraction}: 
+  this is estimated to be 2\%~\cite{YR4}.
+\item \textit{Underlying event and parton shower uncertainties}: 
+  these uncertainties are obtained using dedicated simulated samples 
+  where the choice and specific tune of the event generator have been modified. 
+\end{itemize}
+
+The QCD scale and PDF uncertainties impact the theoretical modelling in two ways.
+Both the overall cross section prediction for a given STXS bin, 
+and the distributions of kinematic variables used in the event selection and categorisation,
+can be affected.
+The effects on the process cross section predictions are omitted 
+when measurements of simplified template cross sections are performed,
+and are instead considered as uncertainties on the SM prediction.
+However the uncertainties on the event kinematics, 
+which affect the efficiency and acceptance of the analysis, 
+are still taken into account.
+All uncertainties are included when measurements of signal strength modifiers are performed.
+Other uncertainties which only affect the SM prediction, 
+such as the \Hgg branching fraction, 
+are also omitted from measurements of simplified template cross sections.
+
 \subsection{Experimental uncertainties}
+
+The uncertainties which affect the shape of the signal \mgg distribution are:
+\begin{itemize}
+\item \textit{Photon energy scale and resolution}: 
+  the uncertainties associated with the corrections applied to the photon energy scale in data
+  and the resolution in simulation are evaluated using \Zee events.
+  The estimate is computed by varying the regression training scheme, the \RNINE variable, 
+  and the electron selection criteria.
+\item \textit{Non-linearity of the photon energy scale}: 
+  a further source of uncertainty covers possible remaining differences in the linearity 
+  of the photon energy scale between data and simulation.
+  The uncertainty is estimated using boosted \Zee events.
+\item \textit{Modelling of electromagnetic showers}: 
+  this uncertainty accounts for the imperfect knowledge of electromagnetic showering processes.
+  The size of the effect is estimated by changing the model used to generate 
+  the bremsstrahlung energy spectrum, which can modify the photon and electron energy scales.
+\item \textit{Shower shape corrections}: 
+  an uncertainty on the shower shape corrections accounts for the imperfect modelling 
+  of shower shapes in simulation.
+  The impact is estimated by comparing the energy scale before and after 
+  the corrections to shower shape variables 
+  (which improve the agreement between data and simulation) are applied.
+\item \textit{Light collection non-uniformity}: 
+  an uncertainty is associated with the modelling of the light collection 
+  as a function of emission depth within a given ECAL crystal.
+  It is estimated by comparing simulation with analytical estimates of longitudinal shower profiles.
+  %TODO check if the above is even close to true
+\item \textit{Modelling of material in front of the ECAL}: 
+  the amount of material through which objects pass before reaching the ECAL 
+  affects the behaviour of the electromagnetic showers, 
+  and may not be perfectly modelled in simulation.
+  Dedicated samples with variations in the amount of upstream material are used to 
+  estimate the impact on the photon energy scale.
+\item \textit{Vertex fraction}: 
+  the largest contribution to the right and wrong vertex fraction 
+  uncertainty comes from the modelling of the underlying event, in addition to 
+  the uncertainty on the ratio of data and simulation obtained using
+  \Zmumu events. It is handled as an additional
+  nuisance parameter built into the signal model which allows the fraction
+  of events in the right vertex/wrong vertex scenario to change.
+\end{itemize}
+
+The uncertainties which only modify the event yield include:
+\begin{itemize}
+\item \textit{Integrated luminosity}: 
+  estimated to be 2.5\% and 2.3\% for the 2016 and 2017 datasets respectively \cite{Lumi2016,Lumi2017}.
+\item \textit{Photon identification BDT score}: 
+  the uncertainty arising from the photon identification BDT score 
+  is estimated by requiring the band to cover the observed discrepancies between data and simulation. 
+  This is described further in Chapter~\ref{chap:objects}.
+  The uncertainty on the signal yields is
+  estimated by propagating this uncertainty through the full category selection procedure.
+\item \textit{Jet energy scale and smearing corrections}: 
+  The energy scale of jets is measured using the \pt balance of jets with Z bosons and photons in
+  \Zee, \Zmumu and $\gamma$+jets events, as well as the \pt balance between jets 
+  in dijet and multijet events \cite{JetsInRun2}. The uncertainty in the jet energy scale
+  is a few percent and depends on \pt and $\eta$. The impact of jet energy scale uncertainties on 
+  event yields is evaluated by varying the jet energy corrections within their uncertainties and 
+  propagating the effect to the final result.
+\item \textit{Per-photon energy resolution estimate}: 
+  the uncertainty on the per-photon resolution is
+  parametrised as a rescaling of the resolution by
+  $\pm 5\%$ about its nominal value, 
+  This is designed to cover all differences between data and simulation 
+  in the distribution of the estimator output.  
+\item \textit{Trigger efficiency}: 
+  the efficiency of the trigger selection is measured with 
+  $\Zee$ events using the tag-and-probe technique.
+\item \textit{Photon preselection}: 
+  the uncertainty on the preselection efficiency
+  is computed as the ratio between the efficiency measured in data and in simulation.
+\item \textit{Missing transverse energy}: 
+  this uncertainty is computed by shifting the
+  reconstructed $\pt$ of the particle candidates entering the
+  missing transverse energy computation, 
+  within the momentum scale and resolution uncertainties appropriate 
+  to each type of reconstructed object,
+  as described in Ref.~\cite{JetsInRun2}.
+\item \textit{Pileup jet identification}: 
+  the uncertainty on the pileup jet classification output score is estimated by
+  comparing the score of jets in events with a Z boson and one balanced jet
+  in data and simulation. 
+\item \textit{Lepton isolation and identification}: 
+  this uncertainty affecting electrons and muons
+  is computed by varying the ratio of the efficiencies and
+  using the tag and probe technique in \Zee events. 
+\item \textit{Efficiency of b-tagging}: 
+  uncertainties on the b-tagging efficiency are evaluated 
+  by comparing data and simulation distributions for the b-tag
+  discriminator.
+  The uncertainties include the statistical component on the
+  estimate of the fraction of heavy and
+  light flavour jets in data and simulation.
+\end{itemize}
 
 \subsection{Correlation of uncertainties}
 
@@ -303,3 +447,38 @@ The final results were also computed with all the experimental uncertainties tak
 and confirmed that the difference between the two correlation scenarios is minimal.
 This is in accordance with expectation, since the predominant source of uncertainty 
 in all the stage 1 measurements is statistical in origin.
+
+\section{Summary}
+
+The inputs to the final fits of this analysis are the simulated signal model 
+and the data-driven background model.
+The uncertainty on the background model is accounted for using the discrete profiling method, 
+where the choice of background function is treated as a nuisance parameter.
+The signal model is parametric in \mH, 
+with the contribution from each stage 1 bin in each analysis category modelled separately.
+There are numerous uncertainties included in the signal model, 
+which either affect the shape of the signal mass distribution 
+or the event yield.
+An illustration of the impact of the systematic uncertainties 
+on different signal strength measurements, 
+from the previous CMS \Hgg analysis documented in Ref.~\cite{HIG-16-040}, 
+is shown in Figure~\ref{fig:sigbkg_systematics}.
+The same sources of systematic uncertainties are included in this analysis.
+In this case, the measurements of stage 1 simplified template cross sections 
+are predominantly limited by statistical uncertainties.
+However this will change as more data is collected, 
+and once the full dataset from Run 2 is analysed 
+the systematic uncertainties will become more important.
+
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=\textwidth]{Figures/SigBkg/SystematicsTable.pdf}
+\caption{
+The impact of the different systematic uncertainties on the inclusive, VBF, and ttH 
+signal strength modifiers in the previous CMS \Hgg analysis \cite{HIG-16-040}.
+The observed (expected) results are shown by the solid (empty) bars.
+The figure was first presented in Ref.~\cite{HIG-16-040}, 
+and is based on the results described therein.
+}
+\label{fig:sigbkg_systematics}
+\end{figure}
