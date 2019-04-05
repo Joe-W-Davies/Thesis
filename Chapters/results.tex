@@ -48,7 +48,41 @@
 \label{fig:results_Cats2017}
 \end{figure}
 
-%TODO insert the big yields tables here
+\begin{landscape}
+  \begin{table}
+    \resizebox{1.5\textwidth}{!}{\input{Tables/yields2016.tex}}
+    \caption{
+      The expected number of signal events per category and
+      the percentage breakdown per production mode in that category. 
+      The $\sigma_{eff}$, computed as the smallest interval containing 68.3\% 
+      of the invariant mass distribution, and $\sigma_{HM}$, computed as the FWHM divided by 2.35,
+      are also shown as an estimate of the $m_{\gamma\gamma}$ resolution in that category.
+      The expected number of background events per GeV around 125 GeV is listed.
+      The expected ratio of signal to signal plus background events, S/(S + B), is also shown,
+      where S and B are the numbers of expected signal and background events, respectively, 
+      in a $\pm 1 \sigma_{eff}$ mass window centered on $m_{\textrm{H}}$.
+      Data and simulation from 2016 is shown.}
+    \label{tab:results_yields2016}
+  \end{table}
+\end{landscape}
+
+\begin{landscape}
+  \begin{table}
+    \resizebox{1.5\textwidth}{!}{\input{Tables/yields2017.tex}}
+    \caption{
+      The expected number of signal events per category and
+      the percentage breakdown per production mode in that category. 
+      The $\sigma_{eff}$, computed as the smallest interval containing 68.3\% 
+      of the invariant mass distribution, and $\sigma_{HM}$, computed as the FWHM divided by 2.35,
+      are also shown as an estimate of the $m_{\gamma\gamma}$ resolution in that category.
+      The expected number of background events per GeV around 125 GeV is listed.
+      The expected ratio of signal to signal plus background events, S/(S + B), is also shown,
+      where S and B are the numbers of expected signal and background events, respectively, 
+      in a $\pm 1 \sigma_{eff}$ mass window centered on $m_{\textrm{H}}$.
+      Data and simulation from 2016 is shown.}
+    \label{tab:results_yields2017}
+  \end{table}
+\end{landscape}
 
 \begin{figure}[hptb]
 \centering
@@ -155,3 +189,47 @@
 }
 \label{fig:results_CorrStage1Min}
 \end{figure}
+
+\begin{table}
+  \begin{centering}
+    \input{Tables/stage1.tex}
+    \caption{
+    The results of a seven-parameter fit in the STXS framework. 
+    The ggH 1J and 2J BSM bins are grouped together in the fit; 
+    the remaining five ggH bins with two or more jets are also grouped. 
+    All five VBF bins are grouped together. 
+    The ggH parameters include bbH components, 
+    while the qqH parameter includes the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    Both the measured value and the standard model prediction for 
+    the product of the cross section and branching ratio are shown.
+    The ratio of the measured cross section to the SM prediction is also shown, 
+    together with its uncertainty.
+    In addition, the statistical, experimental, and theoretical components 
+    of the uncertainty on each parameter are reported.
+    }
+    \label{tab:results_stage1}
+  \end{centering}
+\end{table}
+
+\begin{table}
+  \begin{centering}
+    \input{Tables/stage1min.tex}
+    \caption{
+    The results of a thirteen-parameter fit in the STXS framework. 
+    The two VBF-like ggH bins are grouped to form one parameter, 
+    as are the VBF BSM-like, VH-like and Rest bins.
+    No further merging is performed. 
+    The ggH parameters include bbH components, 
+    while the qqH parameters include the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    Both the measured value and the standard model prediction for 
+    the product of the cross section and branching ratio are shown.
+    The ratio of the measured cross section to the SM prediction is also shown, 
+    together with its uncertainty.
+    In addition, the statistical, experimental, and theoretical components 
+    of the uncertainty on each parameter are reported.
+    }
+    \label{tab:results_stage1min}
+  \end{centering}
+\end{table}

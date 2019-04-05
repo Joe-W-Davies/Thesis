@@ -89,35 +89,7 @@ Of this approximately $44.2~\textrm{pb}$ is within $|y_H| < 2.5$.
 
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c | c } 
-    \hline
-    Region & Definition & Fraction & Cross section (pb) \\ 
-    \hline
-    0J          & Exactly zero jets, any $\ptH$               & 60.0\% & 26.49 \\ 
-    \hline
-    1J low      & Exactly one jet, $\ptH <$ 60 GeV            & 15.4\% & 6.79  \\
-    \hline
-    1J med      & Exactly one jet, 60 GeV $< \ptH <$ 120 GeV  & 10.4\% & 4.61  \\ 
-    \hline
-    1J high     & Exactly one jet, 120 GeV $< \ptH <$ 200 GeV & 1.7\% & 0.76   \\
-    \hline
-    1J BSM      & Exactly one jet, $\ptH >$ 200 GeV           & 0.4\% & 0.16   \\ 
-    \hline
-    2J low      & $\ge$ two jets, $\ptH <$ 60 GeV             & 2.9\% & 1.26   \\
-    \hline
-    2J med      & $\ge$ two jets, 60 GeV $< \ptH <$ 120 GeV   & 4.5\% & 2.00   \\ 
-    \hline
-    2J high     & $\ge$ two jets, 120 GeV $< \ptH <$ 200 GeV  & 2.3\% & 1.00   \\
-    \hline
-    2J BSM      & $\ge$ two jets, $\ptH >$ 200 GeV            & 1.0\% & 0.43   \\ 
-    \hline
-    \multirow{2}{*}{VBF-like 2J} & $\ge$ two jets, $\ptH < 200$ GeV, $|\Delta\eta| > 2.8$, & \multirow{2}{*}{0.6\%} & \multirow{2}{*}{0.27} \\ 
-                                 & $m_{jj} >$ 400 GeV, $\ptHjj <$ 25 GeV &                        &                       \\ 
-    \hline
-    \multirow{2}{*}{VBF-like 3J} & $\ge$ two jets, $\ptH < 200$ GeV, $|\Delta\eta| > 2.8$, & \multirow{2}{*}{0.9\%} & \multirow{2}{*}{0.38} \\ 
-                                 & $m_{jj} >$ 400 GeV, $\ptHjj >$ 25 GeV &                        &                       \\ 
-    \hline
-    \end{tabular}
+    \input{Tables/ggHbins.tex}
     \caption{The particle level definition of each ggH stage 1 bin 
     and the corresponding fractional and absolute cross sections.
     The fractions are estimated from simulated ggH \Hgg events 
@@ -400,32 +372,7 @@ for 2016 and 2017 simulation and data respectively.
 
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c | c | c } 
-    \hline 
-    Category         & Diphoton BDT cut & Signal & Background & Significance ($\sigma$) \\
-    \hline 
-    0J Tag 0         & 0.851            & 145    & 1000       & 4.48                    \\
-    0J Tag 1         & 0.796            & 201    & 2973       & 3.64                    \\
-    0J Tag 2         & 0.586            & 238    & 9263       & 2.46                    \\
-    \hline           
-    1J low  Tag 0    & 0.832            & 36     & 462        & 1.67                    \\
-    1J low  Tag 1    & 0.718            & 45     & 1635       & 1.11                    \\
-    1J med  Tag 0    & 0.866            & 17     & 1042       & 1.60                    \\
-    1J med  Tag 1    & 0.749            & 39     & 7755       & 1.38                    \\
-    1J high Tag 0    & 0.908            & 5.5    & 18         & 1.14                    \\
-    1J high Tag 1    & 0.810            & 6.6    & 112        & 0.61                    \\
-    1J BSM  Tag 0    & 0.917            & 3.0    & 7.4        & 0.89                    \\
-    \hline           
-    GE2J low  Tag 0  & 0.833            & 4.8    & 142        & 0.39                    \\
-    GE2J low  Tag 1  & 0.709            & 6.7    & 571        & 0.28                    \\
-    GE2J med  Tag 0  & 0.869            & 8.3    & 65         & 0.99                    \\
-    GE2J med  Tag 1  & 0.757            & 17     & 462        & 0.80                    \\
-    GE2J high Tag 0  & 0.910            & 9.1    & 33         & 1.45                    \\
-    GE2J high Tag 1  & 0.811            & 10     & 158        & 0.81                    \\
-    GE2J BSM  Tag 0  & 0.938            & 9.7    & 9.4        & 2.48                    \\
-    GE2J BSM  Tag 1  & 0.865            & 4.9    & 27         & 0.86                    \\
-    \hline 
-    \end{tabular}
+    \input{Tables/ggHcats2016.tex}
     \caption{The chosen diphoton BDT boundaries, 
     the expected number of signal and background events, 
     and the expected significance of each category in the ggH phase space 
@@ -436,32 +383,7 @@ for 2016 and 2017 simulation and data respectively.
 
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c | c | c } 
-    \hline 
-    Category         & Diphoton BDT cut & Signal & Background & Significance ($\sigma$) \\
-    \hline 
-    0J Tag 0         & 0.840            & 217    & 2042       & 4.72                    \\
-    0J Tag 1         & 0.769            & 250    & 5063       & 3.49                    \\
-    0J Tag 2         & 0.615            & 201    & 9669       & 2.03                    \\
-    \hline                                                                              
-    1J low  Tag 0    & 0.817            & 41     & 676        & 1.58                    \\
-    1J low  Tag 1    & 0.652            & 42     & 2466       & 0.84                    \\
-    1J med  Tag 0    & 0.881            & 8.5    & 45         & 1.18                    \\
-    1J med  Tag 1    & 0.760            & 43     & 872        & 1.46                    \\
-    1J high Tag 0    & 0.910            & 5.5    & 20         & 1.10                    \\
-    1J high Tag 1    & 0.824            & 7.6    & 109        & 0.71                    \\
-    1J BSM  Tag 0    & 0.775            & 4.9    & 1.2        & 2.02                    \\
-    \hline                                                                              
-    GE2J low  Tag 0  & 0.861            & 1.9    & 44         & 0.27                    \\
-    GE2J low  Tag 1  & 0.709            & 8.0    & 649        & 0.31                    \\
-    GE2J med  Tag 0  & 0.835            & 11     & 177        & 0.87                    \\
-    GE2J med  Tag 1  & 0.786            & 6.9    & 10         & 1.74                    \\
-    GE2J high Tag 0  & 0.916            & 6.3    & 24         & 1.17                    \\
-    GE2J high Tag 1  & 0.815            & 10     & 163        & 0.78                    \\
-    GE2J BSM  Tag 0  & 0.901            & 11     & 23         & 2.15                    \\
-    GE2J BSM  Tag 1  & 0.596            & 3.0    & 1.8        & 1.25                    \\
-    \hline 
-    \end{tabular}
+    \input{Tables/ggHcats2017.tex}
     \caption{The chosen diphoton BDT boundaries, 
     the expected number of signal and background events, 
     and the expected significance of each category in the ggH phase space 
@@ -497,23 +419,7 @@ with around \SI{1.37}{pb} within $|y_H| < 2.5$.
 
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c | c | c } 
-    \hline
-    Region & Definition & VBF fraction & VH fraction & Cross section (pb) \\ 
-    \hline
-    BSM                      & Leading jet $\pt > 200 GeV$             &  4.6\%                  & 5.4\%                   & 0.23                  \\ 
-    \hline
-    \multirow{2}{*}{2J-like} & $\ge$ two jets, $|\Delta\eta| > 2.8$,     & \multirow{2}{*}{25.8\%} & \multirow{2}{*}{0.4\%}  & \multirow{2}{*}{0.91} \\
-                             & $m_{jj} >$ 400 GeV, $\ptHjj <$ 25 GeV    &                         &                         &                       \\
-    \hline
-    \multirow{2}{*}{3J-like} & $\ge$ two jets, $|\Delta\eta| > 2.8$,     & \multirow{2}{*}{9.0\%} & \multirow{2}{*}{1.7\%}  & \multirow{2}{*}{0.34} \\ 
-                             & $m_{jj} >$ 400 GeV, $\ptHjj >$ 25 GeV    &                         &                         &                       \\
-    \hline
-    VH-like                  & $\ge$ two jets, $60 < m_{jj} < 120 GeV$ &  2.3\%                  & 34.5\%                  & 0.55 \\
-    \hline
-    Rest                     & All other VBF events                     & 59.2\%                  & 57.9\%                  & 2.86 \\ 
-    \hline
-    \end{tabular}
+    \input{Tables/VBFbins.tex}
     \caption{The particle level definition of each VBF stage 1 bin 
     and the corresponding fractional and absolute cross sections.
     The fractions reported are normalised relative to inclusive VBF or VH hadronic production, 
@@ -860,16 +766,7 @@ together with the expected number of signal and background events and the per-ca
 %TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c }
-    \hline
-    Scenario                          & Dijet + Diphoton BDT    & Combined BDT   \\
-    \hline
-    Inclusive 2 category              & 2.56$\sigma$            & 2.38$\sigma$   \\
-    Inclusive 3 category              & 2.68$\sigma$            & 2.43$\sigma$   \\
-    Split by $p_T^{Hjj}$              & 2.51$\sigma$            & 2.40$\sigma$   \\
-    Split by $p_T^{Hjj}$ and $m_{jj}$ & 2.66$\sigma$            & 2.56$\sigma$   \\
-    \hline
-    \end{tabular}
+    \input{Tables/VBFcomparison2016.tex}
     \caption{The total VBF significance for different categorisation scenarios 
     using 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.
     Classification using the combined BDT is compared with setting boundaries with the 
@@ -881,16 +778,7 @@ together with the expected number of signal and background events and the per-ca
 %TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c }
-    \hline
-    Scenario                          & Dijet + Diphoton BDT    & Combined BDT   \\
-    \hline
-    Inclusive 2 category              & 2.70$\sigma$            & 2.52$\sigma$   \\
-    Inclusive 3 category              & 2.73$\sigma$            & 2.61$\sigma$   \\
-    Split by $p_T^{Hjj}$              & 2.68$\sigma$            & 2.54$\sigma$   \\
-    Split by $p_T^{Hjj}$ and $m_{jj}$ & 2.73$\sigma$            & 2.60$\sigma$   \\
-    \hline
-    \end{tabular}
+    \input{Tables/VBFcomparison2017.tex}
     \caption{The total VBF significance for different categorisation scenarios 
     using 2016 data and simulation, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
     Classification using the combined BDT is compared with setting boundaries with the 
@@ -902,18 +790,7 @@ together with the expected number of signal and background events and the per-ca
 %TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c | c | c | c } 
-    \hline 
-    Category       & Dijet BDT cut & Diphoton BDT cut & Signal & Background & Significance \\ 
-    \hline 
-    2J-like  Tag 0 & 0.12         & 0.62             & 8.2    & 7.0        & 2.04         \\
-    2J-like  Tag 1 & -0.89        & 0.72             & 3.1    & 14.9       & 0.68         \\
-    3J-like  Tag 0 & 0.48         & 0.61             & 4.7    & 8.8        & 1.07         \\
-    3J-like  Tag 1 & -0.84        & 0.74             & 3.2    & 35.7       & 0.46         \\
-    VBF BSM  Tag   & -0.41        & 0.73             & 2.2    & 7.7        & 0.53         \\
-    VBF Rest Tag   & -0.74        & 0.77             & 2.5    & 34.3       & 0.36         \\
-    \hline 
-    \end{tabular}
+    \input{Tables/VBFcats2016.tex}
     \caption{The chosen diphoton and dijet BDT boundaries, 
     the expected number of signal and background events, 
     and the expected significance of each category in the VBF phase space 
@@ -925,18 +802,7 @@ together with the expected number of signal and background events and the per-ca
 %TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
-    \begin{tabular}{ r | c | c | c | c | c } 
-    \hline 
-    Category       & Dijet BDT cut & Diphoton BDT cut & Signal & Background & Significance \\ 
-    \hline 
-    2J-like  Tag 0 & -0.39        & 0.75            & 7.5    & 9.2        & 1.73         \\
-    2J-like  Tag 1 & -0.89        & 0.68            & 1.5    & 14.5       & 0.33         \\
-    3J-like  Tag 0 & 0.03         & 0.77            & 4.7    & 12.0       & 1.00         \\
-    3J-like  Tag 1 & -0.69        & 0.57            & 2.1    & 36.9       & 0.31         \\
-    VBF BSM Tag    & -0.27        & 0.78            & 2.3    & 6.3        & 0.59         \\
-    VBF Rest Tag   & -0.62        & 0.73            & 2.8    & 38.0       & 0.38         \\
-    \hline 
-    \end{tabular}
+    \input{Tables/VBFcats2017.tex}
     \caption{The chosen diphoton and dijet BDT boundaries, 
     the expected number of signal and background events, 
     and the expected significance of each category in the VBF phase space 
