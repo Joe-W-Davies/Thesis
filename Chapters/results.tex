@@ -1,7 +1,89 @@
 \chapter{Results}
 \label{chap:results}
 
+\section{Introduction}
 %introdution to results and the likelihood definition here
+The principal aim of this analysis is to measure Higgs boson simplified template cross sections, 
+at both stage 0 and stage 1, and their associated uncertainties.
+This is achieved by performing a simulataneous fit of the signal and background models 
+(described in Chapter~\ref{chap:sigbkg}) to the observed \mgg distribution in each category.
+A binned maximum likelihood fit is performed in the range $100 < \mgg < \SI{180}{GeV}$, 
+with a bin size of \SI{250}{MeV};
+this is sufficiently small relative to the diphoton mass resolution that almost no information is lost.
+%but is computationally much faster
+The likelihood function in each category, $\Like_c$, is expressed as:
+\begin{equation}
+\Like_c = 
+\end{equation}
+where ...
+%definition of POIs
+%don't forget to explain the constraint terms and how they affect the yields
+The total likelihood \Like is then given by the product of the likelihood over all categories:
+\begin{equation}
+\Like = 
+\end{equation}
+The fit is then performed by minimising the value of the negative log-likelihood, \NLL, where
+\begin{equation}
+\NLL = 
+\end{equation}
+%description of how the signal and background functions are fitted to the observed data
+%e.g. some reference to RooFit and Minuit here?
+The free parameters in the fit are parameters of interest, \mH, and the backgound nuisance parameters;
+the signal nuisance parameters can vary but are constrained by their uncertainty values.
+The values of the parameters for the mimimum 2NLL are then described as the ``best-fit" values.
+
+A frequentist approach is followed in order to extract the uncertainties on the POIs, 
+in addition to their best-fit values.
+The likelihood ratio test statistic is constructed for a range of POI values, where:
+\begin{equation}
+\textrm{\dNLL} = 
+\end{equation}
+where...
+The distribution of the likelihood ratio test statistic 
+can then be used to infer the approximate uncertainties on the measurements.
+For a sufficient number of events, %in each bin??
+the distribution tends to that of a $\chi^2$~\cite{Asymptotic}, with the number of degrees of freedom
+equal to the number of POIs being measured.
+In this case, it can be shown that the 68\% confidence level (CL) intervals 
+are given approximately by the region where $\dNLL < 1$.
+The interpretation of the 68\% CL intervals within the frequentist paradigm 
+is that in an ensemble of identical pseudo-experiments, 
+the observed best-fit value of the POI should fall within the intervals in 68\% of cases.
+The crossing points of the \dNLL at $\pm 1$ are therefore considered 
+as the 68\% CL uncertainties on the POI in question.
+
+In this analysis the POIs considered are Higgs boson simplified template cross sections, 
+which are defined at various levels of granularity and denoted by $\sigma$.
+The so-called ``stage 0" cross sections are equivalent 
+to the sum of the individual stage 1 cross sections.
+This makes clear that parameters can be defined as sums of different STXS bins, 
+not just individual bins themselves.
+Measuring a wider set of STXS bins provides more information, 
+but the uncertainties are correspondingly larger than if fewer parameters are measured.
+Therefore in this section results are reported under various scenarios, 
+with between one and thirteen POIs in total.
+In most cases, the results are displayed as the cross section divided by the SM prediction. 
+This is only to improve the readability and ease of comparison with the SM;
+the underlying parameter is the cross section.
+This differs from a signal strength, the ratio of the observed cross section 
+to the SM prediction, normally denoted by:
+\begin{equation}
+\mu = \sigma_{H} / \sigmaSM
+\end{equation}
+because in the measurement of $\mu$ 
+the uncertainty on the SM prediction must be considered in the fit. 
+In contrast, the STXS measurements do not include these uncertainties on the SM yield.
+This ensures the measurements are as independent as possible of the SM prediction, 
+and means they remain useful if the theory uncertainties improve in the future.
+
+In the following section, the observed diphoton mass distributions 
+and the composition of the analysis categories are presented.
+The remainder of chapter describes the results of stage 0 and stage 1 measurements 
+within the STXS framework.
+All results were first reported in Ref.~\cite{HIG-18-029}.
+
+\section{Diphoton mass distributions}
+%description of the S+B and yields plots
 
 \begin{figure}[hptb]
 \centering
@@ -19,6 +101,8 @@
 }
 \label{fig:results_MassPlot}
 \end{figure}
+
+%TODO add the plots summed over different categories?
 
 \begin{figure}[hptb]
 \centering
@@ -84,6 +168,9 @@
   \end{table}
 \end{landscape}
 
+\section{Stage 0 cross sections}
+%describe the stage 0 measurements here
+
 \begin{figure}[hptb]
 \centering
 \includegraphics[width=\textwidth]{Figures/Results/ObsStage0_r_ggH.pdf}
@@ -117,6 +204,9 @@
 }
 \label{fig:results_Stage0_qqH}
 \end{figure}
+
+\section{Stage 1 cross sections}
+%describe the stage 1 measurements here
 
 \begin{figure}[hptb]
 \centering
