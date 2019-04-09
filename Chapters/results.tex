@@ -2,43 +2,59 @@
 \label{chap:results}
 
 \section{Introduction}
-%introdution to results and the likelihood definition here
 The principal aim of this analysis is to measure Higgs boson simplified template cross sections, 
 at both stage 0 and stage 1, and their associated uncertainties.
-This is achieved by performing a simulataneous fit of the signal and background models 
+This is achieved by performing a simultaneous fit of the signal and background models 
 (described in Chapter~\ref{chap:sigbkg}) to the observed \mgg distribution in each category.
 A binned maximum likelihood fit is performed in the range $100 < \mgg < \SI{180}{GeV}$, 
 with a bin size of \SI{250}{MeV};
-this is sufficiently small relative to the diphoton mass resolution that almost no information is lost.
-%but is computationally much faster
+this is sufficiently small relative to the diphoton mass resolution 
+that a negligible amount of information is lost. %and is computationally much faster
+
 The likelihood function in each category, $\Like_c$, is expressed as:
 \begin{equation}
-\Like_c = 
+\Like_c(\Largs) = \prod^{N_b}_{i=1} \textrm{Poisson}\left( m_{\gamma\gamma,i}\,|\, 
+                  s_i(\vec{x},\mH,\vec{\theta}) + b_i(\vec{\theta}) \right) \times C(\vec{\theta})
 \end{equation}
-where ...
-%definition of POIs
-%don't forget to explain the constraint terms and how they affect the yields
-The total likelihood \Like is then given by the product of the likelihood over all categories:
+where: $\vec{x}$ is the set of parameters of interest (POIs), 
+which in this analysis are always a set of one or more cross section parameters;
+$\vec{\theta}$ is the set of nuisance parameters which affect the measurements 
+but do are not themselves of interest;
+$N_b$ is the number of bins used in the category's \mgg distribution;
+Poisson indicates a Poisson function evaluated with the observed number of events 
+in the $i^{\mathit{th}}$ bin $m_{\gamma\gamma,i}$ 
+and expected number of events given by the sum of the signal expectation $s_i$ 
+and the background expectation $b_i$;
+$C(\vec{\theta})$ is the constraint term penalising deviations 
+from the expected value in the case of signal nuisance parameters
+and model complexity in the nuisance parameters affecting the background.
+The expected number of signal events in each bin depends on the POIs, \mH, 
+and the nuisance parameters, 
+whilst the expected number of background events depends only on nuisance parameters.
+
+The total likelihood \Like is then given by the product of the likelihoods over all categories:
 \begin{equation}
-\Like = 
+\Like(\Largs) = \prod^{N_c}_{c=1} \Like_c(\Largs)
 \end{equation}
+where $N_c$ is the total number of analysis categories.
 The fit is then performed by minimising the value of the negative log-likelihood, \NLL, where
 \begin{equation}
-\NLL = 
+\NLL = -2\ln\Like(\Largs)
 \end{equation}
-%description of how the signal and background functions are fitted to the observed data
-%e.g. some reference to RooFit and Minuit here?
-The free parameters in the fit are parameters of interest, \mH, and the backgound nuisance parameters;
+The free parameters in the fit are parameters of interest, \mH, and the background nuisance parameters;
 the signal nuisance parameters can vary but are constrained by their uncertainty values.
-The values of the parameters for the mimimum 2NLL are then described as the ``best-fit" values.
+The \NLL is constructed and minimised numerically within the RooFit~\cite{RooFit} 
+software package for statistical data analysis.
+The values of the parameters for the minimum 2NLL are then described as the ``best-fit" values.
 
 A frequentist approach is followed in order to extract the uncertainties on the POIs, 
 in addition to their best-fit values.
 The likelihood ratio test statistic is constructed for a range of POI values, where:
 \begin{equation}
-\textrm{\dNLL} = 
+\dNLL = -2\ln\frac{\Like(\Largs)}{\Like(\mgg\,|\,\vec{\hat{x}},\hat{m}_H,\vec{\hat{\theta}})}
 \end{equation}
-where...
+where $\vec{\hat{x}}$, $\hat{m}_H$, and $\vec{\hat{\theta}}$ are the best-fit values 
+of the POIs, Higgs boson mass, and nuisance parameters respectively.
 The distribution of the likelihood ratio test statistic 
 can then be used to infer the approximate uncertainties on the measurements.
 For a sufficient number of events, %in each bin??
@@ -53,7 +69,7 @@ The crossing points of the \dNLL at $\pm 1$ are therefore considered
 as the 68\% CL uncertainties on the POI in question.
 
 In this analysis the POIs considered are Higgs boson simplified template cross sections, 
-which are defined at various levels of granularity and denoted by $\sigma$.
+which are defined at various levels of granularity and denoted by the symbol $\sigma$.
 The so-called ``stage 0" cross sections are equivalent 
 to the sum of the individual stage 1 cross sections.
 This makes clear that parameters can be defined as sums of different STXS bins, 
@@ -68,7 +84,7 @@ the underlying parameter is the cross section.
 This differs from a signal strength, the ratio of the observed cross section 
 to the SM prediction, normally denoted by:
 \begin{equation}
-\mu = \sigma_{H} / \sigmaSM
+\mu = \sigma / \sigmaSM
 \end{equation}
 because in the measurement of $\mu$ 
 the uncertainty on the SM prediction must be considered in the fit. 
@@ -76,13 +92,13 @@ In contrast, the STXS measurements do not include these uncertainties on the SM 
 This ensures the measurements are as independent as possible of the SM prediction, 
 and means they remain useful if the theory uncertainties improve in the future.
 
-In the following section, the observed diphoton mass distributions 
+In the following section, the observed diphoton mass distribution
 and the composition of the analysis categories are presented.
 The remainder of chapter describes the results of stage 0 and stage 1 measurements 
 within the STXS framework.
 All results were first reported in Ref.~\cite{HIG-18-029}.
 
-\section{Diphoton mass distributions}
+\section{Observed diphoton mass distribution}
 %description of the S+B and yields plots
 
 \begin{figure}[hptb]
@@ -92,7 +108,7 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
   Data points (black) and signal plus background model fit for the sum of all categories is shown. 
   Each category is weighted by S/(S + B), 
   where S and B are the numbers of expected signal and background events, respectively, 
-  in a $\pm 1 \seff$ mass window centered on \mH. 
+  in a $\pm 1 \seff$ mass window centred on \mH. 
   The one standard deviation (green) and two standard deviation (yellow) bands 
   include the uncertainties in the background component of the fit. 
   The solid red line shows the contribution from the total signal, plus the background contribution. 
@@ -140,11 +156,11 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
       the percentage breakdown per production mode in that category. 
       The $\sigma_{eff}$, computed as the smallest interval containing 68.3\% 
       of the invariant mass distribution, and $\sigma_{HM}$, computed as the FWHM divided by 2.35,
-      are also shown as an estimate of the $m_{\gamma\gamma}$ resolution in that category.
+      are also shown as an estimate of the \mgg resolution in that category.
       The expected number of background events per GeV around 125 GeV is listed.
       The expected ratio of signal to signal plus background events, S/(S + B), is also shown,
       where S and B are the numbers of expected signal and background events, respectively, 
-      in a $\pm 1 \sigma_{eff}$ mass window centered on $m_{\textrm{H}}$.
+      in a $\pm 1 \sigma_{eff}$ mass window centred on \mH.
       Data and simulation from 2016 is shown.}
     \label{tab:results_yields2016}
   \end{table}
@@ -158,11 +174,11 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
       the percentage breakdown per production mode in that category. 
       The $\sigma_{eff}$, computed as the smallest interval containing 68.3\% 
       of the invariant mass distribution, and $\sigma_{HM}$, computed as the FWHM divided by 2.35,
-      are also shown as an estimate of the $m_{\gamma\gamma}$ resolution in that category.
+      are also shown as an estimate of the \mgg resolution in that category.
       The expected number of background events per GeV around 125 GeV is listed.
       The expected ratio of signal to signal plus background events, S/(S + B), is also shown,
       where S and B are the numbers of expected signal and background events, respectively, 
-      in a $\pm 1 \sigma_{eff}$ mass window centered on $m_{\textrm{H}}$.
+      in a $\pm 1 \sigma_{eff}$ mass window centred on \mH.
       Data and simulation from 2016 is shown.}
     \label{tab:results_yields2017}
   \end{table}
@@ -323,3 +339,5 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
     \label{tab:results_stage1min}
   \end{centering}
 \end{table}
+
+%TODO put the mass distributions for each stage 1 fit scenario in backup.

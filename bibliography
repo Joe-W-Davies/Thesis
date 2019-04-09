@@ -1053,6 +1053,19 @@ year = "1998"
       SLACcitation   = "%%CITATION = ARXIV:1804.02716;%%"
 }
 
+@techreport{HIG-18-029,
+      title         = "{Measurements of Higgs boson production via gluon fusion
+                       and vector boson fusion in the diphoton decay channel at
+                       $\sqrt{s} = 13$ TeV}",
+      institution   = "CERN",
+      collaboration = "CMS Collaboration",
+      address       = "Geneva",
+      number        = "CMS-PAS-HIG-18-029",
+      year          = "2019",
+      reportNumber  = "CMS-PAS-HIG-18-029",
+      url           = "https://cds.cern.ch/record/2667225",
+}
+
 @article{Envelope,
       author         = "Dauncey, P. D. and Kenzie, M. and Wardle, N. and Davies,
                         G. J.",
@@ -1361,4 +1374,22 @@ year = "1998"
   pages={87--94},
   year={1922},
   publisher={JSTOR}
+}
+
+@article{RooFit,
+      author         = "Verkerke, Wouter and Kirkby, David P.",
+      title          = "{The RooFit toolkit for data modeling}",
+      booktitle      = "{Statistical Problems in Particle Physics, Astrophysics
+                        and Cosmology (PHYSTAT 05): Proceedings, Oxford, UK,
+                        September 12-15, 2005}",
+      journal        = "eConf",
+      volume         = "C0303241",
+      year           = "2003",
+      pages          = "MOLT007",
+      note           = "[,186(2003)]",
+      eprint         = "physics/0306116",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics",
+      reportNumber   = "CHEP-2003-MOLT007",
+      SLACcitation   = "%%CITATION = PHYSICS/0306116;%%"
 }
