@@ -2,6 +2,7 @@
 \label{chap:results}
 
 \section{Introduction}
+
 The principal aim of this analysis is to measure Higgs boson simplified template cross sections, 
 at both stage 0 and stage 1, and their associated uncertainties.
 This is achieved by performing a simultaneous fit of the signal and background models 
@@ -13,24 +14,25 @@ that a negligible amount of information is lost. %and is computationally much fa
 
 The likelihood function in each category, $\Like_c$, is expressed as:
 \begin{equation}
-\Like_c(\Largs) = \prod^{N_b}_{i=1} \textrm{Poisson}\left( m_{\gamma\gamma,i}\,|\, 
-                  s_i(\vec{x},\mH,\vec{\theta}) + b_i(\vec{\theta}) \right) \times C(\vec{\theta})
+\Like_c(\Largs) = \prod^{N_b}_{i=1} \textrm{Poisson}\left( d_i\,|\, 
+                  s_i(\vec{\sigma},\mH,\vec{\theta}) + b_i(\vec{\theta}) \right) \times C(\vec{\theta})
 \end{equation}
-where: $\vec{x}$ is the set of parameters of interest (POIs), 
+where $\vec{\sigma}$ is the set of parameters of interest (POIs), 
 which in this analysis are always a set of one or more cross section parameters;
 $\vec{\theta}$ is the set of nuisance parameters which affect the measurements 
-but do are not themselves of interest;
+but are not themselves of interest;
 $N_b$ is the number of bins used in the category's \mgg distribution;
 Poisson indicates a Poisson function evaluated with the observed number of events 
-in the $i^{\mathit{th}}$ bin $m_{\gamma\gamma,i}$ 
+in the $i^{\mathit{th}}$ bin $d_i$ 
 and expected number of events given by the sum of the signal expectation $s_i$ 
 and the background expectation $b_i$;
-$C(\vec{\theta})$ is the constraint term penalising deviations 
-from the expected value in the case of signal nuisance parameters
-and model complexity in the nuisance parameters affecting the background.
+$C(\vec{\theta})$ is the constraint term which penalses deviations 
+from the expected values of the signal nuisance parameters,
+and applies a penalisation term according to 
+the total number of degrees of freedom in the background model.
 The expected number of signal events in each bin depends on the POIs, \mH, 
 and the nuisance parameters, 
-whilst the expected number of background events depends only on nuisance parameters.
+whilst the expected number of background events depends only on unconstrained nuisance parameters.
 
 The total likelihood \Like is then given by the product of the likelihoods over all categories:
 \begin{equation}
@@ -42,30 +44,35 @@ The fit is then performed by minimising the value of the negative log-likelihood
 \NLL = -2\ln\Like(\Largs)
 \end{equation}
 The free parameters in the fit are parameters of interest, \mH, and the background nuisance parameters;
-the signal nuisance parameters can vary but are constrained by their uncertainty values.
+he signal nuisance parameters can vary but are constrained by the $C(\theta)$ term.
 The \NLL is constructed and minimised numerically within the RooFit~\cite{RooFit} 
 software package for statistical data analysis.
-The values of the parameters for the minimum 2NLL are then described as the ``best-fit" values.
+The values of the parameters at the minimum 2NLL are then described as the ``best-fit" values.
 
 A frequentist approach is followed in order to extract the uncertainties on the POIs, 
 in addition to their best-fit values.
-The likelihood ratio test statistic is constructed for a range of POI values, where:
+The likelihood ratio test statistic is constructed for a range of POI values:
 \begin{equation}
-\dNLL = -2\ln\frac{\Like(\Largs)}{\Like(\mgg\,|\,\vec{\hat{x}},\hat{m}_H,\vec{\hat{\theta}})}
+\dNLL = -2\ln\frac{ \Like(\textrm{data}\,|\,\vec{\sigma},\hat{\hat{m}}_H,\vec{\hat{\hat{\theta}}}) }
+                  { \Like(\textrm{data}\,|\,\vec{\hat{\sigma}},\hat{m}_H,\vec{\hat{\theta}}) }
 \end{equation}
-where $\vec{\hat{x}}$, $\hat{m}_H$, and $\vec{\hat{\theta}}$ are the best-fit values 
+where $\hat{\hat{m}}_H$ and $\vec{\hat{\hat{\theta}}}$ are the best-fit values 
+of the Higgs boson mass and nuisance parameters at the POI values $\vec{\hat{\sigma}}$;
+$\vec{\hat{\sigma}}$, $\hat{m}_H$, and $\vec{\hat{\theta}}$ are the global best-fit values 
 of the POIs, Higgs boson mass, and nuisance parameters respectively.
 The distribution of the likelihood ratio test statistic 
 can then be used to infer the approximate uncertainties on the measurements.
 For a sufficient number of events, %in each bin??
-the distribution tends to that of a $\chi^2$~\cite{Asymptotic}, with the number of degrees of freedom
-equal to the number of POIs being measured.
-In this case, it can be shown that the 68\% confidence level (CL) intervals 
-are given approximately by the region where $\dNLL < 1$.
+the distribution tends to that of a $\chi^2$~\cite{Asymptotic}, 
+where the number of degrees of freedom is equal to the number of POIs being measured.
+In this case, the 68\% confidence level (CL) intervals 
+are given approximately by the corresponding region for a $\chi^2$ distribution, 
+which depends on the number of degrees of freedom.
+For a single POI, the region is defined by $\dNLL < 1$.
 The interpretation of the 68\% CL intervals within the frequentist paradigm 
 is that in an ensemble of identical pseudo-experiments, 
-the observed best-fit value of the POI should fall within the intervals in 68\% of cases.
-The crossing points of the \dNLL at $\pm 1$ are therefore considered 
+the observed interval should should contain the true value of the POI in 68\% of cases.
+The crossing points of the \dNLL at $\pm 1$ are therefore quoted
 as the 68\% CL uncertainties on the POI in question.
 
 In this analysis the POIs considered are Higgs boson simplified template cross sections, 
@@ -78,9 +85,7 @@ Measuring a wider set of STXS bins provides more information,
 but the uncertainties are correspondingly larger than if fewer parameters are measured.
 Therefore in this section results are reported under various scenarios, 
 with between one and thirteen POIs in total.
-In most cases, the results are displayed as the cross section divided by the SM prediction. 
-This is only to improve the readability and ease of comparison with the SM;
-the underlying parameter is the cross section.
+The results are displayed as the cross section normalised to the SM prediction. 
 This differs from a signal strength, the ratio of the observed cross section 
 to the SM prediction, normally denoted by:
 \begin{equation}
@@ -99,7 +104,27 @@ within the STXS framework.
 All results were first reported in Ref.~\cite{HIG-18-029}.
 
 \section{Observed diphoton mass distribution}
-%description of the S+B and yields plots
+
+The observed diphoton mass distribution is displayed together with the result 
+of a signal plus background fit in Figure~\ref{fig:results_MassPlot}.
+The fit contains one inclusive signal parameter, 
+which includes all signal events where $|y_H| < 2.5$.
+The fit is performed simulataneously to all analysis categories, 
+each of which is summed with a weight 
+corresponding to the ratio of signal events to background events. %this shows the "true" sensitvity?
+The uncertainty on the background prediction is also shown.
+The signal peak due to Higgs boson production is clearly visible.
+%The background-only hypothesis is excluded with a significance of more than five standard deviations.
+
+The result of the same single parameter fit is also shown in Figure~\ref{fig:results_MassPlots}.
+In this case, only certain subsets of categories are included in the sum.
+The \mgg distributions for the weighted sum of the categories targeting 
+ggH 0J, ggH 1J, ggH 2J, and VBF production are shown.
+The plots indicate the total number of events and approximate signal to background ratio
+for the different processes targeted in this analysis.
+Further plots made in this way, 
+where the categories relate to the POIs chosen for the STXS stage 1 fit results, 
+are contained in the appendix. %TODO add these and update ref.
 
 \begin{figure}[hptb]
 \centering
@@ -118,7 +143,46 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
 \label{fig:results_MassPlot}
 \end{figure}
 
-%TODO add the plots summed over different categories?
+\begin{figure}[hptb]
+\centering
+\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_0J.pdf}
+\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_1J.pdf} \\
+\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_2J.pdf}
+\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_VBF.pdf}
+\caption{
+  Data points (black) and signal plus background model fit 
+  for the ggH 0J, ggH 1J, ggH 2J, and VBF categories is shown. 
+  Each category is weighted by S/(S + B), 
+  where S and B are the numbers of expected signal and background events, respectively, 
+  in a $\pm 1 \seff$ mass window centred on \mH. 
+  The one standard deviation (green) and two standard deviation (yellow) bands 
+  include the uncertainties in the background component of the fit. 
+  The solid red line shows the contribution from the total signal, plus the background contribution. 
+  The dashed red line shows the contribution from the background component of the fit. 
+  The bottom plot shows the residuals after subtraction of this background component.
+}
+\label{fig:results_MassPlots}
+\end{figure}
+
+\section{Category composition}
+
+All analysis categories are contaminated, to varying extents, 
+by background events and other signal processes which are not being targeted.
+The level of contamaination then affects the sensitivity of the analysis 
+when the final fits are performed.
+Tables~\ref{tab:results_yields2016} and \ref{tab:results_yields2017} 
+show the expected number of signal events for the 2016 and 2017 datasets respectively.
+The relative contribution to each category from each of the individual stage 0 bins is shown, 
+together with the \seff and \shm (the FWHM divided by 2.35) for the category's signal model.
+Also reported is the expected number of background events per GeV in a $\pm1\seff$ window 
+around \SI{125{GeV}, calculated using the best-fit background function.
+
+The signal composition of the analysis categories in terms of the stage 1 bins being targeted
+is shown in Figures~\ref{fig:results_Cats2016} and \ref{fig:results_Cats2017}.
+The contribution of each bin to the total number of expected signal events in a category is displayed, 
+meaning each the values in each row sum to 100\%.
+In general the migrations between categories due to mismeasurement of \ptgg is very low, 
+whilst there are significantly higher migrations arising from jet counting.
 
 \begin{figure}[hptb]
 \centering
@@ -184,8 +248,44 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
   \end{table}
 \end{landscape}
 
-\section{Stage 0 cross sections}
-%describe the stage 0 measurements here
+\section{Results in the STXS framework}
+
+Results in the STXS framework are presented with three different parameterisations;
+for each result the underlying signal bins 
+are grouped into different parameters which are free to vary in the fit.
+The recommendations contained in Ref.~\cite{YR4} 
+concerning how to treat subdominant processes are followed in each case.
+The ggH parameters include bbH events.
+The ggZH process is grouped together with leptonic VH production if the Z boson decays leptonically, 
+and with ggH otherwise.
+The hadronic VH processes are grouped with VBF production to form the qqH parameters.
+In each fit, the ttH, tH, and VH leptonic parameters are constrained to their SM prediction. 
+This is necessary since there are no categories targeting these production modes, 
+adn therefore the parameters would be almost unconstrained 
+and cause increased uncertainties in the other parameters of interest.
+In all fits the mass of the Higgs boson is profiled.
+
+\subsection{Stage 0 cross sections}
+Measurements of stage 0 STXS bins are performed in a fit with two parameters, ggH and qqH.
+The resulting cross sections, normalised to the SM prediction, are found to be 
+%$\sigma_{ggH}/\sigma_{ggH}^{\textrm{SM}} = 1.00 \pm 0.13$ 
+%and $\sigma_{qqH}^{\textrm{SM}} = 1.0 \pm 0.4$.
+$\sigma_{ggH}/\sigma_{ggH}^{\textrm{SM}} = 1.15_{-0.15}^{+0.15}$ 
+and $\sigma_{qqH}/\sigma_{qqH}^{\textrm{SM}} = 0.83_{-0.31}^{+0.37}$.
+The individual likelihood scans are shown 
+in Figures~\ref{fig:results_Stage0_ggH} and \ref{fig:results_Stage0_ggH}.
+Two scans are shown, one corresponding to the full fit
+and one corresponding to the fit without systematic uncertainties.
+The systematic component of the uncertainty is then determined 
+by subtracting the statistical component from the total uncertainty.
+In both measurements the statistical component of the uncertainty 
+is greater than the systematic component.
+However for the ggH cross section, the magnitude of each is comparable.
+With the full Run 2 dataset, 
+which will increase the available integrated luminosity to around \SI{137}{\fbinv}, 
+the ggH measurement is likely to become systematics-dominated.
+
+%TODO add a 2D scan? 
 
 \begin{figure}[hptb]
 \centering
@@ -198,8 +298,8 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
   The ggH parameter includes bbH components, 
   while the qqH parameter includes the hadronic VH contribution. 
   The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  Cross section ratios are shown with approximate 68\% CL intervals (black points), 
-  and compared to the SM expectations and their uncertainties (blue bands).
+  The solid black line shows the full scan, 
+  whilst the dashed green line shows the scan without any systematic uncertainties included.
 }
 \label{fig:results_Stage0_ggH}
 \end{figure}
@@ -215,14 +315,31 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
   The ggH parameter includes bbH components, 
   while the qqH parameter includes the hadronic VH contribution. 
   The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  Cross section ratios are shown with approximate 68\% CL intervals (black points), 
-  and compared to the SM expectations and their uncertainties (blue bands).
+  The solid black line shows the full scan, 
+  whilst the dashed green line shows the scan without any systematic uncertainties included.
 }
 \label{fig:results_Stage0_qqH}
 \end{figure}
 
-\section{Stage 1 cross sections}
-%describe the stage 1 measurements here
+\subsection{Stage 1 cross sections}
+
+Two different measurements are performed at stage 1 of the STXS framework.
+In both cases, some stage 1 bins are merged 
+in order to improve the statistical sensitivity of the measurement.
+In the first fit, the definition of parameters is motivated by merging as few bins as possible
+whilst maintaining the uncertainty on each parameter at less than 100\% of the SM predicted value.
+This results in a total of seven signal parameters.
+There are six ggH parameters, of which four correspond to a single stage 1 bin;
+these are the zero-jet (0J), one-jet low (1J low), medium (1J med), and high (1J high) \ptH bins.
+The two-jet or greater parameter (GE2J) groups together five individial stage 1 bins, 
+comprising the low, medium and high \ptH bins as well as the two VBF-like bins.
+The ggH BSM parameter is the sum of the one-jet and two-jet ``beyond standard model" bins
+where $\ptH > \SI{200}{GeV}$.
+Finally, the qqH parameter is unchanged from stage 0;
+all five bins are grouped together.
+The result of this seven-parameter fit are shown in Figure~\ref{fig:results_stage1}. 
+The observed 68\% CL intervals for each parameter are compared 
+to the SM predictions and their associated uncertainties.
 
 \begin{figure}[hptb]
 \centering
@@ -240,6 +357,9 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
 }
 \label{fig:results_Stage1}
 \end{figure}
+
+%TODO describe the stage 1 minimal fit here
+%TODO switch this to one where VBF BSM is ungrouped?
 
 \begin{figure}[hptb]
 \centering
@@ -263,6 +383,8 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
 }
 \label{fig:results_Stage1Min}
 \end{figure}
+
+%TODO explain and motivate the correlation matrices here
 
 \begin{figure}[hptb]
 \centering
@@ -296,48 +418,50 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
 \label{fig:results_CorrStage1Min}
 \end{figure}
 
+\section{Summary}
+
+%TODO results summary and explanation of tables here
+
 \begin{table}
-  \begin{centering}
-    \input{Tables/stage1.tex}
-    \caption{
-    The results of a seven-parameter fit in the STXS framework. 
-    The ggH 1J and 2J BSM bins are grouped together in the fit; 
-    the remaining five ggH bins with two or more jets are also grouped. 
-    All five VBF bins are grouped together. 
-    The ggH parameters include bbH components, 
-    while the qqH parameter includes the hadronic VH contribution. 
-    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-    Both the measured value and the standard model prediction for 
-    the product of the cross section and branching ratio are shown.
-    The ratio of the measured cross section to the SM prediction is also shown, 
-    together with its uncertainty.
-    In addition, the statistical, experimental, and theoretical components 
-    of the uncertainty on each parameter are reported.
-    }
-    \label{tab:results_stage1}
-  \end{centering}
+\centering
+  \input{Tables/stage1.tex}
+  \caption{
+  The results of a seven-parameter fit in the STXS framework. 
+  The ggH 1J and 2J BSM bins are grouped together in the fit; 
+  the remaining five ggH bins with two or more jets are also grouped. 
+  All five VBF bins are grouped together. 
+  The ggH parameters include bbH components, 
+  while the qqH parameter includes the hadronic VH contribution. 
+  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+  Both the measured value and the standard model prediction for 
+  the product of the cross section and branching ratio are shown.
+  The ratio of the measured cross section to the SM prediction is also shown, 
+  together with its uncertainty.
+  In addition, the statistical, experimental, and theoretical components 
+  of the uncertainty on each parameter are reported.
+  }
+  \label{tab:results_stage1}
 \end{table}
 
 \begin{table}
-  \begin{centering}
-    \input{Tables/stage1min.tex}
-    \caption{
-    The results of a thirteen-parameter fit in the STXS framework. 
-    The two VBF-like ggH bins are grouped to form one parameter, 
-    as are the VBF BSM-like, VH-like and Rest bins.
-    No further merging is performed. 
-    The ggH parameters include bbH components, 
-    while the qqH parameters include the hadronic VH contribution. 
-    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-    Both the measured value and the standard model prediction for 
-    the product of the cross section and branching ratio are shown.
-    The ratio of the measured cross section to the SM prediction is also shown, 
-    together with its uncertainty.
-    In addition, the statistical, experimental, and theoretical components 
-    of the uncertainty on each parameter are reported.
-    }
-    \label{tab:results_stage1min}
-  \end{centering}
+\centering
+  \input{Tables/stage1min.tex}
+  \caption{
+  The results of a thirteen-parameter fit in the STXS framework. 
+  The two VBF-like ggH bins are grouped to form one parameter, 
+  as are the VBF BSM-like, VH-like and Rest bins.
+  No further merging is performed. 
+  The ggH parameters include bbH components, 
+  while the qqH parameters include the hadronic VH contribution. 
+  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+  Both the measured value and the standard model prediction for 
+  the product of the cross section and branching ratio are shown.
+  The ratio of the measured cross section to the SM prediction is also shown, 
+  together with its uncertainty.
+  In addition, the statistical, experimental, and theoretical components 
+  of the uncertainty on each parameter are reported.
+  }
+  \label{tab:results_stage1min}
 \end{table}
 
 %TODO put the mass distributions for each stage 1 fit scenario in backup.
