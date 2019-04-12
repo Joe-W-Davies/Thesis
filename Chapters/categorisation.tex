@@ -12,7 +12,7 @@ with an invariant mass in the range $100\,<\,\mgg\,<\,\SI{180}{GeV}$.
 Both photons must also satisfy the
 pseudo-rapidity requirement $|\eta|\,<\,2.5$ and must not be in the barrel-endcap
 transition region $1.44\,<\,|\eta|\,<\,1.57$.
-The above $\eta$ requirement is applied to the photo supercluster
+The above $\eta$ requirement is applied to the photon supercluster
 position, and the requirement on the photon $\pt$ is applied 
 after the vertex assignment.
 
@@ -85,7 +85,7 @@ The inclusive ggH cross section is $48.52~\textrm{pb}$ at $\mH = \SI{125.09}{GeV
 computed to an accuracy of three loops in perturbative quantum chromodynamics (QCD) 
 and next-to-leading order (NLO) in electroweak perturbations (EW) 
 \cite{YR4,Anastasiou2015,Anastasiou2016}.
-Of this approximately $44.2~\textrm{pb}$ is within $|y_H| < 2.5$.
+Approximately $44.2~\textrm{pb}$ of this is within $|y_H| < 2.5$.
 
 \begin{table}
   \begin{centering}
@@ -137,11 +137,11 @@ To train the diphoton BDT, simulated events from the ggH, VBF, ttH
 and VH production modes are treated as signal. 
 The event generator used for training the BDT (powheg) is different from that used to construct
 the final signal model.
-This ensures that the final results are not biased by re-using the same events
+This ensures that the final results are not biased by re-using the same events.
 Simulated background events include the contributions from prompt-prompt, prompt-fake, 
 and fake-fake sources.
 For both signal and background, 
-events are weighted in accordance with the SM process cross-section.
+events are weighted in accordance with the SM process cross section.
 Furthermore, events from the QCD sample are down-weighted by a factor of 25;
 the limited number of events in this sample results in very high per-event weights, 
 which causes the classifier to over-estimate the importance of individual events.
@@ -245,7 +245,7 @@ the algorithm learns the specific detail of the training sample provided.
 If a classifier has learnt features from the training set inputs
 which are due solely to statistical fluctuations and not a more general feature of the signal, 
 over-training can result.
-To check for potential over-training, the training score as measured by area under the ROC curve 
+To check for potential over-training, the training score as measured by the area under the ROC curve 
 of the training set is compared with the score from the independent test set.
 If the test set score is significantly higher than that of the training set, 
 the classifier has been over-trained.
@@ -263,7 +263,7 @@ This imbalance can cause suboptimal learning in the classifier.
 To check this, the classifier is trained in a scenario 
 where the signal event weights are increased by a uniform factor, 
 such that the total sum of weights for signal and background is equal.
-This is purely as a technical change to the training 
+This is purely a technical change to the training 
 designed to improve the learning outcomes of the classifier.
 When evaluating the performance, the default event weights are used.
 Equalising the total weights in this way results in a modest improvement in performance.
@@ -302,7 +302,7 @@ which has selection thresholds at $\pt = \SI{32}{GeV}~(\SI{35}{GeV})$ for 2016 (
 Figure~\ref{fig:cat_diphoBDT} shows the output score of the diphoton BDT for data and simulation.
 The effect of two systematic uncertainties which affect the diphoton BDT are included;
 these are the shift in the photon identification BDT score, 
-and the uncertainty on the photon energy resolution.
+and the uncertainty on the photon energy resolution (see Chapter~\ref{chap:sigbkg} for details).
 Good agreement is observed between the data and simulation in both years, 
 with all discrepancies covered by the statistical and systematic uncertainties.
 
@@ -326,7 +326,7 @@ with all discrepancies covered by the statistical and systematic uncertainties.
 
 Once the diphoton BDT has been constructed, 
 a category optimisation procedure can be performed for each Stage 1 bin independently.
-The reconstructed number of jets and \ptgg defines the category type into which a a given event falls.
+The reconstructed number of jets and \ptgg define the category type into which a given event falls.
 Then, independently for each category type, 
 an optimisation procedure is performed to define diphoton BDT boundaries 
 for a given number of subcategories.
@@ -354,7 +354,7 @@ does the AMS metric return different optimal diphoton BDT boundaries from the $S
 and then the differences are relatively small.
 
 The optimisation procedure itself is performed using a random search. 
-This is found to be more computationally efficient than a grid search.
+%This is found to be more computationally efficient than a grid search.
 After the diphoton BDT boundaries have been established, 
 a cross-check is performed to ensure that a sensible minimum has been found.
 This is done by scanning the diphoton BDT value individually for each category type and each boundary; 
@@ -454,7 +454,7 @@ to reduce the respective number of ggH and background events entering the catego
 The dijet BDT is trained to discriminate VBF events from both background and ggH events.
 This is made possible due to the distinctive signature of VBF events, 
 which typically have two jets with large separation in pseudorapidity and high invariant mass.
-Therefore the input variables to the dijet BDT consist of primarily of jet-related variables.
+Therefore the input variables to the dijet BDT consist primarily of jet-related variables.
 In addition, the jets in VBF events originate from quarks, 
 whereas ggH events typically originate from gluons.
 This results in subtle differences in the internal structure of the jet objects, 
@@ -489,7 +489,7 @@ which pass the analysis preselection,
 and this problem is exacerbated by applying additional requirements on the dijet system.
 %Have a go at explaining why here?
 Consequently, there are few events with which to train the dijet BDT, 
-and those events which are present have an extremely high cross-section.
+and those events which are present have an extremely high cross section.
 This results in multiple issues that reduce the effectiveness of the dijet BDT.
 If these high-weight events are included in the training, 
 the classifier assigns too much importance to specific instances 
@@ -534,11 +534,11 @@ which do not need replacement and continue to be taken from simulation for the t
 This method is used for the first time in this analysis;
 the outline of the procedure is as follows:
 \begin{itemize}
-\item Define a control region by inverting the photon identification BDT requirement 
+\item define a control region by inverting the photon identification BDT requirement 
       for events entering the VBF signal region;
-\item Use simulation to compute the relative fraction of events in the signal region and control region, 
+\item use simulation to compute the relative fraction of events in the signal region and control region, 
       for each photon, as a function of the photon kinematics;
-\item Apply these factors as event weights to the data in the control region 
+\item apply these factors as event weights to the data in the control region 
       and use these events to replace the simulation of prompt-fake and fake-fake events in the training.
 \end{itemize}
 
@@ -553,7 +553,7 @@ The number of events in each are denoted by $N_{pf}$
 Lastly there is the region where both photons fail the requirement, with $N_{ff}$ events.
 %Table~\ref{tab:cat_RegionDefinitions} shows the definition of each region.
 %TODO put in table. Mention reason for gap in ID BDT score?
-Figure~\ref{fig:cat_DDschematic} displays a schematic illustrating how the method works.
+Figure~\ref{fig:cat_DDschematic} illustrates how the method works.
 
 \begin{figure}
   \centering
@@ -588,14 +588,14 @@ This can be written as:
 
 \begin{equation*}
 w_{\textrm{fake}} = w_{\textrm{fake}}(\eta,\pt)
-= \left( \frac{N^{SR}} {N^{CR}} \right)_{MC}
+= \left( \frac{N^{SR}} {N^{CR}} \right)_{MC} , 
 \end{equation*}
 \begin{equation*}
 w_{\textrm{QCD}} = w_{\textrm{QCD}}(\eta,\pt)
-= \left( \frac{N^{CR}_{pf} + N^{CR}_{ff}} {N^{CR}_{pp} + N^{CR}_{pf} + N^{CR}_{ff}} \right)_{MC}
+= \left( \frac{N^{CR}_{pf} + N^{CR}_{ff}} {N^{CR}_{pp} + N^{CR}_{pf} + N^{CR}_{ff}} \right)_{MC} ,
 \end{equation*}
 \begin{equation*}
-f = f(\eta,\pt) = w_{\textrm{fake}} \times w_{\textrm{QCD}}
+f = f(\eta,\pt) = w_{\textrm{fake}} \times w_{\textrm{QCD}} , 
 \end{equation*}
 
 where $N^{SR}$ and $N^{CR}$ are the number of events in the signal and control regions respectively;
@@ -624,7 +624,7 @@ comprising the simulated prompt-prompt events and data-driven prompt-fake and fa
 are compared with data from sidebands in the diphoton mass distribution.
 The usual signal region selection is applied to the sideband data, 
 but with the requirement that the diphoton mass does not lie in the region $115 < \mgg < \SI{135}{GeV}$.
-This data cannot be used for training the dijet BDT since its reuse in the final fits 
+These data cannot be used for training the dijet BDT since its reuse in the final fits 
 could then induce bias; 
 however it is very useful for validating the method, 
 since its kinematic properties should be essentially identical to the data-driven output.
@@ -638,7 +638,7 @@ this confirms that it fulfils its purpose.
   \includegraphics[width=0.49\textwidth]{Figures/Categorisation/DDvalidation_mjj2016.png}
   \includegraphics[width=0.49\textwidth]{Figures/Categorisation/DDvalidation_mjj2017.png}
   \caption{Validation of the data-driven method. 
-  The upper part of the plots show the simulated background (blue histogram), 
+  The upper parts of the plots show the simulated background (blue histogram), 
   the background obtained with simulation for the prompt-prompt component 
   and utilising the data-driven method for the prompt-prompt and prompt-fake components 
   (green and grey stacked histograms),
@@ -657,7 +657,7 @@ This constitutes a significant improvement over the score when the BDT is traine
 which is 0.84.
 As an additional cross-check, the BDT is trained with events from the data sideband. 
 The area of this ROC curve is also 0.87, 
-which confirms that the improvement
+which confirms that the observed improvement is reasonable.
 %TODO add 2017 numbers
 
 The agreement between data and simulation for the dijet BDT score is validated 
@@ -749,7 +749,7 @@ A random optimisation procedure is followed for each scenario considered,
 using the same methodology as for the ggH categories.
 In the case of the approach applying only thresholds on the diphoton and dijet BDT output scores, 
 the values of the thresholds on the two BDTs are optimised simultaneously for each category.
-The resulting significance values of each scenario for the 2016 and 2017 datasets is 
+The resulting significance values of each scenario for the 2016 and 2017 datasets 
 are shown in Tables~\ref{tab:cat_VBFscenarios2016} and \ref{tab:cat_VBFscenarios2017} respectively.
 The performance of the combined BDT approach is compared with the approach using the diphoton 
 and dijet BDT scores directly in each case.
@@ -780,7 +780,7 @@ together with the expected number of signal and background events and the per-ca
   \begin{centering}
     \input{Tables/VBFcomparison2017.tex}
     \caption{The total VBF significance for different categorisation scenarios 
-    using 2016 data and simulation, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
+    using 2017 data and simulation, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
     Classification using the combined BDT is compared with setting boundaries with the 
     diphoton and dijet BDTs directly.}
     \label{tab:cat_VBFscenarios2017}
