@@ -1393,3 +1393,48 @@ year = "1998"
       reportNumber   = "CHEP-2003-MOLT007",
       SLACcitation   = "%%CITATION = PHYSICS/0306116;%%"
 }
+
+@article{Nother,
+  author = {Emmy N\"other},
+  title = {Invariant variation problems},
+  journal = {Transport Theory and Statistical Physics},
+  volume = {1},
+  number = {3},
+  pages = {186},
+  year  = {1918},
+}
+
+@book{Thomson,
+      author         = "Thomson, Mark",
+      title          = "{Modern Particle Physics}",
+      publisher      = "Cambridge University Press",
+      year           = "2013",
+      ISBN           = "9781107034266",
+}
+
+@book{Griffiths,
+      author         = "David Griffiths",
+      title          = "{Introduction to Elementary Particles}",
+      publisher      = "Wiley",
+      year           = "2009",
+      ISBN           = "9783527406012",
+}
+
+@book{Peskin,
+      author         = "Peskin, Michael E. and Schroeder, Daniel V.",
+      title          = "{An Introduction to quantum field theory}",
+      publisher      = "Addison-Wesley",
+      year           = "1995",
+      ISBN           = "9780201503975, 0201503972",
+}
+
+@article{Dirac,
+      author         = "Dirac, Paul A. M.",
+      title          = "{The quantum theory of the electron}",
+      journal        = "Proc. Roy. Soc. Lond.",
+      volume         = "A117",
+      year           = "1928",
+      pages          = "610",
+      doi            = "10.1098/rspa.1928.0023",
+      SLACcitation   = "%%CITATION = PRSLA,A117,610;%%"
+}

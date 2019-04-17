@@ -10,20 +10,21 @@
                  }{Frank Ocean}
 
 \section{Introduction}
+
 The standard model (SM) of particle physics is the current best description of nature 
 at its most fundamental level.
-Developed in the 1970s~\cite{Glashow,Weinberg,Salam}, 
-the SM incorporates the electromagnetic, weak, and strong forces in a single coherent framework, 
+Developed in the 1970s, the SM incorporates the electromagnetic, weak, 
+and strong forces in a single coherent framework, 
 unifying the electromagnetic and weak interactions in doing so.
 The SM is a type of quantum field theory known as a gauge theory, 
 which represents the fundamental constituents of matter and the forces between them
 as excitations of relativistic quantum fields.
 Many of its predictions have been experimentally verified to unprecedented precision~\cite{EMstuff}.
-The spontaneous breaking of gauge symmetry in the unified electroweak sector of the SM
+The spontaneous breaking of gauge symmetry in the unified electroweak (EW) sector of the SM
 results in the prediction of the Higgs boson, 
 the existence of which is now experimentally confirmed~\cite{HiggsShit}.
 In this chapter, the fundamental particles and forces making up the SM are described, 
-before its structure in terms of two gauge fields is explained.
+before its structure as a gauge field theory is explained.
 The origin of the Higgs boson and through spontaneous symmetry breaking is elucidated.
 The phenomenology of the Higgs boson and the consequences for experimental measurements 
 are then detailed. 
@@ -31,10 +32,10 @@ Lastly, the simplified template cross section (STXS) framework is introduced
 and the latest precision measurements of the Higgs boson's properties are summarised.
 
 \section{Fundamental particles and forces}
-%go through the fundamental particles and forces of nature
+
 In the SM, particles particles other than the Higgs boson are divided into spin-half fermions
 and spin-one bosons.
-Fermions are the fundamental constrituents of matter, 
+Fermions are the fundamental constituents of matter, 
 and can either interact only via the electroweak force (leptons), 
 or via both the electroweak and strong forces (quarks).
 Both leptons and quarks exist in three distinct generations;
@@ -47,6 +48,8 @@ which have the same mass but whose charge has the opposite sign to the original 
 %Leptons are exist as free particles but quarks are confined to composite objects 
 %such as the proton due to the nature of the strong force.
 
+%TODO insert fermion table here
+
 The interactions between fermions are mediated by a second class of fundamental particles, 
 the gauge bosons.
 Three forces are represented by the SM gauge bosons: 
@@ -56,35 +59,214 @@ whilst the weak interaction is occurs via the exchange of three massive particle
 the $W^+$, $W^-$, and $Z$ bosons.
 Due to the unification of these two forces into the electroweak sector of the SM, 
 the photon, $W^\pm$, and $Z$ bosons arise from combinations of the fundamental gauge fields.
-The gluons, which mediate the strong force, 
-are the only bosons in the SM which carry the charge the force's corresponding charge.
-Consequently they interactions between gluons is possible.
+Gluons, which mediate the strong force, 
+are also massless.
+%Together these describe all the fundamental forces observed in nature, 
+%with the exception of gravity.
 The structure of the gauge bosons in the SM is summarised in Table~\ref{tab:theory_bosons}.
+
+%TODO insert boson table here
 
 The final particle in the SM is the Higgs boson, 
 which is the only scalar (spin-zero) particle in the theory.
 The Higgs boson is a massive particle which arises 
 due to spontaneous symmetry breaking in the electroweak sector, 
-and whose interactions explain the masses of the other SM particles.
+and whose existence is necessary to explain the masses of both bosons and fermions.
 
 \section{Gauge fields}
-%general intro to gauge fields, E-L, Dirac, Nother etc
 
-\subsection{Electroweak interactions}
-%SM structure in EW sector
+The SM is realised as a particular type of quantum field theory (QFT) known as a gauge field theory.
+The dynamics and predictions of a given QFT can be derived from the Lagrangian (\Like)
+using the Euler-Lagrange equations, 
+in the same way as the equations of motion can be derived in classical field theory~\cite{Peskin}.
+Typically a Lagrangian is constructed with the aim of respecting symmetries of the physical system
+it is attempting to describe.
+According to N\"other's theorem~\cite{Nother}, 
+each symmetry of a Lagrangian has a corresponding current which is conserved.
+Examples include the invariance of a Lagrangian under translations in time 
+corresponding to the conservation of energy, 
+and invariance under spatial translation to conservation of momentum.
+This theorem therefore illustrates that the symmetries of a Lagrangian 
+are intimately linked with the conserved quantities and properties of the physical system described.
+
+The defining feature of gauge field theories is that they require the Lagrangian 
+to be invariant under a local gauge transformation.
+Here a local transformation means one which depends on spacetime co-ordinates, 
+in contrast to a global transformation.
+Elevating a global symmetry to a local one requires the introduction of additional fields, 
+which enable interactions between particles and imply the existence of gauge bosons.
+This is illustrated below, starting with the Dirac lagrangian 
+which describes a free spin-half fermion~\cite{Dirac,Griffiths}:
+\begin{equation}
+The Dirac equation
+\end{equation}
+where... 
+The Dirac Lagrangian is invaraint under a global phase transformation 
+corresponding to the $U(1)$ group, i.e. 
+\begin{equation}
+Global transformation
+\end{equation}
+where...
+This invariance is dependent upon the commutation of the transformed field 
+with the differential operator. 
+Considering instead a local gauge transformation, 
+meaning the transformation is a function of the spacetime co-ordinates:
+\begin{equation}
+Local transformation
+\end{equation}
+where...,
+The Lagrangian is no longer invariant;
+instead there is a residual term remaining af
+\begin{equation}
+Lagrangian transform
+\end{equation}
+where... 
+In order to restore gauge invariance, a new field $A_{\mu}$ can be introduced 
+which transforms as
+\begin{equation}
+Transformation of the photon field
+\end{equation}
+where... %equiv to a 1x1 matrix / U(1)
+This field is incorporated into the definition of the covariant derivative
+\begin{equation}
+Covariant derivative definition
+\end{equation}
+where... 
+With the addition of a free term for the field $A_{\mu}$, 
+whose form is tightly constrained by the requirements of being both Lorentz and gauge invariant, 
+the Lagrangian can then be written as
+\begin{equation}
+QED Lagrangian
+\end{equation}
+where... 
+This Lagrangian is now fully gauge invariant, 
+and can be identified as a description of quantum electrodynamics (QED).
+The field $A_{\mu}$ corresponds to a photon, and $some g bollocks$ to the charge of the electron.
+The interaction vertex between photons and electrons is contained in the term $trilinear term$, 
+and the electromagnetic field strength tensor is represented in $F^{\mu\nu}$.
+This illustrates the mechanism by which gauge invariance introduces new interacting fields
+with a symmetry, in this case a $U(1)$ symmetry with one degree of freedom.
+It can be shown that the number of generated bosons is equal to the number of degrees of freedom, 
+or equivalently the dimension, of the symmetry group~\cite{Peskin}.
+The electroweak and strong sectors of the SM follow the same principle, 
+with the symmetry groups being $SU(2) \times U(1)$ and $SU(3)$ respectively.
+How these symmetry transformations lead to the emergence of the desired SM properties 
+is detailed in the following sections.
 
 \subsection{Strong interactions}
+
 %SM structure in QCD
+The theory of strong interactions in the SM, known as quantum chromodynamics (QCD), 
+is based upon the $SU(3)$ symmetry group.
+The symmetries of this group can be represented by $3\times3$ traceless unitary matrices;
+this implies there are eight independent matrices, or generators, of the group~\cite{Thomson}.
+The covariant derivative is written as
+\begin{equation}
+QCD covariant derivative
+\end{equation}
+where... 
+The eight fields $A^{a}_{\mu}$ correspond to gluons, 
+the massless bosons which mediate the strong force.
+The QCD equivalent of electric charge, $g_c$, is known as colour charge.
+Three independent colour states exist, labelled red, green, and blue.
+Quarks are the only SM fermions which posess colour charge, 
+and thus transform as a triplet under transformations in colour space.
+
+In addition, it should be noted that $SU(3)$ is a non-Abelian group, 
+meaning that its transformations do not commute.
+This introduces additional complexity to the theory, 
+and has the direct consequence that gluons posess colour charge and can thus self-interact.
+This is manifest in the expression for the QCD field strength tensor, given by
+\begin{equation}
+QCD field strength tensor
+\end{equation}
+where... 
+The final form of the QCD Lagrangian in the SM is then
+\begin{equation}
+QCD Lagrangian
+\end{equation}
+where... 
+An important difference between QCD and QED is that the magnitiude of the strong force 
+increases in strength as a function of distance, rather than weakening.
+Consequently particles with colour charge are never observed as free particles 
+but are instead confined to colourless, composite bound states.
+This is the reason quarks and gluons are detected as hadronic showers of particles, 
+known as jets.
+
+\subsection{Electroweak interactions}
+
+One of the key successes of the SM was the unification of the electromagnetic and weak forces.
+This was developed by Glashow, Weinberg and Salam in the 1970s~\cite{Glashow,Weinberg,Salam} 
+and their GWS model constitutes the formulation of the modern SM.
+Starting from the $SU(2)$ group, three fields are defined in the covariant derivative
+\begin{equation}
+Weak covariant derivative
+\end{equation}
+where... 
+The corresponding charge is known as weak isospin. 
+Both quarks and leptons interact via the weak interaction 
+and transform as doublets under weak gauge transformations.
+The weak interaction vioates parity, meaning an inversion in space co-ordinates.
+This can be encoded explictly by introducing the parity operators
+\begin{equation}
+Parity operators
+\end{equation}
+where... 
+In the SM, only the left-handed fermions couple to the W bosons via $SU(2)$ interactions.
+The formulation above would suggest that this is true of all three $W^{\mu}$ bosons;
+however it is known that the Z boson interacts with both left and right-handed fermions.
+The key insight of EW unification is that the three bosons arising from the $SU(2)$ group 
+can be combined with the $U(1)$ boson to form the four physically observed bosons.
+This is achieved in the GWS model by constructing the $SU(2) \times U(1)$ group 
+with weak isospin and weak hypercharge as the respective charges, 
+and $W^{i}_{\mu}$ and $B_{\mu}$ as the respective fields.
+The left-handed fermions are represented by $SU(2)$ doublets, 
+whilst the right-handed fermions are singlets.
+The physical bosons are then expressed as a rotation in the $SU(2) \times U(1)$ space
+\begin{equation}
+Rotation of B and W to A and Z, or vice versa
+\end{equation}
+where... 
+The relevant EW parts of the SM Lagrangian can then be written
+\begin{equation}
+EW Lagrangian
+\end{equation}
+where... 
+By comparison with the expected electromagnetic charges, the relation 
+\begin{equation}
+Electric charge in terms of the theory parameters
+\end{equation}
+where... 
+can be inferred.
+
+This completes the descroption how particles interact in the SM.
+However there is an issue remaining related to the particle masses.
+It can be seen that a mass term of the form
+\begin{equation}
+Lagrangian mass term
+\end{equation}
+where... 
+is not permitted by gauge invariance.
+This is not an issue for the description of the photon, 
+but cannot be reconciled with the experimentally observed finite masses of the W and Z bosons.
+Similar considerations prevent the inclusion of mass terms 
+for the quarks and leptons in the Lagrangian.
+Spontaneous symmetry breaking and the Higgs mechanism provide the resolution to this problem.
 
 \section{Spontaneous symmetry breaking}
+
 %the mechanism, and how it gives mass to W and Z
 %and fermion masses
 %and then link to the prediction of the Higgs boson itself and how it interacts
 
 \section{Properties of the Higgs boson}
+
 %production, decay etc
+%latest state of the art coupling measurements
+%linking to the new state of the art bestest ever way to do these measurements...
 
 \section{The simplified template cross section framework}
+
 %introduction and motivation
 %stage 0 bin definitions
 %state of the art measurements, i.e. HIG-16-040
