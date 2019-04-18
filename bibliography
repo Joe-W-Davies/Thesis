@@ -1522,3 +1522,19 @@ year = "1998"
       reportNumber  = "ATLAS-CONF-2018-018",
       url           = "http://cds.cern.ch/record/2621479",
 }
+
+@article {PrecisionQED,
+	author = {Schneider, Georg and Mooser, Andreas and Bohman, Matthew and Sch{\"o}n, Natalie and Harrington, James and Higuchi, Takashi and Nagahama, Hiroki and Sellner, Stefan and Smorra, Christian and Blaum, Klaus and Matsuda, Yasuyuki and Quint, Wolfgang and Walz, Jochen and Ulmer, Stefan},
+	title = {Double-trap measurement of the proton magnetic moment at 0.3 parts per billion precision},
+	volume = {358},
+	number = {6366},
+	pages = {1081},
+	year = {2017},
+	doi = {10.1126/science.aan0207},
+	publisher = {American Association for the Advancement of Science},
+	abstract = {Fundamental physical laws are believed to remain the same if subjected to three simultaneous transformations: flipping the sign of electric charge, taking a mirror image, and running time backward. To test this charge, parity, and time-reversal (CPT) symmetry, it is desirable to know the fundamental properties of particles such as the proton to high precision. Schneider et al. used a double ion trap to determine the magnetic moment of a single trapped proton to a precision of 0.3 parts per billion. Comparatively precise measurements of the same quantity in the antiproton are now needed for a rigorous test of CPT symmetry.Science, this issue p. 1081Precise knowledge of the fundamental properties of the proton is essential for our understanding of atomic structure as well as for precise tests of fundamental symmetries. We report on a direct high-precision measurement of the magnetic moment μp of the proton in units of the nuclear magneton μN. The result, μp = 2.79284734462 ({\textpm}0.00000000082) μN, has a fractional precision of 0.3 parts per billion, improves the previous best measurement by a factor of 11, and is consistent with the currently accepted value. This was achieved with the use of an optimized double{\textendash}Penning trap technique. Provided a similar measurement of the antiproton magnetic moment can be performed, this result will enable a test of the fundamental symmetry between matter and antimatter in the baryonic sector at the 10-10 level.},
+	issn = {0036-8075},
+	URL = {https://science.sciencemag.org/content/358/6366/1081},
+	eprint = {https://science.sciencemag.org/content/358/6366/1081.full.pdf},
+	journal = {Science}
+}
