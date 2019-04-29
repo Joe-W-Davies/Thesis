@@ -109,6 +109,25 @@
       SLACcitation   = "%%CITATION = ARXIV:1502.02701;%%"
 }
 
+@article{MuonReco,
+      author         = "Sirunyan, A. M. and others",
+      title          = "{Performance of the CMS muon detector and muon
+                        reconstruction with proton-proton collisions at
+                        $\sqrt{s}=$ 13 TeV}",
+      collaboration  = "CMS",
+      journal        = "JINST",
+      volume         = "13",
+      year           = "2018",
+      number         = "06",
+      pages          = "P06015",
+      doi            = "10.1088/1748-0221/13/06/P06015",
+      eprint         = "1804.04528",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics.ins-det",
+      reportNumber   = "CMS-MUO-16-001, CERN-EP-2018-058",
+      SLACcitation   = "%%CITATION = ARXIV:1804.04528;%%"
+}
+
 @article{HLLHC,
       author         = "Apollinari, G. and Brüning, O. and Nakamoto, T. and
                         Rossi, Lucio",
@@ -1160,6 +1179,19 @@ year = "1998"
       primaryClass   = "hep-ph",
       reportNumber   = "TIF-UNIMI-2015-1, OUTP-15-04P",
       SLACcitation   = "%%CITATION = ARXIV:1505.06736;%%"
+}
+
+@article{Geant4,
+      author         = "Agostinelli, S. and others",
+      title          = "{GEANT4: A Simulation toolkit}",
+      collaboration  = "GEANT4",
+      journal        = "Nucl. Instrum. Meth.",
+      volume         = "A506",
+      year           = "2003",
+      pages          = "250-303",
+      doi            = "10.1016/S0168-9002(03)01368-8",
+      reportNumber   = "SLAC-PUB-9350, FERMILAB-PUB-03-339",
+      SLACcitation   = "%%CITATION = NUIMA,A506,250;%%"
 }
 
 @article{Madgraph,
