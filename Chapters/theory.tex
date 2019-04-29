@@ -21,11 +21,11 @@ which represents the fundamental constituents of matter and the forces between t
 as excitations of relativistic quantum fields.
 Many of its predictions have been experimentally verified to unprecedented precision~\cite{PrecisionQED}.
 The spontaneous breaking of gauge symmetry in the unified electroweak (EW) sector of the SM
-results in the prediction of the Higgs boson, 
+results in the prediction of the Higgs boson \cite{HiggsPaper,BroutEnglert,KibbleEtc}, 
 the existence of which is now experimentally confirmed~\cite{ATLASdiscovery,CMSdiscovery}.
 In this chapter, the fundamental particles and forces of the SM are described, 
 before its structure as a gauge field theory is explained.
-The origin of the Higgs boson and through spontaneous symmetry breaking is elucidated.
+Spontaneous symmetry breaking and its relation to the Higgs mechanism is elucidated.
 The phenomenology of the Higgs boson and the consequences for experimental measurements 
 are then detailed. 
 Lastly, the latest precision measurements of the Higgs boson's properties are summarised 
@@ -36,8 +36,8 @@ and the simplified template cross section (STXS) framework is introduced.
 In the SM, particles other than the Higgs boson are divided into spin-half fermions
 and spin-one bosons.
 Fermions are the fundamental constituents of matter, 
-and can either interact only via the electroweak force (leptons), 
-or via both the electroweak and strong forces (quarks).
+and can either interact via the electromagnetic and weak forces (leptons), 
+or via the electromagnetic, weak and strong forces (quarks).
 Both leptons and quarks exist in three distinct generations;
 the three particles comprising each family have identical properties 
 except for mass, which increases across generations.
@@ -51,7 +51,7 @@ which has the same mass but whose charge has the opposite sign to the original p
 The interactions between fermions are mediated by a second class of fundamental particles, 
 the gauge bosons.
 Three forces are represented by the SM gauge bosons: 
-the electromagnetic force, the weak nuclear force, and the strong force.
+the electromagnetic force, the weak force, and the strong force.
 The mediator of the electromagnetic force is the massless photon, 
 whilst the weak interaction is occurs via the exchange of three massive particles, 
 the $W^+$, $W^-$, and $Z$ bosons.
@@ -259,10 +259,10 @@ The hypercharge $Y_\psi$ is identified as the value of the particle's electric c
 Finally, the left-handed terms include
 \begin{equation}
 \Like_{\textrm{EW}} \supset - \psibar_L(g\sin{\theta_W} \frac{\sigma^3}{2} 
-                            + g' \cos{\theta_W} Y_\psi) \gamma^\mu A_\mu \psi_L
+                            + g' \cos{\theta_W} Y_\psi) \gamma^\mu A_\mu \psi_L .
 \end{equation}
-where for the doublets for the quarks and leptons to have charges which differ by one unit of $e$ 
-in charge $g\sin{\theta_W} = e$. 
+In order for doublets representing the quarks and leptons to have charges 
+which differ by one unit of charge, it is inferred that $g\sin{\theta_W} = e$. 
 The hypercharges of the quarks and leptons are then required to be 
 $+\frac{1}{6}$ and $-\frac{1}{2}$ respectively.
 The theory thus describes a photon which couples in the same way to left and right-handed fields, 
@@ -293,6 +293,7 @@ The mechanism can be illustrated using the Lagrangian
 for a locally gauge invariant complex scalar field $\phi$ 
 with a fourth-order interaction term~\cite{Thomson}
 \begin{equation}
+\label{eq:theory_SSMlagrangian}
 \Like = (D^\mu \phi^*) (D_\mu \phi) - m^2 \phi^*\phi 
         - \lambda (\phi^*\phi)^2 - \frac{1}{4} F^{\mu\nu}F_{\mu\nu} ,
 \end{equation}
@@ -313,7 +314,7 @@ it is possible to expand about the minimum with a field of the form
 \phi = \frac{1}{\sqrt{2}} (v + \phi_1 + i\phi_2) ,
 \end{equation}
 where $\phi_1$ and $\phi_2$ are real scalar fields.
-Substituting this into the Lagrangian yields the mass terms
+Substituting this into the Lagrangian (Equation~\ref{eq:theory_SSMlagrangian}) yields the mass terms
 \begin{equation}
 \Like \supset - 2 \lambda v^2 \phi^2_1 + 2 g^2 v^2 A^\mu A_\mu .
 \end{equation}
@@ -354,7 +355,7 @@ after the rotation described in Equation~\ref{eq:theory_rotation}, the Lagrangia
                          + \frac{(g^2 + g^{\prime 2})v^2}{8} Z_\mu Z^\mu .
 \end{equation}
 Thus the W and Z bosons have acquired mass whilst leaving the photon massless.
-The Higgs mechanism is therefore able to explain exactly the observed mass structure 
+The Higgs mechanism is therefore able to explain the observed mass structure 
 of the gauge bosons.
 Furthermore, the ratio of the masses of the and W and Z bosons 
 is predicted to be equal to $\cos{\theta_W}$, which is also in agreement with experiment.
@@ -376,8 +377,7 @@ m_f = \frac{g_f v}{\sqrt{2}}
 \end{equation}
 The magnitude of the Yukawa coupling is not known a priori and must be measured experimentally.
 It can then be seen that there are also interactions between the fermions and the Higgs boson
-whose coupling strength is proportional to the fermion mass, as well as the Higgs boson mass.
-%reference to three generations and CKM matrix?
+whose coupling strength is proportional to the fermion mass, as well as the Higgs boson mass. %reference to three generations and CKM matrix?
 
 Furthermore, the Higgs boson also has interaction terms with the gauge bosons.
 The relevant terms in the Lagrangian are
@@ -394,7 +394,7 @@ The Higgs boson mass terms in the Lagrangian together with its self-interactions
 \end{equation}
 where the Higgs boson mass can now be identified as $m_H = \sqrt{2\lambda}v$.
 The mass itself is unknown a priori, and must be measured experimentally.
-Considering all these interaction terms involving the Higgs boson, 
+Given the Higgs boson mass, and considering all these interaction terms involving the Higgs boson, 
 it is possible to infer the phenomenology of how the Higgs boson is produced and how it decays.
 This phenomenology and its consequences for experimental measurements 
 of the Higgs boson's properties are discussed in the following section.
@@ -404,8 +404,8 @@ of the Higgs boson's properties are discussed in the following section.
 Discovering the Higgs boson, and thereby completing our understanding of the standard model, 
 was one of the main physics objectives of the LHC. %revise LEP & Tev constraints
 This goal was achieved in 2012 when both the ATLAS and CMS experiments 
-announced the discover of a new particle resembling the Higgs boson~\cite{ATLASdiscovery,CMSdiscovery}.
-To achieve this, several Higgs boson production modes and decay channels were analysed.
+announced the discovery of a new particle resembling the Higgs boson~\cite{ATLASdiscovery,CMSdiscovery}.
+Several Higgs boson production modes and decay channels were analysed.
 Now that the existence of the Higgs boson is confirmed, 
 the experimental focus is to measure its properties as precisely as possible.
 This enables stringent tests of the SM to be made, 
@@ -478,7 +478,7 @@ it can decay directly to any massive particle
 \footnote{Only decays to pairs of particles whose mass is less than half that of the the Higgs boson
 are permitted kinematically. 
 However the decay can still occur to virtual particles of greater mass, 
-which then themselves decay}.
+which then themselves decay.}.
 In addition, loop diagrams permit the decay to massless particles, including the gluon and photon.
 The branching fractions for each of the nine principal decay modes 
 is shown in Table~\ref{tab:theory_decay}.
@@ -502,7 +502,7 @@ is shown in Table~\ref{tab:theory_decay}.
 It can be seen that the decay to $b\bar{b}$ has the largest branching fraction.
 However due to the large hadronic background at the LHC, 
 this decay channel is very difficult to utilise experimentally.
-The channels with the most sensitivity, despite their relatively low branching fractions, 
+The channels with the greatest sensitivity, despite their relatively low branching fractions, 
 are the diphoton ($\gamma\gamma$) and $ZZ^{*}$ decays 
 (where $Z^{*}$ indicates a virtual, or off mass-shell, Z boson).
 The sensitivity of these channels depends on the relatively low background 
@@ -573,7 +573,7 @@ So far, all measurements are consistent with the SM predictions.
 The simplified template cross section (STXS) framework \cite{YR4}
 provides a coherent approach with which to perform precision Higgs boson measurements. 
 Its goal is to minimise the theory-dependence of Higgs boson measurements, 
-whilst permitting the use of advanced analysis techniques to optimise the measurements' sensitivity.
+whilst permitting the use of advanced analysis techniques to optimise the measurements' sensitivities.
 This also increases the reinterpretability of the measurements.
 It is designed to supersede the traditional signal strength modifier measurements.
 
@@ -589,7 +589,8 @@ that would otherwise arise when extrapolating measurements to the full phase spa
 a large part of which is not accessible experimentally.
 The experimental acceptance of \Hgg events with $|y_H| > 2.5$ is negligible.
 The stage 0 bins are illustrated in Figure~\ref{fig:theory_stage0}.
-The principal difference from the production processes used in the signal strength measurements
+The principal difference from the production processes used in the signal strength measurements,
+such as those shown in Figure~\ref{fig:theory_stage0},
 is that VH production where the vector boson decays hadronically is grouped together with 
 VBF production to define an ``electroweak qqH" bin.
 
@@ -610,7 +611,7 @@ which is similar to Figure~\ref{fig:theory_PerProcTrad}.
 Aside from the change in signal bin definitions and the absence of an inclusive measurement, 
 the main difference is in the treatment of the theoretical uncertainties.
 When performing a measurement of $\mu$, 
-a fit is performed for the signal strength modifier ratio. 
+a fit is performed for the signal strength modifier ratio $\sigma/\sigma_{\textrm{SM}}$. 
 This requires that the theoretical uncertainty on the SM prediction, 
 which enters via the denominator, to be included.
 In contrast if the fit parameter is only the observed cross section, 
@@ -639,7 +640,7 @@ even if improved theoretical predictions are obtained in the future.
 
 At stage 1, a further splitting of bins into different kinematic regions is performed.
 This provides additional information for different theoretical interpretations of the measurements, 
-and enhances the sensitivity to possible signatures beyond the standard model (BSM).
+and enhances the sensitivity to possible signatures beyond the standard model.
 Measurements at stage 1 of the framework have already been reported by the ATLAS Collaboration \cite{ATLAS_Hgg36,ATLAS_Hgg80,ATLASstage0_ZZ}; 
 this analysis comprises the first CMS measurement of STXS stage 1 regions in the diphoton channel, 
 covering the gluon fusion (ggH) and vector boson fusion (VBF) production modes.
