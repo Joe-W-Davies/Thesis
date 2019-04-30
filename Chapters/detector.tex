@@ -26,18 +26,22 @@ the remainder of this section will be dedicated to its proton-proton operations.
 A schematic of the full CERN accelerator complex and the LHC experiments is shown in Figure~\ref{fig:detector_CERNschematic}.
 The operation of the LHC and the data it has accumulated so far is described in detail below.
 
-%FIXME this is too small
+%TODO this is too small
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CERNschematic.pdf}
   \caption[The CERN accelerator complex.]
-  {The LHC and its experiments within the CERN accelerator complex.
-  Figure taken from Ref.~\cite{CERNcomplex}.}
+  {
+    The LHC and its experiments within the CERN accelerator complex.
+    Also shown is the network of accelerators through which the protons pass before reaching the LHC, 
+    including the PS and the SPS.
+    Figure taken from Ref.~\cite{CERNcomplex}.
+  }
   \label{fig:detector_CERNschematic}
 \end{figure}
 
 The LHC design parameters allow for proton-proton collisions to occur at a maximum centre-of-mass energy of 14\,TeV 
-with an instantaneous luminosity of up to $1/,\times\,10^{34}\,\textrm{cm}^{-2}\,\textrm{s}^{-1}$.
+with an instantaneous luminosity of up to $\SI{1e34}{\lumi}$.
 Prior to being injected into the LHC beam pipes, bunches of protons pass are accelerated in several stages. 
 First, protons are obtained by stripping the electrons from hydrogen atoms using a strong electric field.
 The protons produced are then accelerated up to an energy of 50 MeV by Linear Accelerator 2 (LINAC 2).
@@ -59,10 +63,14 @@ Run~1 commenced in 2010 with $\sqrt{s}$ = 7\,TeV, continuing into 2011 at the sa
 In 2012 this was increased to 8\,TeV, and a total of 23.3\,\fbinv of data were collected.
 Analyses based upon this Run~1 dataset were able to discover the Higgs boson~\cite{ATLASdiscovery,CMSdiscovery}.
 After a shutdown for upgrades to the machine, Run~2 ran from 2015 to 2018 at a constant 13\,TeV centre-of-mass energy.
-The LHC was able to exceed its design luminosity in each of the years, eventually levelling the luminosity at $2\times10^{34}\,\textrm{cm}^{-2}\,\textrm{s}^{-1}$ for the majority of 2018 operations.
+The LHC was able to exceed its design luminosity in each of the years, eventually levelling the luminosity at $\SI{2e34}{\lumi}$ for the majority of 2018 operations.
 A number of additional inelastic proton-proton collisions in addition to a collision of interest, known as pileup, occur at a rate proportional to the instantaneous luminosity.
 The mean number of pileup events was 27 per bunch crossing in 2016, and 37 in both 2017 and 2018 data-taking.
-Figure \ref{fig:detector_Run1andRun2lumi} summarises the data collected in each year.
+Figure \ref{fig:detector_Run1andRun2lumi} summarises the data collected in each year, 
+demonstrating the large increase in integrated luminosity obtained during Run 2.
+The values shown in the figure refer to the integrated luminosity delivered to the CMS detector.
+The integrated luminosity actually recorded by the detector is slightly lower, 
+with typical efficiencies of slightly more than 90\%. 
 %The latest \Hgg results on which this thesis is based have utilised the 2016 and 2017 datasets; 
 %plans for the final Run 2 result combining the 2016-2018 datasets are described in Chapter ~\ref{chap:conclusion}.
 %Furthermore, future upgrades to both the LHC and the CMS detector are discussed in Chapter~\ref{chap:hgcal}.
@@ -72,8 +80,10 @@ Figure \ref{fig:detector_Run1andRun2lumi} summarises the data collected in each 
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/Run1andRun2lumi.pdf}
   \caption[LHC integrated luminosity and centre-of-mass energy per year.]
-  {The integrated luminosity and centre-of-mass energy for each year of LHC operation.
-  Figure taken from Ref.~\cite{CMSLumiPublic}.}
+  {
+    The integrated luminosity and centre-of-mass energy for each year of LHC operation.
+    Figure taken from Ref.~\cite{CMSLumiPublic}.
+  }
   \label{fig:detector_Run1andRun2lumi}
 \end{figure}
 
@@ -104,18 +114,24 @@ These are summarised as:
 \end{itemize}
 
 The design of CMS fulfils each of these requirements.
-The hermetic detector is cylindrical in shape, housing the eponymous 4\,T solenoidal magnet in the central section.
-Its other key components include the silicon tracker, homogeneous crystal electromagnetic calorimeter (ECAL) and a sampling hadronic calorimeter (HCAL).
-The tracker and calorimeters lie inside the bore of the magnet coil; the muon detection system is instead interleaved with the return yoke.
-Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic}, and described in detail in the remainder of this chapter.
+The hermetic detector is cylindrical in shape, 
+housing the eponymous 4\,T solenoidal magnet in the central section.
+Its other key components include the silicon tracker, 
+homogeneous crystal electromagnetic calorimeter (ECAL) and a sampling hadronic calorimeter (HCAL).
+The tracker and calorimeters lie inside the bore of the magnet coil; 
+the muon detection system is instead interleaved with the return yoke.
+Each of these subsystems is displayed in Figure~\ref{fig:detector_CMSschematic}, 
+and described in detail in the remainder of this chapter.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CMSschematic.png}
   \caption[A schematic view of the CMS detector.]
-  {A schematic view of the CMS detector.
-  Part of the detector is cut away in order to display each subsystem.
-  Figure taken from Ref.~\cite{SketchUp}.}
+  {
+    A schematic view of the CMS detector.
+    Part of the detector is cut away in order to display each subsystem.
+    Figure taken from Ref.~\cite{SketchUp}.
+  }
   \label{fig:detector_CMSschematic}
 \end{figure}
 
@@ -159,19 +175,21 @@ The final all-silicon design satisfies the requirements above, and is displayed 
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/TrackerUgly.png}
   \caption[The CMS tracker.]
-  {The various sections of the CMS tracking system.
-  The black circle represents the nominal interaction point.
-  Abbreviations are described in the following text.
-  Figure taken from Ref.~\cite{CMSdetector}.}
+  {
+    The various sections of the CMS tracking system.
+    The black circle represents the nominal interaction point.
+    Abbreviations are described in the following text.
+    Figure taken from Ref.~\cite{CMSdetector}.
+  }
   \label{fig:detector_tracker}
 \end{figure}
 
 The CMS tracker design comprises an inner pixel detector and a strip detector, covering the pseudorapidity range $|\eta|\,<\,2.5$.
 The pixel detector provides precise two-dimensional (2D) space measurements in the $\phi$ and $z$ directions.
-In the barrel, there are three modules arranged in cylindrical layers at radii of 4.4, 7.3, and 10.2\,cm. 
+In the barrel, there are three modules arranged in cylindrical layers at radii of 4.4, 7.3, and \SI{10.2}{cm}. 
 Two disc layers are present in each endcap, ensuring the presence of at least three tracking points across almost the full range in $\eta$.
-Each cell measures $100\mu\textrm{m}\times150\,\mu\textrm{m}$, resulting in a total of 66\,million pixels covering an area of $1\,\textrm{m}^2$.
-This results in an optimal position resolution of 10 and $20\,\mu\textrm{m}$ in the transverse and longitudinal direction respectively.
+Each cell measures $\SI{100}{\micro\metre}\times\SI{150}{\micro\metre}$, resulting in a total of 66\,million pixels covering an area of $\SI{1}{\metre^2}$.
+This results in an optimal position resolution of 10 and \SI{20}{\micro\metre} in the transverse and longitudinal direction respectively.
 
 Beyond the pixel detector, the strip tracker provides one-dimensional measurements using 320 and $500\,\mu\textrm{m}$ thick silicon micro-strip sensors.
 The strip tracker consists of three separate subcomponents, as illustrated in Figure~\ref{fig:detector_tracker}.
@@ -213,16 +231,18 @@ The overall structure is shown in Figure~\ref{fig:detector_ECALschematic}.
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/ECALschematic.png}
   \caption[Schematic view of the CMS ECAL.]
-  {A schematic view of the CMS ECAL showing the various subsystems.
-  Part of the detector is cut away for clarity.
-  Figure taken from Ref.~\cite{ECALperformance}.}
+  {
+    A schematic view of the CMS ECAL showing the various subsystems.
+    Part of the detector is cut away for clarity.
+    Figure taken from Ref.~\cite{ECALperformance}.
+  }
   \label{fig:detector_ECALschematic}
 \end{figure}
 
 The choice of \pbw was motivated by the need for the active material to be fast, dense, and radiation hard.
 The short response time is necessary to collect the energy deposit before the next bunch crossing; 
 \pbw crystals emit approximately 80\% of the total scintillation light in 25\,ns.
-Their high density (8.28\,g/$\textrm{cm}^3$) facilitates the compactness and granularity of the detector without compromising on the containment of electromagnetic showers.
+Their high density ($\SI{8.28}{\gram\per\centi\metre^3}$) facilitates the compactness and granularity of the detector without compromising on the containment of electromagnetic showers.
 A radiation length of 0.89\,cm means the 22\,cm barrel (23\,cm endcap) crystals cover a 24.7\,$X_0$ (25.8\,$X_0$) in the longitudinal direction. %mean distance travelled before reaching 1/e of original energy via brem
 Lateral containment is also excellent, with a Moli\`ere radius of 2.2\,cm. %radius of cylinder containing 90% of average deposition; two contain 95% therefore.
 
@@ -245,8 +265,10 @@ The setup as a whole is displayed using one quadrant of the detector in Figure~\
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/ECALquadrant.png}
   \caption[The structure in pseudorapidity of the CMS ECAL.]
-  {The structure in pseudorapidity of the ECAL.
-  Figure taken from Ref.~\cite{ECALperformance}.}
+  {
+    The structure in pseudorapidity of the ECAL.
+    Figure taken from Ref.~\cite{ECALperformance}.
+  }
   \label{fig:detector_ECALquadrant}
 \end{figure}
 
@@ -303,7 +325,7 @@ The barrel (HB) covers the central region $|\eta|\,<\,1.3$
 Wavelength-shifting fibres contained within scintillator tiles channel emitted light to photodetetors.
 Division into 16 $\eta$ sectors and 16 wedges in $\phi$ results in a granularity of $0.087\times0.087$.
 The HB has 14 brass layers surrounded by a layer of steel at the front and back, 
-which totals between 5.8 and and 10.6 interaction lengths ($\lambda_I$) depending on $\eta$. %as a function of eta. TODO look up interaction length definition
+which totals between 5.8 and and 10.6 interaction lengths ($\lambda_I$) depending on $\eta$. %as a function of eta. TODO look up and add interaction length definition
 This is not sufficient to completely contain hadronic showers, due to the space restriction imposed by the magnet coil.
 Consequently an additional outer hadron calorimeter (HO) is present beyond the solenoid.
 The HO uses the solenoid coil as an absorber, with the same scintillator technology as the HB.
@@ -332,8 +354,10 @@ This enables electromagnetic showers to be disambiguated from hadronic showers.
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/HCAL.png}
   \caption[The structure in pseudorapidity of the CMS HCAL.]
-  {The structure in pseudorapidity of the HCAL.
-  Figure taken from Ref.~\cite{CMSdetector}.}
+  {
+    The structure in pseudorapidity of the HCAL.
+    Figure taken from Ref.~\cite{CMSdetector}.
+  }
   \label{fig:detector_HCAL}
 \end{figure}
 
@@ -367,14 +391,16 @@ Once combined with the information from the tracker however, this improves to 5\
 Summarising the lateral structure of CMS, 
 Figure~\ref{fig:detector_CMSslice} shows the characteristic paths followed by the different types of particles produced in LHC proton-proton collisions.
 
+%TODO move this to a summary section?
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CMSslice.png}
   \caption[A cross-sectional view of the CMS detector]
-  {A cross-sectional view of a slice of the CMS detector, 
-  illustrating the path of a muon (blue line) 
-  and the muon chambers interleaved with the return yoke.
-  Figure taken from Ref.~\cite{CMSslice}.}
+  {
+    A cross-sectional view of a slice of the CMS detector, 
+    illustrating the characteristic signatures of different types of particle.
+    Figure taken from Ref.~\cite{CMSslice}.
+  }
   \label{fig:detector_CMSslice}
 \end{figure}
 
@@ -400,3 +426,16 @@ It must maintain selection efficiency whilst maintaining an acceptable rate and 
 Typical quantities evaluated to inform HLT decisions include invariant mass, object isolation, and track information.
 Finally, once the HLT has accepted an event, the full readout is saved to disk.
 The event is then processed by the full offline CMS software, which produces objects ready for physics analysis.
+
+%TODO find picture for this
+\begin{figure}[h!]
+  \centering
+  %\includegraphics[width=\textwidth]{Figures/Detector/Trigger.png}
+  \includegraphics[width=\textwidth]{Figures/placeholder.png}
+  \caption[A schematic of the CMS trigger system.]
+  {
+    A schematic summarising the operation of the CMS trigger system.
+    The rate of events passing the level one and high-level triggers is shown.
+  }
+  \label{fig:detector_trigger}
+\end{figure}

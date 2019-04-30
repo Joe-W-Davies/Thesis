@@ -199,17 +199,18 @@ Good agreement between the two is observed.
 
 %TODO add signal line to these plots, if they are kept
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2016.pdf}
-\includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2017.pdf}
-\caption{
-  Distribution of the lead photon $\pt/\mgg$ in background (stacked histogram) 
-  and data (black points) events.
-  The statistical uncertainty is shown by the orange band.
-  The left plot shows 2016 data and MC,
-  with 2017 data and MC on the right.
-}
-\label{fig:cat_ptominput}
+  \centering
+  \includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2016.pdf}
+  \includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2017.pdf}
+  \caption[Leading photon scaled \pt distributions.]
+  {
+    Distribution of the leading photon $\pt/\mgg$ in background (stacked histogram) 
+    and data (black points) events.
+    The statistical uncertainty is shown by the orange band.
+    The left plot shows 2016 data and MC,
+    with 2017 data and MC on the right.
+  }
+  \label{fig:cat_ptominput}
 \end{figure}
 
 None of the input variables above encode the preference for events with good mass resolution.
@@ -307,18 +308,19 @@ Good agreement is observed between the data and simulation in both years,
 with all discrepancies covered by the statistical and systematic uncertainties.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/Categorisation/DiphoBDT_2016.pdf}
-\includegraphics[width=0.7\textwidth]{Figures/Categorisation/DiphoBDT_2017.pdf}
-\caption{
-  Score of the diphoton BDT in $\Zee$
-  events where the electrons are reconstructed as photons.
-  The points show the score for data, the histogram shows
-  the score for simulated Drell--Yan events, including statistical and 
-  systematic uncertainties (pink band).
-  The top plot shows 2016 data and MC,
-  with 2017 data and MC on the bottom.
-}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/Categorisation/DiphoBDT_2016.pdf}
+  \includegraphics[width=0.7\textwidth]{Figures/Categorisation/DiphoBDT_2017.pdf}
+  \caption[Validation of the diphoton BDT in \Zee events.]
+  {
+    Score of the diphoton BDT in $\Zee$
+    events where the electrons are reconstructed as photons.
+    The points show the score for data, the histogram shows
+    the score for simulated Drell--Yan events, including statistical and 
+    systematic uncertainties (pink band).
+    The top plot shows 2016 data and MC,
+    with 2017 data and MC on the bottom.
+  }
 \label{fig:cat_diphoBDT}
 \end{figure}
 
@@ -515,12 +517,13 @@ which shows the discontinuous \mjj distribution after the VBF preselection is ap
   \centering
   \includegraphics[width=0.49\textwidth]{Figures/Categorisation/mjj_2016.pdf}
   \includegraphics[width=0.49\textwidth]{Figures/Categorisation/mjj_2017.pdf}
-  \caption{
-  Distribution of the dijet invariant mass in background (stacked histogram) 
-  and data (black points) events.
-  The statistical uncertainty is shown by the orange band.
-  The left plot shows 2016 data and MC,
-  with 2017 data and MC on the right.
+  \caption[Dijet invariant mass distributions.]
+  {
+    Distribution of the dijet invariant mass in background (stacked histogram) 
+    and data (black points) events.
+    The statistical uncertainty is shown by the orange band.
+    The left plot shows 2016 data and MC,
+    with 2017 data and MC on the right.
   }
   \label{fig:cat_mjjinput}
 \end{figure}
@@ -558,9 +561,12 @@ Figure~\ref{fig:cat_DDschematic} illustrates how the method works.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{Figures/Categorisation/DDschematic.pdf}
-  \caption{A schematic illustrating the data-driven method for replacing the simulated
-  prompt-fake and fake-fake events with reweighted data events from control regions 
-  defined by the photon identification BDT.}
+  \caption[The data-driven method for dijet BDT training.]
+  {
+    A schematic illustrating the data-driven method for replacing the simulated
+    prompt-fake and fake-fake events with reweighted data events from control regions 
+    defined by the photon identification BDT. 
+  }
   \label{fig:cat_DDschematic}
 \end{figure}
 
@@ -609,7 +615,10 @@ Figure~\ref{fig:cat_FakeFactors} shows the values of the factors in each of thes
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{Figures/Categorisation/fakeFactors.png}
-  \caption{Fake factor values in each of the four \pt and two $\eta$ bins.}
+  \caption[Values of the fake factors used in the data-driven dijet BDT method.]
+  {
+    Fake factor values in each of the four \pt and two $\eta$ bins.
+  }
   \label{fig:cat_FakeFactors}
 \end{figure}
 
@@ -637,16 +646,18 @@ this confirms that it fulfils its purpose.
   \centering
   \includegraphics[width=0.49\textwidth]{Figures/Categorisation/DDvalidation_mjj2016.png}
   \includegraphics[width=0.49\textwidth]{Figures/Categorisation/DDvalidation_mjj2017.png}
-  \caption{Validation of the data-driven method. 
-  The upper parts of the plots show the simulated background (blue histogram), 
-  the background obtained with simulation for the prompt-prompt component 
-  and utilising the data-driven method for the prompt-prompt and prompt-fake components 
-  (green and grey stacked histograms),
-  and mass sideband data (black points).
-  The distributions of the ggH (yellow line) and VBF (red line) are also shown.
-  Two ratio plots are also included, with one comparing the data-driven method to the sideband data, 
-  and the other comparing the simulation with the sideband data.
-  Data and simulation from 2016 are shown on the left, with 2017 on the right.
+  \caption[Validation of the data-driven method.]
+  {
+    Validation of the data-driven method. 
+    The upper parts of the plots show the simulated background (blue histogram), 
+    the background obtained with simulation for the prompt-prompt component 
+    and utilising the data-driven method for the prompt-prompt and prompt-fake components 
+    (green and grey stacked histograms),
+    and mass sideband data (black points).
+    The distributions of the ggH (yellow line) and VBF (red line) are also shown.
+    Two ratio plots are also included, with one comparing the data-driven method to the sideband data, 
+    and the other comparing the simulation with the sideband data.
+    Data and simulation from 2016 are shown on the left, with 2017 on the right.
   }
   \label{fig:cat_DDvalidation}
 \end{figure}
@@ -670,19 +681,20 @@ Good agreement is observed between the data and simulation in both years,
 with all discrepancies covered by the statistical and systematic uncertainties.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/Categorisation/DijetBDT_2016.pdf}
-\includegraphics[width=0.7\textwidth]{Figures/Categorisation/DijetBDT_2017.pdf}
-\caption{
-  Score of the dijet BDT in $\Zee$
-  events where the electrons are reconstructed as photons.
-  The points show the score for data, the histogram shows
-  the score for simulated Drell--Yan events, including statistical and 
-  systematic uncertainties (pink band).
-  The top plot shows 2016 data and MC,
-  with 2017 data and MC on the bottom.
-}
-\label{fig:cat_dijetBDT}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/Categorisation/DijetBDT_2016.pdf}
+  \includegraphics[width=0.7\textwidth]{Figures/Categorisation/DijetBDT_2017.pdf}
+  \caption[Validation of the dijet BDT in \Zee events.]
+  {
+    Score of the dijet BDT in $\Zee$
+    events where the electrons are reconstructed as photons.
+    The points show the score for data, the histogram shows
+    the score for simulated Drell--Yan events, including statistical and 
+    systematic uncertainties (pink band).
+    The top plot shows 2016 data and MC,
+    with 2017 data and MC on the bottom.
+  }
+  \label{fig:cat_dijetBDT}
 \end{figure}
 
 \subsection{Category definitions}

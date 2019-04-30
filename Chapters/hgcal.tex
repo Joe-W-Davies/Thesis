@@ -26,13 +26,14 @@ The resulting High~Luminosity~LHC (HL-LHC) \cite{HLLHC} will have a nominal leve
 permitting a total of $\SI{3000}{\fbinv}$ of data to be collected by the mid-2030s.
 The current planned schedule of the future running of the LHC and HL-LHC is summarised in Figure~\ref{fig:hgcal_LHCschedule}.
 
-%FIXME this figure is out of date
+%TODO update this figure
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/HGCAL/LHCschedule.jpg}
-  \caption[Planned LHC and HL-LHC schedule]
-  {The planned schedule for the operation of the LHC and its high-luminosity upgrade.}
-  %(Need to find a more up-to-date version of this figure).
+  \caption[Planned LHC and HL-LHC schedule.]
+  {
+    The planned schedule for the operation of the LHC and its high-luminosity upgrade.
+  }
   \label{fig:hgcal_LHCschedule}
 \end{figure}
 
@@ -75,11 +76,27 @@ The remainder of this chapter is dedicated to describing the HGCAL in further de
 
 The primary challenge which drives the design of the HGCAL is the need to sustain physics performance in the extremely high pileup conditions foreseen at the HL-LHC.
 Simulations indicate that the HGCAL will be required to withstand up to 2MGy of total radiation dose, together with a maximum fluence of around $\SI{10e16}{\textrm{n}_{\textrm{eq}}/\textrm{cm}^2}.$
+The inhomogeneous distribution of this dose is shown in Figure~\ref{fig:hgcal_Dose}, 
+which illustrates how the radiation dose is greatest near the beampipe.
 Studies performed in recent years have shown that silicon sensors and the associated electronics retain acceptable performance after exposure to this level of radiation, 
 and have hence been chosen as the most reliable active material for the majority of the calorimeter.
 The remaining parts of the detector in lower-radiation regions will instead use cheaper plastic scintillator tiles with silicon photomultiplier (SiPMs) readout.
 These layers of active material are interleaved with the copper-tungsten alloy absorber in the front section of the calorimeter, 
 and stainless steel absorber further back.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.9\textwidth]{Figures/HGCAL/Dose.png}
+  \caption[Expected radiation dose for the HGCAL.]
+  {
+    The dosage of ionising radiation the HGCAL is expected to absorb 
+    after a total integrated luminosity of \SI{3000}{\fbinv}, 
+    as a function of detector radius and depth.
+    The colour scale indicates the magnitude of the absorbed dose.
+    Taken from \cite{HGCAL}.
+  }
+  \label{fig:hgcal_Dose}
+\end{figure}
 
 To maintain performance throughout the operation of the HL-LHC it is necessary to inter-calibrate cells to the level of a few percent.
 This is possible provided the signal-to-noise ratio (S/N) for minimum-ionising particles (MIPs) is sufficiently high.
@@ -115,7 +132,19 @@ Further detail on the design specifications of the HGCAL can be found in Ref.~\c
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{Figures/HGCAL/TheHGCAL.png}
-  \caption{A schematic of the HGCAL. Adapted from \cite{HGCAL}.}
+  \caption[Schematic of the HGCAL.]
+  {
+    A schematic of the HGCAL's longitudinal structure. 
+    The endcap timing layer (TE, purple) is in the front of the HGCAL, 
+    nearest to the nominal interaction point.
+    A layer of polythene that moderates the flux of neutrons (PM, light blue) 
+    also sits in front of the HGCAL.
+    The actimve material of the electromagnetic part of the calorimeter (CE-E) 
+    is entirely composed of silicon (green),
+    whilst the hadronic part (CE-H) uses a mixture of silicon and plastic scintillator (dark blue)
+    as active material.
+    Adapted from \cite{HGCAL}.
+  }
   \label{fig:hgcal_TheHGCAL}
 \end{figure}
 
@@ -137,17 +166,27 @@ representing a substantial improvement relative to Run 2, where the endcap resol
 %TODO fix formatting of these two plots
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.45\textwidth}
-    \includegraphics[width=\textwidth]{Figures/HGCAL/SinglePhotonReso.png}
-    \caption{The intrinsic energy resolution for single photons in PU 200. 
-    The energy is estimated by summing all deposits within a \SI{26}{mm} radius of the generated particle axis. Taken from Ref.~\cite{HGCAL}.}
-    \label{fig:hgcal_PhotonReso}
-  \end{subfigure}
-  \begin{subfigure}{0.46\textwidth}
-    \includegraphics[width=\textwidth]{Figures/HGCAL/HggReso.png}
-    \caption{The intrinsic diphoton mass resolution of the HGCAL in simulated \Hgg events where both photons are within the fiducial region of the HGCAL. Taken from Ref.~\cite{HGCAL}.}
-    \label{fig:hgcal_DiphotonReso}
-  \end{subfigure}
+  \includegraphics[width=0.6\textwidth]{Figures/HGCAL/SinglePhotonReso.png}
+  \caption[HGCAL photon energy resolution.]
+  {
+    The intrinsic energy resolution for single photons in PU 200. 
+    The energy is estimated by summing all deposits within a \SI{26}{mm} radius 
+    of the generated particle axis. 
+    Taken from Ref.~\cite{HGCAL}.
+  }
+  \label{fig:hgcal_PhotonReso}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Figures/HGCAL/HggReso.png}
+  \caption[HGCAL diphoton mass resolution.]
+  {
+    The intrinsic diphoton mass resolution of the HGCAL in simulated \Hgg events 
+    where both photons are within the fiducial region of the HGCAL. 
+    Taken from Ref.~\cite{HGCAL}.
+  }
+  \label{fig:hgcal_DiphotonReso}
 \end{figure}
 
 The HGCAL provides more detailed shower information than existing CMS detectors, 
@@ -185,11 +224,14 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
     \includegraphics[width=\textwidth]{Figures/HGCAL/ClusteringAlgo_Distance.png}
     \caption{Distance, $\delta$.}
   \end{subfigure}
-  \caption{Illustration of the procedure used to form layer clusters for electromagnetic objects in the HGCAL.
-  The event considered is a single photon with $\pt\,=\,\SI{35}{GeV}$.
-  The colour scale represents only the difference between hits, and is in arbitrary units.
-  The yellow circle indicates the size of the Moli\`ere radius.
-  The yellow arrow points to the hit chosen as a cluster centre.}
+  \caption[Illustration of the imagine algorithm used for HGCAL layer clustering.] %TODO improve this caption
+  {
+    Illustration of the procedure used to form layer clusters for electromagnetic objects in the HGCAL.
+    The event considered is a single photon with $\pt\,=\,\SI{35}{GeV}$.
+    The colour scale represents only the difference between hits, and is in arbitrary units.
+    The yellow circle indicates the size of the Moli\`ere radius.
+    The yellow arrow points to the hit chosen as a cluster centre.
+  }
   \label{fig:hgcal_clustering}
 \end{figure}
 
@@ -230,20 +272,30 @@ It is also robust against pileup; Figure~\ref{fig:hgcal_MegaclusterVsPt} shows t
 This method of reconstruction is not yet incorporated in the central CMS reconstruction software.
 For the physics results in Ref~\cite{HGCAL}, a realistic truth-information-driven approach was instead used for hadronic objects.
 
-%TODO sort formatting, increase size of figures/legends
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.44\textwidth}
-    \includegraphics[width=\textwidth]{Figures/HGCAL/SingleMegacluster.png}
-    \caption{The distribution of the energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions reconstructed using the megaclustering algorithm, 
-    before and after pileup subtraction. Taken from Ref.~\cite{HGCAL}.}
-    \label{fig:hgcal_SingleMegacluster}
-  \end{subfigure}
-  \begin{subfigure}{0.54\textwidth}
-    \includegraphics[width=\textwidth]{Figures/HGCAL/MegaclusterVsPt.png}
-    \caption{The mean energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions reconstructed using the megaclustering algorithm,after pileup subtraction, as a function of \pt. Taken from Ref.~\cite{HGCAL}.}
-    \label{fig:hgcal_MegaclusterVsPt}
-  \end{subfigure}
+  \includegraphics[width=0.6\textwidth]{Figures/HGCAL/SingleMegacluster.png}
+  \caption[HGCAL pion energy response.]
+  {
+    The distribution of the energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions 
+    reconstructed using the megaclustering algorithm, 
+    before and after pileup subtraction. 
+    Taken from Ref.~\cite{HGCAL}.
+  }
+  \label{fig:hgcal_SingleMegacluster}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/MegaclusterVsPt.png}
+  \caption[HGCAL pion energy resolution as a function of \pt.]
+  {
+    The mean energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions 
+    reconstructed using the megaclustering algorithm, after pileup subtraction, 
+    as a function of \pt. 
+    Taken from Ref.~\cite{HGCAL}.
+  }
+  \label{fig:hgcal_MegaclusterVsPt}
 \end{figure}
 
 \subsection{Future development}
@@ -291,8 +343,12 @@ For comparison, the area under the ROC curve of the Run 2 dijet BDT was 0.75.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.65\textwidth]{Figures/HGCAL/VBFvsGGH.png}
-  \caption{The selection efficiency for VBF and ggH events for two different BDT setups. Taken from Ref.~\cite{HGCAL}.}
+  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/VBFvsGGH.png}
+  \caption[VBF and ggH selection efficiencies for two BDTs.]
+  {
+    The selection efficiency for VBF and ggH events for two different BDTs. 
+    Taken from Ref.~\cite{HGCAL}.
+  }
   \label{fig:hgcal_VBFvsGGH}
 \end{figure}
 
@@ -339,3 +395,15 @@ These prototypes were not the full design thickness, so the performance is not r
 However the results constitute the first demonstration that the HGCAL behaves as predicted by simulation; observed distributions match those predicted by simulation to within 5\%. 
 Furthermore, the tests confirm the intrinsic timing capabilities of the silicon sensors, with timing resolution measured to be less than \SI{30}{\pico\second}.
 The timing performance of the silicon was also confirmed to be a function of S/N only, and not degrade with increasing radiation exposure. 
+
+%TODO add and comment on beam test plots
+\begin{figure}[h!]
+  \centering
+  %\includegraphics[width=0.7\textwidth]{Figures/HGCAL/BeamTest.png}
+  \includegraphics[width=0.7\textwidth]{Figures/placeholder.png}
+  \caption[Comparison of data and simulation in HGCAL beam tests.]
+  {
+    Taken from Ref.~\cite{HGCAL}.
+  }
+  \label{fig:hgcal_BeamTest}
+\end{figure}

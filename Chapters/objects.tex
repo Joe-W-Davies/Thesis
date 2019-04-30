@@ -254,56 +254,32 @@ This is implemented as a Gaussian smearing using the same bins as the energy cor
 The size of the corrections range from approximately 0.1 to 2.7\%.
 Once all the corrections have been applied, the photon energy resolution ranges from around 1 to 2.5\% in the barrel
 and from 2.5\% to 3.5\% in the endcaps.
-Validation of the energy after corrections is shown in Figures~\ref{fig:obj_mee_2016} and \ref{fig:obj_mee_2017}, 
+Validation of the energy after corrections is shown in Figure~\ref{fig:obj_mee}, 
 where data is compared to simulation in \Zee events with electrons reconstructed as photons.
 Full details of the entire energy correction procedure can be found in Ref.\cite{PhotonReco}.
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/meeBarrel_2016}
-    \caption{Barrel-barrel dielectrons, 
-    where each electron candidate has $|\eta_e|<1.5$.}
-    \label{fig:obj_meeBarrel_2016}
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/meeEndcap_2016}
-    \caption{Barrel-endcap and endcap-endcap dielectrons,
-    where at least one electron candidate has $|\eta_e|>1.5$.}
-    \label{fig:obj_meeEndcap_2016}
-  \end{subfigure}
-  \caption{Comparison of the dielectron invariant mass distributions in data and simulation
-  (after energy smearing) for \Zee
-  events where electrons are reconstructed as photons.
-  The \RNINE variable is required to be greater than 0.94.
-  The simulated distributions are
-  normalised to the integral of the data distribution in the range $87 < m_{ee} < 93$ GeV to highlight
-  the agreement in the bulk of the distributions.
-  The distributions for 2016 data and simulation are shown.}
-  \label{fig:obj_mee_2016}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/meeBarrel_2017}
-    \caption{Barrel-barrel dielectrons.}
-    \label{fig:obj_meeBarrel_2017}
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/meeEndcap_2017}
-    \caption{Barrel-endcap and endcap-endcap dielectrons.}
-    \label{fig:obj_meeEndcap_2017}
-  \end{subfigure}
-  \caption{Comparison of the dielectron invariant mass distributions in data and simulation
-  (after energy smearing) for \Zee
-  events where electrons are reconstructed as photons.
-  The \RNINE variable is required to be greater than 0.94.
-  The simulated distributions are
-  normalised to the integral of the data distribution in the range $87 < m_{ee} < 93 GeV$ to highlight
-  the agreement in the bulk of the distributions.
-  The distributions for 2017 data and simulation are shown.}
-  \label{fig:obj_mee_2017}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/meeBarrel2016}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/meeBarrel2017} \\
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/meeEndcap2016}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/meeEndcap2017}
+  \caption[Dielectron invariant mass distributions.]
+  {
+    Comparison of the dielectron invariant mass distributions in data and simulation
+    (after energy smearing) for \Zee
+    events where electrons are reconstructed as photons.
+    The \RNINE variable is required to be greater than 0.94.
+    The simulated distributions are
+    normalised to the integral of the data distribution 
+    in the range $87 < m_{ee} < 93$ GeV to highlight
+    the agreement in the bulk of the distributions.
+    The comparison is shown for events where at both electrons are in the ECAL barrel (top), 
+    and least one electron is not in the ECAL barrel (bottom).
+    The plots on the left show data and simulation from 2016, 
+    with 2017 data and simulation shown in the plots on the right.
+  }
+  \label{fig:obj_mee}
 \end{figure}
 
 \subsection{Photon preselection}
@@ -367,47 +343,38 @@ The inputs are similar to the those used in the energy regression:
 
 A loose selection on the photon identification BDT at -0.9 completes the analysis preselection.
 The output score on preselected diphoton events is shown in Figure~\ref{fig:obj_IDMVA}.
-Additional validation using \Zee events is demonstrated in Figures~\ref{fig:obj_IDMVAZee}.
+Additional validation using \Zee events is demonstrated in Figures~\ref{fig:obj_ZeeIDMVA}.
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/IDMVA_2016}
-    \caption{2016 data and simulation}
-    \label{fig:obj_IDMVA_2016}
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    %\includegraphics[width=\textwidth]{Figures/Objects/IDMVA_2017}
-    \includegraphics[width=\textwidth]{Figures/Objects/IDMVA_2016}
-    \caption{2017 data and simulation}
-    \label{fig:obj_IDMVA_2016}
-  \end{subfigure}
-  \caption{Distribution of the photon identification BDT score of the lowest scoring photon
-  of diphoton pairs with an invariant mass in the range $100 < \mgg < \SI{180}{GeV}$, for events passing
-  the preselection in data (black points), and for simulated background events (blue
-  histogram). Histograms are also shown for different components of the simulated background.
-  The sum of all background distributions is scaled up to data. The red histogram corresponds
-  to simulated Higgs boson signal events}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/IDMVA2016}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/IDMVA2017}
+  \caption[Photon identification BDT score distributions.]
+  {
+    Distribution of the photon identification BDT score of the lowest scoring photon
+    of diphoton pairs with an invariant mass in the range $100 < \mgg < \SI{180}{GeV}$, 
+    for events passing the preselection in data (black points), 
+    and for simulated background events (blue histogram). 
+    Histograms are also shown for different components of the simulated background.
+    The sum of all background distributions is scaled up to data. 
+    The red histogram corresponds to simulated Higgs boson signal events. 
+    The left figure shows 2016 data and simulation, with 2017 data and simulation shown on the right.
+  }
   \label{fig:obj_IDMVA}
 \end{figure}
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/IDMVAZee_2016}
-    \caption{2016 data and simulation}
-    \label{fig:obj_IDMVAZee_2016}
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/IDMVAZee_2017}
-    \caption{2017 data and simulation}
-    \label{fig:obj_IDMVAZee_2016}
-  \end{subfigure}
-  \caption{Distribution of the photon identification BDT
-  for \Zee events in data and simulation, where the electrons are reconstructed as
-  photons. The systematic uncertainty applied to the shape from simulation (hashed region) is
-  also shown.}
-  \label{fig:obj_IDMVAZee}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/ZeeIDMVA2016}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/ZeeIDMVA2017}
+  \caption[Photon identification BDT score validation in \Zee events.]
+  {
+    Distribution of the photon identification BDT
+    for \Zee events in data and simulation, where the electrons are reconstructed as photons. 
+    The systematic uncertainty applied to the shape from simulation (hashed region) is also shown.
+    The left figure shows 2016 data and simulation, with 2017 data and simulation shown on the right.
+  }
+  \label{fig:obj_ZeeIDMVA}
 \end{figure}
 
 \section{Vertex reconstruction}
@@ -463,28 +430,21 @@ which is correct in around 74\% of events.
 The performance of the vertex identification BDT is
 validated using $\Zmumu$ events.
 The tracks from the muons are ignored in order to mimic the diphoton system.
-Comparison between data and simulation in these events is shown in Figure~\ref{fig:obj_vtxid}.
+Comparison between data and simulation in these events is shown in Figure~\ref{fig:obj_VtxId}.
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/vtxid_2016}
-    \caption{2016 data and simulation}
-    \label{fig:obj_vtxid_2016}
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    %TODO update this
-    %\includegraphics[width=\textwidth]{Figures/Objects/vtxid_2017}
-    \includegraphics[width=\textwidth]{Figures/Objects/vtxid_2016}
-    \caption{2017 data and simulation}
-    \label{fig:obj_vtxid_2016}
-  \end{subfigure}
-  \caption{
-  Validation of the \Hgg vertex identification algorithm on \Zmumu events
-  omitting the muon tracks. Simulated events are weighted to match the distributions of pileup
-  and location of primary vertices in data.
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/VtxId2016}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/VtxId2017}
+  \caption[Vertex identification validation in \Zmumu events.]
+  {
+    Validation of the \Hgg vertex identification algorithm on \Zmumu events
+    omitting the muon tracks. 
+    Simulated events are weighted to match the distributions of pileup
+    and location of primary vertices in data.
+    The left figure shows 2016 data and simulation, with 2017 data and simulation shown on the right.
   }
-  \label{fig:obj_vtxid}
+  \label{fig:obj_VtxId}
 \end{figure}
 
 \subsection{Vertex probability}
@@ -507,27 +467,25 @@ the following input variables:
 
 \begin{figure}[h!]
   \centering
-  %TODO update these
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/vtxprob_vspt}
-    \label{fig:obj_vtxprob_vspt}
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    \includegraphics[width=\textwidth]{Figures/Objects/vtxprob_vsnvtx}
-    \label{fig:obj_vtxprob_vsnvtx}
-  \end{subfigure}
-  \caption{
-  Comparison of the true vertex identification efficiency and the average estimated
-  vertex probability as a function of the reconstructed diphoton \pt (left) and of the number of
-  primary vertices (right) in simulated \Hgg events with $\mH = \SI{125}{GeV}$. Events are weighted
-  according to the cross sections of the different production modes and to match the distributions
-  of pileup and location of primary vertices in data.
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/VtxProbPt2016}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/VtxProbPt2017} \\
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/VtxProbNvtx2016}
+  \includegraphics[width=0.49\textwidth]{Figures/Objects/VtxProbNvtx2017}
+  \caption[Vertex probability validation in simulated \Hgg events.]
+  {
+    Comparison of the true vertex identification efficiency and the average estimated
+    vertex probability as a function of the reconstructed diphoton \pt (top) and of the number of
+    primary vertices (bottom) in simulated \Hgg events with $\mH = \SI{125}{GeV}$. Events are weighted
+    according to the cross sections of the different production modes and to match the distributions
+    of pileup and location of primary vertices in data.
+    The plots on the left show simulation under 2016 conditions, 
+    with simulation under 2017 conditions shown in the plots on the right.
   }
-  \label{fig:obj_vtxprob}
+  \label{fig:obj_VtxProb}
 \end{figure}
 
 The vertex choice efficiency, together with the estimated vertex probability,
-in simulated \Hgg signal events is shown in Figure~\ref{fig:obj_vtxprob}.
+in simulated \Hgg signal events is shown in Figure~\ref{fig:obj_VtxProb}.
 The simulated performance is shown as a function of both the \pt of the diphoton
 system and of the number of vertices in the event.
 

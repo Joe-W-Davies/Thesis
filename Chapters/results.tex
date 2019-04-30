@@ -34,7 +34,6 @@ The expected number of signal events in each bin depends on the POIs, \mH,
 and the nuisance parameters, 
 whilst the expected number of background events depends only on unconstrained nuisance parameters.
 
-\newpage %TODO remove
 The total likelihood \Like is then given by the product of the likelihoods over all categories:
 \begin{equation}
 \Like(\Largs) = \prod^{N_c}_{c=1} \Like_c(\Largs),
@@ -129,44 +128,47 @@ where the categories relate to the POIs chosen for the STXS stage 1 fit results,
 are contained in the appendix. %TODO add these and update ref.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/MassPlot.pdf}
-\caption{
-  Data points (black) and signal plus background model fit for the sum of all categories is shown. 
-  Each category is weighted by S/(S + B), 
-  where S and B are the numbers of expected signal and background events, respectively, 
-  in a $\pm 1 \seff$ mass window centred on \mH. 
-  The one standard deviation (green) and two standard deviation (yellow) bands 
-  include the uncertainties in the background component of the fit. 
-  The solid red line shows the contribution from the total signal, plus the background contribution. 
-  The dashed red line shows the contribution from the background component of the fit. 
-  The bottom plot shows the residuals after subtraction of this background component.
-}
-\label{fig:results_MassPlot}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/MassPlot.pdf}
+  \caption[Signal plus background fit to data, summed over all analysis categories.]
+  {
+    Data points (black) and signal plus background model fit 
+    for the sum of all analysis categories is shown. 
+    Each category is weighted by S/(S + B), 
+    where S and B are the numbers of expected signal and background events, respectively, 
+    in a $\pm 1 \seff$ mass window centred on \mH. 
+    The one standard deviation (green) and two standard deviation (yellow) bands 
+    include the uncertainties in the background component of the fit. 
+    The solid red line shows the contribution from the total signal, plus the background contribution. 
+    The dashed red line shows the contribution from the background component of the fit. 
+    The bottom plot shows the residuals after subtraction of this background component.
+  }
+  \label{fig:results_MassPlot}
 \end{figure}
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_0J.pdf}
-\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_1J.pdf} \\
-\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_2J.pdf}
-\includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_VBF.pdf}
-\caption{
-  Data points (black) and signal plus background model fit 
-  for the ggH 0J, ggH 1J, ggH 2J, and VBF categories is shown. 
-  Each category is weighted by S/(S + B), 
-  where S and B are the numbers of expected signal and background events, respectively, 
-  in a $\pm 1 \seff$ mass window centred on \mH. 
-  The one standard deviation (green) and two standard deviation (yellow) bands 
-  include the uncertainties in the background component of the fit. 
-  The solid red line shows the contribution from the total signal, plus the background contribution. 
-  The dashed red line shows the contribution from the background component of the fit. 
-  The bottom plot shows the residuals after subtraction of this background component.
-}
-\label{fig:results_MassPlots}
+  \centering
+  \includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_0J.pdf}
+  \includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_1J.pdf} \\
+  \includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_2J.pdf}
+  \includegraphics[width=0.49\textwidth]{Figures/Results/MassPlot_VBF.pdf}
+  \caption[Signal plus background fits to data, 
+           summed over analysis categories targeting different bins.]
+  {
+    Data points (black) and signal plus background model fit 
+    for the ggH 0J, ggH 1J, ggH 2J, and VBF categories is shown. 
+    Each category is weighted by S/(S + B), 
+    where S and B are the numbers of expected signal and background events, respectively, 
+    in a $\pm 1 \seff$ mass window centred on \mH. 
+    The one standard deviation (green) and two standard deviation (yellow) bands 
+    include the uncertainties in the background component of the fit. 
+    The solid red line shows the contribution from the total signal, plus the background contribution. 
+    The dashed red line shows the contribution from the background component of the fit. 
+    The bottom plot shows the residuals after subtraction of this background component.
+  }
+  \label{fig:results_MassPlots}
 \end{figure}
 
-\newpage %TODO remove
 \section{Category composition}
 
 All analysis categories are contaminated, to varying extents, 
@@ -188,31 +190,33 @@ In general the migration between categories due to mis-measurement of \ptgg is v
 whilst there are significantly higher migrations arising from jet counting.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/Cats2016.pdf}
-\caption{
-  The composition of each analysis category in terms of stage 1 bins is shown. 
-  The colour scale corresponds to the fraction of each category (rows) 
-  accounted for by each stage 1 process (columns). 
-  Each row therefore sums to 100\%. 
-  Entries with values less than 0.5\% are not shown. 
-  Simulation corresponding to 2016 conditions is shown.
-}
-\label{fig:results_Cats2016}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/Cats2016.pdf}
+  \caption[Signal composition of 2016 analysis categories.]
+  {
+    The composition of each analysis category in terms of stage 1 bins is shown. 
+    The colour scale corresponds to the fraction of each category (rows) 
+    accounted for by each stage 1 process (columns). 
+    Each row therefore sums to 100\%. 
+    Entries with values less than 0.5\% are not shown. 
+    Simulation corresponding to 2016 conditions is shown.
+  }
+  \label{fig:results_Cats2016}
 \end{figure}
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/Cats2017.pdf}
-\caption{
-  The composition of each analysis category in terms of stage 1 bins is shown. 
-  The colour scale corresponds to the fraction of each category (rows) 
-  accounted for by each stage 1 process (columns). 
-  Each row therefore sums to 100\%. 
-  Entries with values less than 0.5\% are not shown. 
-  Simulation corresponding to 2017 conditions is shown.
-}
-\label{fig:results_Cats2017}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/Cats2017.pdf}
+  \caption[Signal composition of 2017 analysis categories.]
+  {
+    The composition of each analysis category in terms of stage 1 bins is shown. 
+    The colour scale corresponds to the fraction of each category (rows) 
+    accounted for by each stage 1 process (columns). 
+    Each row therefore sums to 100\%. 
+    Entries with values less than 0.5\% are not shown. 
+    Simulation corresponding to 2017 conditions is shown.
+  }
+  \label{fig:results_Cats2017}
 \end{figure}
 
 \begin{landscape}
@@ -291,37 +295,39 @@ the ggH measurement is likely to become systematics-dominated.
 %TODO add a 2D scan? 
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/ObsStage0_r_ggH.pdf}
-\caption{
-  The results of a two parameter fit in the STXS framework,
-  showing the scan of the profiled likelihood ratio in the ggH cross section.
-  All ggH are grouped together in the fit to form one parameter, 
-  with VBF bins comprising the second parameter.
-  The ggH parameter includes bbH components, 
-  while the qqH parameter includes the hadronic VH contribution. 
-  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  The solid black line shows the full scan, 
-  whilst the dashed green line shows the scan without any systematic uncertainties included.
-}
-\label{fig:results_Stage0_ggH}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/ObsStage0_r_ggH.pdf}
+  \caption[Likelihood scan for the ggH parameter in a two-parameter fit.]
+  {
+    The results of a two-parameter fit in the STXS framework,
+    showing the scan of the profiled likelihood ratio in the ggH cross section.
+    All ggH are grouped together in the fit to form one parameter, 
+    with VBF bins comprising the second parameter.
+    The ggH parameter includes bbH components, 
+    while the qqH parameter includes the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    The solid black line shows the full scan, 
+    whilst the dashed green line shows the scan without any systematic uncertainties included.
+  }
+  \label{fig:results_Stage0_ggH}
 \end{figure}
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/ObsStage0_r_qqH.pdf}
-\caption{
-  The results of a two parameter fit in the STXS framework,
-  showing the scan of the profiled likelihood ratio in the qqH cross section.
-  All ggH are grouped together in the fit to form one parameter, 
-  with VBF bins comprising the second parameter.
-  The ggH parameter includes bbH components, 
-  while the qqH parameter includes the hadronic VH contribution. 
-  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  The solid black line shows the full scan, 
-  whilst the dashed green line shows the scan without any systematic uncertainties included.
-}
-\label{fig:results_Stage0_qqH}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/ObsStage0_r_qqH.pdf}
+  \caption[Likelihood scan for the qqH parameter in a two-parameter fit.]
+  {
+    The results of a two-parameter fit in the STXS framework,
+    showing the scan of the profiled likelihood ratio in the qqH cross section.
+    All ggH are grouped together in the fit to form one parameter, 
+    with VBF bins comprising the second parameter.
+    The ggH parameter includes bbH components, 
+    while the qqH parameter includes the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    The solid black line shows the full scan, 
+    whilst the dashed green line shows the scan without any systematic uncertainties included.
+  }
+  \label{fig:results_Stage0_qqH}
 \end{figure}
 
 \subsection{Stage 1 cross sections}
@@ -345,20 +351,21 @@ The observed 68\% CL intervals for each parameter are compared
 to the SM predictions and their associated uncertainties.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/Stage1.pdf}
-\caption{
-  The results of a seven-parameter fit in the STXS framework. 
-  The ggH 1J and 2J BSM bins are grouped together in the fit; 
-  the remaining five ggH bins with two or more jets are also grouped. 
-  All five VBF bins are grouped together. 
-  The ggH parameters include bbH components, 
-  while the qqH parameter includes the hadronic VH contribution. 
-  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  Cross section ratios are shown with approximate 68\% CL intervals (black points), 
-  and compared to the SM expectations and their uncertainties (blue bands).
-}
-\label{fig:results_stage1}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/Stage1.pdf}
+  \caption[Results of a seven-parameter fit in the STXS framework.]
+  {
+    The results of a seven-parameter fit in the STXS framework. 
+    The ggH 1J and 2J BSM bins are grouped together in the fit; 
+    the remaining five ggH bins with two or more jets are also grouped. 
+    All five VBF bins are grouped together. 
+    The ggH parameters include bbH components, 
+    while the qqH parameter includes the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    Cross section ratios are shown with approximate 68\% CL intervals (black points), 
+    and compared to the SM expectations and their uncertainties (blue bands).
+  }
+  \label{fig:results_stage1}
 \end{figure}
 
 In the second measurement at stage 1, the fit contains thirteen signal parameters.
@@ -384,26 +391,27 @@ expressed as a $p$-value with respect to the SM hypothesis, is approximately 18\
 %TODO switch this to one where VBF BSM is ungrouped?
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/Stage1Min.pdf}
-\caption{
-  The results of a thirteen-parameter fit in the STXS framework. 
-  The two VBF-like ggH bins are grouped to form one parameter, 
-  as are the VBF BSM-like, VH-like and Rest bins.
-  No further merging is performed. 
-  The ggH parameters include bbH components, 
-  while the qqH parameters include the hadronic VH contribution. 
-  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  Cross section ratios are shown with approximate 68\% CL intervals (black points) 
-  and compared to the SM expectations and their uncertainties (blue bands). 
-  The cross section ratios are constrained to be non-negative, 
-  as indicated by the vertical line and hashed pattern. 
-  The parameters whose best-fit values are at zero are known to have 68\% CL intervals 
-  which slightly under-cover; this is checked using pseudo-experiments. 
-  The compatibility of this fit with the SM prediction, 
-  expressed as a p-value with respect to the SM, is approximately 18\%.
-}
-\label{fig:results_stage1min}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/Stage1Min.pdf}
+  \caption[Results of a thirteen-parameter fit in the STXS framework.]
+  {
+    The results of a thirteen-parameter fit in the STXS framework. 
+    The two VBF-like ggH bins are grouped to form one parameter, 
+    as are the VBF BSM-like, VH-like and Rest bins.
+    No further merging is performed. 
+    The ggH parameters include bbH components, 
+    while the qqH parameters include the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    Cross section ratios are shown with approximate 68\% CL intervals (black points) 
+    and compared to the SM expectations and their uncertainties (blue bands). 
+    The cross section ratios are constrained to be non-negative, 
+    as indicated by the vertical line and hashed pattern. 
+    The parameters whose best-fit values are at zero are known to have 68\% CL intervals 
+    which slightly under-cover; this is checked using pseudo-experiments. 
+    The compatibility of this fit with the SM prediction, 
+    expressed as a p-value with respect to the SM, is approximately 18\%.
+  }
+  \label{fig:results_stage1min}
 \end{figure}
 
 In addition to the best-fit values and 68\% CL intervals of each fit, 
@@ -419,38 +427,39 @@ seven-parameter and thirteen-parameter scenarios
 in Figures~\ref{fig:results_CorrStage1} and \ref{fig:results_CorrStage1Min} respectively.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/CorrStage1.pdf}
-\caption{
-  Observed correlations in a seven-parameter fit in the STXS framework. 
-  The ggH 1J and 2J BSM bins are grouped together in the fit; 
-  the remaining five ggH bins with two or more jets are also grouped. 
-  All five VBF bins are grouped together. 
-  The ggH parameters include bbH components, 
-  while the qqH parameter includes the hadronic VH contribution. 
-  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  The size of the correlation is indicated by the colour scale.
-}
-\label{fig:results_CorrStage1}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/CorrStage1.pdf}
+  \caption[Oberved correlations in a seven-parameter fit in the STXS framework.]
+  {
+    Observed correlations in a seven-parameter fit in the STXS framework. 
+    The ggH 1J and 2J BSM bins are grouped together in the fit; 
+    the remaining five ggH bins with two or more jets are also grouped. 
+    All five VBF bins are grouped together. 
+    The ggH parameters include bbH components, 
+    while the qqH parameter includes the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    The size of the correlation is indicated by the colour scale.
+  }
+  \label{fig:results_CorrStage1}
 \end{figure}
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Results/CorrStage1Min.pdf}
-\caption{
-  Observed correlations in a thirteen-parameter fit in the STXS framework. 
-  The two VBF-like ggH bins are grouped to form one parameter, 
-  as are the VBF BSM-like, VH-like and Rest bins. 
-  No further merging is performed. 
-  The ggH parameters include bbH components,
-  while the qqH parameters include the hadronic VH contribution. 
-  The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
-  The size of the correlation is indicated by the colour scale.
-}
-\label{fig:results_CorrStage1Min}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Results/CorrStage1Min.pdf}
+  \caption[Oberved correlations in a thirteen-parameter fit in the STXS framework.]
+  {
+    Observed correlations in a thirteen-parameter fit in the STXS framework. 
+    The two VBF-like ggH bins are grouped to form one parameter, 
+    as are the VBF BSM-like, VH-like and Rest bins. 
+    No further merging is performed. 
+    The ggH parameters include bbH components,
+    while the qqH parameters include the hadronic VH contribution. 
+    The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
+    The size of the correlation is indicated by the colour scale.
+  }
+  \label{fig:results_CorrStage1Min}
 \end{figure}
 
-\newpage %TODO remove
 The results at stage 1 of the STXS framework are summarised in Tables~\ref{tab:results_stage1}
 and \ref{tab:results_stage1min}, 
 where the measured cross section of each parameter is shown together with the SM prediction.
@@ -501,4 +510,4 @@ its statistical, experimental, and theoretical components.
   \label{tab:results_stage1min}
 \end{table}
 
-%TODO put the mass distributions for each stage 1 fit scenario in backup.
+%TODO put the mass distributions for each stage 1 fit scenario in an appendix.

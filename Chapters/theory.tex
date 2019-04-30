@@ -308,6 +308,23 @@ which results in a degenerate set of minima at non-zero values
 where the vacuum expectation value $v$ has been defined.
 Although the potential itself is symmetric, the physical vacuum state is not;
 this is what is meant by the term spontaneous symmetry breaking.
+The shape of this potential is illustrated in Figure~\ref{fig:theory_SSB}.
+
+%TODO fill in this figure.
+\begin{figure}[hptb]
+  \centering
+  %\includegraphics[width=0.7\textwidth]{Figures/Theory/SSB.pdf}
+  \includegraphics[width=0.7\textwidth]{Figures/placeholder.png}
+  \caption[Quartic potential exhibiting spontaneous symmetry breaking.]
+  {
+    The shape of the quartic potential described in Equation~\ref{eq:theory_SSMlagrangian}.
+    The potential itself is symmetric, 
+    but the symmetry is broken when a specific choice of ground state is made 
+    from the degenerate of available minima.
+  }
+  \label{fig:theory_SSB}
+\end{figure}
+
 Making the arbitrary choice of the ground state being in the real direction, 
 it is possible to expand about the minimum with a field of the form
 \begin{equation}
@@ -457,14 +474,15 @@ but also the amount of background.
 \end{table}
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=0.7\textwidth]{Figures/Theory/FeynProd.png}
-\caption{
-  Feynman diagrams representing the four principal Higgs boson production modes at the LHC.
-  In descending order of cross section, these are: ggH in the top left, VBF in the top right, 
-  VH in the bottom left, and ttH in the bottom right.
-}
-\label{fig:theory_FeynProd}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/Theory/FeynProd.png}
+  \caption[Feynman diagrams of four Higgs boson production modes.]
+  {
+    Feynman diagrams representing the four principal Higgs boson production modes at the LHC.
+    In descending order of cross section, these are: ggH in the top left, VBF in the top right, 
+    VH in the bottom left, and ttH in the bottom right.
+  }
+  \label{fig:theory_FeynProd}
 \end{figure}
 
 \subsection{Higgs boson decay modes}
@@ -518,12 +536,15 @@ the decay to two photons is therefore sensitive to the Higgs boson's coupling to
 including the top quark and the W boson.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Theory/FeynDecay.png}
-\caption{
-  The Feynman diagrams with the largest contribution to the \Hgg decay loop.
-}
-\label{fig:theory_FeynDecay}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Theory/FeynDecay.png}
+  \caption[Feyman diagrams contributing to the \Hgg decay loop.]
+  {
+    The Feynman diagrams with the largest contribution to the \Hgg decay loop.
+    The diagrams involving the top quark have opposite sign to those involving the W boson, 
+    leading to destructive interference.
+  }
+  \label{fig:theory_FeynDecay}
 \end{figure}
 
 \subsection{Status of Higgs boson measurements}
@@ -556,16 +577,17 @@ to a precision of around 10\%~\cite{ATLAScomb,CMScomb}.
 So far, all measurements are consistent with the SM predictions.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/Theory/PerProcTrad.pdf}
-\caption{
-  Signal strength modifier measurements in the \Hgg decay channel.
-  The modifiers for each process (black points) are shown, with the SM Higgs boson mass profiled, 
-  compared to the overall signal strength modifier (green band) 
-  and to the SM expectation (dashed red line)
-  Taken from Ref.~\cite{HIG-16-040}.
-}
-\label{fig:theory_PerProcTrad}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figures/Theory/PerProcTrad.pdf}
+  \caption[Per process signal strength modifier measurements from Ref.~\cite{HIG-16-040}.]
+  {
+    Signal strength modifier measurements in the \Hgg decay channel.
+    The modifiers for each process (black points) are shown, with the SM Higgs boson mass profiled, 
+    compared to the overall signal strength modifier (green band) 
+    and to the SM expectation (dashed red line)
+    Taken from Ref.~\cite{HIG-16-040}.
+  }
+  \label{fig:theory_PerProcTrad}
 \end{figure}
 
 \section{The simplified template cross section framework}
@@ -590,18 +612,21 @@ a large part of which is not accessible experimentally.
 The experimental acceptance of \Hgg events with $|y_H| > 2.5$ is negligible.
 The stage 0 bins are illustrated in Figure~\ref{fig:theory_stage0}.
 The principal difference from the production processes used in the signal strength measurements,
-such as those shown in Figure~\ref{fig:theory_stage0},
+such as those shown in Figure~\ref{fig:theory_PerProcTrad},
 is that VH production where the vector boson decays hadronically is grouped together with 
 VBF production to define an ``electroweak qqH" bin.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Theory/stage0.png}
-\caption{
-  The STXS stage 0 bins.
-  Taken from Ref.~\cite{YR4}.
-}
-\label{fig:theory_stage0}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Theory/stage0.png}
+  \caption[Stage 0 STXS bins.]
+  {
+    The STXS stage 0 bins. 
+    The bins are designed to closely follow the Higgs boson production processes
+    used for measurements during Run 1 of the LHC.
+    Taken from Ref.~\cite{YR4}.
+  }
+  \label{fig:theory_stage0}
 \end{figure}
 
 Measurements of stage 0 cross sections in the \Hgg decay channel 
@@ -624,18 +649,19 @@ on the theoretical prediction and remains useful
 even if improved theoretical predictions are obtained in the future.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=0.8\textwidth]{Figures/Theory/PerProcSTXS.pdf}
-\caption{
-  Normalised cross sections measured for each stage 0 bin (black points) 
-  in the Higgs simplified template cross section framework, 
-  with the SM Higgs boson mass profiled, 
-  compared to the SM expectations and their uncertainties (blue band). 
-  The signal strength modifiers are constrained to be non-negative, 
-  as indicated by the vertical line and hashed pattern at zero.
-  Taken from Ref.~\cite{HIG-16-040}.
-}
-\label{fig:theory_PerProcSTXS}
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figures/Theory/PerProcSTXS.pdf}
+  \caption[Stage 0 simplified template cross section measurements from Ref.~\cite{HIG-16-040}.]
+  {
+    Normalised cross sections measured for each stage 0 bin (black points) 
+    in the Higgs simplified template cross section framework, 
+    with the SM Higgs boson mass profiled, 
+    compared to the SM expectations and their uncertainties (blue band). 
+    The signal strength modifiers are constrained to be non-negative, 
+    as indicated by the vertical line and hashed pattern at zero.
+    Taken from Ref.~\cite{HIG-16-040}.
+  }
+  \label{fig:theory_PerProcSTXS}
 \end{figure}
 
 At stage 1, a further splitting of bins into different kinematic regions is performed.
@@ -658,21 +684,28 @@ Further detail of the exact bin definitions
 and the methods used to discriminate between them is given in Chapter~5.%\ref{chap:categorisation}.
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Theory/stage1ggH.png}
-\caption{
-  The STXS stage 1 bins for the ggH production mode.
-  Taken from Ref.~\cite{YR4}.
-}
-\label{fig:theory_stage1ggH}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Theory/stage1ggH.png}
+  \caption[Stage 1 STXS bins for the ggH production mode.]
+  {
+    The STXS stage 1 bins for the ggH production mode.
+    The inclusive ggH process is subdivided into bins according to the transverse momentum 
+    of the Higgs boson and the number of jets in the event.
+    Taken from Ref.~\cite{YR4}.
+  }
+  \label{fig:theory_stage1ggH}
 \end{figure}
 
 \begin{figure}[hptb]
-\centering
-\includegraphics[width=\textwidth]{Figures/Theory/stage1VBF.png}
-\caption{
-  The STXS stage 1 bins for the VBF production mode.
-  Taken from Ref.~\cite{YR4}.
-}
-\label{fig:theory_stage1VBF}
+  \centering
+  \includegraphics[width=\textwidth]{Figures/Theory/stage1VBF.png}
+  \caption[Stage 1 STXS bins for the VBF production mode.]
+  {
+    The STXS stage 1 bins for the VBF production mode.
+    Both VBF events and VH events where the vector boson decays hadronically are included.
+    The inclusive processes are subdivided according to the kinematics of the Higgs boson 
+    and the jets in the event.
+    Taken from Ref.~\cite{YR4}.
+  }
+  \label{fig:theory_stage1VBF}
 \end{figure}
