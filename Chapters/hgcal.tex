@@ -55,8 +55,12 @@ The key aspects of the CMS Phase~2 upgrade can be summarised as \cite{UpgradeTP,
   the calorimeter endcaps (both ECAL and HCAL) will also be radiation-damaged by the end of Run~3, and will therefore be replaced.
   The replacement design, known as the high granularity calorimeter (HGCAL), will have both electromagnetic and hadronic sections.
   Fine segmentation in each of the longitudinal and transverse directions will facilitate precise measurements of showers in three dimensions.}
+  \item{\textbf{ECAL barrel:}
+  the current ECAL detector electronics are not capable of meeting the stringent HL-LHC trigger requirements.
+  The level of noise in the silicon avalanch photodiodes which detect the scintillation light will also increase due to radiation damage.
+  Therefore the electronics will be optimised and the operatimg temperature of the system reduced. % from 18 to 8 degrees
   \item{\textbf{Timing:}
-  precision timing measurements of objects will be made with the HGCAL and an upgraded ECAL with improved readout electronics.
+  precision timing measurements of objects will be made with the HGCAL and the upgraded ECAL.
   In addition, a dedicated timing layer providing precise timing information for minimum ionising particles will be added to the barrel and each of the endcaps.
   By enabling the reconstruction of vertex times, this will greatly improve the capability for pileup rejection.}
   \item{\textbf{Muon endcaps:}
@@ -117,8 +121,11 @@ The proposed design specification that captures all of these desired features is
 An overview of the HGCAL design is presented in Figure \ref{fig:hgcal_TheHGCAL}.
 The HGCAL is composed of an electromagnetic and a hadronic section, called the CE-E and CE-H respectively, covering the pseudorapidity range $1.5\,<\,|\eta|\,<\,3.0$.
 The CE-E comprises 28 layers with hexagonal silicon sensors as the active element.
-The total depth, including the neutron moderator layer at the front, is \SI{34}{cm}, which corresponds to approximately 26 radiation lengths ($X_0$) and 1.7 interaction lengths ($\lambda$).
-%TODO add footnote defining these things here
+The total depth, including the neutron moderator layer at the front, is \SI{34}{cm}, 
+which corresponds to approximately 26 radiation lengths ($X_0$) 
+and 1.7 interaction lengths ($\lambda$)
+\footnote{A radiation length is defined as the mean distance over which 
+a high energy electron will have its energy reduced to a fraction $\exp^{-1}$ of the initial value.}.
 Three different thicknesses of silicon sensors are used, with thickness decreasing as a function of fluence.
 Absorbers are made of copper-tungsten alloy and copper plates are used for cooling.
 All layers of the CE-E are used for energy measurements, but alternate layers give inputs to the L1 trigger primitive formation. %TODO check why this is
@@ -152,18 +159,24 @@ Further detail on the design specifications of the HGCAL can be found in Ref.~\c
 
 \subsection{Electromagnetic objects}
 
-The HGCAL's intrinsic performance measuring the energy of electromagnetic showers is modelled using a dedicated simulation with pileup corresponding to an average of 200 interactions per bunch crossing. 
-%TODO intrinsic performance means...
-Energy deposits in a radius of \SI{26}{mm} around a single unconverted photon are summed to estimate the energy resolution, which is shown in Figure \ref{fig:hgcal_PhotonReso}. %TODO justtify 26mm value
-The left plot shows that the resolution is approximately constant as a function of $\eta$, and robust against pileup, with only a very small degradation in resolution between PU 0 and PU 200.
-%this is achieved due to the fine granularity
-This intrinsic performance is further demonstrated by using this method to reconstruct unconverted photon pairs from simulated \Hgg decays, 
-where both photons are contained within the fiducial region of the HGCAL and the vertex location is assumed to be known exactly. 
-The resulting diphoton mass distribution is shown in Figure \ref{fig:hgcal_DiphotonReso}, with resolution of around \SI{1.8}{GeV}.
+The HGCAL's intrinsic performance measuring the energy of electromagnetic showers 
+is modelled using a dedicated simulation 
+with pileup corresponding to an average of 200 interactions per bunch crossing. %TODO intrinsic performance means...
+Energy deposits in a radius of \SI{26}{mm} around a single unconverted photon 
+are summed to estimate the energy resolution, 
+which is shown in Figure \ref{fig:hgcal_PhotonReso}. %TODO justify 26mm value
+The left plot shows that the resolution is approximately constant as a function of $\eta$, 
+and robust against pileup, with only a very small degradation in resolution between PU 0 and PU 200. %this is achieved due to the fine granularity
+This intrinsic performance is further demonstrated 
+by using this method to reconstruct unconverted photon pairs from simulated \Hgg decays, 
+where both photons are contained within the fiducial region of the HGCAL 
+and the vertex location is assumed to be known exactly. 
+The resulting diphoton mass distribution is shown in Figure \ref{fig:hgcal_DiphotonReso}, 
+with resolution of around \SI{1.8}{GeV}.
 This value is comparable to the expected resolution of the upgraded CMS barrel calorimeter, 
-representing a substantial improvement relative to Run 2, where the endcap resolution is significantly worse than the barrel. %TODO quantify this
+representing a substantial improvement relative to Run 2, 
+where the endcap resolution is significantly worse than the barrel. %TODO quantify this
 
-%TODO fix formatting of these two plots
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.6\textwidth]{Figures/HGCAL/SinglePhotonReso.png}
@@ -201,7 +214,8 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
   \item Construct an energy density map of all hits above a threshold $E_c$. 
   The threshold value is defined as a function of the noise resolution ($\sigma_{\textrm{noise}}$), which depends on the cell type.
   The density is defined simply as the energy sum of all hits within a critical distance $\delta_c$, 
-  whose value is chosen to be similar to the Moli\`ere radius. %TODO add footnote with definition
+  whose value is chosen to be similar to the Moli\`ere radius 
+  \footnote{}. 
   \item For each hit, calculate the distance to the nearest hit with higher density.
   \item Assign hits with both both density and distance parameters greater than threshold values as cluster centres.
   The density threshold ($\rho_c$) can be defined relative to the maximum density in the event,
@@ -229,8 +243,11 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
     Illustration of the procedure used to form layer clusters for electromagnetic objects in the HGCAL.
     The event considered is a single photon with $\pt\,=\,\SI{35}{GeV}$.
     The colour scale represents only the difference between hits, and is in arbitrary units.
-    The yellow circle indicates the size of the Moli\`ere radius.
-    The yellow arrow points to the hit chosen as a cluster centre.
+    The yellow circle indicates the size of the Moli\`ere radius
+    and the yellow arrow points to the hit chosen as a cluster centre.
+    It can be seen that many hits in a genuine cluster have a high density, 
+    whereas all but one will have a low distance to the nearest higher energy hit;
+    requiring high values of both these parameters is therefore an appropriate way to define a cluster.
   }
   \label{fig:hgcal_clustering}
 \end{figure}
@@ -389,7 +406,9 @@ The background numbers are slightly higher than in Run~2, but this is expected t
 \section{Beam tests}
 
 To validate the design of the HGCAL and ensure its behaviour is well-modelled by simulation, beam tests have been conducted at both CERN and Fermilab in 2016 and 2017. 
-Prototype silicon modules representative of those in both the CE-E and CE-H were built, with plastic scintillator tiles modified from an existing detector developed by the CALICE collaboration.
+Prototype silicon modules representative of those in both the CE-E and CE-H were built, 
+with plastic scintillator tiles modified from an existing detector 
+developed by the CALICE collaboration~\cite{CALICE}.
 Comparisons of the measured electron energy resolution and hadronic shower shape to simulation show good agreement.
 These prototypes were not the full design thickness, so the performance is not representative of the final detector.
 However the results constitute the first demonstration that the HGCAL behaves as predicted by simulation; observed distributions match those predicted by simulation to within 5\%. 

@@ -66,7 +66,6 @@ This step is designed to recover energy lost via bremsstrahlung;
 radiated showers typically have very similar $\eta$ values 
 but are spread out in the $\phi$ direction by the magnetic field.
 
-\newpage
 Given these tracks and calorimeter clusters as inputs, the particle flow algorithm forms collections of candidates for five types of particle:
 \begin{itemize}
   \item{\textbf{Muons:} a path extrapolated from the tracker is consistent with a muon track. 
@@ -146,15 +145,28 @@ The number of pileup events is corrected to agree with data,
 where an average of 23 and 32 pileup interactions were observed in 2016 and 2017 data-taking respectively.
 
 \section{Photon reconstruction}
+\subsection{Overview}
 
-Photons to be used in the \Hgg analysis are selected from the PF list of photon candidates.
-A correction is then made to the SC energy using a multivariate regression technique.
+Photons to be used in the \Hgg analysis are selected from the PF set of photon candidates.
+The energy of each photon candidate is estimated from the SC, 
+which includes deposits from the many particles comprising the electromagnetic shower.
+In some cases, photons will interact with detector material upstream of the ECAL 
+and produce an electron-positron pair; these are known as ``converted" photons.
+Converted photons will also deposit energy in the ECAL preshower detector, 
+which is included in the SC energy estimate.
+A correction is then made to this SC energy using a multivariate regression technique.
 After that, data and MC are brought into agreement by applying additional scale and smearing corrections to the photon energies.
-A set of preselection criteria is applied to obtain the final set of photons considered in the analysis.
+The details of the energy estimation procedure are described in Section~\ref{sec:objects_PhotonEnergy}.
+Once the photon energy has been established, 
+a set of preselection criteria is applied to obtain the final set of photons considered in the analysis.
 One of these criteria is a requirement placed on the output score of the photon identification BDT, 
 which is trained to reduce the contamination from other objects which mimic real photons.
+The full set of preselection requirements, including the photon identifiaction BDT, 
+are described in Sections~\ref{sec:objects_PhotonPresel} and \ref{sec:objects_PhotonIDBDT}.
 
-Different types of variables are used to perform these steps.
+\subsection{Variable definitions}
+
+Different types of variables are used in the photon reconstruction.
 They can be divided into shower shape and isolation variables.
 The ECAL shower shape information is used both to correct the energy and discriminate between real and fake photons.
 Isolation variables can be used to reduce the mis-identification of jets and other objects imitating a real photon signal.
@@ -165,7 +177,7 @@ The full set of variables used in this section and their definitions are given b
   \item \emph{$E_{2\times2}/E_{5\times5}$}: the ratio of the energy in the $2\times2$ grid
     containing the most energetic cells in the SC to the energy in
     the 5x5 grid centred on the SC seed.
-  \item \emph{$cov_{i\eta i\phi}$}: the covariance of the single crystal $\eta$
+  \item \emph{$\textrm{cov}_{i\eta i\phi}$}: the covariance of the single crystal $\eta$
     and $\phi$ values in within the 5x5 grid centred on the
     SC seed.
   \item \emph{$\sigma_{i\eta i\eta}$}: the standard deviation of the 
@@ -216,6 +228,7 @@ The full set of variables used in this section and their definitions are given b
 \end{itemize}
 
 \subsection{Photon energy}
+\label{sec:objects_PhotonEnergy}
 
 The photon supercluster energy is computed from the calibrated ECAL SC, as described in Section~\ref{sec:detector_ECAL}.
 However, this energy estimate is imperfect for several reasons.
@@ -283,6 +296,7 @@ Full details of the entire energy correction procedure can be found in Ref.\cite
 \end{figure}
 
 \subsection{Photon preselection}
+\label{sec:objects_PhotonPresel}
 
 To be further considered in the \Hgg analysis, 
 photons must pass a set of criteria designed to reduce the contamination from objects faking photons.
@@ -328,18 +342,16 @@ to around 50\% for low \RNINE photons in the endcaps.
 Very good agreement is observed between data and simulation. %0.1-0.3\% in barrel, 0.5-1\% in endcap
 
 \subsection{Photon identification}
+\label{sec:objects_PhotonIDBDT}
 
 An additional part of the photon preselection is the photon identification BDT.
 Its purpose is to discriminate between real photons and photon candidates passing the preselection which originate from other objects, 
 such as jet fragments.
 The BDT is trained using $\gamma$ + jet events passing the preselection described above, with real photons treated as signal and fake photons as background.
-The inputs are similar to the those used in the energy regression:
-\begin{itemize}
-  \item Shower shape variables $E_{2\times2}/E_{5\times5}$, $cov_{i\eta i\phi}$, $\sigma_{i\eta i\eta}$, $\RNINE$, $\sigma_{\eta}$, $\sigma_{\phi}$, $\sigma_{RR}$
-  \item Isolation variables $\mathcal{I}_{\text{ph}}$, $\mathcal{I}_{\text{tk}}$, $\mathcal{I}_{\text{ch}}$
-  \item Pileup-sensitive variables $\rho$ and the number of interaction vertices
-  \item Photon $\eta$, energy, and ratio of preshower to total energy (endcap only)
-\end{itemize}
+The inputs are similar to the those used in the energy regression, 
+including shower shape and isolation variables.
+In addition, pileup-sensitive variables $\rho$ and the number of interaction vertices, 
+together with photon kinematic varialbes, are used as inputs.
 
 A loose selection on the photon identification BDT at -0.9 completes the analysis preselection.
 The output score on preselected diphoton events is shown in Figure~\ref{fig:obj_IDMVA}.

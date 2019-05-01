@@ -1788,3 +1788,24 @@ year = "1998"
       reportNumber   = "ATLAS-HIGG-2014-14, CMS-HIG-14-042, CERN-PH-EP-2015-075",
       SLACcitation   = "%%CITATION = ARXIV:1503.07589;%%"
 }
+
+@article{CALICE,
+      author         = "Adloff, C. and Blaha, J. and Blaising, J. -J. and
+                        Drancourt, C. and Espargiliere, A. and Galione, R. and
+                        Geffroy, N. and Karyotakis, Y. and Prast, J. and Vouters,
+                        G.",
+      title          = "{Tests of a particle flow algorithm with CALICE test beam
+                        data}",
+      collaboration  = "CALICE",
+      journal        = "JINST",
+      volume         = "6",
+      year           = "2011",
+      pages          = "P07005",
+      doi            = "10.1088/1748-0221/6/07/P07005",
+      eprint         = "1105.3417",
+      archivePrefix  = "arXiv",
+      primaryClass   = "physics.ins-det",
+      reportNumber   = "CALICE-PUB-2011-002, CALICE-CAN-2010-007, CALICE Analysis
+                        Note CAN-024, CALICE Analysis Note CAN-024a",
+      SLACcitation   = "%%CITATION = ARXIV:1105.3417;%%"
+}
