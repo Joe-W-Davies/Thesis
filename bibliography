@@ -73,7 +73,7 @@
       SLACcitation   = "%%CITATION = ARXIV:1405.6569;%%"
 }
 
-@article{MuonReco,
+@article{MuonRecoRun1,
       author         = "Chatrchyan, Serguei and others",
       title          = "{Performance of CMS muon reconstruction in $pp$ collision
                         events at $\sqrt{s}=7$ TeV}",
@@ -765,7 +765,7 @@
 }
 
 @article{CMSdetector,
-  collaboration         = "CMS",
+  collaboration  = "CMS",
   title          = "{The CMS experiment at the CERN LHC}",
   journal        = "JINST",
   volume         = "3",
@@ -903,7 +903,7 @@ Volume = "CMS Internal Note",
 year = "2010/008",
 }
 
-@article{trigger,
+@article{CMStrigger,
       author         = "Khachatryan, Vardan and others",
       title          = "{The CMS trigger system}",
       collaboration  = "CMS",

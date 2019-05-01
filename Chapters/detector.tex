@@ -26,7 +26,7 @@ the remainder of this section will be dedicated to its proton-proton operations.
 A schematic of the full CERN accelerator complex and the LHC experiments is shown in Figure~\ref{fig:detector_CERNschematic}.
 The operation of the LHC and the data it has accumulated so far is described in detail below.
 
-%TODO this is too small
+%TODO this is too small?
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CERNschematic.pdf}
@@ -103,7 +103,7 @@ These are summarised as:
   with good dimuon mass resolution and the capability to accurately determine their charge.
   This is very important for Higgs searches, particularly in the $ZZ$ decay channel.}
   \item{\textbf{Charged particle measurement:}
-  good momentum resolution along with efficient reconstruction and triggering on $\tau$ leptons and $b$-jets.
+  good momentum resolution along with efficient reconstruction and triggering on $\tau$ leptons and $b$ quarks.
   Excellent jet reconstruction is essential in the majority of physics measurements.}
   \item{\textbf{Electromagnetic energy resolution:}
   good energy resolution and isolation for electrons and photons, whilst maintaining high acceptance.
@@ -139,7 +139,7 @@ A cylindrical coordinate system is used to describe events within CMS, with its 
 The central part is referred to as the barrel, with two endcaps closing the cylinder.
 The positive $z$-axis is defined to be parallel to the beampipe in the direction of the Jura mountains, anti-clockwise when viewed from above.
 The azimuthal angle $\phi$ is measured from the $z$-axis, and polar angle $\theta$ from the plane perpendicular to the $z$-axis.
-Other common quantities are: pseudorapidity, defined as $\eta \, = \, -\ln{\tan{\theta/2}}$; 
+Other common quantities are: pseudorapidity, defined as $\eta \, = \, -\ln{\tan{(\theta/2)}}$; 
 momentum in the direction transverse to the plane of the LHC, \pt; 
 and the magnitude of the negative vector sum of particle momenta in the transverse plane, \met.
 High pseudorapidity values, corresponding to a direction close to the beampipe, are referred to as being forward.
@@ -158,7 +158,7 @@ Its layout drives the design of the rest of the detector.
 
 \subsection{Tracking}
 
-The innermost subsystem of CMS is the silicon tracker, which is 5.8\,m long and 2.5\,m in diameter. 
+The innermost subsystem of CMS is the silicon tracker, which is 5.8\,m long and 2.5\,m in diameter~\cite{CMSdetector,TrackReco}. 
 Proximity to the beampipe implies the tracker must withstand a high radiation dose over its expected 10-year lifetime without degradation in performance.
 It is responsible for reconstructing the curved tracks produced when charged particles are deflected by the magnetic field. %homogenous across the tracker
 Furthermore, it is used to identify interaction vertices; 
@@ -170,7 +170,7 @@ This results in an increased material budget in front of the detector calorimetr
 a compromise between the two objectives is necessary.
 The final all-silicon design satisfies the requirements above, and is displayed in Figure~\ref{fig:detector_tracker}.
 
-%TODO update this with a prettier picture
+%TODO update this with a prettier picture?
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/TrackerUgly.png}
@@ -217,7 +217,7 @@ However the overall impact on the \Hgg analysis was relatively small.
 \subsection{Electromagnetic calorimeter}
 \label{sec:detector_ECAL}
 
-The CMS ECAL is a homogeneous detector which uses lead tungstate (\pbw) crystals as the active material.
+The CMS ECAL is a homogeneous detector which uses lead tungstate (\pbw) crystals as the active material~\cite{CMSdetector,ECALperformance}.
 A total of 61200 crystals cover the barrel area (EB), with 7324 in each of the endcaps (EE).
 Readout is performed by silicon avalanche photodiodes (APDs) and vacuum phototriodes (VPTs) in the barrel and endcap regions respectively.
 An additional preshower detector is present in front of the endcaps, in order to improve $\pi_0$ rejection.
@@ -317,15 +317,17 @@ After this lengthy procedure, the final energy resolution on the high \pt, uncon
 
 \subsection{Hadronic calorimeter}
 
-Surrounding the ECAL is the HCAL, a brass and scintillator sampling calorimeter covering the entire region $|\eta|\,<\,5$.
+Surrounding the ECAL is the HCAL, a brass and scintillator sampling calorimeter covering the entire region $|\eta|\,<\,5$~\cite{CMSdetector,cmsHcal}.
 The HCAL measures the energy of neutral hadrons, and plays an important role in the reconstruction of jets and \met.
 Four subdetectors form the full calorimeter, as illustrated in Figure~\ref{fig:detector_HCAL}.
 
-The barrel (HB) covers the central region $|\eta|\,<\,1.3$
+The barrel (HB) covers the central region $|\eta|\,<\,1.3$.
 Wavelength-shifting fibres contained within scintillator tiles channel emitted light to photodetetors.
 Division into 16 $\eta$ sectors and 16 wedges in $\phi$ results in a granularity of $0.087\times0.087$.
 The HB has 14 brass layers surrounded by a layer of steel at the front and back, 
-which totals between 5.8 and and 10.6 interaction lengths ($\lambda_I$) depending on $\eta$. %as a function of eta. TODO look up and add interaction length definition
+which totals between 5.8 and and 10.6 interaction lengths ($\lambda_I$) depending on $\eta$
+\footnote{An interaction length is defined as the length over which 
+a particle has a probability $\exp^{-1}$ of decaying.}.
 This is not sufficient to completely contain hadronic showers, due to the space restriction imposed by the magnet coil.
 Consequently an additional outer hadron calorimeter (HO) is present beyond the solenoid.
 The HO uses the solenoid coil as an absorber, with the same scintillator technology as the HB.
@@ -348,7 +350,7 @@ around half run the full length of the HF, whilst the other half begin at a dept
 %Almost all the the energy of an electron or photon is deposited in the first half, 
 %whereas a hadronic object will produce approximately equal signals in each half.
 This enables electromagnetic showers to be disambiguated from hadronic showers.
-%TODO Parameters of the CMS HCAL, following Equation~\ref{eq:resolution}, are...
+%TODO add parameters of the CMS HCAL, following Equation~\ref{eq:resolution} ?
 
 \begin{figure}[h!]
   \centering
@@ -363,7 +365,7 @@ This enables electromagnetic showers to be disambiguated from hadronic showers.
 
 \subsection{Muon system}
 
-The muon system at CMS is composed of three separate gaseous chamber detectors.
+The muon system at CMS is composed of three separate gaseous chamber detectors~\cite{CMSdetector,MuonReco}.
 The system is required to identify muons, precisely measure their momentum, and inform the triggering decision.
 Good muon performance is crucial to the success of CMS, particularly for the very powerful $H \rightarrow ZZ^* \rightarrow 4\mu$ decay mode.
 Interleaved with the return yoke of the CMS magnet, the muon system comprises a cylindrical barrel system and two endcap planes, 
@@ -406,7 +408,7 @@ Figure~\ref{fig:detector_CMSslice} shows the characteristic paths followed by th
 
 \subsection{Trigger system}
 
-The rate of information produced at CMS is extremely high; the bunch crossings occurring at rate of 40\,MHz each contain ~1\,MB of data.
+The rate of information produced at CMS is extremely high; the bunch crossings occurring at rate of 40\,MHz each contain ~1\,MB of data~\cite{CMStrigger}.
 It is unfeasible to read out 40\,TB of data per second, so a drastic reduction in the event rate must be applied.
 This is achieved by ignoring the large majority of events where the protons collide at a relatively low angle and no high energy objects are produced as a result.
 The system responsible for this rate reduction is known as the trigger.
@@ -427,7 +429,7 @@ Typical quantities evaluated to inform HLT decisions include invariant mass, obj
 Finally, once the HLT has accepted an event, the full readout is saved to disk.
 The event is then processed by the full offline CMS software, which produces objects ready for physics analysis.
 
-%TODO find picture for this
+%TODO find picture for this?
 \begin{figure}[h!]
   \centering
   %\includegraphics[width=\textwidth]{Figures/Detector/Trigger.png}
