@@ -1,5 +1,6 @@
 \chapter{Theory}
 \label{chap:theory}
+%TODO make sure that Run 1 and Run 2 are clearly introduced before this
 
 %\epigraph{\textit{Dreaming a thought that could ~\\
 %                  dream about a thought ~\\
@@ -46,7 +47,7 @@ except for mass, which increases across generations.
 In addition, each particle has a corresponding antiparticle, 
 which has the same mass but whose charge has the opposite sign to the original particle.
 
-%TODO insert fermion table here
+%TODO insert fermion table here?
 
 The interactions between fermions are mediated by a second class of fundamental particles, 
 the gauge bosons.
@@ -63,7 +64,7 @@ are also massless.
 %with the exception of gravity.
 %The structure of the gauge bosons in the SM is summarised in Table~\ref{tab:theory_bosons}.
 
-%TODO insert boson table here
+%TODO insert boson table here?
 
 The final particle in the SM is the Higgs boson, 
 which is the only scalar (spin-zero) particle in the theory.
@@ -72,6 +73,7 @@ due to spontaneous symmetry breaking in the electroweak sector,
 and whose existence is necessary to explain the masses of both bosons and fermions.
 
 \section{Gauge fields}
+\label{sec:theory_gauges}
 
 The SM is realised as a particular type of quantum field theory (QFT) known as a gauge field theory.
 The dynamics and predictions of a given QFT can be derived from the Lagrangian (\Like)
@@ -138,16 +140,20 @@ With the addition of a free term for the field $A^\mu$,
 the form of which is constrained by the requirements of being both Lorentz and gauge invariant, 
 the Lagrangian can then be written as
 \begin{equation}
+\label{eq:theory_EMlagrangian}
 \Like = i \psibar \gamma^\mu D_\mu \psi - m\psibar\psi - \frac{1}{4} F^{\mu\nu}F_{\mu\nu},
 \end{equation}
 where $F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu$.
-This Lagrangian is now fully gauge invariant, 
-and can be identified as a description of quantum electrodynamics (QED).
+This Lagrangian is now fully gauge invariant.
+A mass term for the boson, which would take the form $m_A A_\mu A^'mu$, 
+is not included since it is forbidden by local gauge invariance.
+The Lagrangian in Eq.~\ref{eq:theory_EMlagrangian} 
+can now be identified as a description of quantum electrodynamics (QED).
 The field $A_\mu$ corresponds to a photon, and $g$ to the charge of the electron.
 The interaction vertex between photons and electrons is contained in the trilinear terms
 such as $\Like \supset -e \psibar \gamma^\mu A_\mu \psi$, 
 and the electromagnetic field strength tensor is represented in $F^{\mu\nu}$.
-This illustrates the mechanism by which gauge invariance introduces new interacting fields
+This illustrates the mechanism by which local gauge invariance introduces new interacting fields
 with a symmetry, in this case a $U(1)$ symmetry with one degree of freedom.
 It can be shown that the number of generated bosons is equal to the number of degrees of freedom, 
 or equivalently the dimension, of the symmetry group~\cite{Peskin}.
@@ -226,7 +232,7 @@ The formulation in Equation~\ref{eq:theory_Wcov} would suggest
 that this is true of all three $W^{\mu}$ bosons;
 however it is known that the Z boson interacts with both left and right-handed fermions.
 The key insight of EW unification is that the three bosons arising from the $SU(2)$ group 
-can be combined with the $U(1)$ boson to form the four physically observed bosons.
+can be combined with a $U(1)$ boson to form the four physically observed bosons.
 This is achieved in the GWS model by constructing the $SU(2)_L \times U(1)$ group 
 with weak isospin and weak hypercharge $Y$ as the respective charges, 
 and $W^{i}_{\mu}$ and $B_{\mu}$ as the respective fields in the covariant derivative
@@ -270,15 +276,17 @@ whilst allowing the weak interaction to violate parity, exactly as observed in n
 
 This completes the description of how fermions and bosons interact in the SM.
 However an issue remains relating to the particle masses.
-It can be seen that a mass term of the form
+As was described in Section~\ref{sec:theory_gauges}, 
+mass terms for the bosons are not invariant under local gauge transformations.
+This is not an issue for the description of the photon, 
+but cannot be reconciled with the experimentally observed finite masses of the W and Z bosons.
+Furthermore, it can be seen that a mass term of the form
 \begin{equation}
 \label{eq:theory_badmass}
 \Like_{\textrm{mass}} = -m(\psibar_L \psi_R + \psibar_R \psi_L)
 \end{equation}
 is not gauge invariant, since the left and right-handed spinors transform in different ways.
-This is not an issue for the description of the photon, 
-but cannot be reconciled with the experimentally observed finite masses of the W and Z bosons.
-Similar considerations prevent the inclusion of mass terms 
+These considerations prevent the inclusion of mass terms 
 for the quarks and leptons in the Lagrangian.
 Spontaneous symmetry breaking and the Higgs mechanism provide the resolution to this problem.
 
@@ -372,10 +380,11 @@ after the rotation described in Equation~\ref{eq:theory_rotation}, the Lagrangia
                          + \frac{(g^2 + g^{\prime 2})v^2}{8} Z_\mu Z^\mu .
 \end{equation}
 Thus the W and Z bosons have acquired mass whilst leaving the photon massless.
-The Higgs mechanism is therefore able to explain the observed mass structure 
-of the gauge bosons.
+The Higgs mechanism is therefore able to explain the observed mass structure of the gauge bosons.
 Furthermore, the ratio of the masses of the and W and Z bosons 
 is predicted to be equal to $\cos{\theta_W}$, which is also in agreement with experiment.
+This pattern of symmetry breaking depends on the choice of respresentation for the Higgs field;
+it has been chosen by construction to match the observed SM bosons and fermions. %e.g. the cos(theta) relations would change if chose different rep
 
 In addition to explaining the masses of the gauge bosons, 
 the Higgs mechanism enables mass terms for the fermions to be included in the Lagrangian.
@@ -455,6 +464,10 @@ The expected SM cross sections for each process, and for the rarer tH and bbH pr
 are shown in Table~\ref{tab:theory_prod}.
 Experimental sensitivity to a given process depends not only on the signal cross section 
 but also the amount of background.
+Observations of the ggH and VBF were made during Run 1 
+of the LHC~\cite{ATLAScouplingsRun1,CMScouplingsRun1,ATLASandCMScouplingsRun1}, 
+with the VH and ttH productions mode being observed more recently 
+using Run 2 data~\cite{ATLASttHobservation,CMSttHobservation,ATLASbbObservation,CMSbbObservation}.
 
 \begin{table}
   \centering
@@ -500,12 +513,17 @@ which then themselves decay.}.
 In addition, loop diagrams permit the decay to massless particles, including the gluon and photon.
 The branching fractions for each of the nine principal decay modes 
 is shown in Table~\ref{tab:theory_decay}.
+Observations of the $\gamma\gamma$, $\mathrm{ZZ}^{*}$, $W^{\pm}W^{\mp*}$, 
+and $\tau^+\tau^-$ decay modes were made during Run 1 
+of the LHC~\cite{ATLAScouplingsRun1,CMScouplingsRun1,ATLASandCMScouplingsRun1}, 
+with the $b\bar{b}$ mode being observed more recently 
+using Run 2 data~\cite{ATLAStautauObservation,CMStautauObservation,ATLASbbObservation,CMSbbObservation}.
 
 \begin{table}
   \centering
   \begin{tabular}{ l | c c c c c c c }
       \hline
-      Decay mode & $b\bar{b}$ & $W^{\pm}W^{\mp*}$ & $gg$ & $\tau\bar{\tau}$ & $c\bar{c}$ & $\mathrm{ZZ}^{*}$ & $\gamma\gamma$ \\
+      Decay mode & $b\bar{b}$ & $W^{\pm}W^{\mp*}$ & $gg$ & $\tau^+\tau^-$ & $c\bar{c}$ & $\mathrm{ZZ}^{*}$ & $\gamma\gamma$ \\
       \hline
       Branching fraction & 58.2\% & 21.4\% & 8.2\% & 6.3\% & 2.8\% & 2.6\% & 0.23\% \\
       \hline
@@ -551,19 +569,51 @@ including the top quark and the W boson.
 
 Since its discovery, remarkable progress has been made 
 in measuring the properties of the Higgs boson.
-Its mass is now known to a precision of better than 0.2\%~\cite{HIG-16-041}.
-The rate of its production has also been measured precisely.
-These measurements are usually parameterised as signal strength modifiers $\mu$,
+Several aspects of the SM Higgs boson structure can be tested experimentally.
+The first is the spin of the Higgs boson; it is the only fundamental scalar particle within the SM.
+Due to the observed decay to two spin-one photons, the Higgs boson must have even spin.
+Dedicated measurements by ATLAS and CMS have excluded both the spin-two hypothesis 
+and the hypothesis of a Higgs boson with zero spin
+but negative parity (a pseudoscalar)~\cite{ATLASspinHiggs,CMSspinHiggs}. %TODO understand what goes on here
+The possibility that the observed Higgs boson is a mixture of scalar 
+and pseudoscalar states has not been ruled out, and remains an active subject of research.
+
+Furthermore, the mass of the Higgs boson has also been measured precisely. 
+The $\gamma\gamma$ and $\mathrm{ZZ}^{*}$ are the two decay channels with sufficiently narrow 
+mass resolution to contrivute to this measurement.
+During Run 1, the combination of ATLAS and CMS analyses led to the measurement of the Higgs boson 
+mass to be $\mH = 125.09 \pm \SI{0.24}{GeV}$~\cite{ATLASandCMSmass}.
+This has since been superseded by the measurements made by CMS in the $\mathrm{ZZ}^{*}$ channel 
+with Run 2 data, where the precision of better than 0.2\%~\cite{HIG-16-041}.
+The observed value and its uncertainty is $\mH = 125.26 \pm \SI{0.21}{GeV}$.
+
+The coupling of the Higgs boson to other SM particles can also be measured experimentally, 
+by comparing the rate of Higgs boson production to the expectation from the SM.
+These measurements can be parameterised in different ways.
+During Run 1, two different schemes were commonly used.
+The first are signal strength modifiers $\mu$, 
 which are defined as the ratio of the observed Higgs boson yield to the SM expectation.
 This can be defined inclusively, for all Higgs boson production and decay modes, 
 or for individual combinations of production and decay modes.
 The general definition is written as
 \begin{equation}
-\mu^f_i = \frac{\sigma_i\mathcal{B}^f}{(\sigma_i)_{\textrm{SM}}(\mathcal{B}^f)_{\textrm{SM}}}
+\mu^f_i = \frac{\sigma_i\mathcal{B}^f}{(\sigma_i)_{\textrm{SM}}(\mathcal{B}^f)_{\textrm{SM}}} ,
 \end{equation}
 where $\sigma_i$ and $\mathcal{B}^f$ are the observed production cross section 
 and decay branching fraction respectively, 
 and the ``SM" subscript refers to their respective SM predictions.
+The second is the so-called $\kappa$-framework~\cite{YR3}, 
+which is motivated by the leading-order couplings of the Higgs boson to bosons and fermions.
+The coupling modifiers $\kappa_j$ are defined such that 
+\begin{equation}
+\kappa^2_j = \frac{\sigma_j}{\sigma_j^{\textrm{SM}}} \; \mathrm{or} \; \frac{\Gamma_j}{\Gamma_j^{\textrm{SM}}} ,
+\end{equation}
+where in the SM the values of all the $\kappa_j$ are equal to unity.
+In addition to including couplings to individual particles or groups of particles, 
+effective coupling modifiers $\kappa_g$ and $\kappa_\gamma$, 
+which describe the loop processes of ggH production and diphoton decay respectively, can be defined.
+The combination of ATLAS and CMS Run 1 analysis given in Ref.~\cite{ATLASandCMScouplingsRun1} 
+presents results in terms of both signal strength modifiers and coupling modifiers.
 
 An example of signal strength modifier measurements 
 from the previous CMS \Hgg analysis~\cite{HIG-16-040} is shown in Figure~\ref{fig:theory_PerProcTrad}.
@@ -603,6 +653,13 @@ In the STXS framework,
 theoretically-motivated kinematic regions based upon Higgs boson production modes are defined.
 These simplified regions, or bins, exist in varying degrees of granularity, 
 following sequential ``stages".
+Increasing the granularity of the signal bins 
+provides additional information for different theoretical interpretations of the measurements, 
+and enhances the sensitivity to possible signatures beyond the standard model.
+As the integrated luminosity of the datasets collected by the LHC increases, 
+so does the experimental sensitivity,
+measurements can progress to later stages within the STXS framework.
+
 At the so-called STXS stage 0, 
 the bins correspond closely to the different Higgs boson production mechanisms.
 An additional requirement is placed on the Higgs boson rapidity $|y_H| < 2.5$, 
@@ -679,9 +736,10 @@ In addition there are two bins for events with two jets where the event kinemati
 resemble those of typical VBF events.
 For VBF production, the bins are defined using the kinematics 
 of the characteristic dijet system.
-The ultimate goal of this analysis is to measure these bins as precisely as possible.
+The ultimate goal of this analysis is to measure the cross sections of these bins 
+as precisely as possible.
 Further detail of the exact bin definitions 
-and the methods used to discriminate between them is given in Chapter~5.%\ref{chap:categorisation}.
+and the methods used to discriminate between them is given in Chapter~\ref{chap:categorisation}.
 
 \begin{figure}[hptb]
   \centering

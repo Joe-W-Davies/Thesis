@@ -1570,3 +1570,221 @@ year = "1998"
 	eprint = {https://science.sciencemag.org/content/358/6366/1081.full.pdf},
 	journal = {Science}
 }
+
+@article{ATLASttHobservation,
+      author         = "Aaboud, M. and others",
+      title          = "{Observation of Higgs boson production in association
+                        with a top quark pair at the LHC with the ATLAS detector}",
+      collaboration  = "ATLAS",
+      journal        = "Phys. Lett.",
+      volume         = "B784",
+      year           = "2018",
+      pages          = "173-191",
+      doi            = "10.1016/j.physletb.2018.07.035",
+      eprint         = "1806.00425",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-EP-2018-138",
+      SLACcitation   = "%%CITATION = ARXIV:1806.00425;%%"
+}
+
+@article{CMSttHobservation,
+      author         = "Sirunyan, Albert M and others",
+      title          = "{Observation of $\mathrm{t\overline{t}}$H production}",
+      collaboration  = "CMS",
+      journal        = "Phys. Rev. Lett.",
+      volume         = "120",
+      year           = "2018",
+      number         = "23",
+      pages          = "231801",
+      doi            = "10.1103/PhysRevLett.120.231801",
+      eprint         = "1804.02610",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CMS-HIG-17-035, CERN-EP-2018-064",
+      SLACcitation   = "%%CITATION = ARXIV:1804.02610;%%"
+}
+
+@article{ATLAScouplingsRun1,
+      author         = "Aad, Georges and others",
+      title          = "{Measurements of Higgs boson production and couplings in
+                        diboson final states with the ATLAS detector at the LHC}",
+      collaboration  = "ATLAS",
+      journal        = "Phys. Lett.",
+      volume         = "B726",
+      year           = "2013",
+      pages          = "88-119",
+      doi            = "10.1016/j.physletb.2014.05.011,
+                        10.1016/j.physletb.2013.08.010",
+      note           = "[Erratum: Phys. Lett.B734,406(2014)]",
+      eprint         = "1307.1427",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-PH-EP-2013-103",
+      SLACcitation   = "%%CITATION = ARXIV:1307.1427;%%"
+}
+
+@article{CMScouplingsRun1,
+      author         = "Khachatryan, Vardan and others",
+      title          = "{Precise determination of the mass of the Higgs boson and
+                        tests of compatibility of its couplings with the standard
+                        model predictions using proton collisions at 7 and 8
+                        $\,\text {TeV}$}",
+      collaboration  = "CMS",
+      journal        = "Eur. Phys. J.",
+      volume         = "C75",
+      year           = "2015",
+      number         = "5",
+      pages          = "212",
+      doi            = "10.1140/epjc/s10052-015-3351-7",
+      eprint         = "1412.8662",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CMS-HIG-14-009, CERN-PH-EP-2014-288",
+      SLACcitation   = "%%CITATION = ARXIV:1412.8662;%%"
+}
+
+@article{ATLASandCMScouplingsRun1,
+      author         = "Aad, Georges and others",
+      title          = "{Measurements of the Higgs boson production and decay
+                        rates and constraints on its couplings from a combined
+                        ATLAS and CMS analysis of the LHC pp collision data at $
+                        \sqrt{s}=7 $ and 8 TeV}",
+      collaboration  = "ATLAS, CMS",
+      journal        = "JHEP",
+      volume         = "08",
+      year           = "2016",
+      pages          = "045",
+      doi            = "10.1007/JHEP08(2016)045",
+      eprint         = "1606.02266",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-EP-2016-100, ATLAS-HIGG-2015-07, CMS-HIG-15-002",
+      SLACcitation   = "%%CITATION = ARXIV:1606.02266;%%"
+}
+
+@article{ATLASbbObservation,
+      author         = "Aaboud, Morad and others",
+      title          = "{Observation of $H \rightarrow b\bar{b}$ decays and $VH$
+                        production with the ATLAS detector}",
+      collaboration  = "ATLAS",
+      journal        = "Phys. Lett.",
+      volume         = "B786",
+      year           = "2018",
+      pages          = "59-86",
+      doi            = "10.1016/j.physletb.2018.09.013",
+      eprint         = "1808.08238",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-EP-2018-215",
+      SLACcitation   = "%%CITATION = ARXIV:1808.08238;%%"
+}
+
+@article{CMSbbObservation,
+      author         = "Sirunyan, A. M. and others",
+      title          = "{Observation of Higgs boson decay to bottom quarks}",
+      collaboration  = "CMS",
+      journal        = "Phys. Rev. Lett.",
+      volume         = "121",
+      year           = "2018",
+      number         = "12",
+      pages          = "121801",
+      doi            = "10.1103/PhysRevLett.121.121801",
+      eprint         = "1808.08242",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CMS-HIG-18-016, CERN-EP-2018-223",
+      SLACcitation   = "%%CITATION = ARXIV:1808.08242;%%"
+}
+
+@article{ATLAStautauObservation,
+      author         = "Aaboud, Morad and others",
+      title          = "{Cross-section measurements of the Higgs boson decaying
+                        into a pair of $\tau$-leptons in proton-proton collisions
+                        at $\sqrt{s}=13$ TeV with the ATLAS detector}",
+      collaboration  = "ATLAS",
+      journal        = "Phys. Rev.",
+      volume         = "D99",
+      year           = "2019",
+      pages          = "072001",
+      doi            = "10.1103/PhysRevD.99.072001",
+      eprint         = "1811.08856",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-EP-2018-232",
+      SLACcitation   = "%%CITATION = ARXIV:1811.08856;%%"
+}
+
+@article{CMStautauObservation,
+      author         = "Sirunyan, Albert M and others",
+      title          = "{Observation of the Higgs boson decay to a pair of $\tau$
+                        leptons with the CMS detector}",
+      collaboration  = "CMS",
+      journal        = "Phys. Lett.",
+      volume         = "B779",
+      year           = "2018",
+      pages          = "283-316",
+      doi            = "10.1016/j.physletb.2018.02.004",
+      eprint         = "1708.00373",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CMS-HIG-16-043, CERN-EP-2017-181",
+      SLACcitation   = "%%CITATION = ARXIV:1708.00373;%%"
+}
+
+@article{CMSspinHiggs,
+      author         = "Khachatryan, Vardan and others",
+      title          = "{Constraints on the spin-parity and anomalous HVV
+                        couplings of the Higgs boson in proton collisions at 7 and
+                        8 TeV}",
+      collaboration  = "CMS",
+      journal        = "Phys. Rev.",
+      volume         = "D92",
+      year           = "2015",
+      number         = "1",
+      pages          = "012004",
+      doi            = "10.1103/PhysRevD.92.012004",
+      eprint         = "1411.3441",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CMS-HIG-14-018, CERN-PH-EP-2014-265",
+      SLACcitation   = "%%CITATION = ARXIV:1411.3441;%%"
+}
+
+@article{ATLASspinHiggs,
+      author         = "Aad, Georges and others",
+      title          = "{Study of the spin and parity of the Higgs boson in
+                        diboson decays with the ATLAS detector}",
+      collaboration  = "ATLAS",
+      journal        = "Eur. Phys. J.",
+      volume         = "C75",
+      year           = "2015",
+      number         = "10",
+      pages          = "476",
+      doi            = "10.1140/epjc/s10052-015-3685-1,
+                        10.1140/epjc/s10052-016-3934-y",
+      note           = "[Erratum: Eur. Phys. J.C76,no.3,152(2016)]",
+      eprint         = "1506.05669",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-PH-EP-2015-114",
+      SLACcitation   = "%%CITATION = ARXIV:1506.05669;%%"
+}
+
+@article{ATLASandCMSmass,
+      author         = "Aad, Georges and others",
+      title          = "{Combined Measurement of the Higgs Boson Mass in $pp$
+                        Collisions at $\sqrt{s}=7$ and 8 TeV with the ATLAS and
+                        CMS Experiments}",
+      collaboration  = "ATLAS, CMS",
+      journal        = "Phys. Rev. Lett.",
+      volume         = "114",
+      year           = "2015",
+      pages          = "191803",
+      doi            = "10.1103/PhysRevLett.114.191803",
+      eprint         = "1503.07589",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "ATLAS-HIGG-2014-14, CMS-HIG-14-042, CERN-PH-EP-2015-075",
+      SLACcitation   = "%%CITATION = ARXIV:1503.07589;%%"
+}
