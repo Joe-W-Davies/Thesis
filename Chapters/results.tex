@@ -86,17 +86,20 @@ Measuring a wider set of STXS bins provides more information,
 but the uncertainties are correspondingly larger than if fewer parameters are measured.
 Therefore in this section results are reported under various scenarios, 
 with between one and thirteen POIs in total.
-The results are displayed as the cross section normalised to the SM prediction. 
-This differs from a signal strength, the ratio of the observed cross section 
-to the SM prediction, normally denoted by:
-\begin{equation}
-\mu = \sigma / \sigmaSM
-\end{equation}
-because in the measurement of $\mu$ 
-the uncertainty on the SM prediction must be considered in the fit. 
-In contrast, the STXS measurements do not include these uncertainties on the SM yield.
-This ensures the measurements are as independent as possible of the SM prediction, 
-and means they remain useful if the theory uncertainties improve in the future.
+
+In each case, the fit is performed with the cross section as the parameter of interest.
+After the value of the cross section has been measured, the value is normalised to the SM prediction. 
+This procedure differs from that used to measure a signal strength $\mu$, 
+as defined in Chapter~\ref{chap:theory},
+where the parameter in the fit is the ratio of the observed cross section to the SM prediction.
+The key difference between the two is that in the signal strength measurements,
+the uncertainty on the SM prediction must be considered in the fit
+because it enters directly in the denominator of the parameter of interest.
+In contrast, the STXS measurements do not include these uncertainties on the SM yield;
+the measured cross sections do not directly depend on the SM prediction.
+This ensures the measurements are as independent as possible of the current SM predictions
+and their uncertainties, 
+which means they remain useful if the theoretical advances are made in the future.
 
 In the following section, the observed diphoton mass distribution
 and the composition of the analysis categories are presented.
@@ -181,6 +184,9 @@ The relative contribution to each category from each of the individual stage 0 b
 together with the \seff and \shm (the FWHM divided by 2.35) for the category's signal model.
 Also reported is the expected number of background events per GeV in a $\pm1\seff$ window 
 around \SI{125}{GeV}, calculated using the best-fit background function.
+The table illustrates how the ratio of expected ratio of signal 
+to signal plus background events (S/S+B) is highest in the ``Tag 0" categories, 
+with lower S/S+B values but a greater number of events overall as the tag number increases.
 
 The signal composition of the analysis categories in terms of the stage 1 bins being targeted
 is shown in Figures~\ref{fig:results_Cats2016} and \ref{fig:results_Cats2017}.
@@ -349,6 +355,10 @@ all five bins are grouped together.
 The results of this seven-parameter fit are shown in Figure~\ref{fig:results_stage1}. 
 The observed 68\% CL intervals for each parameter are compared 
 to the SM predictions and their associated uncertainties.
+There is very good agreement with the SM; 
+the $p$-value with respect to the SM hypothesis is approximately XX\%. %TODO revise how this is done
+Furthermore, for several parameters, the experimental precision is less than a factor of three 
+greater than the theoretical uncertainty on the SM prediction. %CONSEQUENCES
 
 \begin{figure}[hptb]
   \centering
@@ -425,6 +435,12 @@ provided the correlation information between the original parameters is availabl
 The observed correlations between the signal parameters is therefore shown for the
 seven-parameter and thirteen-parameter scenarios 
 in Figures~\ref{fig:results_CorrStage1} and \ref{fig:results_CorrStage1Min} respectively.
+In the seven-parameter fit, the magnitiudes of the correlations are generally small.
+The contamination from ggH 0J events in the 1J low categories results in a slightly higher 
+anti-correlation, whilst the difficulty in distinguishing ggH 2J production from VBF 
+is illustrated in the high anti-correlation between the ggH 2J and qqH parameters.
+The thirteen-parameter fit displays higher correlation values, 
+partly due to the low sensitivity to the qqH other parameter.
 
 \begin{figure}[hptb]
   \centering
@@ -460,11 +476,41 @@ in Figures~\ref{fig:results_CorrStage1} and \ref{fig:results_CorrStage1Min} resp
   \label{fig:results_CorrStage1Min}
 \end{figure}
 
+\section{Summary}
+
+Measurements of cross sections at various levels of granularity within the STXS framework 
+have been presented.
+At stage 0, two parameters corresping to ggH and electroweak qqH production are measured, 
+with the observed values $\sigma_{ggH}/\sigma_{ggH}^{\textrm{SM}} = 1.15_{-0.15}^{+0.15}$ 
+and $\sigma_{qqH}/\sigma_{qqH}^{\textrm{SM}} = 0.83_{-0.31}^{+0.37}$ 
+highly consistent with the SM prediction.
+At stage 1, two different fits with seven and thirteen signal parameters respectively are performed.
+Both are consistent with the SM; the compatibility in terms of $p$-values with respect to the SM
+hypothesis are XX\% and 18\% respectively.
+
 The results at stage 1 of the STXS framework are summarised in Tables~\ref{tab:results_stage1}
 and \ref{tab:results_stage1min}, 
 where the measured cross section of each parameter is shown together with the SM prediction.
 A breakdown of the uncertainties is also provided, with the total uncertainty split into 
 its statistical, experimental, and theoretical components.
+
+In this analysis, based upon the datasets collected by CMS in 2016 and 2017, 
+no significant deviations from the SM predictions are observed.
+The size of the uncertainties on stage 1 cross sections is still relatively large, 
+and there is the scope for these to be substantially reduced in the near future.
+This will be achieved by analysing the data collected during 2018, 
+and then combining the results of multiple decay channels.
+It is likely that the precision of some combined stage 1 cross section measurements will be 
+comparable to the theoretical uncertainty on the SM prediction, 
+which necessitates an effort to improve the theoretical predictions.
+Furthermore, the statistical component of the uncertainties will decrease; 
+in some cases, this will lead to systematic uncertainties limiting the measurement sensitivity.
+Therefore an important aspect of future analyses will be in understanding 
+and minimising the impact of these systematic uncertainties.
+This will become crucial in the longer term, with Run 3 of the LHC due to commence in 2021, 
+and the HL-LHC due to eventually provide an integrated luminosity of \SI{3000}{\fbinv} by 2040.
+With these datasets, stringent tests of the SM at the level of a few per-cent 
+are expected to be feasible~\cite{FutureYR}.
 
 %TODO add the SM uncertainties to the tables
 

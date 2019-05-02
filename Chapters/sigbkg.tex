@@ -1,12 +1,29 @@
 \chapter{Signal and background modelling}
 \label{chap:sigbkg}
-%TODO add the pre-firing here somewhere?
 
 \section{Introduction}
 
 The final results of this analysis are extracted by performing a maximum likelihood fit 
 of the signal and background models to the diphoton invariant mass distribution observed in data.
-Models of the signal and background \mgg distributions are therefore required as inputs to the fit.
+In the this fit, the value of twice the negative log-likelihood (2NLL) is minimised 
+for each value of the parameter to be measured.
+The resulting 2NLL curve can be used to extract the best-fit value and uncertainty 
+of the parameter of interest.
+In addition, systematic uncertainties are included in the fit to account for 
+imperfect knowledge of both theoretical and experimental inputs to the analysis.
+These uncertainties are implemented in the form of nuisance parameters.
+A nuisance parameter is a variable which affects the measured value 
+but is not in itself of any interest.
+In the final fit, nuisance parameters are ``profiled".
+This means their values are allowed to vary, 
+either freely or with an additional constraint applied 
+which penalises values further from the nominal expectation.
+This has the effect of wideing the 2NLL curve and thereby increasing the overall uncertainty
+on a given measurement.
+Full details of the statistical treatment are given in Chapter~\ref{chap:results}.
+
+In order to perform the fits, models of the signal and background \mgg distributions 
+in each analysis category are required as inputs.
 The signal model is derived from simulation, 
 with a model constructed for each particle level stage 1 cross sectio bin 
 in each reconstructed analysis category.
@@ -35,6 +52,7 @@ such as the sum of a Gaussian function to represent the core of the \mgg distrib
 and an exponential to model each tail \cite{LouieThesis}.
 This alternative parameterisation yields very similar signal models to the sum of Gaussian functions, 
 and the final results are unaffected.
+The Gaussian-based model is retained due to its simplicity and computational efficiency.
 
 The parameters of the Gaussian functions are determined by performing a fit 
 to the simulated \mgg distribution for each model.
@@ -48,6 +66,7 @@ where $N_{\textrm{Gaus}}$ is the chosen number of Gaussian functions.
 The values of these parameters are established by the simultaneous fit across mass points.
 An example of the evolution of signal model shapes as a function of \mH, 
 for the ggH 0J bin the 0J Tag 0 category, is shown in Figure~\ref{fig:sigbkg_interp}
+By construction, the shape and normalisation of the models vary smoothly with \mH.
 
 \begin{figure}[hptb]
   \centering
@@ -149,15 +168,7 @@ into the measurement by treating the choice of function used to model the backgr
 as a discrete nuisance parameter.
 Ordinarily, a nuisance parameter is a continuous variable which affects the measured value 
 but is not in itself of any interest.
-Nuisance parameters are therefore used to represent systematic uncertainties 
-affecting the measurements of the Higgs boson's properties.
-In the fit used to extract the final results, 
-where the value of twice the negative log-likelihood (2NLL) is minimised
-several nuisance parameters are ``profiled".
-This means their values are allowed to vary, 
-either freely or with an additional constraint applied 
-which penalises values further from the nominal expectation.
-The choice of background function can then be treated in the same way as any other nuisance parameter, 
+The choice of background function can be treated in the same way as any other nuisance parameter, 
 with the only difference being that its value is discrete rather than continuous.
 To construct the final 2NLL curve, 
 the so-called ``envelope" of all the possible choices of background function is taken.
@@ -235,6 +246,8 @@ The different functions chosen for the 1J high Tag 0 category
 are shown in Figure~\ref{fig:sigbkg_functions};
 it can be seen that different choices of function lead to a different number of events 
 when integrating under the signal peak.
+In this case, the range in the integrated number of events around the Higgs boson mass
+amongst the candidate functions shown is of the order ten.
 
 \begin{figure}[hptb]
   \centering
