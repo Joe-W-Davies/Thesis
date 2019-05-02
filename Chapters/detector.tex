@@ -26,7 +26,6 @@ the remainder of this section will be dedicated to its proton-proton operations.
 A schematic of the full CERN accelerator complex and the LHC experiments is shown in Figure~\ref{fig:detector_CERNschematic}.
 The operation of the LHC and the data it has accumulated so far is described in detail below.
 
-%TODO this is too small?
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{Figures/Detector/CERNschematic.pdf}
@@ -41,7 +40,7 @@ The operation of the LHC and the data it has accumulated so far is described in 
 \end{figure}
 
 The LHC design parameters allow for proton-proton collisions to occur at a maximum centre-of-mass energy of 14\,TeV 
-with an instantaneous luminosity of up to $\SI{1e34}{\lumi}$.
+with an instantaneous luminosity of up to \SI{1e34}{\lumi}.
 Prior to being injected into the LHC beam pipes, bunches of protons pass are accelerated in several stages. 
 First, protons are obtained by stripping the electrons from hydrogen atoms using a strong electric field.
 The protons produced are then accelerated up to an energy of 50 MeV by Linear Accelerator 2 (LINAC 2).
@@ -390,22 +389,6 @@ Overall, the muon system alone achieves a momentum resolution of around 10\% for
 This worsens to between 15\% and 40\% for 1\,TeV muons, dependent on pseudorapidity.
 Once combined with the information from the tracker however, this improves to 5\% in the barrel and 10\% in the endcaps.
 
-Summarising the lateral structure of CMS, 
-Figure~\ref{fig:detector_CMSslice} shows the characteristic paths followed by the different types of particles produced in LHC proton-proton collisions.
-
-%TODO move this to a summary section?
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{Figures/Detector/CMSslice.png}
-  \caption[A cross-sectional view of the CMS detector]
-  {
-    A cross-sectional view of a slice of the CMS detector, 
-    illustrating the characteristic signatures of different types of particle.
-    Figure taken from Ref.~\cite{CMSslice}.
-  }
-  \label{fig:detector_CMSslice}
-\end{figure}
-
 \subsection{Trigger system}
 
 The rate of information produced at CMS is extremely high; the bunch crossings occurring at rate of 40\,MHz each contain ~1\,MB of data~\cite{CMStrigger}.
@@ -430,14 +413,40 @@ Finally, once the HLT has accepted an event, the full readout is saved to disk.
 The event is then processed by the full offline CMS software, which produces objects ready for physics analysis.
 
 %TODO find picture for this?
+%\begin{figure}[h!]
+%  \centering
+%  %\includegraphics[width=\textwidth]{Figures/Detector/Trigger.png}
+%  \includegraphics[width=\textwidth]{Figures/placeholder.png}
+%  \caption[A schematic of the CMS trigger system.]
+%  {
+%    A schematic summarising the operation of the CMS trigger system.
+%    The rate of events passing the level one and high-level triggers is shown.
+%  }
+%  \label{fig:detector_trigger}
+%\end{figure}
+
+\section{Summary}
+
+The CMS detector is hermetic detector with a \SI{3.8}{T} solenoidal magnet at its core.
+Its tracking system, electromagnetic and hadronic calorimieters, and muon system 
+together enable highly efficient, precise reconstruction of a wide range of final-state objects.
+Furthermore, its trigger system enables the rate of collisions 
+requiring further processing to be reduced to a manageable level.
+The lateral structure of CMS is summarised in Figure~\ref{fig:detector_CMSslice}, 
+which shows the characteristic paths followed by the different types of particles 
+produced in LHC proton-proton collisions and how they interact with the different subdetectors.
+The importance of each component of the detector in reconstructing 
+the full range of particles present in CMS events is illustrated.
+
 \begin{figure}[h!]
   \centering
-  %\includegraphics[width=\textwidth]{Figures/Detector/Trigger.png}
-  \includegraphics[width=\textwidth]{Figures/placeholder.png}
-  \caption[A schematic of the CMS trigger system.]
+  \includegraphics[width=\textwidth]{Figures/Detector/CMSslice.png}
+  \caption[A cross-sectional view of the CMS detector]
   {
-    A schematic summarising the operation of the CMS trigger system.
-    The rate of events passing the level one and high-level triggers is shown.
+    A cross-sectional view of a slice of the CMS detector, 
+    illustrating the characteristic signatures of different types of particle.
+    Figure taken from Ref.~\cite{CMSslice}.
   }
-  \label{fig:detector_trigger}
+  \label{fig:detector_CMSslice}
 \end{figure}
+

@@ -130,7 +130,7 @@
 
 @article{HLLHC,
       author         = "Apollinari, G. and Brüning, O. and Nakamoto, T. and
-                        Rossi, Lucio",
+                        Rossi, L.",
       title          = "{High Luminosity Large Hadron Collider HL-LHC}",
       journal        = "CERN Yellow Report",
       year           = "2015",
@@ -248,7 +248,7 @@
 }
 
 @article {ClusteringAlgo,
-  author = {Rodriguez, Alex and Laio, Alessandro},
+  author = {Rodriguez, A. and Laio, A.},
   title = {Clustering by fast search and find of density peaks},
   volume = {344},
   number = {6191},
@@ -262,8 +262,8 @@
 }
 
 @article{PUPPI,
-      author         = "Bertolini, Daniele and Harris, Philip and Low, Matthew
-                        and Tran, Nhan",
+      author         = "Bertolini, D. and Harris, P. and Low, M.
+                        and Tran, N.",
       title          = "{Pileup Per Particle Identification}",
       journal        = "JHEP",
       volume         = "10",
@@ -320,7 +320,7 @@
 }
 
 @article{StewartTackmann,
-      author         = "Stewart, Iain W. and Tackmann, Frank J.",
+      author         = "Stewart, I. and Tackmann, F.",
       title          = "{Theory Uncertainties for Higgs and Other Searches Using
                         Jet Bins}",
       journal        = "Phys. Rev.",
@@ -335,7 +335,7 @@
 }
 
 @article{GangalTackmann,
-      author         = "Gangal, Shireen and Tackmann, Frank J.",
+      author         = "Gangal, S. and Tackmann, F.",
       title          = "{Next-to-leading-order uncertainties in Higgs+2 jets from
                         gluon fusion}",
       journal        = "Phys. Rev.",
@@ -415,7 +415,7 @@
 }
 
 @article{QCD_and_Jets,
-      author         = "Sapeta, Sebastian",
+      author         = "Sapeta, S.",
       title          = "{QCD and Jets at Hadron Colliders}",
       journal        = "Prog. Part. Nucl. Phys.",
       volume         = "89",
@@ -430,9 +430,9 @@
 }
 
 @article{BulletCluster,
-      author         = "Clowe, Douglas and Bradac, Marusa and Gonzalez, Anthony
-                        H. and Markevitch, Maxim and Randall, Scott W. and Jones,
-                        Christine and Zaritsky, Dennis",
+      author         = "Clowe, D. and Bradac, M. and Gonzalez, A.
+                        and Markevitch, M. and Randall, S. and Jones,
+                        C. and Zaritsky, D.",
       title          = "{A direct empirical proof of the existence of dark
                         matter}",
       journal        = "Astrophys. J.",
@@ -448,7 +448,7 @@
 }
 
 @article{Cabibbo,
-   author = {{Cabibbo}, N.},
+   author = {Cabibbo, N.},
     title = "{Unitary Symmetry and Leptonic Decays}",
   journal = {Physical Review Letters},
      year = 1963,
@@ -461,7 +461,7 @@
 }
 
 @article{KobayashiMaskawa,
-   author = {{Kobayashi}, M. and {Maskawa}, T.},
+   author = {Kobayashi, M. and Maskawa, T.},
     title = "{CP-Violation in the Renormalizable Theory of Weak Interaction}",
   journal = {Progress of Theoretical Physics},
      year = 1973,
@@ -510,7 +510,7 @@
 }
 
 @article{HiggsPaper,
-   author = {{Higgs}, P.~W.},
+   author = {Higgs, P.},
     title = "{Broken Symmetries and the Masses of Gauge Bosons}",
   journal = {Physical Review Letters},
      year = 1964,
@@ -523,7 +523,7 @@
 }
 
 @article{Glashow,
-      author         = "Glashow, Sheldon L.",
+      author         = "Glashow, S.",
       title          = "{The renormalizability of vector meson interactions}",
       journal        = "Nucl. Phys.",
       volume         = "10",
@@ -534,7 +534,7 @@
 }
 
 @article{Salam,
-   author = {{Salam}, A. and {Ward}, J.~C.},
+   author = {Salam, A. and Ward, J.},
     title = "{Weak and electromagnetic interactions}",
   journal = {Il Nuovo Cimento},
      year = 1959,
@@ -547,7 +547,7 @@
 }
 
 @article{Weinberg,
-   author = {{Weinberg}, S.},
+   author = {Weinberg, S.},
     title = "{A Model of Leptons}",
   journal = {Physical Review Letters},
      year = 1967,
@@ -560,7 +560,7 @@
 }
 
 @article{BroutEnglert,
-   author = {{Englert}, F. and {Brout}, R.},
+   author = {Englert, F. and Brout, R.},
     title = "{Broken Symmetry and the Mass of Gauge Vector Mesons}",
   journal = {Physical Review Letters},
      year = 1964,
@@ -573,7 +573,7 @@
 }
 
 @article{KibbleEtc,
-   author = {{Guralnik}, G.~S. and {Hagen}, C.~R. and {Kibble}, T.~W.},
+   author = {Guralnik, G. and Hagen, C. and Kibble, T.},
     title = "{Global Conservation Laws and Massless Particles}",
   journal = {Physical Review Letters},
      year = 1964,
@@ -586,7 +586,7 @@
 }
 
 @article{YangMills,
-   author = {{Yang}, C.~N. and {Mills}, R.~L.},
+   author = {Yang, C. and Mills, R.},
     title = "{Conservation of Isotopic Spin and Isotopic Gauge Invariance}",
   journal = {Physical Review},
      year = 1954,
@@ -597,7 +597,7 @@
 }
 
 @article{Nambu,
-   author = {{Nambu}, Y.},
+   author = {Nambu, Y.},
     title = "{Quasi-Particles and Gauge Invariance in the Theory of Superconductivity}",
   journal = {Physical Review},
      year = 1960,
@@ -651,7 +651,7 @@
 }
 
 @article{NeutrinoChirality,
-   author = {{Goldhaber}, M. and {Grodzins}, L. and {Sunyar}, A.~W.},
+   author = {Goldhaber, M. and Grodzins, L. and Sunyar, A.},
     title = "{Helicity of Neutrinos}",
   journal = {Physical Review},
      year = 1958,
@@ -664,8 +664,8 @@
 }
 
 @article{JetPtResum,
-      author         = "Stewart, Iain W. and Tackmann, Frank J. and Walsh,
-                        Jonathan R. and Zuberi, Saba",
+      author         = "Stewart, I. and Tackmann, F. and Walsh,
+                        J. and Zuberi, S.",
       title          = "{Jet $p_T$ resummation in Higgs production at
                         $NNLL'+NNLO$}",
       journal        = "Phys. Rev.",
@@ -682,7 +682,7 @@
 }
 
 @article{TheoryUncertHiggs1J,
-      author         = "Liu, Xiaohui and Petriello, Frank",
+      author         = "Liu, X. and Petriello, F.",
       title          = "{Reducing theoretical uncertainties for exclusive
                         Higgs-boson plus one-jet production at the LHC}",
       journal        = "Phys. Rev.",
@@ -699,8 +699,8 @@
 }
 
 @article{ResummedHiggsPredictions,
-      author         = "Boughezal, Radja and Liu, Xiaohui and Petriello, Frank
-                        and Tackmann, Frank J. and Walsh, Jonathan R.",
+      author         = "Boughezal, R. and Liu, X. and Petriello, F. 
+                        and Tackmann, F. and Walsh, J.",
       title          = "{Combining Resummed Higgs Predictions Across Jet Bins}",
       journal        = "Phys. Rev.",
       volume         = "D89",
@@ -744,7 +744,7 @@
 }
 
 @techreport{LHC_design_report,
-  author        = "Benedikt, Michael and others",
+  author        = "Benedikt, M. and others",
   title         = "{LHC Design Report}",
   publisher     = "CERN",
   address       = "Geneva",
@@ -940,7 +940,7 @@ SLACcitation   = "%%CITATION = ARXIV:1306.2016;%%"
 }
 
 @article{Boosting,
-author = "Breiman, Leo",
+author = "Breiman, L.",
 doi = "10.1214/aos/1024691079",
 fjournal = "The Annals of Statistics",
 journal = "Ann. Statist.",
@@ -955,7 +955,7 @@ year = "1998"
 }
 
 @article{GradientBoosting,
-    author = {Jerome H. Friedman},
+    author = {Friedman, J.},
     title = {Greedy Function Approximation: A Gradient Boosting Machine},
     journal = {Annals of Statistics},
     year = {2000},
@@ -999,7 +999,7 @@ year = "1998"
 }
 
 @article{AntiKt,
-  author={Matteo Cacciari and Gavin P. Salam and Gregory Soyez},
+  author={M. Cacciari and G. Salam and G. Soyez},
   title={The anti- k t jet clustering algorithm},
   journal={Journal of High Energy Physics},
   volume={2008},
@@ -1010,7 +1010,7 @@ year = "1998"
 }
 
 @article{JetPerformance,
-  author={Matthias Schröder and the CMS collaboration},
+  author={M. Schr\"oder and the CMS collaboration},
   title={Performance of jets at CMS},
   journal={Journal of Physics: Conference Series},
   volume={587},
@@ -1086,8 +1086,8 @@ year = "1998"
 }
 
 @article{Envelope,
-      author         = "Dauncey, P. D. and Kenzie, M. and Wardle, N. and Davies,
-                        G. J.",
+      author         = "Dauncey, P. and Kenzie, M. and Wardle, N. and Davies,
+                        G.",
       title          = "{Handling uncertainties in background shapes: the discrete profiling method}",
       journal        = "JINST",
       volume         = "10",
@@ -1130,7 +1130,7 @@ year = "1998"
 }
 
 @article{PDF4LHC,
-      author         = "Butterworth, Jon and others",
+      author         = "Butterworth, J. and others",
       title          = "{PDF4LHC recommendations for LHC Run II}",
       journal        = "J. Phys.",
       volume         = "G43",
@@ -1147,7 +1147,7 @@ year = "1998"
 
 
 @article{NNPDF3,
-      author         = "Ball, Richard D. and others",
+      author         = "Ball, R. and others",
       title          = "{Parton distributions for the LHC Run II}",
       collaboration  = "NNPDF",
       journal        = "JHEP",
@@ -1164,8 +1164,8 @@ year = "1998"
 }
 
 @article{MC2Hessian,
-      author         = "Carrazza, Stefano and Forte, Stefano and Kassabov, Zahari
-                        and Latorre, Jose Ignacio and Rojo, Juan",
+      author         = "Carrazza, S. and Forte, S. and Kassabov, Z.
+                        and Latorre, J. and Rojo, J.",
       title          = "{An Unbiased Hessian Representation for Monte Carlo
                         PDFs}",
       journal        = "Eur. Phys. J.",
@@ -1196,7 +1196,7 @@ year = "1998"
 
 @article{Madgraph,
       author         = "Alwall, J. and Frederix, R. and Frixione, S. and Hirschi,
-                        V. and Maltoni, F. and Mattelaer, O. and Shao, H. -S. and
+                        V. and Maltoni, F. and Mattelaer, O. and Shao, H. and
                         Stelzer, T. and Torrielli, P. and Zaro, M.",
       title          = "{The automated computation of tree-level and
                         next-to-leading order differential cross sections, and
@@ -1215,7 +1215,7 @@ year = "1998"
 }
 
 @article{pythia,
-      author         = "Sjostrand, Torbjorn and Mrenna, Stephen and Skands, Peter
+      author         = "Sjostrand, T. and Mrenna, S. and Skands, P.
                         Z.",
       title          = "{A Brief Introduction to PYTHIA 8.1}",
       journal        = "Comput. Phys. Commun.",
@@ -1232,8 +1232,8 @@ year = "1998"
 }
 
 @article{NNLOPS,
-      author         = "Hamilton, Keith and Nason, Paolo and Re, Emanuele and
-                        Zanderighi, Giulia",
+      author         = "Hamilton, K. and Nason, P. and Re, E. and
+                        Zanderighi, G. ",
       title          = "{NNLOPS simulation of Higgs boson production}",
       journal        = "JHEP",
       volume         = "10",
@@ -1248,7 +1248,7 @@ year = "1998"
 }
 
 @article{powheg,
-      author         = "Oleari, Carlo",
+      author         = "Oleari, C.",
       title          = "{The POWHEG-BOX}",
       booktitle      = "{Proceedings,  10th DESY Workshop on Elementary Particle
                         Theory: Loops and Legs in Quantum Field Theory: Woerlitz,
@@ -1314,8 +1314,8 @@ year = "1998"
 }
 
 @article{Anastasiou2015,
-      author         = "Anastasiou, Charalampos and Duhr, Claude and Dulat, Falko
-                        and Herzog, Franz and Mistlberger, Bernhard",
+      author         = "Anastasiou, C. and Duhr, C. and Dulat, F.
+                        and Herzog, F. and Mistlberger, B.",
       title          = "{Higgs boson gluon-fusion production in QCD at three
                         loops}",
       journal        = "Phys. Rev. Lett.",
@@ -1331,9 +1331,9 @@ year = "1998"
 }
 
 @article{Anastasiou2016,
-      author         = "Anastasiou, Charalampos and Duhr, Claude and Dulat, Falko
-                        and Furlan, Elisabetta and Gehrmann, Thomas and Herzog,
-                        Franz and Lazopoulos, Achilleas and Mistlberger, Bernhard",
+      author         = "Anastasiou, C. and Duhr, C. and Dulat, F.
+                        and Furlan, E. and Gehrmann, T. and Herzog,
+                        F. and Lazopoulos, A. and Mistlberger, B.",
       title          = "{High precision determination of the gluon fusion Higgs
                         boson cross-section at the LHC}",
       journal        = "JHEP",
@@ -1350,8 +1350,8 @@ year = "1998"
 }
 
 @article{XGBoost,
-  author    = {Tianqi Chen and
-               Carlos Guestrin},
+  author    = {T. Chen and
+               C. Guestrin},
   title     = {XGBoost: {A} Scalable Tree Boosting System},
   journal   = {CoRR},
   volume    = {abs/1603.02754},
@@ -1365,8 +1365,8 @@ year = "1998"
 }
 
 @article{Asymptotic,
-      author         = "Cowan, Glen and Cranmer, Kyle and Gross, Eilam and
-                        Vitells, Ofer",
+      author         = "Cowan, G. and Cranmer, K. and Gross, E. and
+                        Vitells, O.",
       title          = "{Asymptotic formulae for likelihood-based tests of new
                         physics}",
       journal        = "Eur. Phys. J.",
@@ -1399,7 +1399,7 @@ year = "1998"
 
 @article{Fisher,
   title={On the interpretation of $\chi^2$ from contingency tables, and the calculation of P},
-  author={Fisher, Ronald A},
+  author={Fisher, R.},
   journal={Journal of the Royal Statistical Society},
   volume={85},
   number={1},
@@ -1409,7 +1409,7 @@ year = "1998"
 }
 
 @article{RooFit,
-      author         = "Verkerke, Wouter and Kirkby, David P.",
+      author         = "Verkerke, W. and Kirkby, D.",
       title          = "{The RooFit toolkit for data modeling}",
       booktitle      = "{Statistical Problems in Particle Physics, Astrophysics
                         and Cosmology (PHYSTAT 05): Proceedings, Oxford, UK,
@@ -1427,7 +1427,7 @@ year = "1998"
 }
 
 @article{Nother,
-  author = {Emmy N\"other},
+  author = {E. N\"other},
   title = {Invariant variation problems},
   journal = {Transport Theory and Statistical Physics},
   volume = {1},
@@ -1437,7 +1437,7 @@ year = "1998"
 }
 
 @book{Thomson,
-      author         = "Thomson, Mark",
+      author         = "Thomson, M.",
       title          = "{Modern Particle Physics}",
       publisher      = "Cambridge University Press",
       year           = "2013",
@@ -1445,7 +1445,7 @@ year = "1998"
 }
 
 @book{Griffiths,
-      author         = "David Griffiths",
+      author         = "D. Griffiths",
       title          = "{Introduction to Elementary Particles}",
       publisher      = "Wiley",
       year           = "2009",
@@ -1453,7 +1453,7 @@ year = "1998"
 }
 
 @book{Peskin,
-      author         = "Peskin, Michael E. and Schroeder, Daniel V.",
+      author         = "Peskin, M. and Schroeder, D.",
       title          = "{An Introduction to quantum field theory}",
       publisher      = "Addison-Wesley",
       year           = "1995",
@@ -1461,7 +1461,7 @@ year = "1998"
 }
 
 @article{Dirac,
-      author         = "Dirac, Paul A. M.",
+      author         = "Dirac, P.",
       title          = "{The quantum theory of the electron}",
       journal        = "Proc. Roy. Soc. Lond.",
       volume         = "A117",
@@ -1556,7 +1556,7 @@ year = "1998"
 }
 
 @article {PrecisionQED,
-	author = {Schneider, Georg and Mooser, Andreas and Bohman, Matthew and Sch{\"o}n, Natalie and Harrington, James and Higuchi, Takashi and Nagahama, Hiroki and Sellner, Stefan and Smorra, Christian and Blaum, Klaus and Matsuda, Yasuyuki and Quint, Wolfgang and Walz, Jochen and Ulmer, Stefan},
+	author = {Schneider, G. and Mooser, A. and Bohman, M. and Sch{\"o}n, N. and Harrington, J. and Higuchi, T. and Nagahama, H. and Sellner, S. and Smorra, C. and Blaum, K. and Matsuda, Y. and Quint, W. and Walz, J. and Ulmer, S.},
 	title = {Double-trap measurement of the proton magnetic moment at 0.3 parts per billion precision},
 	volume = {358},
 	number = {6366},
