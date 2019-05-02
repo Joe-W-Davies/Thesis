@@ -1,7 +1,5 @@
 \chapter{Event Categorisation}
 \label{chap:categorisation}
-%TODO add something about the category priorities?
-%TODO add something explaining what the "Tag 0" terminology means
 
 \section{Introduction}
 
@@ -9,9 +7,12 @@ The event selection consists of the preselection described in Chapter~\ref{chap:
 and in addition requires the two leading preselected photon candidates to have 
 $\pt^{\gamma 1} > \mgg/3$ and $\pt^{\gamma 2} > \mgg /4$ respectively, 
 with an invariant mass in the range $100\,<\,\mgg\,<\,\SI{180}{GeV}$.
+The requirements on the scaled photon transverse momenta prevent distortions 
+at the lower end of the mass spectrum.
 Both photons must also satisfy the
 pseudo-rapidity requirement $|\eta|\,<\,2.5$ and must not be in the barrel-endcap
-transition region $1.44\,<\,|\eta|\,<\,1.57$.
+transition region $1.44\,<\,|\eta|\,<\,1.57$;
+the reduced containment in this transition region results in worsened photon energy resolution.
 The above $\eta$ requirement is applied to the photon supercluster
 position, and the requirement on the photon $\pt$ is applied 
 after the vertex assignment.
@@ -35,11 +36,24 @@ dedicated categories targeting the VBF, ttH, and VH modes were constructed,
 with the remaining so-called ``Untagged" categories composed mostly of ggH events.
 Here a similar approach is employed, 
 but with additional divisions targeting individual stage 1 bins for the ggH and VBF processes.
-Events selected by the 2017 \Hgg analysis targeting ttH production, 
-described in Ref.~\cite{HIG-18-018}, are not included in this analysis. 
-This is achieved by first applying the same selection criteria used to construct the ttH categories, 
+
+The dataset collected by CMS in 2017 has already been used in an analysis targeting ttH production,
+which is described in Ref.~\cite{HIG-18-018}.
+In order to ensure that the set of data events included in this analysis is orthogonal 
+from those included in Ref.~\cite{HIG-18-018}, 
+a veto is applied to events selected for categories targeting ttH production.
+The criteria used to select ttH include two dedicated BDTs, 
+one targeting events where at least one W boson decays leptonically
+and the other preferentially selecting fully hadronic W boson decays.
+Input variables to the two BDTs include photon, lepton, and jet kinematics, 
+information relating to $b$-tagging, and missing transverse momentum.
+The veto is implemented by applying these criteria used to construct the ttH categories, 
 and then removing them from further consideration. 
-There are no dedicated analysis categories for VH production.
+Around fifteen events are expected to be removed as a result, 
+most of which would otherwise have populated the ggH 2J categories with higher \ptH values.
+Furthermore, there are no dedicated analysis categories for VH production; 
+there are insufficient statistics in the diphoton decay channel with this dataset 
+to measure any of the individual stage 1 bins\cite{YR4}.
 
 The categorisation targeting ggH is based on the reconstructed diphoton transverse momentum (\ptgg) 
 and the number of jets in the event. 
@@ -102,23 +116,34 @@ Approximately $44.2~\textrm{pb}$ of this is within $|y_H| < 2.5$.
   \end{centering}
 \end{table}
 
+\subsection{Categorisation strategy}
+
 In order to measure the stage 1 bins individually, 
 categories must be constructed which differentiate between them.
 Thus the reconstruction level event categorisation is designed to target all of the bins 
 to which some sensitivity can be obtained in the \Hgg decay channel with this dataset.
 In this case, the majority of the ggH stage 1 bins can be measured individually. 
-The exception is the two VBF-like bins, 
+The exceptions are the two VBF-like bins, 
 which are difficult to separate from true VBF production.
 Therefore events not entering the categories targeting VBF production 
 can be assigned to one of nine target ggH stage 1 bins.
 This assignment is performed using the reconstructed 
 diphoton transverse momentum (\ptgg) and the number of jets -- 
-the detector level equivalents of the particle level quantities used to define the bins.
+which are respectively the detector level equivalents 
+of the particle level quantities \ptH and number of jets used to define the bins.
+The same boundaries are used as for the particle level bins; 
+0, 60, 120 and \SI{200}{GeV} in \ptgg for 1J and 2J events, 
+and inclusive in \ptgg for 0J events.
 %More advanced assignment procedures have been studied, 
 %and show modest improvement with respect to this version; 
 %these are described in Chapter~\ref{chap:conclusion}
-The diphoton BDT is then used to reduce the amount of background 
-and therefore improve the analysis' sensitivity to each ggH stage 1 bin.
+Once a target signal bin has been assigned, 
+the diphoton BDT is used to further divide the events into up to three categories.
+Requirements are placed on the output score of the diphoton BDT, 
+with the category with the highest threshold referred to as ``Tag 0", 
+the next highest as ``Tag 1", and so on.
+This reduces the amount of background 
+and therefore improves the analysis' sensitivity to each ggH stage 1 bin.
 
 \subsection{Diphoton BDT}
 
@@ -284,7 +309,7 @@ and no significant improvement was obtained.
 %This plot serves as validation that the classifier is learning 
 %sensible features of the input dataset.
 %TODO add ROC curve and feature importance plots here.
-%TODO add something about checking
+%TODO add something about checking overtraining?
 
 Validation of the diphoton BDT is performed using \Zee events, 
 where simulated Drell-Yan events are compared with data.
@@ -377,7 +402,7 @@ for 2016 and 2017 simulation and data respectively.
     \input{Tables/ggHcats2016.tex}
     \caption{The chosen diphoton BDT boundaries, 
     the expected number of signal and background events, 
-    and the expected significance of each category in the ggH phase space 
+    and the expected significance (defined by the AMS metic) of each category in the ggH phase space 
     for 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.}
     \label{tab:cat_ggHsignificance2016}
   \end{centering}
@@ -388,7 +413,7 @@ for 2016 and 2017 simulation and data respectively.
     \input{Tables/ggHcats2017.tex}
     \caption{The chosen diphoton BDT boundaries, 
     the expected number of signal and background events, 
-    and the expected significance of each category in the ggH phase space 
+    and the expected significance (defined by the AMS metic) of each category in the ggH phase space 
     for 2017 simulation and data, assuming an integrated luminosity of \SI{41.5}{\fbinv}.}
     \label{tab:cat_ggHsignificance2017}
   \end{centering}
@@ -436,6 +461,8 @@ with around \SI{1.37}{pb} within $|y_H| < 2.5$.
   \end{centering}
 \end{table}
 
+\subsection{Categorisation strategy}
+
 Different categorisation scenarios are considered for the VBF process.
 Ideally categories would be constructed to target each stage 1 bin.
 However, the experimental sensitivity to the BSM-like, VH-like, and VBF rest bins is limited.
@@ -446,10 +473,11 @@ The bins which can be most precisely measured are the 2J-like and 3J-like VBF bi
 In addition to migrations between the categories targeting each bin, 
 there is substantial contamination from events with two jets arising from ggH production.
 For this reason the dijet BDT is trained to discriminate between ggH and VBF events.
-The categorisation is then performed using the detector level versions 
-of the quantities used to define the bins: \mjj, \ptHjj, and leading jet \pt, 
-before the dijet and diphoton BDTs are used 
-to reduce the respective number of ggH and background events entering the categories.
+The categorisation is then performed using the detector level equivalents
+of the quantities used to define the bins: \mjj, \ptHjj, and leading jet \pt.
+The dijet and diphoton BDTs are subsequently used 
+to reduce the respective number of ggH and background events entering the categories, 
+thus increasing their sensitivity.
 
 \subsection{Dijet BDT}
 
@@ -779,7 +807,7 @@ together with the expected number of signal and background events and the per-ca
 \begin{table}
   \begin{centering}
     \input{Tables/VBFcomparison2016.tex}
-    \caption{The total VBF significance for different categorisation scenarios 
+    \caption{The total VBF significance (defined by the AMS metic) for different categorisation scenarios 
     using 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.
     Classification using the combined BDT is compared with setting boundaries with the 
     diphoton and dijet BDTs directly.}
@@ -791,7 +819,7 @@ together with the expected number of signal and background events and the per-ca
 \begin{table}
   \begin{centering}
     \input{Tables/VBFcomparison2017.tex}
-    \caption{The total VBF significance for different categorisation scenarios 
+    \caption{The total VBF significance (defined by the AMS metic) for different categorisation scenarios 
     using 2017 data and simulation, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
     Classification using the combined BDT is compared with setting boundaries with the 
     diphoton and dijet BDTs directly.}
@@ -805,7 +833,7 @@ together with the expected number of signal and background events and the per-ca
     \input{Tables/VBFcats2016.tex}
     \caption{The chosen diphoton and dijet BDT boundaries, 
     the expected number of signal and background events, 
-    and the expected significance of each category in the VBF phase space 
+    and the expected significance (defined by the AMS metic) of each category in the VBF phase space 
     for 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.}
     \label{tab:cat_VBFcuts2016}
   \end{centering}
@@ -817,7 +845,7 @@ together with the expected number of signal and background events and the per-ca
     \input{Tables/VBFcats2017.tex}
     \caption{The chosen diphoton and dijet BDT boundaries, 
     the expected number of signal and background events, 
-    and the expected significance of each category in the VBF phase space 
+    and the expected significance (defined by the AMS metic) of each category in the VBF phase space 
     for 2017 data and simulation, assuming an integrated luminosity of \SI{41.5}{\fbinv}.}
     \label{tab:cat_VBFcuts2017}
   \end{centering}
