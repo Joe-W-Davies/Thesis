@@ -1,16 +1,30 @@
 \chapter{The High Granularity Calorimeter}
 \label{chap:hgcal}
 
+\section{Introduction}
+In order to fully exploit the physics potential of the LHC, 
+the accelerator will be operated until around 2040 
+in order to collect as much data as possible.
+During this period, various upgrades are planned 
+which are designed to maximise the instantaneous delivered to the experiments, including CMS.
+As a result of this increase, and due to accumulated radiation damage, 
+parts of the CMS detector will need to be upgraded.
+A key part of this upgrade program is the replacement of the electromagnetic 
+and hadronic calorimeter endcaps with the high granularity calorimeter (HGCAL).
+In this chapter, the motivation for and design of the HGCAL is described.
+The development of reconstruction software is detailed, 
+and the detector's physics potential is demonstrated using the example of the VBF \Hgg analysis.
+
 \section{The High Luminosity LHC}
 
-Run~2 of the LHC is now complete, with over $\SI{190}{\fbinv}$ of data delivered at $\sqrt{s}\,=\,\SI{13}{TeV}$. %original target was 150 Run 1 plus Run 2
-This exceeds the original target of $\SI{150}{\fbinv}$, and was achieved partly because the machine was eventually operated at twice its nominal instantaneous luminosity.
-The instantaneous luminosity reached values as high as $\SI{2e34}{\lumi}$ during 2018.
+Run~2 of the LHC is now complete, with over \SI{190}{\fbinv} of data delivered at $\sqrt{s}\,=\,\SI{13}{TeV}$. %original target was 150 Run 1 plus Run 2
+This exceeds the original target of \SI{150}{\fbinv}, and was achieved partly because the machine was eventually operated at twice its nominal instantaneous luminosity.
+The instantaneous luminosity reached values as high as \SI{2e34}{\lumi} during 2018.
 The second long shutdown (LS2) commenced following the completion of Run~2 and will last until 2021.
 During this time various improvements to the LHC will be made, including a substantial upgrade to the injection system.
-The machine will also be readied for operation at the increased energy of $\SI{7}{TeV}$ per beam.
+The machine will also be readied for operation at the increased energy of \SI{7}{TeV} per beam.
 However these upgrades will not substantially affect the conditions experienced by the LHC experiments; 
-the peak instantaneous luminosity is not envisaged to increase beyond $\SI{2e34}{\lumi}$.
+the peak instantaneous luminosity is not envisaged to increase beyond \SI{2e34}{\lumi}.
 As such no major changes are required to the CMS detector during LS2, although various improvements are planned: 
 these include upgrades to the muon system and HCAL barrel.
 Therefore the expectation for Run~3, which commences in 2021 with two years of high-availability data-taking in 2022 and 2023, 
@@ -22,22 +36,26 @@ In order to reduce the statistical error on physics measurements by a factor of 
 Therefore a major upgrade to the LHC is planned, referred to as the Phase~2 upgrade, to maximise its physics reach. 
 %insert info about what is actually being upgraded here? %TODO learn a bit about the things below 
 %The technological innovations facilitating the upgrade include $\SI{12}{T}$ superconducting magnets, compact and precise superconducting cavities, and new beam collimation technology.
-The resulting High~Luminosity~LHC (HL-LHC) \cite{HLLHC} will have a nominal levelled instantaneous luminosity of $\SI{5e34}{\lumi}$, 
-permitting a total of $\SI{3000}{\fbinv}$ of data to be collected by the mid-2030s.
+The resulting High~Luminosity~LHC (HL-LHC) \cite{HLLHC} will have a nominal levelled instantaneous luminosity of \SI{5e34}{\lumi}, 
+permitting a total of \SI{3000}{\fbinv} of data to be collected by the mid-2030s.
 The current planned schedule of the future running of the LHC and HL-LHC is summarised in Figure~\ref{fig:hgcal_LHCschedule}.
 
-%TODO update this figure
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{Figures/HGCAL/LHCschedule.jpg}
+  \includegraphics[width=0.8\textwidth]{Figures/HGCAL/LHCschedule1.png}
+  \includegraphics[width=0.8\textwidth]{Figures/HGCAL/LHCschedule2.png}
   \caption[Planned LHC and HL-LHC schedule.]
   {
     The planned schedule for the operation of the LHC and its high-luminosity upgrade.
+    Figure taken from Ref.~\cite{FutureYR}.
   }
   \label{fig:hgcal_LHCschedule}
 \end{figure}
 
-The corresponding mean pileup per bunch crossing will be 140; however an additional 50\% beyond the nominal value is allowed for in the HL-LHC design, 
+\section{The CMS upgrade}
+
+At the HL-LHC, the mean pileup per bunch crossing is expected to be 140; 
+however an additional 50\% beyond the nominal value is allowed for in the HL-LHC design, 
 which would result in mean pileup values of up to 200.
 This constitutes a major change, and the environment will be significantly harsher than with the current LHC conditions.
 These conditions pose serious challenges to the detectors in terms of radiation tolerance and reconstruction in high pileup.
@@ -76,17 +94,21 @@ The key aspects of the CMS Phase~2 upgrade can be summarised as \cite{UpgradeTP,
 Full details of the CMS upgrade scheme can be found in Refs~\cite{Tracker_Phase2TDR,Barrel_Phase2TDR,Muon_Phase2TDR,Trigger_Phase2TDR,DAQ_Phase2TDR,MTD,HGCAL}.
 The remainder of this chapter is dedicated to describing the HGCAL in further detail, based upon Ref.~\cite{HGCAL}.
 
-\section{Requirements}
+\section{Requirements for the HGCAL}
 
-The primary challenge which drives the design of the HGCAL is the need to sustain physics performance in the extremely high pileup conditions foreseen at the HL-LHC.
-Simulations indicate that the HGCAL will be required to withstand up to 2MGy of total radiation dose, together with a maximum fluence of around $\SI{10e16}{\textrm{n}_{\textrm{eq}}/\textrm{cm}^2}.$
+The primary challenge which drives the design of the HGCAL is the need to 
+sustain physics performance in the extremely high pileup conditions foreseen at the HL-LHC.
+Simulations indicate that the HGCAL will be required to withstand up to 2MGy of total radiation dose, 
+together with a maximum fluence of around $\SI{10e16}{\textrm{n}_{\textrm{eq}}/\textrm{cm}^2}.$
 The inhomogeneous distribution of this dose is shown in Figure~\ref{fig:hgcal_Dose}, 
 which illustrates how the radiation dose is greatest near the beampipe.
-Studies performed in recent years have shown that silicon sensors and the associated electronics retain acceptable performance after exposure to this level of radiation, 
+Studies performed in recent years have shown that silicon sensors and the associated electronics 
+retain acceptable performance after exposure to this level of radiation, 
 and have hence been chosen as the most reliable active material for the majority of the calorimeter.
-The remaining parts of the detector in lower-radiation regions will instead use cheaper plastic scintillator tiles with silicon photomultiplier (SiPMs) readout.
-These layers of active material are interleaved with the copper-tungsten alloy absorber in the front section of the calorimeter, 
-and stainless steel absorber further back.
+The remaining parts of the detector in lower-radiation regions will instead use 
+cheaper plastic scintillator tiles with silicon photomultiplier (SiPMs) readout.
+These layers of active material are interleaved with the copper-tungsten alloy absorber 
+in the front section of the calorimeter, and stainless steel absorber further back.
 
 \begin{figure}[h!]
   \centering
@@ -97,24 +119,35 @@ and stainless steel absorber further back.
     after a total integrated luminosity of \SI{3000}{\fbinv}, 
     as a function of detector radius and depth.
     The colour scale indicates the magnitude of the absorbed dose.
-    Taken from \cite{HGCAL}.
+    Figure taken from \cite{HGCAL}.
   }
   \label{fig:hgcal_Dose}
 \end{figure}
 
-To maintain performance throughout the operation of the HL-LHC it is necessary to inter-calibrate cells to the level of a few percent.
-This is possible provided the signal-to-noise ratio (S/N) for minimum-ionising particles (MIPs) is sufficiently high.
-For this to be achieved after \SI{3000}{\fbinv} of data has been collected, small silicon cells with low capacitance are required, which results in high lateral granularity.
-Fine lateral granularity also has many benefits for physics performance, including the ability to separate nearby showers, 
-identify narrow jets such as those originating from the quarks produced in vector boson fusion (VBF) events, and minimise the amount of pileup entering energy measurements.
-To take advantage of this fine segmentation the calorimeter is required to be dense, thereby preserving the compactness of showers in the transverse direction.
-Similarly, fine longitudinal granularity facilitates precise energy measurements, as well as enabling discrimination between different types of shower using the depth profile.
-These features are particularly important within the CMS particle flow reconstruction paradigm \cite{ParticleFlow}.
-A detector producing three-dimensional images of showers would provide powerful separation of electromagnetic, charged hadronic and neutral hadronic components,
+To maintain performance throughout the operation of the HL-LHC it is necessary 
+to inter-calibrate cells to the level of a few percent.
+This is possible provided the signal-to-noise ratio (S/N) 
+for minimum-ionising particles (MIPs) is sufficiently high.
+For this to be achieved after \SI{3000}{\fbinv} of data has been collected, 
+small silicon cells with low capacitance are required, which results in high lateral granularity.
+Fine lateral granularity also has many benefits for physics performance, 
+including the ability to separate nearby showers, identify narrow jets 
+such as those originating from the quarks produced in vector boson fusion (VBF) events, 
+and minimise the amount of pileup entering energy measurements.
+To take advantage of this fine segmentation the calorimeter is required to be dense, 
+thereby preserving the compactness of showers in the transverse direction.
+Similarly, fine longitudinal granularity facilitates precise energy measurements, 
+as well as enabling discrimination between different types of shower using the depth profile.
+These features are particularly important 
+within the CMS particle flow reconstruction paradigm \cite{ParticleFlow}.
+A detector producing three-dimensional images of showers would provide 
+powerful separation of electromagnetic, charged hadronic and neutral hadronic components,
 facilitating more precise energy measurements, particularly of jets.
 
-In addition, the HGCAL should be able to perform precise timing measurements enabling excellent pileup rejection, and provide an input to the L1T decision.
-The proposed design specification that captures all of these desired features is described in the following section.
+In addition, the HGCAL should be able to perform precise timing measurements 
+enabling excellent pileup rejection, and provide an input to the L1T decision.
+The proposed design specification that captures all of these desired features 
+is described in the following section.
 
 \section{Design}
 
@@ -157,7 +190,7 @@ Further detail on the design specifications of the HGCAL can be found in Ref.~\c
 
 \section{Reconstruction}
 
-\subsection{Electromagnetic objects}
+\subsection{Electromagnetic objects} %TODO add more here, e.g. Artur's plots?
 
 The HGCAL's intrinsic performance measuring the energy of electromagnetic showers 
 is modelled using a dedicated simulation 
@@ -185,7 +218,7 @@ where the endcap resolution is significantly worse than the barrel. %TODO quanti
     The intrinsic energy resolution for single photons in PU 200. 
     The energy is estimated by summing all deposits within a \SI{26}{mm} radius 
     of the generated particle axis. 
-    Taken from Ref.~\cite{HGCAL}.
+    Figure first shown in from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_PhotonReso}
 \end{figure}
@@ -197,7 +230,7 @@ where the endcap resolution is significantly worse than the barrel. %TODO quanti
   {
     The intrinsic diphoton mass resolution of the HGCAL in simulated \Hgg events 
     where both photons are within the fiducial region of the HGCAL. 
-    Taken from Ref.~\cite{HGCAL}.
+    Figure taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_DiphotonReso}
 \end{figure}
@@ -238,7 +271,7 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
     \includegraphics[width=\textwidth]{Figures/HGCAL/ClusteringAlgo_Distance.png}
     \caption{Distance, $\delta$.}
   \end{subfigure}
-  \caption[Illustration of the imagine algorithm used for HGCAL layer clustering.] %TODO improve this caption
+  \caption[Illustration of the imagine algorithm used for HGCAL layer clustering.]
   {
     Illustration of the procedure used to form layer clusters for electromagnetic objects in the HGCAL.
     The event considered is a single photon with $\pt\,=\,\SI{35}{GeV}$.
@@ -268,13 +301,38 @@ not far from the intrinsic resolution values shown in Figure~\ref{fig:hgcal_Phot
 This method of electromagnetic object reconstruction was used for all the physics results in Ref~\cite{HGCAL}, 
 including the study described in Section\ref{sec:hgcal_physics}.
 
-%Electrons defined in this way are used to test the ability of the HGCAL to discriminate between signal and background processes. 
-%Lateral and longitudinal shower shape variables, along with tracking information, are used as inputs to a Boosted Decision Tree (BDT) classifier. 
-%For a 95\% signal efficiency, the background efficiency is 1\% for electrons with $\pt\,>\,\SI{20}{GeV}$ , comparable to the Run 2 value. 
-%An improvement in performance is seen when both lateral and longitudinal shape variables are added to a classifier using track-only information. 
-%Additional studies applying the anti-$k_T$ algorithm directly on calorimeter hits to form jets have also been performed.
-%Constructing a pileup jet identification using just two variables, one each related to the lateral and longitudinal jet shape, 
-%was shown to be permit an acceptable L1 trigger rate of 10kHz for a signal efficiency of 80\%. 
+Electrons defined in this way are used to test the ability of the HGCAL 
+to discriminate between signal (\Zee) and background (QCD multijet) processes. 
+Lateral and longitudinal shower shape variables, 
+along with tracking information, are used as inputs to a BDT classifier. 
+Two examples are shown in Figure~\ref{fig:hgcal_electronID}: 
+the longitudinal development of the shower is indicated by the layer 
+at which 10\% of the total energy in the CE-E has been deposited, 
+and the lateral spread of the shower evaluated using the pseudorapidity difference 
+between the electron multicluster and the extrapolated track.
+For both variables, the distributions are robust to the increase in pileup 
+and show good discrimination between the signal and background processes.
+For a 95\% signal efficiency, the background efficiency is 1\% 
+for electrons with $\pt\,>\,\SI{20}{GeV}$, comparable to the Run 2 value. %TODO check Run 2 value
+An improvement in performance is seen when the lateral and longitudinal shape variables 
+are added to a classifier using solely track information, 
+demonstrating the value of the HGCAL granularity to the object identification.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.49\textwidth]{Figures/HGCAL/electronIDlon.png}
+  \includegraphics[width=0.49\textwidth]{Figures/HGCAL/electronIDlat.png}
+  \caption[Distributions of electron shower shape variables.]
+  {
+    Shower shape variables used for electron identification.
+    The longitudinal development of the shower is indicated by the left plot, 
+    which shows the layer at which 10\% of the total energy in the CE-E is deposited.
+    The right plot shows the pseudorapidity difference between the electron multicluster
+    and the extrapolated electron track, which is a measure of the lateral spread of the shower.
+    Figures taken from Ref.~\cite{HGCAL}.
+  }
+  \label{fig:hgcal_electronID}
+\end{figure}
 
 \subsection{Hadronic objects}
 
@@ -297,7 +355,7 @@ For the physics results in Ref~\cite{HGCAL}, a realistic truth-information-drive
     The distribution of the energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions 
     reconstructed using the megaclustering algorithm, 
     before and after pileup subtraction. 
-    Taken from Ref.~\cite{HGCAL}.
+    Figure taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_SingleMegacluster}
 \end{figure}
@@ -310,7 +368,7 @@ For the physics results in Ref~\cite{HGCAL}, a realistic truth-information-drive
     The mean energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions 
     reconstructed using the megaclustering algorithm, after pileup subtraction, 
     as a function of \pt. 
-    Taken from Ref.~\cite{HGCAL}.
+    Figure taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_MegaclusterVsPt}
 \end{figure}
@@ -339,15 +397,19 @@ The added benefit of fully integrating the timing information into the particle 
 
 \section{Physics performance in the \Hgg decay channel}
 \label{sec:hgcal_physics}
+%TODO add an intro here, and generally expand upon the section.
 
-One of the main benefits of the HGCAL upgrade will be the ability to separate quark-initiated jets from those originating from gluon emission.
-This is illustrated in a study of the ggH and VBF production modes in the \Hgg decay channel, using simulated events under HL-LHC conditions.
-%Jets are reconstucted using the Pileup Per Particle Identification (PUPPI) technique \cite{PUPPI}, which is also used in some Run~2 analyses.
+One of the main benefits of the HGCAL upgrade 
+will be the ability to separate quark-initiated jets from jets which originate from gluon emission.
+This is illustrated in a study of the ggH and VBF production modes in the \Hgg decay channel, 
+using events simulated under HL-LHC conditions with the upgraded CMS detector.
 
-Jets initiated by gluons tend to be softer and more dispersed than quark-initiated jets, which are more highly collimated and contain fewer particles. 
-Therefore variables relating to the jet shapes can be used to discriminate between the two, and in turn between the ggH and VBF production processes.
+Jets initiated by gluons tend to be softer and more dispersed than quark-initiated jets, 
+which are more highly collimated and contain fewer particles. 
+Therefore variables relating to the jet shapes can be used to discriminate between the two, 
+and in turn between the ggH and VBF production processes.
 
-The performance of two different BDTs are comparted. 
+The performance of two different BDTs are compared. 
 Three jet shape variables are used to construct a BDT referred to as the jet shape BDT.
 A second BDT, known as the dijet BDT, uses additional kinematic variables including those of the photons; 
 its inputs are identical to the dijet BDT used in the Run~2 analysis, but with the three jet shape variables added.
@@ -360,11 +422,11 @@ For comparison, the area under the ROC curve of the Run 2 dijet BDT was 0.75.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/VBFvsGGH.png}
+  \includegraphics[width=0.8\textwidth]{Figures/HGCAL/VBFvsGGH.png}
   \caption[VBF and ggH selection efficiencies for two BDTs.]
   {
     The selection efficiency for VBF and ggH events for two different BDTs. 
-    Taken from Ref.~\cite{HGCAL}.
+    Figure taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_VBFvsGGH}
 \end{figure}
@@ -375,55 +437,74 @@ This classifier uses only the kinematics of the the two photons as inputs.
 It is less powerful than the Run~2 equivalent because not all of the inputs used in the Run~2 version are available.
 These include the photon identification score, the mass resolution estimates, and the vertex probability estimate.
 
-%TODO metric?
-A 2D scan was used to choose cut values on both the dijet and background BDTs, and generate the working points in Table \ref{tab:hgcal_yields}.
-The number of signal events selected, the fraction of ggH and VBF events, and the background per GeV are shown.
-Also included is a Run~2 working point, consisting of all the events entering the analysis' three VBF tags, for comparison.
+A 2D scan was used to choose cut values on both the dijet and background BDTs, 
+and generate the working points in Table \ref{tab:hgcal_yields}.
+The working points were chosen to maximise the total expected significance, 
+using the simple metric of the sum in quadrature of the 
+the ratio of signal events to the square root of signal plus background events
+for each working point~\cite{Cowan}.
+The number of signal events selected, the fraction of ggH and VBF events, 
+and the background per GeV are shown.
+Also included is a Run~2 working point, 
+consisting of all the events entering the analysis' three VBF tags, for comparison.
 
+%TODO check these numbers
 \begin{table}
   \centering
   \begin{tabular}{ r | c |  c |  c |  c }
   \multirow{2}{*}{Event Categories} &\multicolumn{3}{c|}{SM 125 GeV Higgs boson expected signal} & Bkg \\
     &  Total & ggH & VBF & per GeV \\
   \hline
-  WP 0 &    750   &  25.4 \%  &  74.6 \%  &  678  \\
-  WP 1 &    1275  &  35.9 \%  &  64.1 \%  &  876  \\
-  WP 2 &    1926  &  45.8 \%  &  53.2 \%  &  1353 \\
-  Run 2 WP &    3878 &  42.0 \%  &  58.0 \%  &  1984 \\
+  WP 0 &            750   &  25.4 \%  &  74.6 \%  &  678  \\
+  WP 1 &            1275  &  35.9 \%  &  64.1 \%  &  876  \\
+  WP 2 &            1926  &  45.8 \%  &  53.2 \%  &  1353 \\
+  Summed WP &       3951  &  38.7 \%  &  61.3 \%  &  2907 \\
+  Run 2 summed WP & 3878  &  42.0 \%  &  58.0 \%  &  1984 \\
   \end{tabular}
-  \caption{The signal and background yields for three working points.
+  \caption{The signal and background yields for three working points, and the sum thereof.
   The dijet BDT cut is varied, with a fixed cut on the background BDT.
   Number of events given is for \SI{3000}{\fbinv} of collected data. 
   The Run~2 WP contains the sum of selected events in all three VBF categories, extrapolated to \SI{3000}{\fbinv}.
-  Taken from Ref.~\cite{HGCAL}.}
+  Table taken from Ref.~\cite{HGCAL}.}
   \label{tab:hgcal_yields}
 \end{table}
 
-%With \SI{3000}{\fbinv} of data, a suitably chosen cut on this BDT would yield 750 signal events, with 75\% VBF purity, for a background of 678 events per GeV, comparable to the Run~2 values. 
-These results show that performance comparable to that in Run~2 is achieved despite the increase in pileup.
-The background numbers are slightly higher than in Run~2, but this is expected to be reduced by a classifier using further photon quality variables.
+These results show that performance comparable to that in Run~2 
+is achieved despite the increase in pileup.
+The background numbers are slightly higher than in Run~2, 
+but it is expected that this could be reduced by a classifier using further photon quality variables.
 
 \section{Beam tests}
 
-%TODO expand on this
-To validate the design of the HGCAL and ensure its behaviour is well-modelled by simulation, beam tests have been conducted at both CERN and Fermilab in 2016 and 2017. 
+To validate the design of the HGCAL and ensure its behaviour is well-modelled by simulation, 
+beam tests have been conducted at both CERN and Fermilab in 2016 and 2017. 
 Prototype silicon modules representative of those in both the CE-E and CE-H were built, 
 with plastic scintillator tiles modified from an existing detector 
 developed by the CALICE collaboration~\cite{CALICE}.
-Comparisons of the measured electron energy resolution and hadronic shower shape to simulation show good agreement.
-These prototypes were not the full design thickness, so the performance is not representative of the final detector.
-However the results constitute the first demonstration that the HGCAL behaves as predicted by simulation; observed distributions match those predicted by simulation to within 5\%. 
-Furthermore, the tests confirm the intrinsic timing capabilities of the silicon sensors, with timing resolution measured to be less than \SI{30}{\pico\second}.
-The timing performance of the silicon was also confirmed to be a function of S/N only, and not degrade with increasing radiation exposure. 
+At Fermilab, the available electron beams were of relatively low energy (up to \SI{32}{GeV}), 
+and so a test configuration with thickness of around $\SI{15}{X_0}$ was used.
+A set of sixteen silicon modules, arranged in sixteen layers, were used.
+At CERN, energies of up to \SI{250}{GeV} were available but with only eight modules.
+The chosen setup therefore comprised eight layers placed between 5 and $\SI{27}{X_0}$.
 
-%TODO comment on these plots
+Comparisons to simulation of the measured electron energy resolution 
+and shower shape are shown in Figure~\ref{fig:hgcal_BeamTest}.
+Excellent agreement if observed between data and simulation;
+observed distributions match those predicted by simulation to within 5\%. 
+These results constitute the first demonstration that the HGCAL behaves as predicted by simulation.
+
+Furthermore, the tests confirm the intrinsic timing capabilities of the silicon sensors, 
+with timing resolution measured to be less than \SI{30}{\pico\second}.
+The timing performance of the silicon was also confirmed to be a function of S/N only, 
+and does not degrade with increasing radiation exposure. 
+
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.49\textwidth]{Figures/HGCAL/BeamTestShape.png}
   \includegraphics[width=0.49\textwidth]{Figures/HGCAL/BeamTestEnergy.png}
   \caption[Comparison of data and simulation in HGCAL beam tests.]
   {
-    Taken from Ref.~\cite{HGCAL}.
+    Figures taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_BeamTest}
 \end{figure}
