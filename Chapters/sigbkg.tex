@@ -148,8 +148,6 @@ is shown in Figure~\ref{fig:sigbkg_cat}.
   \label{fig:sigbkg_cat}
 \end{figure}
 
-%TODO insert sum of cats - may not be possible/easy
-
 \section{Background modelling}
 
 The background model represents the smoothly falling spectrum 
@@ -298,10 +296,16 @@ for each stage 1 bin in each analysis category.
 The sources of theoretical uncertainties considered in this analysis are as follows:
 \begin{itemize}
 \item \textit{QCD scale uncertainty}: 
-  arising from variations of the renormalisation and factorisation scales, 
-  following the recommendations provided in Ref.~\cite{YR4}. 
+  the uncertainty arising from variations of the renormalisation and factorisation scales
+  used when computing the expected SM cross section and event kinematics.
+  The recommendations provided in Ref.~\cite{YR4} are followed.
+  This involves estimating the uncertainty due to three sources: 
+  varying the renormalisation by a factor of two, varying the factorisation scale by a factor of two, 
+  and varying both in the same direction simulataneously.
+  Depending on the production process, the size of the uncertainty varies from around 0.5\% 
+  to 9\%.
 \item \textit{Uncertainty on the SM ggH production}: 
-  For ggH production, 
+  for ggH production, 
   additional sources are included which account for the uncertainty in the modelling 
   of the \ptH distributions, the number of jets in the event, 
   and the ggH contamination in the VBF categories.
@@ -314,21 +318,31 @@ The sources of theoretical uncertainties considered in this analysis are as foll
   The uncertainty on the ggH production of events with a VBF-like dijet system 
   is covered by two sources 
   corresponding to the prediction in the two-jet-like and three-jet-like bins.
+  The total magnitude of these uncertainties vary from around 5\% to 30\%, 
+  with events that have one or more jets and high values of \ptH 
+  typically having the greatest associated uncertianty.
 \item \textit{PDF (parton density functions) uncertainties}:
-  the overall normalisation uncertainties are computed
+  these account for the uncertainty due to imperfect knowledge of the composition of the proton, 
+  which affects which partons are most likely to initiate high energy events.
+  The overall normalisation uncertainties are computed
   following the PDF4LHC
   prescription~\cite{PDF4LHC,YR3},
   while the bin-to-bin migrations are calculated from the
   NNPDF3.0~\cite{NNPDF3} PDF set
   using the {\sc MC2hessian} procedure~\cite{MC2Hessian}.
+  The overall normalisation uncertainties are between 1-5\%, 
+  with the migrations significantly smaller, usually less than 1\%.
 \item \textit{Uncertainty in the strong force coupling constant}: 
   the uncertainty in the value of the strong force coupling constant $\alpha_{s}$ 
   is included in the treatment of the PDF uncertainties, following the PDF4LHC prescription.
 \item \textit{Uncertainty in the \Hgg branching fraction}: 
-  this is estimated to be 2\%~\cite{YR4}.
+  the probability of the Higgs boson decaying to two photons is required to calculate
+  the SM expected cross section, but this branching fraction is not known exactly.
+  The uncertainty is currently estimated to be 2\%~\cite{YR4}.
 \item \textit{Underlying event and parton shower uncertainties}: 
   these uncertainties are obtained using dedicated simulated samples 
   where the choice and specific tune of the event generator have been modified. 
+  The impact of the uncertainty ranges from 1-16\% depending on the process and category.
 \end{itemize}
 
 The QCD scale and PDF uncertainties impact the theoretical modelling in two ways.
@@ -358,6 +372,7 @@ The uncertainties which affect the shape of the signal \mgg distribution are:
 \item \textit{Non-linearity of the photon energy scale}: 
   a further source of uncertainty covers possible remaining differences in the linearity 
   of the photon energy scale between data and simulation.
+  This uncertainty is eva
   The uncertainty is estimated using boosted \Zee events.
 \item \textit{Modelling of electromagnetic showers}: 
   this uncertainty accounts for the imperfect knowledge of electromagnetic showering processes.
@@ -400,6 +415,7 @@ The uncertainties which only modify the event yield include:
   This is described further in Chapter~\ref{chap:objects}.
   The uncertainty on the signal yields is
   estimated by propagating this uncertainty through the full category selection procedure.
+  The impact in the most sensitive analysis categories is around 5\%.
 \item \textit{Jet energy scale and smearing corrections}: 
   The energy scale of jets is measured using the \pt balance of jets with Z bosons and photons in
   \Zee, \Zmumu and $\gamma$+jets events, as well as the \pt balance between jets 
@@ -407,6 +423,8 @@ The uncertainties which only modify the event yield include:
   is a few percent and depends on \pt and $\eta$. The impact of jet energy scale uncertainties on 
   event yields is evaluated by varying the jet energy corrections within their uncertainties and 
   propagating the effect to the final result.
+  The resulting uncertainty in the final analysis categories can be as high as 21\% 
+  for the scale, but is less than around 4\% for the resolution.
 \item \textit{Per-photon energy resolution estimate}: 
   the uncertainty on the per-photon resolution is
   parametrised as a rescaling of the resolution by
@@ -416,9 +434,11 @@ The uncertainties which only modify the event yield include:
 \item \textit{Trigger efficiency}: 
   the efficiency of the trigger selection is measured with 
   $\Zee$ events using the tag-and-probe technique.
+  The size of its uncertainty is less than 1\%.
 \item \textit{Photon preselection}: 
   the uncertainty on the preselection efficiency
   is computed as the ratio between the efficiency measured in data and in simulation.
+  Its magnitude is less than 1\%.
 \item \textit{Missing transverse energy}: 
   this uncertainty is computed by shifting the
   reconstructed $\pt$ of the particle candidates entering the
@@ -426,14 +446,17 @@ The uncertainties which only modify the event yield include:
   within the momentum scale and resolution uncertainties appropriate 
   to each type of reconstructed object,
   as described in Ref.~\cite{JetsInRun2}.
+  In this analysis, the size of the uncertainty is very small.
 \item \textit{Pileup jet identification}: 
   the uncertainty on the pileup jet classification output score is estimated by
   comparing the score of jets in events with a Z boson and one balanced jet
   in data and simulation. 
+  The magnitude is of the order 1\%.
 \item \textit{Lepton isolation and identification}: 
   this uncertainty affecting electrons and muons
   is computed by varying the ratio of the efficiencies and
   using the tag and probe technique in \Zee events. 
+  The resulting impact on the categories selecting leptons is up to around 3\%.
 \item \textit{Efficiency of b-tagging}: 
   uncertainties on the b-tagging efficiency are evaluated 
   by comparing data and simulated distributions for the b-tag
@@ -441,6 +464,7 @@ The uncertainties which only modify the event yield include:
   The uncertainties include the statistical component on the
   estimate of the fraction of heavy and
   light flavour jets in data and simulation.
+  Its magnitude is around 1\%.
 \end{itemize}
 
 \subsection{Correlation of uncertainties}
