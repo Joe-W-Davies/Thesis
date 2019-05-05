@@ -158,7 +158,7 @@ The total depth, including the neutron moderator layer at the front, is \SI{34}{
 which corresponds to approximately 26 radiation lengths ($X_0$) 
 and 1.7 interaction lengths ($\lambda$)
 \footnote{A radiation length is defined as the mean distance over which 
-a high energy electron will have its energy reduced to a fraction $\exp^{-1}$ of the initial value.}.
+a high energy electron will have its energy reduced to a fraction $e^{-1}$ of the initial value.}.
 Three different thicknesses of silicon sensors are used, with thickness decreasing as a function of fluence.
 Absorbers are made of copper-tungsten alloy and copper plates are used for cooling.
 All layers of the CE-E are used for energy measurements, but alternate layers give inputs to the L1 trigger primitive formation. %TODO check why this is
@@ -320,14 +320,14 @@ demonstrating the value of the HGCAL granularity to the object identification.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{Figures/HGCAL/electronIDlon.png}
-  \includegraphics[width=0.49\textwidth]{Figures/HGCAL/electronIDlat.png}
+  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/electronIDlon.png}
+  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/electronIDlat.png}
   \caption[Distributions of electron shower shape variables.]
   {
     Shower shape variables used for electron identification.
-    The longitudinal development of the shower is indicated by the left plot, 
+    The longitudinal development of the shower is indicated by the upper plot, 
     which shows the layer at which 10\% of the total energy in the CE-E is deposited.
-    The right plot shows the pseudorapidity difference between the electron multicluster
+    The lower plot shows the pseudorapidity difference between the electron multicluster
     and the extrapolated electron track, which is a measure of the lateral spread of the shower.
     Figures taken from Ref.~\cite{HGCAL}.
   }
@@ -349,7 +349,7 @@ For the physics results in Ref~\cite{HGCAL}, a realistic truth-information-drive
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.6\textwidth]{Figures/HGCAL/SingleMegacluster.png}
+  \includegraphics[width=0.65\textwidth]{Figures/HGCAL/SingleMegacluster.png}
   \caption[HGCAL pion energy response.]
   {
     The distribution of the energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions 
@@ -397,28 +397,57 @@ The added benefit of fully integrating the timing information into the particle 
 
 \section{Physics performance in the \Hgg decay channel}
 \label{sec:hgcal_physics}
-%TODO add an intro here, and generally expand upon the section.
+The performance of the HGCAL and the reconstruction techniques developed for its use 
+are tested by evaluating their impact on CMS physics analyses.
+In this section, a study of the impact on the CMS \Hgg analysis is described;
+the diphoton channel will continue to be very important for characterising the Higgs boson's 
+properties at the HL-LHC.
+Rather than repeating the analysis in full, 
+specific aspects of the analysis which will be affected by the HGCAL upgrade are investigated.
 
-One of the main benefits of the HGCAL upgrade 
+In Run 2, the sensitivity of the \Hgg analysis is driven by barrel-barrel diphoton pairs.
+The effect of the HGCAL greater acceptance (to $|\eta|=3$) relative to the current ECAL endcaps
+(to $|\eta|=2.5$) is to increase the number of available diphotons by approximately 12\%.
+Furthermore, the diphoton mass resolution in the endcap is found to be very similar 
+to that in the barrel.
+This is an improvement upon the Run~2 endcap, 
+which has significantly worse resolution than the barrel, 
+and also increases the usefulness of the increased forward acceptance.
+
+A more substantial benefit of the HGCAL upgrade 
 will be the ability to separate quark-initiated jets from jets which originate from gluon emission.
 This is illustrated in a study of the ggH and VBF production modes in the \Hgg decay channel, 
 using events simulated under HL-LHC conditions with the upgraded CMS detector.
+In the Run~2 analysis, the so-called dijet BDT is used to discriminate between ggH and VBF
+using photon and jet kinematic variables.
+Here, the possibility of exploiting the granularity of the HGCAL 
+by using jet shape variables as BDT inputs in addition to the kinematic variables is explored.
 
-Jets initiated by gluons tend to be softer and more dispersed than quark-initiated jets, 
-which are more highly collimated and contain fewer particles. 
-Therefore variables relating to the jet shapes can be used to discriminate between the two, 
-and in turn between the ggH and VBF production processes.
+Jets initiated by gluons tend to have lower \pt values and be more dispersed than quark-initiated jets, 
+which are relatively highly collimated and contain fewer particles. 
+Therefore variables relating to the jet shapes can be used to discriminate between the two.
+Since jets in ggH events tend to be gluon-initiated, 
+and the VBF jets quark-initiatied, 
+this can in turn provide discrimination between the two production processes.
 
-The performance of two different BDTs are compared. 
+The impact of the HGCAL is evaluated by comparing the performance of two different BDTs.
 Three jet shape variables are used to construct a BDT referred to as the jet shape BDT.
 A second BDT, known as the dijet BDT, uses additional kinematic variables including those of the photons; 
-its inputs are identical to the dijet BDT used in the Run~2 analysis, but with the three jet shape variables added.
+its inputs are identical to the dijet BDT used in the Run~2 analysis 
+(see Chapter~\ref{chap:categorisation} for details), but with the three jet shape variables added.
 The same training procedure as that used in the Run~2 analysis was followed, 
 where the VBF events are treated as signal, with the ggH as background.
-The performance of the two classifiers are illustrated below in Figure \ref{fig:hgcal_VBFvsGGH}.
-%TODO define ROC curve - cross check with categorisation and objects chapters
+The performance of the two classifiers is illustrated below in Figure \ref{fig:hgcal_VBFvsGGH}.
+In each case, a receiver operating characteristic (ROC) curve is constructed.
+The ROC curve shows the selection efficiency for signal VBF and background ggH events 
+for all values of the BDT output score.
+The area under the ROC curve is used a measure of the BDT performance; 
+the area is unity for perfect discrimination between signal and background, 
+and equals one half if the BDT has no discriminating power.
 The area under the ROC curve is 0.71 for the jet shape BDT, and 0.79 for the dijet BDT.
-For comparison, the area under the ROC curve of the Run 2 dijet BDT was 0.75.
+For comparison, the value for the Run 2 dijet BDT was 0.75.
+This demonstrates that the additional information provided by the HGCAL translates directly
+into an improvement at the analysis level.
 
 \begin{figure}[h!]
   \centering
@@ -432,17 +461,20 @@ For comparison, the area under the ROC curve of the Run 2 dijet BDT was 0.75.
 \end{figure}
 
 Separately, another BDT is trained to reduce the amount of background entering analysis categories.
-The VBF events are treated as signal, trained against prompt-prompt, prompt-fake and fake-fake \Hgg backgrounds.
+The VBF events are treated as signal, trained against prompt-prompt, 
+prompt-fake and fake-fake \Hgg backgrounds.
 This classifier uses only the kinematics of the the two photons as inputs. 
-It is less powerful than the Run~2 equivalent because not all of the inputs used in the Run~2 version are available.
-These include the photon identification score, the mass resolution estimates, and the vertex probability estimate.
+It is less powerful than the Run~2 equivalent 
+because not all of the inputs used in the Run~2 version are available.
+These include the photon identification score, 
+the mass resolution estimates, and the vertex probability estimate.
 
 A 2D scan was used to choose cut values on both the dijet and background BDTs, 
 and generate the working points in Table \ref{tab:hgcal_yields}.
 The working points were chosen to maximise the total expected significance, 
 using the simple metric of the sum in quadrature of the 
 the ratio of signal events to the square root of signal plus background events
-for each working point~\cite{Cowan}.
+for each working point~\cite{Asymptotic}.
 The number of signal events selected, the fraction of ggH and VBF events, 
 and the background per GeV are shown.
 Also included is a Run~2 working point, 
@@ -489,14 +521,20 @@ The chosen setup therefore comprised eight layers placed between 5 and $\SI{27}{
 
 Comparisons to simulation of the measured electron energy resolution 
 and shower shape are shown in Figure~\ref{fig:hgcal_BeamTest}.
-Excellent agreement if observed between data and simulation;
+The variable E1/E7 is defined as the ratio of the energy in the most energetic cell (E1) 
+to the sum of the energies of the most energetic cell and its six surrounding cells (E7);
+this indicates the lateral extent of the shower.
+Also shown is the relative energy resolution for a range of energy values, 
+using both the CERN and Fermilab setups.
+In both cases, excellent agreement is observed between data and simulation;
 observed distributions match those predicted by simulation to within 5\%. 
-These results constitute the first demonstration that the HGCAL behaves as predicted by simulation.
+These beam test results are particularly important because 
+they constitute the first demonstration that the HGCAL behaves as predicted by simulation.
 
-Furthermore, the tests confirm the intrinsic timing capabilities of the silicon sensors, 
-with timing resolution measured to be less than \SI{30}{\pico\second}.
-The timing performance of the silicon was also confirmed to be a function of S/N only, 
-and does not degrade with increasing radiation exposure. 
+Furthermore, additional tests confirm the expected intrinsic timing capabilities of the silicon sensors, 
+with the timing resolution measured to be less than \SI{30}{\pico\second}.
+The timing performance of the silicon was also measured to be a function of S/N only, 
+meaning it does not degrade with increasing radiation exposure. 
 
 \begin{figure}[h!]
   \centering
@@ -504,6 +542,12 @@ and does not degrade with increasing radiation exposure.
   \includegraphics[width=0.49\textwidth]{Figures/HGCAL/BeamTestEnergy.png}
   \caption[Comparison of data and simulation in HGCAL beam tests.]
   {
+    Left: the distribution of the energy ratio E1/E7 (defined in the text) for \SI{100}{GeV} electrons
+    using the CERN beam test setup.
+    Data points are shown in black and the blue histogram represents the simulation.
+    Right: the relative electron energy resolution as a function of energy, 
+    for both the CERN (solid circles) and Fermilab (hollow cirlces) setups.
+    Simulated points are shown in red, with data points in blue.
     Figures taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_BeamTest}
