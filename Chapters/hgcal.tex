@@ -112,7 +112,7 @@ in the front section of the calorimeter, and stainless steel absorber further ba
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.9\textwidth]{Figures/HGCAL/Dose.png}
+  \includegraphics[width=\textwidth]{Figures/HGCAL/Dose.png}
   \caption[Expected radiation dose for the HGCAL.]
   {
     The dosage of ionising radiation the HGCAL is expected to absorb 
@@ -156,8 +156,8 @@ The HGCAL is composed of an electromagnetic and a hadronic section, called the C
 The CE-E comprises 28 layers with hexagonal silicon sensors as the active element.
 The total depth, including the neutron moderator layer at the front, is \SI{34}{cm}, 
 which corresponds to approximately 26 radiation lengths ($X_0$) 
-and 1.7 interaction lengths ($\lambda$)
-\footnote{A radiation length is defined as the mean distance over which 
+and 1.7 interaction lengths ($\lambda$)\footnote{A radiation length is defined 
+as the mean distance over which 
 a high energy electron will have its energy reduced to a fraction $e^{-1}$ of the initial value.}.
 Three different thicknesses of silicon sensors are used, with thickness decreasing as a function of fluence.
 Absorbers are made of copper-tungsten alloy and copper plates are used for cooling.
@@ -247,8 +247,8 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
   \item Construct an energy density map of all hits above a threshold $E_c$. 
   The threshold value is defined as a function of the noise resolution ($\sigma_{\textrm{noise}}$), which depends on the cell type.
   The density is defined simply as the energy sum of all hits within a critical distance $\delta_c$, 
-  whose value is chosen to be similar to the Moli\`ere radius 
-  \footnote{}. 
+  whose value is chosen to be similar to the Moli\`ere radius\footnote{The Moli\`ere radius 
+  is defined as the radius containing on average 90\% of a shower's total energy deposition}. 
   \item For each hit, calculate the distance to the nearest hit with higher density.
   \item Assign hits with both both density and distance parameters greater than threshold values as cluster centres.
   The density threshold ($\rho_c$) can be defined relative to the maximum density in the event,
@@ -493,11 +493,14 @@ consisting of all the events entering the analysis' three VBF tags, for comparis
   Summed WP &       3951  &  38.7 \%  &  61.3 \%  &  2907 \\
   Run 2 summed WP & 3878  &  42.0 \%  &  58.0 \%  &  1984 \\
   \end{tabular}
-  \caption{The signal and background yields for three working points, and the sum thereof.
-  The dijet BDT cut is varied, with a fixed cut on the background BDT.
-  Number of events given is for \SI{3000}{\fbinv} of collected data. 
-  The Run~2 WP contains the sum of selected events in all three VBF categories, extrapolated to \SI{3000}{\fbinv}.
-  Table taken from Ref.~\cite{HGCAL}.}
+  \caption[Signal and background yields for a VBF \Hgg analysis with the upgraded CMS detector.]
+  {
+    The signal and background yields for three working points, and the sum thereof.
+    The dijet BDT cut is varied, with a fixed cut on the background BDT.
+    Number of events given is for \SI{3000}{\fbinv} of collected data. 
+    The Run~2 WP contains the sum of selected events in all three VBF categories, extrapolated to \SI{3000}{\fbinv}.
+    Table taken from Ref.~\cite{HGCAL}.
+  }
   \label{tab:hgcal_yields}
 \end{table}
 
@@ -538,14 +541,14 @@ meaning it does not degrade with increasing radiation exposure.
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.49\textwidth]{Figures/HGCAL/BeamTestShape.png}
-  \includegraphics[width=0.49\textwidth]{Figures/HGCAL/BeamTestEnergy.png}
+  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/BeamTestShape.png}
+  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/BeamTestEnergy.png}
   \caption[Comparison of data and simulation in HGCAL beam tests.]
   {
-    Left: the distribution of the energy ratio E1/E7 (defined in the text) for \SI{100}{GeV} electrons
-    using the CERN beam test setup.
+    The upper plot shows the distribution of the energy ratio E1/E7 (defined in the text) 
+    for \SI{100}{GeV} electrons using the CERN beam test setup.
     Data points are shown in black and the blue histogram represents the simulation.
-    Right: the relative electron energy resolution as a function of energy, 
+    The lowe plot shows the relative electron energy resolution as a function of energy, 
     for both the CERN (solid circles) and Fermilab (hollow circles) setups.
     Simulated points are shown in red, with data points in blue.
     Figures taken from Ref.~\cite{HGCAL}.

@@ -8,7 +8,7 @@
 }
 
 @article{CMSHiggsPhotonReco,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{Observation of the diphoton decay of the Higgs boson and
                         measurement of its properties}",
       collaboration  = "CMS",
@@ -37,7 +37,7 @@
 }
 
 @article{PhotonReco,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{Performance of Photon Reconstruction and Identification
                         with the CMS Detector in Proton-Proton Collisions at
                         sqrt(s) = 8 TeV}",
@@ -56,7 +56,7 @@
 }
 
 @article{TrackReco,
-      author         = "Chatrchyan, Serguei and others",
+      author         = "CMS Collaboration",
       title          = "{Description and performance of track and primary-vertex
                         reconstruction with the CMS tracker}",
       collaboration  = "CMS",
@@ -74,7 +74,7 @@
 }
 
 @article{MuonRecoRun1,
-      author         = "Chatrchyan, Serguei and others",
+      author         = "CMS Collaboration",
       title          = "{Performance of CMS muon reconstruction in $pp$ collision
                         events at $\sqrt{s}=7$ TeV}",
       collaboration  = "CMS",
@@ -91,7 +91,7 @@
 }
 
 @article{ElectronReco,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{Performance of Electron Reconstruction and Selection
                         with the CMS Detector in Proton-Proton Collisions at
                         $\sqrt{s} = 8$ TeV}",
@@ -110,7 +110,7 @@
 }
 
 @article{MuonReco,
-      author         = "Sirunyan, A. M. and others",
+      author         = "CMS Collaboration",
       title          = "{Performance of the CMS muon detector and muon
                         reconstruction with proton-proton collisions at
                         $\sqrt{s}=$ 13 TeV}",
@@ -221,8 +221,8 @@
 
 @techreport{MTD,
       author        = "Collaboration, CMS",
-      title         = "{TECHNICAL PROPOSAL FOR A MIP TIMING DETECTOR IN THE CMS
-                       EXPERIMENT PHASE 2 UPGRADE}",
+      title         = "{Technical proposal for a MIP timing detector in the CMS 
+                       experiment Phase 2 upgrade}",
       institution   = "CERN",
       address       = "Geneva",
       number        = "CERN-LHCC-2017-027. LHCC-P-009",
@@ -278,7 +278,7 @@
 }
 
 @article{CMSdiscovery,
-      author         = "Chatrchyan, Serguei and others",
+      author         = "CMS Collaboration",
       title          = "{Observation of a new boson at a mass of 125 GeV with the
                         CMS experiment at the LHC}",
       collaboration  = "CMS",
@@ -296,6 +296,7 @@
 
 
 @techreport{Lumi2016,
+      author         = "CMS Collaboration",
       title         = "{CMS Luminosity Measurements for the 2016 Data Taking
                        Period}",
       institution   = "CERN",
@@ -308,6 +309,7 @@
 }
 
 @techreport{Lumi2017,
+      author         = "CMS Collaboration",
       title         = "{CMS luminosity measurement for the 2017 data-taking
                        period at $\sqrt{s} = 13~\mathrm{TeV}$}",
       institution   = "CERN",
@@ -367,7 +369,7 @@
 }
 
 @article{HiggsLifetime,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{Limits on the Higgs boson lifetime and width from its
                         decay to four charged leptons}",
       collaboration  = "CMS",
@@ -492,7 +494,7 @@
 }
 
 @article{ATLASdiscovery,
-      author         = "Aad, Georges and others",
+      author         = "ATLAS Collaboration",
       title          = "{Observation of a new particle in the search for the
                         Standard Model Higgs boson with the ATLAS detector at the
                         LHC}",
@@ -716,6 +718,7 @@
 }
 
 @misc{CMSLumiPublic,
+  author         = "CMS Collaboration",
   Collaboration = {CMS},
   Title = {CMS Luminosity - Public Results},
   howpublished = {\url{http://twiki.cern.ch/twiki/bin/view/CMSPublic/LumiPublicResults}}
@@ -765,6 +768,7 @@
 }
 
 @article{CMSdetector,
+  author         = "CMS Collaboration",
   collaboration  = "CMS",
   title          = "{The CMS experiment at the CERN LHC}",
   journal        = "JINST",
@@ -776,7 +780,7 @@
 }
 
 @article{ATLAS,
-  author        ="{The ATLAS Collaboration}",
+  author        ="{ATLAS Collaboration}",
   title         = "{The ATLAS Experiment at the CERN Large Hadron Collider}",
   journal       = "JINST",
   volume        = "3",
@@ -786,7 +790,7 @@
 }
 
 @article{LHCb,
-  author={The LHCb Collaboration},
+  author={LHCb Collaboration},
   title={The LHCb Detector at the LHC},
   journal={Journal of Instrumentation},
   volume={3},
@@ -797,7 +801,7 @@
 }
 
 @article{ALICE,
-  author={The ALICE Collaboration},
+  author={ALICE Collaboration},
   title={The ALICE experiment at the CERN LHC},
   journal={Journal of Instrumentation},
   volume={3},
@@ -840,6 +844,7 @@ url           = "https://cds.cern.ch/record/922757",
 }
 
 @techreport{PixelUpgrade,
+      author         = "CMS Collaboration",
       title         = "{CMS Technical Design Report for the Pixel Detector
                        Upgrade}",
       publisher     = "CERN",
@@ -849,9 +854,6 @@ url           = "https://cds.cern.ch/record/922757",
       year          = "2012",
       reportNumber  = "CERN-LHCC-2012-016",
       url           = "https://cds.cern.ch/record/1481838",
-      note          = "Additional contacts: Jeffrey Spalding, Fermilab,
-                       Jeffrey.Spalding@cern.ch Didier Contardo, Universite Claude
-                       Bernard-Lyon I, didier.claude.contardo@cern.ch",
 }
 
 @book{CMSEcalTDR,
@@ -868,7 +870,6 @@ year          = "1997",
   title         = "{The CMS hadron calorimeter project: Technical Design
     Report}",
 publisher     = "CERN",
-author = "{CMS Collaboration}",
 address       = "Geneva",
 series        = "Technical Design Report CMS",
 year          = "1997",
@@ -898,13 +899,13 @@ year          = "1997",
     in the Electromagnetic Calorimeter}",
 journal = "CERN",
 collaboration = "CMS",
-author ="Anderson, M. and others",
+author         = "CMS Collaboration",
 Volume = "CMS Internal Note",
 year = "2010/008",
 }
 
 @article{CMStrigger,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{The CMS trigger system}",
       collaboration  = "CMS",
       journal        = "JINST",
@@ -921,7 +922,7 @@ year = "2010/008",
 }
 
 @article{cmsEcalCalibration,
-  author         = "Chatrchyan, Serguei and others",
+      author         = "CMS Collaboration",
   title          = "{Energy Calibration and Resolution of the CMS
     Electromagnetic Calorimeter in $pp$ Collisions at
     $\sqrt{s} = 7$ TeV}",
@@ -964,7 +965,7 @@ year = "1998"
 }
 
 @article{ParticleFlow,
-      author         = "Sirunyan, A. M. and others",
+      author         = "CMS Collaboration",
       title          = "{Particle-flow reconstruction and global event
                         description with the CMS detector}",
       collaboration  = "CMS",
@@ -982,7 +983,7 @@ year = "1998"
 }
 
 @article{TagAndProbe,
-      author         = "Chatrchyan, Serguei and others",
+      author         = "CMS Collaboration",
       title          = "{Measurement of the Inclusive $W$ and $Z$ Production
                         Cross Sections in $pp$ Collisions at $\sqrt{s}=7$ TeV}",
       collaboration  = "CMS",
@@ -1021,6 +1022,7 @@ year = "1998"
 }
 
 @techreport{JetsInRun2,
+      author         = "CMS Collaboration",
       title         = "{Jet algorithms performance in 13 TeV data}",
       institution   = "CERN",
       collaboration = "CMS Collaboration",
@@ -1032,6 +1034,7 @@ year = "1998"
 }
 
 @techreport{PAS2016,
+      author         = "CMS Collaboration",
       title         = "{Measurements of properties of the Higgs boson in the
                        diphoton decay channel with the full 2016 data set}",
       institution   = "CERN",
@@ -1044,6 +1047,7 @@ year = "1998"
 }
 
 @techreport{CMS-PAS-JME-13-005,
+      author         = "CMS Collaboration",
       title         = "{Pileup Jet Identification}",
       institution   = "CERN",
       collaboration = "CMS Collaboration",
@@ -1055,7 +1059,7 @@ year = "1998"
 }
 
 @article{HIG-16-040,
-      author         = "Sirunyan, A. M. and others",
+      author         = "CMS Collaboration",
       title          = "{Measurements of Higgs boson properties in the diphoton
                         decay channel in proton-proton collisions at $\sqrt{s} =$
                         13 TeV}",
@@ -1073,6 +1077,7 @@ year = "1998"
 }
 
 @techreport{HIG-18-029,
+      author         = "CMS Collaboration",
       title         = "{Measurements of Higgs boson production via gluon fusion
                        and vector boson fusion in the diphoton decay channel at
                        $\sqrt{s} = 13$ TeV}",
@@ -1284,7 +1289,7 @@ year = "1998"
 
 
 @article{JEC,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{Jet energy scale and resolution in the CMS experiment in
                         pp collisions at 8 TeV}",
       collaboration  = "CMS",
@@ -1472,7 +1477,7 @@ year = "1998"
 }
 
 @article{HIG-16-041,
-      author         = "Sirunyan, Albert M and others",
+      author         = "CMS Collaboration",
       title          = "{Measurements of properties of the Higgs boson decaying
                         into the four-lepton final state in pp collisions at $
                         \sqrt{s}=13 $ TeV}",
@@ -1490,7 +1495,7 @@ year = "1998"
 }
 
 @article{CMScomb,
-      author         = "Sirunyan, Albert M and others",
+      author         = "CMS Collaboration",
       title          = "{Combined measurements of Higgs boson couplings in
                         proton-proton collisions at $\sqrt{s}=$ 13 TeV}",
       collaboration  = "CMS",
@@ -1503,8 +1508,8 @@ year = "1998"
       SLACcitation   = "%%CITATION = ARXIV:1809.10733;%%"
 }
 
-@article{ATLAScomb,
-      author         = "The ATLAS collaboration",
+@techreport{ATLAScomb,
+      author         = "ATLAS Collaboration",
       title          = "{Combined measurements of Higgs boson production and
                         decay using up to $80$ fb$^{-1}$ of proton--proton
                         collision data at $\sqrt{s}=$ 13 TeV collected with the
@@ -1516,7 +1521,7 @@ year = "1998"
 }
 
 @article{ATLAS_Hgg36,
-      author         = "Aaboud, Morad and others",
+      author         = "ATLAS Collaboration",
       title          = "{Measurements of Higgs boson properties in the diphoton
                         decay channel with 36 fb$^{-1}$ of $pp$ collision data at
                         $\sqrt{s} = 13$ TeV with the ATLAS detector}",
@@ -1534,6 +1539,7 @@ year = "1998"
 }
 
 @techreport{ATLAS_Hgg80,
+      author         = "ATLAS Collaboration",
       title         = "{Measurements of Higgs boson properties in the diphoton
                        decay channel using 80 fb$^{-1}$ of $pp$ collision data at
                        $\sqrt s$ = 13 TeV with the ATLAS detector}",
@@ -1545,6 +1551,7 @@ year = "1998"
 }
 
 @techreport{ATLASstage0_ZZ,
+      author         = "ATLAS Collaboration",
       title         = "{Measurements of the Higgs boson production, fiducial and
                        differential cross sections in the 4l decay channel at
                        $\sqrt{s}=$13~TeV with the ATLAS detector}",
@@ -1564,15 +1571,12 @@ year = "1998"
 	year = {2017},
 	doi = {10.1126/science.aan0207},
 	publisher = {American Association for the Advancement of Science},
-	abstract = {Fundamental physical laws are believed to remain the same if subjected to three simultaneous transformations: flipping the sign of electric charge, taking a mirror image, and running time backward. To test this charge, parity, and time-reversal (CPT) symmetry, it is desirable to know the fundamental properties of particles such as the proton to high precision. Schneider et al. used a double ion trap to determine the magnetic moment of a single trapped proton to a precision of 0.3 parts per billion. Comparatively precise measurements of the same quantity in the antiproton are now needed for a rigorous test of CPT symmetry.Science, this issue p. 1081Precise knowledge of the fundamental properties of the proton is essential for our understanding of atomic structure as well as for precise tests of fundamental symmetries. We report on a direct high-precision measurement of the magnetic moment μp of the proton in units of the nuclear magneton μN. The result, μp = 2.79284734462 ({\textpm}0.00000000082) μN, has a fractional precision of 0.3 parts per billion, improves the previous best measurement by a factor of 11, and is consistent with the currently accepted value. This was achieved with the use of an optimized double{\textendash}Penning trap technique. Provided a similar measurement of the antiproton magnetic moment can be performed, this result will enable a test of the fundamental symmetry between matter and antimatter in the baryonic sector at the 10-10 level.},
 	issn = {0036-8075},
-	URL = {https://science.sciencemag.org/content/358/6366/1081},
-	eprint = {https://science.sciencemag.org/content/358/6366/1081.full.pdf},
 	journal = {Science}
 }
 
 @article{ATLASttHobservation,
-      author         = "Aaboud, M. and others",
+      author         = "ATLAS Collaboration",
       title          = "{Observation of Higgs boson production in association
                         with a top quark pair at the LHC with the ATLAS detector}",
       collaboration  = "ATLAS",
@@ -1589,7 +1593,7 @@ year = "1998"
 }
 
 @article{CMSttHobservation,
-      author         = "Sirunyan, Albert M and others",
+      author         = "ATLAS Collaboration",
       title          = "{Observation of $\mathrm{t\overline{t}}$H production}",
       collaboration  = "CMS",
       journal        = "Phys. Rev. Lett.",
@@ -1606,7 +1610,7 @@ year = "1998"
 }
 
 @article{ATLAScouplingsRun1,
-      author         = "Aad, Georges and others",
+      author         = "ATLAS Collaboration",
       title          = "{Measurements of Higgs boson production and couplings in
                         diboson final states with the ATLAS detector at the LHC}",
       collaboration  = "ATLAS",
@@ -1625,7 +1629,7 @@ year = "1998"
 }
 
 @article{CMScouplingsRun1,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{Precise determination of the mass of the Higgs boson and
                         tests of compatibility of its couplings with the standard
                         model predictions using proton collisions at 7 and 8
@@ -1645,7 +1649,7 @@ year = "1998"
 }
 
 @article{ATLASandCMScouplingsRun1,
-      author         = "Aad, Georges and others",
+      author         = "ATLAS and CMS Collaborations",
       title          = "{Measurements of the Higgs boson production and decay
                         rates and constraints on its couplings from a combined
                         ATLAS and CMS analysis of the LHC pp collision data at $
@@ -1664,7 +1668,7 @@ year = "1998"
 }
 
 @article{ATLASbbObservation,
-      author         = "Aaboud, Morad and others",
+      author         = "ATLAS Collaboration",
       title          = "{Observation of $H \rightarrow b\bar{b}$ decays and $VH$
                         production with the ATLAS detector}",
       collaboration  = "ATLAS",
@@ -1681,7 +1685,7 @@ year = "1998"
 }
 
 @article{CMSbbObservation,
-      author         = "Sirunyan, A. M. and others",
+      author         = "CMS Collaboration",
       title          = "{Observation of Higgs boson decay to bottom quarks}",
       collaboration  = "CMS",
       journal        = "Phys. Rev. Lett.",
@@ -1698,7 +1702,7 @@ year = "1998"
 }
 
 @article{ATLAStautauObservation,
-      author         = "Aaboud, Morad and others",
+      author         = "ATLAS Collaboration",
       title          = "{Cross-section measurements of the Higgs boson decaying
                         into a pair of $\tau$-leptons in proton-proton collisions
                         at $\sqrt{s}=13$ TeV with the ATLAS detector}",
@@ -1716,7 +1720,7 @@ year = "1998"
 }
 
 @article{CMStautauObservation,
-      author         = "Sirunyan, Albert M and others",
+      author         = "CMS Collaboration",
       title          = "{Observation of the Higgs boson decay to a pair of $\tau$
                         leptons with the CMS detector}",
       collaboration  = "CMS",
@@ -1733,7 +1737,7 @@ year = "1998"
 }
 
 @article{CMSspinHiggs,
-      author         = "Khachatryan, Vardan and others",
+      author         = "CMS Collaboration",
       title          = "{Constraints on the spin-parity and anomalous HVV
                         couplings of the Higgs boson in proton collisions at 7 and
                         8 TeV}",
@@ -1752,7 +1756,7 @@ year = "1998"
 }
 
 @article{ATLASspinHiggs,
-      author         = "Aad, Georges and others",
+      author         = "ATLAS Collaboration",
       title          = "{Study of the spin and parity of the Higgs boson in
                         diboson decays with the ATLAS detector}",
       collaboration  = "ATLAS",
@@ -1772,7 +1776,7 @@ year = "1998"
 }
 
 @article{ATLASandCMSmass,
-      author         = "Aad, Georges and others",
+      author         = "ATLAS and CMS Collaborations",
       title          = "{Combined Measurement of the Higgs Boson Mass in $pp$
                         Collisions at $\sqrt{s}=7$ and 8 TeV with the ATLAS and
                         CMS Experiments}",
@@ -1790,10 +1794,7 @@ year = "1998"
 }
 
 @article{CALICE,
-      author         = "Adloff, C. and Blaha, J. and Blaising, J. -J. and
-                        Drancourt, C. and Espargiliere, A. and Galione, R. and
-                        Geffroy, N. and Karyotakis, Y. and Prast, J. and Vouters,
-                        G.",
+      author         = "CALICE Collaboration",
       title          = "{Tests of a particle flow algorithm with CALICE test beam
                         data}",
       collaboration  = "CALICE",
