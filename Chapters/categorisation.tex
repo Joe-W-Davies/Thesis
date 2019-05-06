@@ -53,7 +53,7 @@ Around fifteen events are expected to be removed as a result,
 most of which would otherwise have populated the ggH 2J categories with higher \ptH values.
 Furthermore, there are no dedicated analysis categories for VH production; 
 there are insufficient statistics in the diphoton decay channel with this dataset 
-to measure any of the individual stage 1 bins\cite{YR4}.
+to measure any of the individual stage 1 bins~\cite{YR4}.
 
 The categorisation targeting ggH is based on the reconstructed diphoton transverse momentum (\ptgg) 
 and the number of jets in the event. 
@@ -222,7 +222,6 @@ The background, split into its prompt--prompt, prompt--fake, and fake--fake comp
 is compared to the data sidebands (where the region with $115 < \mgg < \SI{135}{GeV}$ is excluded).
 Good agreement between the two is observed.
 
-%TODO add signal line to these plots, if they are kept
 \begin{figure}[hptb]
   \centering
   \includegraphics[width=0.49\textwidth]{Figures/Categorisation/leadptom_2016.pdf}
@@ -309,7 +308,6 @@ and no significant improvement was obtained.
 %This plot serves as validation that the classifier is learning 
 %sensible features of the input dataset.
 %TODO add ROC curve and feature importance plots here.
-%TODO add something about checking overtraining?
 
 Validation of the diphoton BDT is performed using \Zee events, 
 where simulated Drell-Yan events are compared with data.
@@ -365,7 +363,7 @@ neglecting the impact of systematic uncertainties.
 Its derivation is outlined in Ref.~\cite{Asymptotic}.
 The aim of this analysis is not to maximise the significance of each stage 1 bin.
 Maximising the AMS is instead a proxy for minimising the expected uncertainty for a given bin.
-The formula for the AMS is given by 
+The formula for the AMS for a given analysis category is given by 
 
 \begin{equation*}
   AMS = \sqrt{ 2 \left( (S+B) \ln{\left(1+\frac{S}{B}\right)} - S \right) }
@@ -380,6 +378,7 @@ Results are found to be robust to the choice of metric;
 only in bins with a very low number of events (e.g. the BSM bins) 
 does the AMS metric return different optimal diphoton BDT boundaries from the $S/\sqrt{S+B}$ metric, 
 and then the differences are relatively small.
+The total AMS significance is computed by summing the values for each analysis category in quadrature.
 
 The optimisation procedure itself is performed using a random search. 
 %This is found to be more computationally efficient than a grid search.
@@ -490,7 +489,8 @@ In addition, the jets in VBF events originate from quarks,
 whereas ggH events typically originate from gluons.
 This results in subtle differences in the internal structure of the jet objects, 
 as discussed in Chapter~\ref{chap:hgcal}.
-The variables used there do not significantly improve the dijet BDT performance;
+Adding the jet shape variables used there as inputs 
+do not significantly improve the performance of the dijet BDT;
 however it has been shown that more sophisticated techniques using neural network classifiers
 and detailed jet image inputs can improve the performance~\cite{JackThesis}.
 The full set of input variables for the dijet BDT are:
@@ -698,7 +698,8 @@ which is 0.84.
 As an additional cross-check, the BDT is trained with events from the data sideband. 
 The area of this ROC curve is also 0.87, 
 which confirms that the observed improvement is reasonable.
-%TODO add 2017 numbers
+The performance is 2017 is very similar, 
+with the data-driven method improving in the ROC score from 0.83 to 0.86.
 
 The agreement between data and simulation for the dijet BDT score is validated 
 in a similar way to the diphoton BDT.
@@ -730,7 +731,7 @@ with all discrepancies covered by the statistical and systematic uncertainties.
 \subsection{Category definitions}
 
 In previous versions of the analysis, 
-the categories targeting VBF were defined using the so-called ``combined BDT".
+the categories targeting VBF production were defined using the so-called ``combined BDT".
 The combined BDT is designed to incorporate both the dijet and diphoton information 
 in order to optimally construct the VBF categories.
 Its input variables are:
@@ -739,19 +740,21 @@ Its input variables are:
 \item the dijet BDT score
 \item the transverse momentum of the two leading photons, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
 \end{itemize}
-The combined BDT is trained with VBF against the three sources of SM background, 
+The combined BDT is trained with VBF as signal against the three sources of SM background, 
 using simulated events in each case.
 Gluon fusion is not included in the training because it is found to worsen the performance 
 of the combined BDT to reject true background.
 Since these backgrounds have a greater impact on the final sensitivity 
 than the contamination from other signal processes, 
 this is considered a higher priority.
-However it does mean that the ggH rejection of the combined BDT can be sub-optimal.
-Here the efficacy of the combined BDT is combined with the more direct approach of 
+However, it does mean that the ggH rejection of the combined BDT can be sub-optimal.
+Here the efficacy of the combined BDT is compared with the more direct approach of 
 defining the VBF categories by imposing thresholds on the diphoton and dijet BDT scores directly.
 
-In addition, different possible categorisation scenarios are considered.
-In Ref.~\cite{HIG-16-040}, three inclusive categories are defined using the combined BDT.
+In addition to comparing the two different BDT approaches, 
+different possible categorisation scenarios are considered.
+In Ref.~\cite{HIG-16-040}, three inclusive categories are defined 
+by placing thresholds on the output score of the combined BDT.
 For this analysis, further splitting using kinematic variables is required 
 if the different VBF stage 1 bins are to be measured individually.
 %However it is found that optimising for each stage 1 bin independently, 
@@ -763,41 +766,50 @@ the figure of merit considered is the total VBF significance,
 computed using the AMS metric with all VBF bins considered as signal.
 Scenarios with additional splits following the stage 1 bin definitions 
 will then be considered preferable, 
-provided they do not substantially reduce the overall VBF significance.
+provided they do not substantially reduce the overall VBF significance, 
+since they enable individual stage 1 bins to be measured in addition to the overall VBF cross section.
 In each scenario, there is a single dedicated VBF BSM category 
 which requires that the \pt of the leading jet is greater than \SI{200}{GeV}.
 The list of scenarios considered is as follows:
 \begin{itemize}
-\item \textbf{Inclusive two category:} Only two categories are considered, 
+\item \textbf{Inclusive two category:} Two categories are considered, 
       with no additional kinematic selection criteria applied.
-      This gives a total of three categories.
+      Including the VBF BSM category, this gives three categories in total.
 \item \textbf{Inclusive three category:} Three categories are considered, 
       with no additional kinematic selection criteria applied.
-      This is almost equivalent to the approach in Ref~\cite{HIG-16-040}, 
+      It is almost equivalent to the approach in Ref~\cite{HIG-16-040}, 
       aside from the additional VBF BSM category.
       This gives a total of four categories.
 \item \textbf{Split by \ptHjj:} Two categories are considered 
       for each of the 2J-like and 3J-like VBF bins,
-      using a boundary at \SI{25}{GeV} on \ptHjj.
+      using a boundary at \SI{25}{GeV} on the reconstructed value of \ptHjj.
       This gives a total of five categories.
 \item \textbf{Split by \ptHjj and \mjj:} Two categories are considered
       for each of the 2J-like and 3J-like VBF bins,
-      using a boundary at \SI{25}{GeV} on \ptHjj.
+      using a boundary at \SI{25}{GeV} on the reconstructed value of \ptHjj.
       Additionally, the requirement that \mjj is greater than \SI{400}{GeV} is applied.
+      A fifth category targeting principally the ``VBF rest" bin, with $250 < \mjj < 400$,
+      is therefore included.
       This gives a total of six categories.
 \end{itemize}
 
-A random optimisation procedure is followed for each scenario considered, 
+A boundary optimisation procedure is followed for each scenario, 
 using the same methodology as for the ggH categories.
-In the case of the approach applying only thresholds on the diphoton and dijet BDT output scores, 
+For the approach which uses the diphoton and dijet BDT output scores directly, 
 the values of the thresholds on the two BDTs are optimised simultaneously for each category.
 The resulting significance values of each scenario for the 2016 and 2017 datasets 
 are shown in Tables~\ref{tab:cat_VBFscenarios2016} and \ref{tab:cat_VBFscenarios2017} respectively.
 The performance of the combined BDT approach is compared with the approach using the diphoton 
 and dijet BDT scores directly in each case.
-The results demonstrate that there is no substantial reduction in the overall VBF significance
-when the most granular categorisation scenario is optimised in this way;
-it is therefore considered the best scenario for facilitating measurements of individual stage 1 bins.
+For both years, the combined BDT performs slightly worse 
+than the direct use of the diphoton and dijet BDTs.
+This can be attributed to the fact that the combined BDT is trained only on simulation; 
+it is not possible to use the data-driven method for its training 
+since the photon information is used as inputs.
+Furthermore, the results demonstrate that there is no substantial reduction 
+in the overall VBF significance with the most granular categorisation scenario.
+It is therefore considered the best scenario for facilitating measurements of individual stage 1 bins, 
+and is chosen as the VBF categorisation scheme for the analysis.
 
 Tables~\ref{tab:cat_VBFcuts2016} and \ref{tab:cat_VBFcuts2017} show the final thresholds 
 for the diphoton and dijet BDTs in each category, 
