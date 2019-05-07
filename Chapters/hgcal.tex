@@ -418,8 +418,16 @@ A more substantial benefit of the HGCAL upgrade
 will be the ability to separate quark-initiated jets from jets which originate from gluon emission.
 This is illustrated in a study of the ggH and VBF production modes in the \Hgg decay channel, 
 using events simulated under HL-LHC conditions with the upgraded CMS detector.
-In the Run~2 analysis, the so-called dijet BDT is used to discriminate between ggH and VBF
-using photon and jet kinematic variables.
+In the Run~2 analysis, boosted decision trees (BDTs) 
+are used extensively to discriminate between different types of physics processes.
+A BDT is an example of a supervised machine learning method, 
+which takes a set of labels corresponding to target truth classes 
+together with a set of dependent variables and outputs or scores indicating how likely 
+an event is to belong to a given class.
+A more detailed description of BDTs, how they are trained 
+and how they are used in physics analyses is given in Section~\ref{sec:BDTs}.
+One of the BDTs used in the Run 2 analysis, known as the dijet BDT,
+is used to discriminate between ggH and VBF using photon and jet kinematic variables.
 Here, the possibility of exploiting the granularity of the HGCAL 
 by using jet shape variables as BDT inputs in addition to the kinematic variables is explored.
 
