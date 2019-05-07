@@ -590,3 +590,19 @@ The presence of neutrinos in an event can be inferred by a global imbalance in t
 resulting in so-called ``missing" transverse momentum (\met).
 The \met computation uses the corrected \pt values for objects, and with all jet energy corrections applied.
 It can be used to identify the neutrinos resulting from $W$ boson decay in $VH$ events.
+
+\section{Summary}
+
+The CMS detector utilises information from all of its subdetectors in order to optimally reconstruct
+different types of particles, using a technique known as particle flow.
+Photon candidates produced by the particle flow algorithm are subjected to a set of selection 
+requirements in order to enter the \Hgg analysis. 
+These requirements based on the shape of the electromagnetic shower deposited in the detector 
+and how isolated that shower is relative to other particles in the event.
+The photon energies are corrected using a multivariate regression, 
+which optimises the resulting diphoton mass resolution of photon pairs selected for the analysis, 
+and thereby improves the analysis sensitivity.
+A BDT known as the photon identification BDT is trained to reduce the rate at which
+jet fragments are misidentified as photons.
+Other types of objects, including jets, are used to discriminate 
+between different Higgs boson production modes.
