@@ -1825,3 +1825,42 @@ year = "1998"
       reportNumber   = "CERN-LPCC-2019-01, CMS-FTR-19-001, ATL-PHYS-PUB-2019-006",
       SLACcitation   = "%%CITATION = ARXIV:1902.10229;%%"
 }
+
+@inproceedings{Snowmass,
+      author         = "Dawson, S. and others",
+      title          = "{Working Group Report: Higgs Boson}",
+      booktitle      = "{Proceedings, 2013 Community Summer Study on the Future
+                        of U.S. Particle Physics: Snowmass on the Mississippi
+                        (CSS2013): Minneapolis, MN, USA, July 29-August 6, 2013}",
+      url            = "http://www.slac.stanford.edu/econf/C1307292/docs/EnergyFrontier/Higgs-18.pdf",
+      year           = "2013",
+      eprint         = "1310.8361",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "FERMILAB-CONF-13-671-T",
+      SLACcitation   = "%%CITATION = ARXIV:1310.8361;%%"
+}
+
+@article{STXStoEFT,
+      author        = "Hays, Chris and Sanz Gonzalez, Veronica and Zemaityte,
+                       Gabija",
+      title         = "{Constraining EFT parameters using simplified template
+                       cross sections}",
+      month         = "Oct",
+      year          = "2017",
+      reportNumber  = "LHCHXSWG-INT-2017-001",
+      url           = "https://cds.cern.ch/record/2290628",
+}
+
+@techreport{JonnoPAS,
+      author         = "CMS Collaboration",
+      title          = "{Constraints on the Higgs boson self-coupling from
+                        ttH+tH, H to gamma gamma differential measurements at the
+                        HL-LHC}",
+      collaboration  = "CMS",
+      year           = "2018",
+      reportNumber   = "CMS-PAS-FTR-18-020",
+      number         = "CMS-PAS-FTR-18-020",
+      url            = "http://cds.cern.ch/record/2647986",
+      SLACcitation   = "%%CITATION = CMS-PAS-FTR-18-020;%%"
+}
