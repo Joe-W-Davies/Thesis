@@ -1842,8 +1842,8 @@ year = "1998"
 }
 
 @article{STXStoEFT,
-      author        = "Hays, Chris and Sanz Gonzalez, Veronica and Zemaityte,
-                       Gabija",
+      author        = "Hays, C. and Sanz Gonzalez, V. and Zemaityte,
+                       G.",
       title         = "{Constraining EFT parameters using simplified template
                        cross sections}",
       month         = "Oct",
@@ -1877,7 +1877,7 @@ year = "1998"
 }
 
 @article{SUSY,
-      author         = "Martin, Stephen P.",
+      author         = "Martin, S.",
       title          = "{A Supersymmetry primer}",
       year           = "1997",
       pages          = "1-98",
