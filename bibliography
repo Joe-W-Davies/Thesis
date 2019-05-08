@@ -1422,8 +1422,6 @@ year = "1998"
       journal        = "eConf",
       volume         = "C0303241",
       year           = "2003",
-      pages          = "MOLT007",
-      note           = "[,186(2003)]",
       eprint         = "physics/0306116",
       archivePrefix  = "arXiv",
       primaryClass   = "physics",
@@ -1888,4 +1886,22 @@ year = "1998"
       primaryClass   = "hep-ph",
       reportNumber   = "FERMILAB-PUB-97-425-T",
       SLACcitation   = "%%CITATION = HEP-PH/9709356;%%"
+}
+
+@inproceedings{ClusteringConf,
+      author         = "Chen, Ziheng and Lange, Clemens and Meschi, Emilio and
+                        Scott, Edward and Seez, Chris",
+      title          = "{Offline Reconstruction Algorithms for the CMS High
+                        Granularity Calorimeter for HL-LHC}",
+      booktitle      = "{Proceedings, 2017 IEEE Nuclear Science Symposium and
+                        Medical Imaging Conference and 24th international
+                        Symposium on Room-Temperature Semiconductor X-Ray \&
+                        Gamma-Ray Detectors (NSS/MIC 2017): Atlanta, Georgia, USA,
+                        October 21-28, 2017}",
+      collaboration  = "CMS",
+      year           = "2018",
+      pages          = "8532605",
+      doi            = "10.1109/NSSMIC.2017.8532605",
+      reportNumber   = "CMS-CR-2017-408",
+      SLACcitation   = "%%CITATION = CMS-CR-2017-408;%%"
 }
