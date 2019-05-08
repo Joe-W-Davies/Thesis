@@ -265,8 +265,7 @@ where the signal efficiency is plotted as a function of the background efficienc
 with each point corresponding to a specific threshold value placed on the classifier output score.
 The area under the ROC curve is used to gauge the performance of a given classifier; 
 a higher area corresponds to more effective discrimination between signal and background.
-For the 2016 and 2017 trainings, the areas under the respective ROC curves are 0.77 and 0.78.
-%TODO update these numbers
+For the 2016 and 2017 trainings, the areas under the respective ROC curves are both equal to 0.85.
 
 This metric is utilised to compare the performance of the classifier training 
 with different values of the BDT's so-called hyper-parameters.
@@ -299,8 +298,7 @@ This is purely a technical change to the training
 designed to improve the learning outcomes of the classifier.
 When evaluating the performance, the default event weights are used.
 Equalising the total weights in this way results in a modest improvement in performance.
-The areas under the ROC curves become 0.80 and 0.82 for the 2016 and 2017 datasets respectively.
-%TODO update these numbers
+The areas under the ROC curves become 0.87 for both the 2016 and 2017 datasets.
 The improvement is relatively small, 
 but is however larger than the variation 
 in training performance induced by either changing the random seed used for training or 
@@ -314,7 +312,7 @@ and no significant improvement was obtained.
 %In addition, the relative importance of each feature is shown in Figure~\ref{fig:cat_importance}.
 %This plot serves as validation that the classifier is learning 
 %sensible features of the input dataset.
-%TODO add ROC curve and feature importance plots here.
+%TODO add ROC curve and feature importance plots here?
 
 Validation of the diphoton BDT is performed using \Zee events, 
 where simulated Drell-Yan events are compared with data.
@@ -410,7 +408,7 @@ for 2016 and 2017 simulation and data respectively.
     \caption[Definitions of 2016 categories targeting ggH production.]
     {
       The chosen diphoton BDT boundaries, 
-      the expected number of signal and background events, 
+      the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the ggH phase space 
       for 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.
     }
@@ -424,7 +422,7 @@ for 2016 and 2017 simulation and data respectively.
     \caption[Definitions of 2017 categories targeting ggH production.]
     {
       The chosen diphoton BDT boundaries, 
-      the expected number of signal and background events, 
+      the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the ggH phase space 
       for 2017 simulation and data, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
     }
@@ -830,9 +828,6 @@ Tables~\ref{tab:cat_VBFcuts2016} and \ref{tab:cat_VBFcuts2017} show the final th
 for the diphoton and dijet BDTs in each category, 
 together with the expected number of signal and background events and the per-category significance.
 
-\newpage
-
-%TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
     \input{Tables/VBFcomparison2016.tex}
@@ -847,7 +842,6 @@ together with the expected number of signal and background events and the per-ca
   \end{centering}
 \end{table}
 
-%TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
     \input{Tables/VBFcomparison2017.tex}
@@ -862,14 +856,13 @@ together with the expected number of signal and background events and the per-ca
   \end{centering}
 \end{table}
 
-%TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
     \input{Tables/VBFcats2016.tex}
     \caption[Definitions of 2016 categories targeting VBF production.]
     {
       The chosen diphoton and dijet BDT boundaries, 
-      the expected number of signal and background events, 
+      the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the VBF phase space 
       for 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.
     }
@@ -877,14 +870,13 @@ together with the expected number of signal and background events and the per-ca
   \end{centering}
 \end{table}
 
-%TODO check / regenerate these numbers
 \begin{table}
   \begin{centering}
     \input{Tables/VBFcats2017.tex}
     \caption[Definitions of 2017 categories targeting VBF production.]
     {
       The chosen diphoton and dijet BDT boundaries, 
-      the expected number of signal and background events, 
+      the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the VBF phase space 
       for 2017 data and simulation, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
     }
