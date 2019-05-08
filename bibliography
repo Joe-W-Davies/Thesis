@@ -1905,3 +1905,11 @@ year = "1998"
       reportNumber   = "CMS-CR-2017-408",
       SLACcitation   = "%%CITATION = CMS-CR-2017-408;%%"
 }
+
+@book{ElementsLearning,
+      author         = "Hastie, T. and Tibshirani, R. and Friedman, Jerome",
+      title          = "{The Elements of Statistical Learning}",
+      publisher      = "Springer",
+      year           = "2009",
+      ISBN           = "9780387848587",
+}

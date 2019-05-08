@@ -74,6 +74,68 @@ and their use in the category optimisation process for both ggH and VBF events.
 \section{Boosted decision trees}
 \label{sec:BDTs}
 %FIXME fill in this section
+In the CMS \Hgg analysis, BDTs are used for several purposes.
+Generally, the purpose of the BDT is to discriminate between 
+one signal-like and one background-like process.
+The BDT provides a per-event output score which indicates how signal-like the event is, 
+and a criterion can be applied on this output score when selecting or categorising events.
+This section gives a brief explanation of what BDTs are and how they are trained.
+
+A BDT is an example of a machine learning algorithm which takes as input a set of features, 
+a set of training parameters, and a loss function, 
+and from those inputs returns an output score~\cite{ElementsLearning}.
+The so-called feature vector $\vec{x}$ is a set of real values for each event
+which can be used to discriminate between signal and background processes. 
+Examples used in the analysis include physical variables such as \pt.
+In addition, when training the BDT, the target outcome $y$ must be provided.
+The events used for training typically come from simulation, where the truth process is known.
+For all the cases considered in this analysis, $y$ simply takes the value 1 for signal events
+and 0 for background events.
+The training parameters $\vec{w}$, also referred to as hyper-parameters, 
+are parameters which control the behaviour of the learning procedure.
+The loss function $L$ defines the metric on which the learning procedure is optimising.
+The output score for events being evaluated is denoted $Y$.
+
+A BDT is an ensemble of decision trees (DTs), 
+which are so-called base learners that recursively split the input feature space into distinct regions
+by applying binary partitions at each node.
+Once a given branch reaches its final node where no further splitting is performed, 
+an output value is assigned to that region.
+The training procedure for an individual DT involves considering many possible configurations
+for the tree and computing the loss function for each one.
+The point at which the training process terminates depends upon the hyperparameter values.
+For example, there may be a restriction on the tree depth, 
+meaning the number of binary partitions permitted for each branch.
+In this way an optimal configuration is chosen, 
+and any given input for evaluation (without the target label $y$) 
+will be placed in a single region and assigned the corresponding score.
+
+The boosting procedure combines individual DTs into a more powerful learner.
+An iterative training process enables the existing models to be improved upon, 
+with the final BDT output function consisting of a weighted sum of individual DTs.
+Boosting algorithms train each successive tree on the pseudo-residuals, or errors, 
+of the existing function, thereby attempting to correct the mistakes made by existing trees.
+The pseudo-residuals are given by the differential of the loss function; 
+this is the reason the boosting procedure is analogous to gradient descent, 
+and sometimes referred to as gradient boosting.
+The new tree is then added to existing function, itself a weighted sum of trees, 
+with a weight assigned by minimising the loss of the new function.
+This procedure is repeated until a given performance threshold or other stopping criterion is met.
+
+The performance of a given BDT training is evaluated on a sample independent 
+of that used to train it, in order to ensure that 
+the features learned by the BDT generalise beyond the specific training dataset used.
+If the BDT's performance is greater on the training dataset than the so-called test dataset, 
+it is said to have overfitted, or been overtrained.
+This means it has placed too much importance on statistical fluctuations on the training dataset
+which will not be present in other samples.
+The hyperparameters chosen for a given training will affect whether or not the BDT is overtrained.
+For example, the learning rate reduces the weight assigned to each tree in the iterative learning
+process, which is analogous to the step size in gradient descent methods.
+A smaller learning rate will reduce the chance of overfitting 
+but also increase the time taken for the training to converge.
+For this reason, an optimisation procedure is normally used to choose the hyperparameters
+in such a way that maximises performance without overtraining the BDT.
 
 \section{Gluon fusion categorisation}
 \subsection{Signal bin definitions}
