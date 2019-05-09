@@ -3,10 +3,10 @@
 
 \section{Introduction}
 
-The Large Hadron Collider (LHC) at CERN is a 27\,km hadron accelerator and collider with a design centre-of-mass energy of 14\,TeV~\cite{LHC}.
+The Large Hadron Collider (LHC) at CERN is a 27\,km hadron accelerator and collider with a design centre-of-mass energy of up to 14\,TeV~\cite{LHC}.
 Its purpose is to provide collisions sufficient in energy and number to precisely probe physics at the electroweak scale.
 Four detectors, one of which is the Compact Muon Solenoid (CMS), are situated around the LHC ring.
-CMS is a general-purpose detector designed to precisely measure a wide range of physics objects.
+CMS is a general-purpose detector designed to reconstruct a wide range of physics objects.
 Together, the LHC and CMS facilitate a wide-ranging program of physics studies, from SM precision measurements to dark matter searches, 
 and including exploration of electroweak symmetry breaking via production of the Higgs boson.
 This chapter will describe the design and operation of both the LHC and the CMS detector.
@@ -24,7 +24,7 @@ The other two detectors, LHCb~\cite{LHCb} and ALICE~\cite{ALICE}, focus on flavo
 Whilst the LHC is capable of producing heavy ion collisions in addition to proton-proton collisions, 
 the remainder of this section will be dedicated to its proton-proton operations.
 A schematic of the full CERN accelerator complex and the LHC experiments is shown in Figure~\ref{fig:detector_CERNschematic}.
-The operation of the LHC and the data it has accumulated so far is described in detail below.
+The operation of the LHC and the data it has accumulated so far are described in detail below.
 
 \begin{figure}[h!]
   \centering
@@ -41,17 +41,17 @@ The operation of the LHC and the data it has accumulated so far is described in 
 
 The LHC design parameters allow for proton-proton collisions to occur at a maximum centre-of-mass energy of 14\,TeV 
 with an instantaneous luminosity of up to \SI{1e34}{\lumi}.
-Prior to being injected into the LHC beam pipes, bunches of protons pass are accelerated in several stages. 
+Prior to being injected into the LHC beam pipes, bunches of protons are accelerated in several stages. 
 First, protons are obtained by stripping the electrons from hydrogen atoms using a strong electric field.
 The protons produced are then accelerated up to an energy of 50 MeV by Linear Accelerator 2 (LINAC 2).
-LINAC 2 leads into the Proton Synchrotron Booster (PSB), where they reach an energy of 1.4 GeV before passing into the Proton Synchrotron (PS).
+LINAC 2 leads into the Proton Synchrotron Booster (PSB), where the protons reach an energy of 1.4 GeV before passing into the Proton Synchrotron (PS).
 Here the beam is accelerated up to 25 GeV before being transferred to the Super Proton Synchrotron (SPS).
 The SPS is the last step before the protons enter the LHC itself at an energy of 540 GeV.
 Therefore the LHC is responsible for the final acceleration from 540 GeV to the full energy.
-Thus far, the energy reached for stable operation is 6.5\,TeV per beam; 
-the full design energy is expected to be achieved in future, beginning in 2021.
+Thus far, the highest energy reached for stable operation is 6.5\,TeV per beam; 
+the full design energy of 6.5\,TeV per beam is expected to be achieved in future, beginning in 2021.
 
-The key components of the LHC are its 1232 main dipole magnets, 392 main quadrupole magnets and 16 radiofrequency (RF) cavities.
+The key components of the LHC are its 1,232 main dipole magnets, 392 main quadrupole magnets and 16 radiofrequency (RF) cavities.
 Superfluid helium cools the dipole magnets to 1.9K, at which temperature they produce the 8.3T magnetic field required to keep the beams in circular orbit.
 Quadrupole magnets are used principally to focus the beams near the interaction points, which increases the probability of a high-energy proton-proton collision.
 The RF cavities deliver an accelerating field of 5MV/m at a frequency of 400MHz, and furthermore maintain the shape of the 2808 proton bunches per beam.
@@ -63,8 +63,8 @@ In 2012 this was increased to 8\,TeV, and a total of 23.3\,\fbinv of data were c
 Analyses based upon this Run~1 dataset were able to discover the Higgs boson~\cite{ATLASdiscovery,CMSdiscovery}.
 After a shutdown for upgrades to the machine, Run~2 ran from 2015 to 2018 at a constant 13\,TeV centre-of-mass energy.
 The LHC was able to exceed its design luminosity in each of the years, eventually levelling the luminosity at $\SI{2e34}{\lumi}$ for the majority of 2018 operations.
-A number of additional inelastic proton-proton collisions in addition to a collision of interest, known as pileup, occur at a rate proportional to the instantaneous luminosity.
-The mean number of pileup events was 27 per bunch crossing in 2016, and 37 in both 2017 and 2018 data-taking.
+A number of additional inelastic proton-proton collisions in addition to a collision of interest, known as pileup, occur at a rate which increases with the instantaneous luminosity.
+The mean number of pileup events was 23 per bunch crossing in 2016, and 32 in both 2017 and 2018 data-taking.
 Figure \ref{fig:detector_Run1andRun2lumi} summarises the data collected in each year, 
 demonstrating the large increase in integrated luminosity obtained during Run 2.
 The values shown in the figure refer to the integrated luminosity delivered to the CMS detector.
@@ -147,7 +147,7 @@ High pseudorapidity values, corresponding to a direction close to the beampipe, 
 
 The central feature of the CMS detector is the superconducting solenoid, whose 220 tonne cold mass is maintained at 4.5\,K.%using liquid helium cooling - 1.8K redundancy
 The coil of the magnet measures 6\,m in diameter, is 13\,m long, and provides a maximum field strength of 4\,T, storing a total energy of 1.6\,GJ.
-During normal operation however the current is reduced to approximately 95\% of its capacity, resulting in a field strength of 3.8\,T.
+During normal operation, however, the current is reduced to approximately 95\% of its capacity, resulting in a field strength of 3.8\,T.
 This ensures the longevity of the solenoid.
 The magnetic flux is returned by a 10,000 tonne yoke, composed of three disk-like layers in both the barrel and endcaps.
 
@@ -209,21 +209,22 @@ The motivation for the upgrade was to maintain or improve existing performance d
 The original pixel detector suffered from data loss at high occupancy, lower efficiency at high pileup, and degradation in performance due to radiation damage.
 Key improvements in the upgraded version include a fourth layer, a new readout chip, slightly reduced material budget and greater radiation hardness.
 The installation was successful and smooth operation was reached during 2017 data-taking.
-Performance in several areas, such as $b$-tagging, was enhanced as a result.
-However the overall impact on the \Hgg analysis was relatively small.
+Performance in several areas, such as $b$-tagging, is enhanced as a result.
+However the overall impact on the \Hgg analysis is relatively small.
 
 \subsection{Electromagnetic calorimeter}
 \label{sec:detector_ECAL}
 
 The CMS ECAL is a homogeneous detector which uses lead tungstate (\pbw) crystals as the active material~\cite{CMSdetector,ECALperformance}.
-A total of 61200 crystals cover the barrel area (EB), with 7324 in each of the endcaps (EE).
+A total of 61,200 crystals cover the barrel area (EB), with 7,324 in each of the endcaps (EE).
 Readout is performed by silicon avalanche photodiodes (APDs) and vacuum phototriodes (VPTs) in the barrel and endcap regions respectively.
 An additional preshower detector is present in front of the endcaps, in order to improve $\pi_0$ rejection.
 The total coverage in pseudorapidity reaches $|\eta|\,=\,3$; full energy resolution is maintained to ~$|\eta|\,=\,2.5$.
 The ECAL is the most important sub-detector in the \Hgg analysis, 
 and the ECAL design itself was driven by the need to precisely reconstruct the two photons produced in Higgs boson decays.
 Hence this section is dedicated to describing the ECAL in some detail.
-The overall structure is shown in Figure~\ref{fig:detector_ECALschematic}.
+The overall structure is shown in Figure~\ref{fig:detector_ECALschematic}, 
+which illustrates the multiple subsystems composing the ECAL.
 
 \begin{figure}[h!]
   \centering
@@ -242,7 +243,9 @@ The short response time is necessary to collect the energy deposit before the ne
 \pbw crystals emit approximately 80\% of the total scintillation light in 25\,ns.
 Their high density ($\SI{8.28}{\gram\per\centi\metre^3}$) facilitates the compactness and granularity of the detector without compromising on the containment of electromagnetic showers.
 A radiation length of 0.89\,cm means the 22\,cm barrel (23\,cm endcap) crystals cover a 24.7\,$X_0$ (25.8\,$X_0$) in the longitudinal direction. %mean distance travelled before reaching 1/e of original energy via brem
-Lateral containment is also excellent, with a Moli\`ere radius of 2.2\,cm. %radius of cylinder containing 90% of average deposition; two contain 95% therefore.
+Lateral containment is also excellent, with a Moli\`ere radius\footnote{The Moli\`ere radius 
+is defined as the radius containing on average 90\% of a shower's total energy deposition}
+of 2.2\,cm. %radius of cylinder containing 90% of average deposition; two contain 95% therefore.
 
 The EB extends to $|\eta|\,=\,1.479$, as shown in Figure~\ref{fig:detector_ECALquadrant}.
 Each crystal has a tapered shape which covers $0.0174\times0.0174$ in $\eta-\phi$, 
@@ -270,7 +273,7 @@ The setup as a whole is displayed using one quadrant of the detector in Figure~\
   \label{fig:detector_ECALquadrant}
 \end{figure}
 
-To reconstruct the shower energy, the photodetectors amplify the scintillation light to produce around 4500 photoeletrons per GeV.
+To reconstruct the shower energy, the photodetectors amplify the scintillation light to produce around 4,500 photoeletrons per GeV.
 After digitisation by 12-bit analogue-to-digital converters (ADCs), ten consecutive amplitude measurements are stored in a buffer.
 Once a trigger is received, these recordings are sent to the off-detector electronics. 
 There the original energy deposition in the crystal can be inferred with knowledge of the typical pulse shape of each channel.
@@ -308,7 +311,7 @@ a final correction ($F_{e/\gamma}$) for effects due to upstream material, geomet
 %This is the famous regression, I tihnk. So geometry = location within ECAL
 The $S_i (t)$ monitor the radiation-induced change in transparency over time by measuring the response of each crystal to 440\,nm laser light every 40 minutes. %also recovers by "spontaneous annealing"
 The intercalibration factors $C_i$ reflect the need to have an equal response from each crystal in the detector.
-These are computed both using the $\phi-\textrm{symmetry}$ of the detector and the known mass of $\pi^{0}$ and $\eta$ diphoton decays.
+These are computed using both the $\phi-\textrm{symmetry}$ of the detector and the known mass of $\pi^{0}$ and $\eta$ diphoton decays.
 The global scale $G$ is derived by requiring the measured dielectron mass of the $Z$ boson to match its known true value.
 Finally, the particle-dependent $F_{e/\gamma}$ corrections are estimated using a multivariate analysis (MVA) which mostly accounts for the varying material budget in front of the ECAL.
 After this lengthy procedure, the final energy resolution on the high \pt, unconverted photons which drive the \Hgg sensitivity is approximately 1\%.
@@ -367,7 +370,7 @@ The muon system at CMS is composed of three separate gaseous chamber detectors~\
 The system is required to identify muons, precisely measure their momentum, and inform the triggering decision.
 Good muon performance is crucial to the success of CMS, particularly for the very powerful $H \rightarrow ZZ^* \rightarrow 4\mu$ decay mode.
 Interleaved with the return yoke of the CMS magnet, the muon system comprises a cylindrical barrel system and two endcap planes, 
-covering a total area of 25000\,$\textrm{m}^2$.
+covering a total area of 25,000\,$\textrm{m}^2$.
 
 The barrel drift tube (DT) covers the central region up to $|\eta|\,=\,1.2$ with four layers, known as stations, between layers of the return yoke.
 Drift chambers containing a mixture of Ar and $\textrm{CO}_2$ gases are used; this is possible due to the low rate and uniform magnetic field in the barrel region.

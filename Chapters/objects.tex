@@ -9,7 +9,7 @@ Photon pairs resulting from Higgs boson decays produce a narrow signal peak,
 centred at the value of the Higgs boson mass, 
 on top of the smoothly falling background distribution produced by other SM processes.
 The Higgs boson mass is inferred from the two photons by constructing the diphoton invariant mass, 
-which is given by the following expression
+given by the following expression
 \begin{equation}
 \label{eq:obj_mgg}
 \mgg = \sqrt{ 2 E_{\gamma_1} E_{\gamma_2} (1 - \cos{\theta}) } ,
@@ -97,7 +97,7 @@ however since this results in a high event rate, a stringent \pt selection is re
 The threshold is dependent on instantaneous luminosity and the photon isolation, 
 but is typically set at \SI{40}{GeV}.
 This results in loss of efficiency in \Hgg events, so asymmetric HLT paths seeded by two electromagnetic candidates are also used.
-During 2016 data-taking, the \pt thresholds at L1 were 22 and \SI{15}{GeV} for the leading and subleading candidates.
+During 2016 data-taking, the \pt thresholds at L1 were 22 and \SI{15}{GeV} for the leading and subleading candidates respectively.
 In 2017, this was increased to 25 and \SI{14}{GeV} respectively. %TODO check this is bc of PU/int lumi only
 
 At the HLT, a clustering procedure similar to that used offline is performed. 
@@ -107,7 +107,7 @@ and the ratio of energy in the HCAL behind the SC to the SC energy.
 Together with asymmetric requirements on the photon \pt and a cut on the diphoton mass, 
 these form the HLT selection.
 In 2016, the HLT \pt thresholds were 30 and \SI{18}{GeV} respectively;
-this increased to 30 and \SI{22}{GeV} in 2017.
+this selection was tightened to 30 and \SI{22}{GeV} respectively in 2017.
 
 The efficiency of the trigger selection is measured using the tag and probe technique in \Zee events where the electrons are reconstructed as photons.
 In this method, dielectrons consistent with decays from the $Z$ boson are selected, 
@@ -250,7 +250,8 @@ and the showering induced by upstream material, to be corrected.
 Variables relating to the seed crystal position within the SC and energy ratios formed using the seed account for the local shower containment.
 The energy density and number of vertices accounts for any additional energy included due to pileup.
 
-The most probable value of the pdf returned by the regression is used to correct the supercluster energy for each photon.
+The most probable value of the probability distribution function returned by the regression 
+is used to correct the supercluster energy for each photon.
 The distribution is also used to infer the per-photon uncertainty on the energy.
 This resolution estimate is then used in the classification of events, as described in Chapter~\ref{chap:categorisation}.
 
@@ -258,7 +259,7 @@ After the regression, additional corrections are applied to account for differen
 The first of these is to correct the energy scale in data;
 the detector response changes to damage from radiation during LHC operation and subsequent recovery during LHC down time.
 This can cause the measured energy to both drift slowly and change discontinuously over time.
-Corrections are derived using \Zee events where the electrons are reconstructed as photons, using the known $Z$ boson mass.
+Corrections are derived using \Zee events where the electrons are reconstructed as photons, using the known Z boson mass.
 These corrections are extracted differentially in time, and binned in the photon $\eta$ (two bins in each of barrel and endcap) and \RNINE (two bins).
 Their magnitude varies from 0.1-0.3\% in the barrel and from 0.2 to 2\% in the endcaps.
 
@@ -269,7 +270,7 @@ Once all the corrections have been applied, the photon energy resolution ranges 
 and from 2.5\% to 3.5\% in the endcaps.
 Validation of the energy after corrections is shown in Figure~\ref{fig:obj_mee}, 
 where data is compared to simulation in \Zee events with electrons reconstructed as photons.
-Full details of the entire energy correction procedure can be found in Ref.\cite{PhotonReco}.
+Full details of the entire energy correction procedure can be found in Ref.~\cite{PhotonReco}.
 
 \begin{figure}[h!]
   \centering
@@ -309,7 +310,7 @@ The full set of requirements is:
   The thresholds are 35 and 25 GeV respectively in 2017, due to the tighter trigger requirements.
   \item either $\mathcal{I}_{\text{ch}} < 20$ GeV, 
   or $\mathcal{I}_{\text{ch}} / \pt < 0.3$ for photons with $\RNINE < 0.8$.
-  \item an additional set of \RNINE and $\eta$-dependant shower shape and isolation requirements, 
+  \item an additional set of \RNINE and $\eta$-dependent shower shape and isolation requirements, 
   summarised in Table~\ref{tab:obj_preselection}.
 \end{itemize}
 
@@ -359,6 +360,7 @@ together with photon kinematic variables, are used as inputs.
 A loose selection on the photon identification BDT at -0.9 completes the analysis preselection.
 The output score on preselected diphoton events is shown in Figure~\ref{fig:obj_IDMVA}.
 Additional validation using \Zee events is demonstrated in Figures~\ref{fig:obj_ZeeIDMVA}.
+In both cases, good agreement between data and simulation is observed.
 
 \begin{figure}[h!]
   \centering
@@ -401,7 +403,7 @@ the only parameters affecting the diphoton mass are the photon energies and the 
 Since there are multiple p-p interactions at each bunch crossing, multiple vertices are present in each event, spread along the $z$-axis.
 The choice of the vertex from which the diphoton originated has a direct impact on the angle $\theta$, 
 and therefore the diphoton mass resolution.
-Provided the chosen vertex is within ~\SI{1}{cm} of the true interaction vertex,
+Provided the chosen vertex is within approximately \SI{1}{cm} of the true interaction vertex,
 the mass resolution is dominated by the photon energy resolution and the contribution from the angle is negligible.
 A BDT is therefore trained to identify the most likely diphoton interaction vertex.
 
@@ -447,7 +449,8 @@ which is correct in around 74\% of events.
 The performance of the vertex identification BDT is
 validated using $\Zmumu$ events.
 The tracks from the muons are ignored in order to mimic the diphoton system.
-Comparison between data and simulation in these events is shown in Figure~\ref{fig:obj_VtxId}.
+Comparison between data and simulation in these events is shown in Figure~\ref{fig:obj_VtxId}; 
+good agreement between the two is observed.
 
 \begin{figure}[h!]
   \centering
@@ -506,6 +509,8 @@ The vertex choice efficiency, together with the estimated vertex probability,
 in simulated \Hgg signal events is shown in Figure~\ref{fig:obj_VtxProb}.
 The simulated performance is shown as a function of both the \pt of the diphoton
 system and of the number of vertices in the event.
+The figures demonstrate that the average vertex probability estimate 
+accurately reflects the true vertex efficiency.
 
 \section{Jet reconstruction}
 
@@ -520,7 +525,7 @@ and are used to differentiate between production modes.
 At CMS jets are formed using the \akt clustering algorithm~\cite{AntiKt} with distance parameter $R=0.4$. % check definitions of infrared and collinear safe etc
 It is an iterative algorithm that defines a distance metric dependent on the \pt and angular parameters of candidate clusters of energy deposits, 
 and groups together these clusters starting with the nearest two objects.
-Once the shortest distance is between an object and the beampipe, the process stops and the clustered objects defined as a jet.
+Once the shortest distance is between an object and the beampipe, the process stops and the clustered objects are defined as a jet.
 This is then repeated until all clusters have been collected into jets.
 
 The inputs to the \akt algorithm are PF candidates with charged hadron subtraction (CHS)~\cite{JEC}. 
@@ -553,7 +558,8 @@ Pileup jets are typically more dispersed than real jets, since they do not have 
 A pileup jet identification BDT is therefore trained using jet shape variables, 
 and additional track variables related to the interaction vertex of the jet.
 The output score of this BDT is used to reject pileup, with thresholds dependent on the \pt and $\eta$ of jets.
-For a jet to be considered in the analysis, it must pass the pileup jet identification and have $\pt > \SI{30}{GeV}$ and $|\eta| < 4.7$.
+For a jet to be considered in the analysis, it must pass the pileup jet identification criterion 
+and have $\pt > \SI{30}{GeV}$ and $|\eta| < 4.7$.
 
 \section{Reconstruction of other objects}
 

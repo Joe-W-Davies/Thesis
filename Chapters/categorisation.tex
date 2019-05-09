@@ -3,7 +3,7 @@
 
 \section{Introduction}
 
-The event selection consists of the preselection described in Chapter~\ref{chap:objects}, 
+The analysis event selection consists of the preselection described in Chapter~\ref{chap:objects}, 
 and in addition requires the two leading preselected photon candidates to have 
 $\pt^{\gamma 1} > \mgg/3$ and $\pt^{\gamma 2} > \mgg /4$ respectively, 
 with an invariant mass in the range $100\,<\,\mgg\,<\,\SI{180}{GeV}$.
@@ -12,13 +12,13 @@ at the lower end of the mass spectrum.
 Both photons must also satisfy the
 pseudo-rapidity requirement $|\eta|\,<\,2.5$ and must not be in the barrel-endcap
 transition region $1.44\,<\,|\eta|\,<\,1.57$;
-the reduced containment in this transition region results in worsened photon energy resolution.
+the reduced containment in this transition region worsens the photon energy resolution.
 The above $\eta$ requirement is applied to the photon supercluster
 position, and the requirement on the photon $\pt$ is applied 
 after the vertex assignment.
 
 The \Hgg analysis depends on the ability to distinguish the narrow signal peak 
-from the smoothly falling background in the diphoton mass distribution.
+from the smoothly falling background in the diphoton mass distribution. 
 Selected events are therefore subject to further categorisation, in order to 
 increase the ratio of the number of signal events to the number of background events (S/B).
 This enhances the sensitivity of the analysis, 
@@ -63,7 +63,7 @@ to reduce the number of background events.
 Additionally, a BDT targeting the kinematics of the characteristic VBF dijet system, 
 known as the dijet BDT, is utilised to reduce the contamination from ggH events.
 
-Due to the conditions differing between the two years, 
+Due to conditions differing between the two years, 
 the analysis is optimised separately for the 2016 and 2017 datasets. 
 A simultaneous fit to the categories from both years is then performed to estimate the 
 values of the parameters of interest and their uncertainties (described in Chapter ~\ref{chap:results}).
@@ -73,7 +73,6 @@ and their use in the category optimisation process for both ggH and VBF events.
 
 \section{Boosted decision trees}
 \label{sec:BDTs}
-%FIXME fill in this section
 In the CMS \Hgg analysis, BDTs are used for several purposes.
 Generally, the purpose of the BDT is to discriminate between 
 one signal-like and one background-like process.
@@ -86,7 +85,7 @@ a set of training parameters, and a loss function,
 and from those inputs returns an output score~\cite{ElementsLearning}.
 The so-called feature vector $\vec{x}$ is a set of real values for each event
 which can be used to discriminate between signal and background processes. 
-Examples used in the analysis include physical variables such as \pt.
+Examples of features used in the analysis include kinematic variables such as \pt or $\eta$.
 In addition, when training the BDT, the target outcome $y$ must be provided.
 The events used for training typically come from simulation, where the truth process is known.
 For all the cases considered in this analysis, $y$ simply takes the value 1 for signal events
@@ -112,14 +111,19 @@ will be placed in a single region and assigned the corresponding score.
 
 The boosting procedure combines individual DTs into a more powerful learner.
 An iterative training process enables the existing models to be improved upon, 
-with the final BDT output function consisting of a weighted sum of individual DTs.
-Boosting algorithms train each successive tree on the pseudo-residuals, or errors, 
-of the existing function, thereby attempting to correct the mistakes made by existing trees.
-The pseudo-residuals are given by the differential of the loss function; 
-this is the reason the boosting procedure is analogous to gradient descent, 
-and sometimes referred to as gradient boosting.
-The new tree is then added to existing function, itself a weighted sum of trees, 
-with a weight assigned by minimising the loss of the new function.
+by each new learner corrects the previous one.
+The final BDT output function then consists of a weighted sum of individual DTs.
+A type of boosting method known as gradient boosting trains each successive tree 
+on the residuals, or errors, of the existing function, 
+thereby attempting to correct the mistakes made by existing trees.
+This is equivalent to subtracting the derivative of a squared error loss function;
+this is the reason the method is given the name gradient boosting.
+This gradient boosting procedure can be generalised to use pseudo-residuals, 
+which are given by the derivative of an arbitrary differentiable loss function.
+The loss function chosen here is distinct from that used to train the individual DTs.
+Once a new tree is trained on these pseudo-residuals, it is then added to the existing function, 
+itself a weighted sum of trees.
+The weight of the new tree is assigned by minimising the loss of the new summed function.
 This procedure is repeated until a given performance threshold or other stopping criterion is met.
 
 The performance of a given BDT training is evaluated on a sample independent 
@@ -163,9 +167,8 @@ Each bin is exclusive; events included in the VBF-like region are not included i
 A table summarising the definition of each bin, its cross section, and the fraction of the 
 total ggH cross section is shown in Table \ref{tab:cat_ggHfractions}.
 The inclusive ggH cross section is $48.52~\textrm{pb}$ at $\mH = \SI{125.09}{GeV}$, 
-computed to an accuracy of three loops in perturbative quantum chromodynamics (QCD) 
-and next-to-leading order (NLO) in electroweak perturbations (EW) 
-\cite{YR4,Anastasiou2015,Anastasiou2016}.
+computed to an accuracy of three loops in perturbative QCD 
+and next-to-leading order (NLO) in EW perturbations~\cite{YR4,Anastasiou2015,Anastasiou2016}.
 Approximately $44.2~\textrm{pb}$ of this is within $|y_H| < 2.5$.
 
 \begin{table}
@@ -229,8 +232,8 @@ since this reduces the amount of background present under the signal peak.
 
 To train the diphoton BDT, simulated events from the ggH, VBF, ttH 
 and VH production modes are treated as signal. 
-The event generator used for training the BDT (powheg) is different from that used to construct
-the final signal model.
+The event generator used for training the BDT (\textsc{POWHEG}) 
+is different from that used to construct the final signal model.
 This ensures that the final results are not biased by re-using the same events.
 Simulated background events include the contributions from prompt-prompt, prompt-fake, 
 and fake-fake sources.
@@ -249,7 +252,7 @@ The full list of input variables is as follows:
 \begin{itemize}
 \item the transverse momentum of the two leading photons, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
 \item the pseudorapidity of the two leading photons, $\eta^{1,2}$;
-\item the cosine of the angle between the two photons in the transverse plane, $\cos{\Delta\phi}$;
+\item the cosine of the angle between the two photons in the transverse plane, $\cos{(\Delta\phi)}$;
 \item the output score of the photon identification BDT for the two leading photons;
 \item the per-event relative mass resolution estimate, 
       under the hypothesis that the mass was computed using the correct primary vertex \srv/\mgg;
@@ -331,17 +334,14 @@ For the 2016 and 2017 trainings, the areas under the respective ROC curves are b
 
 This metric is utilised to compare the performance of the classifier training 
 with different values of the BDT's so-called hyper-parameters.
-These hyper-parameters are arbitrary parameters of the BDT, 
+These hyper-parameters are parameters of the BDT, 
 which are not learned but instead affect how the learning algorithm behaves.
 The most important hyper-parameters affect the extent to which 
 the algorithm learns the specific detail of the training sample provided.
-If a classifier has learnt features from the training set inputs
-which are due solely to statistical fluctuations and not a more general feature of the signal, 
-over-training can result.
-To check for potential over-training, the training score as measured by the area under the ROC curve 
+To check for potential overtraining, the training score as measured by the area under the ROC curve 
 of the training set is compared with the score from the independent test set.
 If the test set score is significantly higher than that of the training set, 
-the classifier has been over-trained.
+the classifier has been overtrained.
 The default classifier hyper-parameters display no overtraining.
 A coarse hyper-parameter optimisation procedure is then performed, 
 in which each hyper-parameter is varied individually.
@@ -463,6 +463,7 @@ The boundaries chosen and the expected number of signal and background events,
 together with the expected significance, 
 are shown in Table~\ref{tab:cat_ggHsignificance2016} and Table~\ref{tab:cat_ggHsignificance2017} 
 for 2016 and 2017 simulation and data respectively.
+These tables illustrate the tendency for events with higher \ptH to have higher diphoton BDT scores.
 
 \begin{table}
   \begin{centering}
@@ -590,12 +591,12 @@ leading and subleading jets respectively.
 
 In previous versions of the analysis \cite{HIG-16-040}, 
 both the signal and background for the dijet BDT training have been taken directly from simulation. 
-However there are a limited number of events in the prompt-fake and fake-fake backgrounds
+However there are a limited number of events in the prompt-fake and fake-fake background samples 
 which pass the analysis preselection, 
 and this problem is exacerbated by applying additional requirements on the dijet system.
 %Have a go at explaining why here?
 Consequently, there are few events with which to train the dijet BDT, 
-and those events which are present have an extremely high cross section.
+and those events which are present have a extremely high weights.
 This results in multiple issues that reduce the effectiveness of the dijet BDT.
 If these high-weight events are included in the training, 
 the classifier assigns too much importance to specific instances 

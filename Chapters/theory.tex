@@ -51,12 +51,12 @@ the gauge bosons.
 Three forces are represented by the SM gauge bosons: 
 the electromagnetic force, the weak force, and the strong force.
 The mediator of the electromagnetic force is the massless photon, 
-whilst the weak interaction is occurs via the exchange of three massive particles, 
+whilst the weak interaction occurs via the exchange of three massive particles, 
 the $W^+$, $W^-$, and $Z$ bosons.
 Due to the unification of these two forces into the electroweak sector of the SM, 
 the photon, $W^\pm$, and $Z$ bosons arise from combinations of the fundamental gauge fields.
 Gluons, which mediate the strong force, 
-are also massless.
+are massless.
 %Together these describe all the fundamental forces observed in nature, 
 %with the exception of gravity.
 %The structure of the gauge bosons in the SM is summarised in Table~\ref{tab:theory_bosons}.
@@ -74,8 +74,8 @@ The SM is realised as a particular type of quantum field theory (QFT) known as a
 The dynamics and predictions of a given QFT can be derived from the Lagrangian (\Like)
 using the Euler-Lagrange equations, 
 in the same way as the equations of motion can be derived in classical field theory~\cite{Peskin}.
-Typically, a Lagrangian is constructed with the aim of respecting symmetries of the physical system
-it is attempting to describe.
+Typically, a Lagrangian is constructed with the aim of respecting the symmetries 
+of the physical system it is attempting to describe.
 According to N\"other's theorem~\cite{Nother}, 
 each symmetry of a Lagrangian has a corresponding current which is conserved.
 Examples include the invariance of a Lagrangian under translations in time 
@@ -103,9 +103,8 @@ corresponding to the $U(1)$ group, under which the field transforms as
 \begin{equation}
 \psi \rightarrow e^{ig\theta} \psi ,
 \end{equation}
-where theta is a constant real number.
-This invariance is dependent on the transformed field commuting with
-with the differential operator. 
+where $\theta$ and $g$ are constant real numbers.
+This invariance is dependent on the transformed field commuting with the differential operator. 
 Considering instead a local gauge transformation, 
 meaning the transformation is a function of the spacetime co-ordinates
 \begin{equation}
@@ -140,14 +139,14 @@ the Lagrangian can then be written as
 \end{equation}
 where $F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu$.
 This Lagrangian is now fully gauge invariant.
-A mass term for the boson, which would take the form $m_A A_\mu A^'mu$, 
+A mass term for the boson, which would take the form $m_A A_\mu A^\mu$, 
 is not included since it is forbidden by local gauge invariance.
 The Lagrangian in Eq.~\ref{eq:theory_EMlagrangian} 
 can now be identified as a description of quantum electrodynamics (QED).
 The field $A_\mu$ corresponds to a photon, and $g$ to the charge of the electron.
 The interaction vertex between photons and electrons is contained in the trilinear terms
 such as $\Like \supset -e \psibar \gamma^\mu A_\mu \psi$, 
-and the electromagnetic field strength tensor is represented in $F^{\mu\nu}$.
+and the electromagnetic field strength tensor is represented by $F^{\mu\nu}$.
 This illustrates the mechanism by which local gauge invariance introduces new interacting fields
 with a symmetry, in this case a $U(1)$ symmetry with one degree of freedom.
 It can be shown that the number of generated bosons is equal to the number of degrees of freedom, 
@@ -161,7 +160,7 @@ is detailed in the following sections.
 
 The theory of strong interactions in the SM, known as quantum chromodynamics (QCD), 
 is based upon the $SU(3)$ symmetry group.
-The symmetries of this group can be represented by $3\times3$ traceless unitary matrices;
+The symmetries of this group can be represented by traceless $3\times3$ unitary matrices;
 this implies there are eight independent matrices, or generators, of the group~\cite{Thomson}.
 The covariant derivative is written as
 \begin{equation}
@@ -212,7 +211,8 @@ where $W_\mu^i$ are the three $SU(2)$ gauge fields and $\sigma^i$ are the $2\tim
 The corresponding charge is known as weak isospin. 
 Both quarks and leptons interact via the weak interaction 
 and transform as doublets under weak gauge transformations.
-The weak interaction violates parity, meaning an inversion in space co-ordinates.
+The weak interaction violates parity, 
+meaning it is not invariant under an inversion in space co-ordinates.
 This can be encoded explicitly by introducing the parity operators
 \begin{equation}
 P_{L,R} = \frac{1}{2} (1 \mp \gamma^5) ,
@@ -233,8 +233,9 @@ with weak isospin and weak hypercharge $Y$ as the respective charges,
 and $W^{i}_{\mu}$ and $B_{\mu}$ as the respective fields in the covariant derivative
 \begin{equation}
 \label{eq:theory_EWcov}
-D_\mu = \partial_\mu + i \frac{g}{2} W_\mu^i \sigma^i + g' Y B_\mu .
+D_\mu = \partial_\mu + i \frac{g}{2} W_\mu^i \sigma^i + g' Y B_\mu ,
 \end{equation}
+with $g$ and $g'$ real numbers.
 The left-handed fermions are represented by $SU(2)_L$ doublets $\psi_L$, 
 whilst the right-handed fermions are singlets $\psi_R$.
 The physical charged bosons are given by
@@ -262,12 +263,12 @@ Finally, the left-handed terms include
 \Like_{\textrm{EW}} \supset - \psibar_L(g\sin{\theta_W} \frac{\sigma^3}{2} 
                             + g' \cos{\theta_W} Y_\psi) \gamma^\mu A_\mu \psi_L .
 \end{equation}
-In order for doublets representing the quarks and leptons to have charges 
+In order for the doublets representing the quarks and leptons to have charges 
 which differ by one unit of charge, it is inferred that $g\sin{\theta_W} = e$. 
 The hypercharges of the quarks and leptons are then required to be 
 $+\frac{1}{6}$ and $-\frac{1}{2}$ respectively.
 The theory thus describes a photon which couples in the same way to left and right-handed fields, 
-whilst allowing the weak interaction to violate parity, exactly as observed in nature.
+whilst allowing the weak interaction to violate parity, exactly as observed in nature. 
 
 This completes the description of how fermions and bosons interact in the SM.
 However an issue remains relating to the particle masses.
@@ -321,7 +322,7 @@ The shape of this potential is illustrated in Figure~\ref{fig:theory_SSB}.
     The shape of the quartic potential described in Equation~\ref{eq:theory_SSMlagrangian}.
     The potential itself is symmetric, 
     but the symmetry is broken when a specific choice of ground state is made 
-    from the degenerate of available minima.
+    from the degenerate set of available minima.
   }
   \label{fig:theory_SSB}
 \end{figure}
@@ -345,7 +346,7 @@ this will shortly be identified as the Higgs boson.
 
 In the SM, the scalar Higgs field transforms as an $SU(2)$ doublet $H$ 
 which has the required four degrees of freedom. 
-Its potential is fourth order such that the Lagrangian is
+Its potential is fourth order such that the Lagrangian can be written 
 \begin{equation}
 \Like_{\textrm{EW}} \supset (D^\mu H)^\dagger (D_\mu H) + \mu^2 H^\dagger H - \lambda (H^\dagger H)^2 ,
 \end{equation}
@@ -355,7 +356,8 @@ This potential also has a degenerate set of non-zero minima with
 \begin{equation}
 H^\dagger H = \frac{\mu^2}{2\lambda} \equiv \frac{v^2}{2} , 
 \end{equation}
-and choosing to expand about the minimum in the neutral component of the doublet such that 
+and the choice can be made to expand about the minimum 
+in the neutral component of the doublet such that 
 \begin{equation}
 H = \left(
 \begin{split}
@@ -450,7 +452,8 @@ These additional objects can improve the ability to discriminate the Higgs boson
 from background, meaning events which have similar detector signatures to the Higgs boson
 but arise from other SM processes.
 Other important production modes whose existence has been confirmed at the LHC include 
-vector boson-associated production (VH) and top-associated production.
+vector boson-associated production (VH) 
+and production in association with a top quark-antiquark pair (ttH).
 Figure~\ref{fig:theory_FeynProd} shows the leading order Feynman diagrams 
 for these four production modes, showing explicitly the additional objects present 
 in events produced by modes other than ggH.
@@ -460,9 +463,7 @@ Experimental sensitivity to a given process depends not only on the signal cross
 but also the amount of background.
 Observations of the ggH and VBF were made during Run 1 
 of the LHC~\cite{ATLAScouplingsRun1,CMScouplingsRun1,ATLASandCMScouplingsRun1}, 
-with the vector boson-associated production (VH) 
-and production in association with a top quark-antiquark pair (ttH) 
-modes being observed more recently 
+with the VH and ttH modes being observed more recently 
 using Run 2 data~\cite{ATLASttHobservation,CMSttHobservation,ATLASbbObservation,CMSbbObservation}.
 
 \begin{table}
@@ -506,7 +507,7 @@ it can decay directly to any massive particle\footnote{Only decays to pairs of p
 whose mass is less than half that of the the Higgs boson are permitted kinematically. 
 However the decay can still occur to virtual particles of greater mass, which then themselves decay.}.
 In addition, loop diagrams permit the decay to massless particles, including the gluon and photon.
-The branching fractions for each of the nine principal decay modes 
+The branching fractions for each of the seven principal decay modes 
 is shown in Table~\ref{tab:theory_decay}.
 Observations of the $\gamma\gamma$, $\mathrm{ZZ}^{*}$, $W^{\pm}W^{\mp*}$, 
 and $\tau^+\tau^-$ decay modes were made during Run 1 
@@ -575,19 +576,19 @@ The possibility that the observed Higgs boson is a mixture of scalar
 and pseudoscalar states has not been ruled out, and remains an active subject of research.
 
 Furthermore, the mass of the Higgs boson has also been measured precisely. 
-The $\gamma\gamma$ and $\mathrm{ZZ}^{*}$ are the two decay channels with sufficiently narrow 
+The $\gamma\gamma$ and $\mathrm{ZZ}^{*}$ modes are the two decay channels with sufficiently narrow 
 mass resolution to contribute to this measurement.
 During Run 1, the combination of ATLAS and CMS analyses led to the measurement of the Higgs boson 
 mass to be $\mH = 125.09 \pm \SI{0.24}{GeV}$~\cite{ATLASandCMSmass}.
 This has since been superseded by the measurements made by CMS in the $\mathrm{ZZ}^{*}$ channel 
-with Run 2 data, where the precision of better than 0.2\%~\cite{HIG-16-041}.
+with Run 2 data, where a precision of better than 0.2\%~\cite{HIG-16-041} is obtained.
 The observed value and its uncertainty is $\mH = 125.26 \pm \SI{0.21}{GeV}$.
 
 The coupling of the Higgs boson to other SM particles can also be measured experimentally, 
 by comparing the rate of Higgs boson production to the expectation from the SM.
 These measurements can be parameterised in different ways.
 For results based on Run 1 data, two different schemes were commonly used.
-The first are signal strength modifiers $\mu$, 
+The first utilises signal strength modifiers $\mu$, 
 which are defined as the ratio of the observed Higgs boson yield to the SM expectation.
 This can be defined inclusively, for all Higgs boson production and decay modes, 
 or for individual combinations of production and decay modes.
@@ -608,7 +609,7 @@ where in the SM the values of all the $\kappa_j$ are equal to unity.
 In addition to including couplings to individual particles or groups of particles, 
 effective coupling modifiers $\kappa_g$ and $\kappa_\gamma$, 
 which describe the loop processes of ggH production and diphoton decay respectively, can be defined.
-The combination of ATLAS and CMS Run 1 analysis given in Ref.~\cite{ATLASandCMScouplingsRun1} 
+The combination of ATLAS and CMS Run 1 analysis documented in Ref.~\cite{ATLASandCMScouplingsRun1} 
 presents results in terms of both signal strength modifiers and coupling modifiers.
 
 An example of signal strength modifier measurements 
@@ -630,7 +631,7 @@ So far, all measurements are consistent with the SM predictions.
     Signal strength modifier measurements in the \Hgg decay channel.
     The modifiers for each process (black points) are shown, with the SM Higgs boson mass profiled, 
     compared to the overall signal strength modifier (green band) 
-    and to the SM expectation (dashed red line)
+    and to the SM expectation (dashed red line).
     Figure first shown in Ref.~\cite{HIG-16-040}.
   }
   \label{fig:theory_PerProcTrad}
@@ -654,7 +655,7 @@ provides additional information for different theoretical interpretations of the
 and enhances the sensitivity to possible signatures beyond the standard model.
 As the integrated luminosity of the datasets collected by the LHC increases, 
 so does the experimental sensitivity,
-measurements can progress to later stages within the STXS framework.
+and measurements can progress to later stages within the STXS framework.
 
 At the so-called STXS stage 0, 
 the bins correspond closely to the different Higgs boson production mechanisms.
@@ -692,7 +693,7 @@ When performing a measurement of $\mu$,
 a fit is performed for the signal strength modifier ratio $\sigma/\sigma_{\textrm{SM}}$. 
 This requires that the theoretical uncertainty on the SM prediction, 
 which enters via the denominator, to be included.
-In contrast if the fit parameter is only the observed cross section $\sigma$, 
+In contrast if the fit parameter is just the observed cross section $\sigma$, 
 the measurement does not depend on the overall SM prediction 
 and this uncertainty does not need to be included.
 It is instead considered as the uncertainty on the SM prediction, 
@@ -717,7 +718,8 @@ even if improved theoretical predictions are obtained in the future.
   \label{fig:theory_PerProcSTXS}
 \end{figure}
 
-At stage 1, a further splitting of bins into different kinematic regions is performed.
+At stage 1 of the STXS framework, 
+a further splitting of bins into different kinematic regions is performed.
 This provides additional information for different theoretical interpretations of the measurements, 
 and enhances the sensitivity to possible signatures beyond the standard model.
 Measurements at stage 1 of the framework have already been reported by the ATLAS Collaboration \cite{ATLAS_Hgg36,ATLAS_Hgg80,ATLASstage0_ZZ}; 
@@ -778,6 +780,6 @@ Performing precision measurements of the Higgs boson and its properties is there
 one of the foremost priorities in current particle physics research.
 The STXS framework provides a coherent approach to performing 
 these measurements, minimising the theoretical dependence of experimental results
-whilst permitting advanced analysis techniques.
+whilst permitting the use of advanced analysis techniques.
 This analysis aims to measure STXS bins in the \Hgg decay channel at various levels of granularity, 
 thereby testing the SM and its predictions as stringently as possible.

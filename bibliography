@@ -1515,6 +1515,7 @@ year = "1998"
       collaboration  = "ATLAS",
       year           = "2019",
       reportNumber   = "ATLAS-CONF-2019-005",
+      number         = "ATLAS-CONF-2019-005",
       SLACcitation   = "%%CITATION = ATLAS-CONF-2019-005;%%"
 }
 

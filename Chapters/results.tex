@@ -48,7 +48,8 @@ mH, and the background nuisance parameters;
 the signal nuisance parameters can vary but are constrained by the $C(\theta)$ term.
 The \NLL is constructed and minimised numerically within the RooFit~\cite{RooFit} 
 software package for statistical data analysis.
-The values of the parameters at the minimum 2NLL are then described as the ``best-fit" values.
+The values of the parameters which give the minimum value of the \NLL
+are then described as the ``best-fit" values.
 
 A frequentist approach is followed in order to extract the uncertainties on the POIs, 
 in addition to their best-fit values.
@@ -76,9 +77,9 @@ the observed interval should should contain the true value of the POI in 68\% of
 The crossing points of the \dNLL at $\pm 1$ are therefore quoted
 as the 68\% CL uncertainties on the POI in question.
 
-In this analysis the POIs considered are Higgs boson simplified template cross sections, 
+In this analysis, the POIs considered are Higgs boson simplified template cross sections, 
 which are defined at various levels of granularity and denoted by the symbol $\sigma$.
-The so-called ``stage 0" cross sections are equivalent 
+The stage 0 cross sections are equivalent 
 to the sum of the individual stage 1 cross sections.
 This makes clear that parameters can be defined as sums of different STXS bins, 
 not just individual bins themselves.
@@ -87,8 +88,8 @@ but the uncertainties are correspondingly larger than if fewer parameters are me
 Therefore in this section results are reported under various scenarios, 
 with between one and thirteen POIs in total.
 
-In each case, the fit is performed with the cross section as the parameter of interest.
-After the value of the cross section has been measured, the value is normalised to the SM prediction. 
+In each case, the fit is performed with cross sections as the parameters of interest.
+After each cross section has been measured, the value is normalised to the SM prediction. 
 This procedure differs from that used to measure a signal strength $\mu$, 
 as defined in Chapter~\ref{chap:theory},
 where the parameter in the fit is the ratio of the observed cross section to the SM prediction.
@@ -99,7 +100,7 @@ In contrast, the STXS measurements do not include these uncertainties on the SM 
 the measured cross sections do not directly depend on the SM prediction.
 This ensures the measurements are as independent as possible of the current SM predictions
 and their uncertainties, 
-which means they remain useful if the theoretical advances are made in the future.
+which means they remain useful if theoretical advances are made in the future.
 
 In the following section, the observed diphoton mass distribution
 and the composition of the analysis categories are presented.
@@ -111,10 +112,10 @@ All results were first reported in Ref.~\cite{HIG-18-029}.
 
 The observed diphoton mass distribution is displayed together with the result 
 of a signal plus background fit in Figure~\ref{fig:results_MassPlot}.
-The fit contains one inclusive signal parameter, 
+The fit contains one signal parameter, 
 which includes all signal events where $|y_H| < 2.5$.
-The fit is performed simultaneously to all analysis categories, 
-each of which is summed with a weight 
+The fit is performed simultaneously to all analysis categories.
+In the plot, each cateogry is summed with a weight 
 corresponding to the ratio of signal events to background events. %this shows the "true" sensitvity?
 The uncertainty on the background prediction is also shown.
 The signal peak due to Higgs boson production is clearly visible.
@@ -173,7 +174,7 @@ considered in the analysis are contained in Appendix~\ref{app:massplots}.
   \label{fig:results_MassPlots}
 \end{figure}
 
-\section{Category composition}
+\section{Composition of analysis categories}
 
 All analysis categories are contaminated, to varying extents, 
 by background events and other signal processes which are not being targeted.
@@ -312,8 +313,8 @@ the ggH measurement is likely to become systematics-dominated.
   {
     The results of a two-parameter fit in the STXS framework,
     showing the scan of the profiled likelihood ratio in the ggH cross section.
-    All ggH are grouped together in the fit to form one parameter, 
-    with VBF bins comprising the second parameter.
+    All ggH bins are grouped together in the fit to form one parameter, 
+    with all VBF bins comprising the second parameter.
     The ggH parameter includes bbH components, 
     while the qqH parameter includes the hadronic VH contribution. 
     The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
@@ -330,8 +331,8 @@ the ggH measurement is likely to become systematics-dominated.
   {
     The results of a two-parameter fit in the STXS framework,
     showing the scan of the profiled likelihood ratio in the qqH cross section.
-    All ggH are grouped together in the fit to form one parameter, 
-    with VBF bins comprising the second parameter.
+    All ggH bins are grouped together in the fit to form one parameter, 
+    with all VBF bins comprising the second parameter.
     The ggH parameter includes bbH components, 
     while the qqH parameter includes the hadronic VH contribution. 
     The ttH, tH and VH leptonic processes are constrained to the SM prediction. 
@@ -353,7 +354,7 @@ There are six ggH parameters, of which four correspond to a single stage 1 bin;
 these are the zero-jet (0J), one-jet low (1J low), medium (1J med), and high (1J high) \ptH bins.
 The two-jet or greater parameter (GE2J) groups together five individual stage 1 bins, 
 comprising the low, medium and high \ptH bins as well as the two VBF-like bins.
-The ggH BSM parameter is the sum of the one-jet and two-jet ``beyond standard model" bins
+The ggH BSM parameter is the sum of the one-jet and two-jet BSM bins
 where $\ptH > \SI{200}{GeV}$.
 Finally, the qqH parameter is unchanged from stage 0;
 all five bins are grouped together.
@@ -433,13 +434,13 @@ expressed as a $p$-value with respect to the SM hypothesis, is approximately 18\
 
 In addition to the best-fit values and 68\% CL intervals of each fit, 
 the correlation between parameters is reported.
-The correlation matrices are essential for reinterpretation of the measurements, 
-where typically a rescaling of the signal parameters is performed 
-according to the predictions of a beyond standard model theory.
-The likelihood can then be approximated using a multivariate Gaussian distribution 
-in terms of the new signal parameters, 
-provided the correlation information between the original parameters is available.
-The observed correlations between the signal parameters is therefore shown for the
+The correlation matrices are essential for reinterpretation of the measurements.
+%, where typically a rescaling of the signal parameters is performed 
+%according to the predictions of a beyond standard model theory.
+%The likelihood can then be approximated using a multivariate Gaussian distribution 
+%in terms of the new signal parameters, 
+%provided the correlation information between the original parameters is available.
+The observed correlations between the signal parameters are therefore shown for the
 seven-parameter and thirteen-parameter scenarios 
 in Figures~\ref{fig:results_CorrStage1} and \ref{fig:results_CorrStage1Min} respectively.
 In the seven-parameter fit, the magnitudes of the correlations are generally small.
@@ -489,7 +490,7 @@ partly due to the low sensitivity to the qqH other parameter.
 
 Measurements of cross sections at various levels of granularity within the STXS framework 
 have been presented.
-At stage 0, two parameters corresponding to ggH and electroweak qqH production are measured, 
+At stage 0, two parameters corresponding to ggH production and electroweak qqH production are measured, 
 with the observed values $\sigma_{ggH}/\sigma_{ggH}^{\textrm{SM}} = 1.15 \pm 0.15$ 
 and $\sigma_{qqH}/\sigma_{qqH}^{\textrm{SM}} = 0.83_{-0.31}^{+0.37}$ 
 highly consistent with the SM prediction.

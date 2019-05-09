@@ -25,7 +25,7 @@ During this time various improvements to the LHC will be made, including a subst
 The machine will also be readied for operation at the increased energy of \SI{7}{TeV} per beam.
 However these upgrades will not substantially affect the conditions experienced by the LHC experiments; 
 the peak instantaneous luminosity is not envisaged to increase beyond \SI{2e34}{\lumi}.
-As such no major changes are required to the CMS detector during LS2, although various improvements are planned: 
+As such no major changes are required to the CMS detector during LS2, although various improvements are planned; 
 these include upgrades to the muon system and HCAL barrel.
 Therefore the expectation for Run~3, which commences in 2021 with two years of high-availability data-taking in 2022 and 2023, 
 is that a further $\SI{150}{\fbinv}$ of data will be accumulated. 
@@ -60,7 +60,7 @@ which would result in mean pileup values of up to 200.
 This constitutes a major change, and the environment will be significantly harsher than with the current LHC conditions.
 These conditions pose serious challenges to the detectors in terms of radiation tolerance and reconstruction in high pileup.
 In order to maintain or improve upon the excellent performance exhibited in Run~2, a suite of upgrades to the CMS detector are planned.
-The key aspects of the CMS Phase~2 upgrade can be summarised as \cite{UpgradeTP,MTD}:
+The key aspects of the CMS Phase~2 upgrade can be summarised as follows~\cite{UpgradeTP,MTD}:
 \begin{itemize}
   \item{\textbf{Tracker:}
   the tracker will suffer significant radiation damage and must be entirely replaced for Phase~2.
@@ -80,7 +80,7 @@ The key aspects of the CMS Phase~2 upgrade can be summarised as \cite{UpgradeTP,
   \item{\textbf{Timing:}
   precision timing measurements of objects will be made with the HGCAL and the upgraded ECAL.
   In addition, a dedicated timing layer providing precise timing information for minimum ionising particles will be added to the barrel and each of the endcaps.
-  By enabling the reconstruction of vertex times, this will greatly improve the capability for pileup rejection.}
+  By enabling the reconstruction of vertex times, the capability for pileup rejection will greatly improve.}
   \item{\textbf{Muon endcaps:}
   the CSC muon system will be enhanced with additional stations.
   This will increase the forward coverage and maintain muon acceptance at the L1 trigger.}
@@ -92,7 +92,7 @@ The key aspects of the CMS Phase~2 upgrade can be summarised as \cite{UpgradeTP,
   Consequently the data acquisition system must also be upgraded to handle the increase in event rate, event size, and the complexity of high PU reconstruction.}
 \end{itemize}
 Full details of the CMS upgrade scheme can be found in Refs~\cite{Tracker_Phase2TDR,Barrel_Phase2TDR,Muon_Phase2TDR,Trigger_Phase2TDR,DAQ_Phase2TDR,MTD,HGCAL}.
-The remainder of this chapter is dedicated to describing the HGCAL in further detail, based upon Ref.~\cite{HGCAL}.
+The remainder of this chapter is dedicated to describing the HGCAL in further detail, based on Ref.~\cite{HGCAL}.
 
 \section{Requirements for the HGCAL}
 
@@ -119,13 +119,13 @@ in the front section of the calorimeter, and stainless steel absorber further ba
     after a total integrated luminosity of \SI{3000}{\fbinv}, 
     as a function of detector radius and depth.
     The colour scale indicates the magnitude of the absorbed dose.
-    Figure taken from \cite{HGCAL}.
+    Figure taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_Dose}
 \end{figure}
 
 To maintain performance throughout the operation of the HL-LHC it is necessary 
-to inter-calibrate cells to the level of a few percent.
+to inter-calibrate cells to the level of a few per-cent.
 This is possible provided the signal-to-noise ratio (S/N) 
 for minimum-ionising particles (MIPs) is sufficiently high.
 For this to be achieved after \SI{3000}{\fbinv} of data has been collected, 
@@ -156,9 +156,9 @@ The HGCAL is composed of an electromagnetic and a hadronic section, called the C
 The CE-E comprises 28 layers with hexagonal silicon sensors as the active element.
 The total depth, including the neutron moderator layer at the front, is \SI{34}{cm}, 
 which corresponds to approximately 26 radiation lengths ($X_0$) 
-and 1.7 interaction lengths ($\lambda$)\footnote{A radiation length is defined 
+and 1.7 interaction lengths\footnote{A radiation length is defined 
 as the mean distance over which 
-a high energy electron will have its energy reduced to a fraction $e^{-1}$ of the initial value.}.
+a high energy electron will have its energy reduced to a fraction $e^{-1}$ of the initial value.} ($\lambda$).
 Three different thicknesses of silicon sensors are used, with thickness decreasing as a function of fluence.
 Absorbers are made of copper-tungsten alloy and copper plates are used for cooling.
 All layers of the CE-E are used for energy measurements, but alternate layers give inputs to the L1 trigger primitive formation. %TODO check why this is
@@ -200,7 +200,7 @@ are summed to estimate the energy resolution,
 which is shown in Figure \ref{fig:hgcal_PhotonReso}. %TODO justify 26mm value
 The left plot shows that the resolution is approximately constant as a function of $\eta$, 
 and robust against pileup, with only a very small degradation in resolution between PU 0 and PU 200. %this is achieved due to the fine granularity
-This intrinsic performance is further demonstrated 
+The intrinsic performance is further demonstrated 
 by using this method to reconstruct unconverted photon pairs from simulated \Hgg decays, 
 where both photons are contained within the fiducial region of the HGCAL 
 and the vertex location is assumed to be known exactly. 
@@ -247,8 +247,7 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
   \item Construct an energy density map of all hits above a threshold $E_c$. 
   The threshold value is defined as a function of the noise resolution ($\sigma_{\textrm{noise}}$), which depends on the cell type.
   The density is defined simply as the energy sum of all hits within a critical distance $\delta_c$, 
-  whose value is chosen to be similar to the Moli\`ere radius\footnote{The Moli\`ere radius 
-  is defined as the radius containing on average 90\% of a shower's total energy deposition}. 
+  whose value is chosen to be similar to the Moli\`ere radius.
   \item For each hit, calculate the distance to the nearest hit with higher density.
   \item Assign hits with both both density and distance parameters greater than threshold values as cluster centres.
   The density threshold ($\rho_c$) can be defined relative to the maximum density in the event,
@@ -280,7 +279,8 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
     and the yellow arrow points to the hit chosen as a cluster centre.
     It can be seen that many hits in a genuine cluster have a high density, 
     whereas all but one will have a low distance to the nearest higher energy hit;
-    requiring high values of both these parameters is therefore an appropriate way to define a cluster.
+    requiring high values of both these parameters is therefore 
+    an appropriate way to define a cluster centre.
   }
   \label{fig:hgcal_clustering}
 \end{figure}
@@ -291,7 +291,7 @@ Therefore the 2D clusters, or layer clusters, produced are associated together i
 An axis is defined by the highest energy 2D cluster, then any layer clusters within a certain distance of this axis are added to the multicluster.
 Using this procedure with sensible parameters, an unconverted photon will have almost all of its energy contained within a single multicluster.
 Optimisation can then be performed by minimising the energy resolution of unconverted photons simulated at a range of \pt values.
-Further detail on this clustering procedure is given in Ref.~\cite{ClusteringConf}.
+Further detail on th 2D clustering and multiclustering procedures are given in Ref.~\cite{ClusteringConf}.
 %It is anticipated that this two-step process could be improved by performing 3D clustering directly, but this remains to be studied in detail. 
 
 Finally, electromagnetic objects are formed using a superclustering procedure very similar to the one utilised in Run 2, 
@@ -300,12 +300,12 @@ To perform this step, multiclusters are used as inputs to the existing Run~2 alg
 Despite this, high \pt photons reconstructed in this way in have a resolution of below 2\%, 
 not far from the intrinsic resolution values shown in Figure~\ref{fig:hgcal_PhotonReso}.
 This method of electromagnetic object reconstruction was used for all the physics results in Ref.~\cite{HGCAL}, 
-including the study described in Section\ref{sec:hgcal_physics}.
+including the study described in Section~\ref{sec:hgcal_physics}.
 
 Electrons defined in this way are used to test the ability of the HGCAL 
 to discriminate between signal (\Zee) and background (QCD multijet) processes. 
 Lateral and longitudinal shower shape variables, 
-along with tracking information, are used as inputs to a BDT classifier. 
+along with tracking information, are used as inputs to a classifier. 
 Two examples are shown in Figure~\ref{fig:hgcal_electronID}: 
 the longitudinal development of the shower is indicated by the layer 
 at which 10\% of the total energy in the CE-E has been deposited, 
@@ -363,7 +363,7 @@ For the physics results in Ref.~\cite{HGCAL}, a realistic truth-information-driv
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.7\textwidth]{Figures/HGCAL/MegaclusterVsPt.png}
+  \includegraphics[width=0.8\textwidth]{Figures/HGCAL/MegaclusterVsPt.png}
   \caption[HGCAL pion energy resolution as a function of \pt.]
   {
     The mean energy resolution for single $\pt\,=\,\SI{25}{GeV}$ pions 
@@ -409,11 +409,11 @@ specific aspects of the analysis which will be affected by the HGCAL upgrade are
 In Run 2, the sensitivity of the \Hgg analysis is driven by barrel-barrel diphoton pairs.
 The effect of the HGCAL greater acceptance (to $|\eta|=3$) relative to the current ECAL endcaps
 (to $|\eta|=2.5$) is to increase the number of available diphotons by approximately 12\%.
-Furthermore, the diphoton mass resolution in the endcap is found to be very similar 
+Furthermore, the diphoton mass resolution in the HGCAL is found to be very similar 
 to that in the barrel.
-This is an improvement upon the Run~2 endcap, 
+This is an improvement upon the Run~2 endcap performance, 
 which has significantly worse resolution than the barrel, 
-and also increases the usefulness of the increased forward acceptance.
+and also increases the usefulness of the greater acceptance of forward photons.
 
 A more substantial benefit of the HGCAL upgrade 
 will be the ability to separate quark-initiated jets from jets which originate from gluon emission.
@@ -423,14 +423,14 @@ In the Run~2 analysis, boosted decision trees (BDTs)
 are used extensively to discriminate between different types of physics processes.
 A BDT is an example of a supervised machine learning method, 
 which takes a set of labels corresponding to target truth classes 
-together with a set of dependent variables and outputs or scores indicating how likely 
+together with a set of dependent variables and outputs a set of scores indicating how likely 
 an event is to belong to a given class.
 A more detailed description of BDTs, how they are trained 
 and how they are used in physics analyses is given in Section~\ref{sec:BDTs}.
 One of the BDTs used in the Run 2 analysis, known as the dijet BDT,
 is used to discriminate between ggH and VBF using photon and jet kinematic variables.
 Here, the possibility of exploiting the granularity of the HGCAL 
-by using jet shape variables as BDT inputs in addition to the kinematic variables is explored.
+by using jet shape variables as BDT inputs in addition to the kinematic variables is explored. %TODO check definitions of jet shape variables
 
 Jets initiated by gluons tend to have lower \pt values and be more dispersed than quark-initiated jets, 
 which are relatively highly collimated and contain fewer particles. 
@@ -515,7 +515,7 @@ consisting of all the events entering the analysis' three VBF tags, for comparis
 
 These results show that performance comparable to that in Run~2 
 is achieved despite the increase in pileup.
-The background numbers are slightly higher than in Run~2, 
+The expected amount of background is higher than in Run~2, 
 but it is expected that this could be reduced by a classifier using further photon quality variables.
 
 \section{Beam tests}
@@ -524,10 +524,10 @@ To validate the design of the HGCAL and ensure its behaviour is well-modelled by
 beam tests have been conducted at both CERN and Fermilab in 2016 and 2017. 
 Prototype silicon modules representative of those in both the CE-E and CE-H were built, 
 with plastic scintillator tiles modified from an existing detector 
-developed by the CALICE collaboration~\cite{CALICE}.
+developed by the CALICE Collaboration~\cite{CALICE}.
 At Fermilab, the available electron beams were of relatively low energy (up to \SI{32}{GeV}), 
 and so a test configuration with thickness of around $\SI{15}{X_0}$ was used.
-A set of sixteen silicon modules, arranged in sixteen layers, were used.
+A set of sixteen silicon modules, arranged in sixteen layers, was used.
 At CERN, energies of up to \SI{250}{GeV} were available but with only eight modules.
 The chosen setup therefore comprised eight layers placed between 5 and $\SI{27}{X_0}$.
 
@@ -539,7 +539,7 @@ this indicates the lateral extent of the shower.
 Also shown is the relative energy resolution for a range of energy values, 
 using both the CERN and Fermilab setups.
 In both cases, excellent agreement is observed between data and simulation;
-observed distributions match those predicted by simulation to within 5\%. 
+the observed data distributions match those predicted by simulation to within 5\%. 
 These beam test results are particularly important because 
 they constitute the first demonstration that the HGCAL behaves as predicted by simulation.
 
