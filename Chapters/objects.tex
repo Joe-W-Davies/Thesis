@@ -124,10 +124,16 @@ producing the signal model, and for performing validation of the analysis.
 
 The signal simulation used to produce the final signal model is generated using \textsc{MadGraph5_{}aMC@NLO} \cite{Madgraph}, 
 which is next-to-leading order in perturbative QCD.
-This is interfaced to \textsc{PYTHIA}~\cite{pythia} to perform the parton showering and hadronisation, 
+This is interfaced to \textsc{PYTHIA8}~\cite{pythia} to perform the parton showering and hadronisation, 
 using the tune \textsc{CUETP8M1}.
 Events from ggH production are then reweighted to agree with the next-to-next-to-leading order program \textsc{NNLOPS}~\cite{NNLOPS}.
-Additional independent signal samples are produced using \textsc{POWHEG}~\cite{powheg}. %these are used to optimise the analysis category definitions without bias.
+Additional independent signal samples are produced using \textsc{POWHEG}~\cite{powheg}. 
+These \textsc{POWHEG} samples are used to train the various classifiers 
+used to define the analysis categories; 
+it is preferred over \textsc{MadGraph5_{}aMC@NLO} for this purpose 
+because it does not contain events with negative weights.
+This also ensures that the events used to train the classifiers are independent 
+from the events used to construct the final signal model of the analysis.
 
 Simulated background events are not used to produce the final results of the analysis, 
 but are used to train several of the classifiers used in the analysis.
@@ -141,8 +147,8 @@ The Drell-Yan events used extensively in the analysis validation are simulated u
 
 The CMS detector itself is modelled using \textsc{GEANT4} \cite{Geant4}.
 This simulation includes additional pileup interactions.
-The number of pileup events is corrected to agree with data, 
-where an average of 23 and 32 pileup interactions were observed in 2016 and 2017 data-taking respectively.
+The distribution of the number of vertices in simulation is reweighted to agree with data, 
+where an average of 23 and 32 pileup interactions were observed in 2016 and 2017 data-taking respectively, 
 
 \section{Photon reconstruction}
 \subsection{Overview}
@@ -181,7 +187,7 @@ The full set of variables used in this section and their definitions are given b
     and $\phi$ values in within the 5x5 grid centred on the
     SC seed.
   \item \emph{$\sigma_{i\eta i\eta}$}: the standard deviation of the 
-    shower in terms of number of crystal cells. 
+    shower in $\eta$ in terms of number of crystal cells. 
   \item \emph{$\RNINE$}: $E_{3\times3}/\Eraw$ where $E_{3\times3}$ is the energy sum of the
     $3\times3$ grid surrounding the SC seed and $\Eraw$ is the energy sum of the SC before corrections. 
   \item \emph{$\sigma_{\eta}$}: the standard deviation
@@ -238,7 +244,7 @@ resulting in both energy lost in the material and a dispersed shower which is no
 In addition, leakage can occur into the gaps between crystals and modules in the ECAL, 
 as well as through the back of the ECAL if the showering begins near the end of a crystal.
 
-The energy estimate provided by the uncorrected SC (\Eraw) can therefore be significantly improved by the use of a multivariate regression.
+The energy estimate provided by the uncorrected SC (\Eraw) can be significantly improved by the use of a multivariate regression.
 This provides an additional energy correction to each reconstructed photon, so that the photon energy in simulation agrees with the true photon energy.
 The training objective for the regressor is to learn the parameters of the $\Etrue/\Eraw$ probability distribution function, 
 which is parameterised as a Gaussian core with power law tails on each side. %i.e. DCB + 1G
@@ -334,16 +340,21 @@ The full set of requirements is:
   \end{center}
   \caption[Summary of photon preselection requirements.]
   {
-    Summary of photon preselection requirements.
+    Summary of photon preselection requirements. 
+    The values are chosen to be slightly more stringent 
+    than the equivalent trigger requirements~\cite{HIG-16-040}.
   }
   \label{tab:obj_preselection}
 \end{table}
 
-The efficiency of these preselection criteria, aside from the electron veto, is measured using \Zee events.
+The efficiency of these preselection criteria, aside from the electron veto, 
+is measured using \Zee events.
 To measure the electron veto efficiency, \Zmumug events are used.
 Efficiencies range from over 94\% for high \RNINE photons in the barrel, 
 to around 50\% for low \RNINE photons in the endcaps.
-Very good agreement is observed between data and simulation. %0.1-0.3\% in barrel, 0.5-1\% in endcap
+Good agreement is observed between data and simulation, 
+with differences between data and simulation in the range 0.1-0.3\% in the barrel 
+and 0.5-1\% in the endcap.
 
 \subsection{Photon identification}
 \label{sec:objects_PhotonIDBDT}
@@ -351,7 +362,7 @@ Very good agreement is observed between data and simulation. %0.1-0.3\% in barre
 An additional part of the photon preselection is the photon identification BDT.
 Its purpose is to discriminate between real photons and photon candidates passing the preselection which originate from other objects, 
 such as jet fragments.
-The BDT is trained using $\gamma$ + jet events passing the preselection described above, with real photons treated as signal and fake photons as background.
+The BDT is trained using simulated $\gamma$ + jet events passing the preselection described above, with real photons treated as signal and fake photons as background.
 The inputs are similar to the those used in the energy regression, 
 including shower shape and isolation variables.
 In addition, pileup-sensitive variables $\rho$ and the number of interaction vertices, 
@@ -415,13 +426,13 @@ Since photons do not produce tracks, its inputs are variables related to tracks
 recoiling against the diphoton system.
 The variables are calculated for each candidate vertex, and are defined as follows:
 \begin{itemize}
-        \item $\sum_{i}|\vec{p}_T^{i}|^{2}$,
-        \item $\displaystyle -\sum_{i}(\vec{p}_T^{i}\cdot \frac{\vec{p}_T^{\gamma\gamma}}{|\vec{p}_T^{\gamma\gamma}|})$,
-        \item $(|\sum_{i}\vec{p}_T^{i}| - \pt^{\gamma\gamma})/(|\sum_{i}\vec{p}_T^{i}| + \pt^{\gamma\gamma})$,
+        \item $\displaystyle \sum_{i}|\vec{p}_{T,i}|^{2}$,
+        \item $\displaystyle -\sum_{i} \vec{p}_{T,i}\cdot \frac{\vec{p}_{T,\gamma\gamma}}{|\vec{p}_{T,\gamma\gamma}|} $,
+        \item $\displaystyle |\sum_{i}\vec{p}_{T,i}|\,-\,\ptgg\,/\,|\sum_{i}\vec{p}_{T,i}|\,+\,\ptgg$,
 \end{itemize}
-where $\vec{p}_T^{i}$ is the \pt of the $i$-th track
+where $\vec{p}_{T,i}$ is the \pt of the $i$-th track
 associated with a given vertex 
-and $\vec{p}_T^{\gamma\gamma}$ is the vector representing the diphoton transverse momentum.
+and $\vec{p}_{T,\gamma\gamma}$ is the vector representing the diphoton transverse momentum.
 
 If one or more of the photons have converted into electrons in the tracker, 
 two more variables are used in addition to those above:
@@ -499,6 +510,9 @@ the following input variables:
     primary vertices (bottom) in simulated \Hgg events with $\mH = \SI{125}{GeV}$. Events are weighted
     according to the cross sections of the different production modes and to match the distributions
     of pileup and location of primary vertices in data.
+    The error bars and uncertainty bands include the contribution from both 
+    the statistical uncertainty on the simulated events and the differences between 
+    data and simulation in the vertex efficiency.
     The plots on the left show simulation under 2016 conditions~\cite{HIG-16-040}, 
     with simulation under 2017 conditions shown in the plots on the right~\cite{HIG-18-029}.
   }
@@ -554,7 +568,8 @@ The correction procedure can be summarised as~\cite{JEC}:
 %(excluding optional timedependent and flavor systematics) is 0.32% for jets with pT between 165 and 330 GeV, and |η| < 0.8. 
 
 Additional selection can be applied to these calibrated jets to further reject jets originating from pileup.
-Pileup jets are typically more dispersed than real jets, since they do not have an energetic core generated by a parton.
+Pileup jets are typically more dispersed than real jets, 
+since they are often composed of multiple overlapping jets with relative low \pt values.
 A pileup jet identification BDT is therefore trained using jet shape variables, 
 and additional track variables related to the interaction vertex of the jet.
 The output score of this BDT is used to reject pileup, with thresholds dependent on the \pt and $\eta$ of jets.

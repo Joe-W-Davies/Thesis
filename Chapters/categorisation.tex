@@ -3,10 +3,10 @@
 
 \section{Introduction}
 
-The analysis event selection consists of the preselection described in Chapter~\ref{chap:objects}, 
+\sloppy The analysis event selection consists of the preselection described in Chapter~\ref{chap:objects}, 
 and in addition requires the two leading preselected photon candidates to have 
-$\pt^{\gamma 1} > \mgg/3$ and $\pt^{\gamma 2} > \mgg /4$ respectively, 
-with an invariant mass in the range $100\,<\,\mgg\,<\,\SI{180}{GeV}$.
+${\pt^{\gamma 1} > \mgg/3}$ and~${\pt^{\gamma 2} > \mgg /4}$ respectively, 
+with an invariant mass in the range $100 < \mgg <~\SI{180}{GeV}$. 
 The requirements on the scaled photon transverse momenta prevent distortions 
 at the lower end of the mass spectrum.
 Both photons must also satisfy the
@@ -52,8 +52,8 @@ and then removing them from further consideration.
 Around fifteen events are expected to be removed as a result, 
 most of which would otherwise have populated the ggH 2J categories with higher \ptH values.
 Furthermore, there are no dedicated analysis categories for VH production; 
-there are insufficient statistics in the diphoton decay channel with this dataset 
-to measure any of the individual stage 1 bins~\cite{YR4}.
+the number of events in the diphoton decay channel with this dataset 
+is insufficient to measure any of the individual stage 1 bins~\cite{YR4}.
 
 The categorisation targeting ggH is based on the reconstructed diphoton transverse momentum (\ptgg) 
 and the number of jets in the event. 
@@ -110,8 +110,8 @@ and any given input for evaluation (without the target label $y$)
 will be placed in a single region and assigned the corresponding score.
 
 The boosting procedure combines individual DTs into a more powerful learner.
-An iterative training process enables the existing models to be improved upon, 
-by each new learner corrects the previous one.
+An iterative training process enables the existing models to be improved upon; 
+each new learner corrects the previous version.
 The final BDT output function then consists of a weighted sum of individual DTs.
 A type of boosting method known as gradient boosting trains each successive tree 
 on the residuals, or errors, of the existing function, 
@@ -163,7 +163,8 @@ The dijet is formed from the two leading jets in the event.
 This region is split into two-jet-like ($\ptHjj < \SI{25}{GeV}$) 
 and three-jet-like ($\ptHjj > \SI{25}{GeV}$) bins, 
 where \ptHjj is defined as the transverse momentum of the Higgs boson plus dijet system.
-Each bin is exclusive; events included in the VBF-like region are not included in the other ggH 2J bins.
+Each bin is exclusive; events passing the the VBF-like selection enter the VBF-like region
+and are not considered for the other ggH 2J bins.
 A table summarising the definition of each bin, its cross section, and the fraction of the 
 total ggH cross section is shown in Table \ref{tab:cat_ggHfractions}.
 The inclusive ggH cross section is $48.52~\textrm{pb}$ at $\mH = \SI{125.09}{GeV}$, 
@@ -181,8 +182,8 @@ Approximately $44.2~\textrm{pb}$ of this is within $|y_H| < 2.5$.
       The fractions are estimated from simulated ggH \Hgg events 
       within the region $|y_H| < 2.5$.
       Details of the simulated samples can be found in Chapter~\ref{chap:objects}.
-      Each bin is exclusive; 
-      events included in the VBF-like region are not included in the other ggH 2J bins.
+      Each bin is exclusive; events passing the the VBF-like selection enter the VBF-like region
+      and are not considered for the other ggH 2J bins.
     }
     \label{tab:cat_ggHfractions}
   \end{centering}
@@ -234,7 +235,10 @@ To train the diphoton BDT, simulated events from the ggH, VBF, ttH
 and VH production modes are treated as signal. 
 The event generator used for training the BDT (\textsc{POWHEG}) 
 is different from that used to construct the final signal model.
-This ensures that the final results are not biased by re-using the same events.
+The \textsc{POWHEG} sample is preferred for the BDT training because it does not contain
+any events with negative weights.
+It is checked that the input and output distributions from \textsc{POWHEG} agree with those
+from \textsc{MadGraph5_{}aMC@NLO} within uncertainties.
 Simulated background events include the contributions from prompt-prompt, prompt-fake, 
 and fake-fake sources.
 For both signal and background, 
@@ -340,9 +344,12 @@ The most important hyper-parameters affect the extent to which
 the algorithm learns the specific detail of the training sample provided.
 To check for potential overtraining, the training score as measured by the area under the ROC curve 
 of the training set is compared with the score from the independent test set.
-If the test set score is significantly higher than that of the training set, 
-the classifier has been overtrained.
-The default classifier hyper-parameters display no overtraining.
+The statistical variation of the ROC score can be estimated by varying 
+the random seed for the training and by choosing a different subset of events for the training.
+If the difference between the test and training set scores is significantly higher 
+than that this statistial variation, the classifier has been overtrained.
+The default classifier hyper-parameters as defined 
+in the XGBoost package~\cite{XGBoost} display no overtraining.
 A coarse hyper-parameter optimisation procedure is then performed, 
 in which each hyper-parameter is varied individually.
 No significant improvement without overtraining is found, 
@@ -428,8 +435,6 @@ The value of the AMS metric corresponds to the expected significance of a signal
 from the likelihood ratio statistic for a simple counting experiment, 
 neglecting the impact of systematic uncertainties.
 Its derivation is outlined in Ref.~\cite{Asymptotic}.
-The aim of this analysis is not to maximise the significance of each stage 1 bin.
-Maximising the AMS is instead a proxy for minimising the expected uncertainty for a given bin.
 The formula for the AMS for a given analysis category is given by 
 
 \begin{equation*}
@@ -448,12 +453,15 @@ and then the differences are relatively small.
 The total AMS significance is computed by summing the values for each analysis category in quadrature.
 
 The optimisation procedure itself is performed using a random search. 
-%This is found to be more computationally efficient than a grid search.
+This is found to be more computationally efficient than a grid search.
 After the diphoton BDT boundaries have been established, 
 a cross-check is performed to ensure that a sensible minimum has been found.
-This is done by scanning the diphoton BDT value individually for each category type and each boundary; 
-if a slightly better performing point is found in the vicinity, 
+This is done by evaluating the AMS score for diphoton BDT values 
+close to the nominal optimal point individually for each category type and each boundary.
+If a slightly better performing point is found in the vicinity, 
 it replaces the value returned by the random search.
+The cross-check is designed to check that the random search has found a stable mimimum; 
+this is determined by examining the shape of the scan around the optimal point.
 In general, the results of the random search are found to be robust.
 
 This optimisation process is repeated for different numbers of categories.
@@ -474,6 +482,8 @@ These tables illustrate the tendency for events with higher \ptH to have higher 
       the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the ggH phase space 
       for 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.
+      The categories targeting each stage 1 bin are ordered such that ``Tag 0" 
+      has the highest S/B value, ``Tag 1" the next highest, and so on. 
     }
     \label{tab:cat_ggHsignificance2016}
   \end{centering}
@@ -488,6 +498,8 @@ These tables illustrate the tendency for events with higher \ptH to have higher 
       the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the ggH phase space 
       for 2017 simulation and data, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
+      The categories targeting each stage 1 bin are ordered such that ``Tag 0" 
+      has the highest S/B value, ``Tag 1" the next highest, and so on. 
     }
     \label{tab:cat_ggHsignificance2017}
   \end{centering}
@@ -514,7 +526,8 @@ Table \ref{tab:cat_VBFfractions} shows a summary of the definition of each bin
 and the corresponding fraction of the total VBF cross section.
 The inclusive VBF cross section is \SI{3.779}{pb} at $\mH = \SI{125.09}{GeV}$~\cite{YR4},
 computed at approximately next-to-next-to-leading (NNLO) order in QCD and NLO in EW,
-of which approximately \SI{3.52}{pb} is within $|y_H| < 2.5$.
+meaning some but not all NNLO diagrams are included in the calculation.
+Of this approximately \SI{3.52}{pb} is within $|y_H| < 2.5$.
 For hadronic VH production, 
 the cross section at $\mH = \SI{125.09}{GeV}$ of \SI{1.54}{pb}~\cite{YR4}
 is computed at NNLO in QCD and NLO in EW, 
@@ -570,7 +583,7 @@ as discussed in Chapter~\ref{chap:hgcal}.
 Adding the jet shape variables used there as inputs 
 do not significantly improve the performance of the dijet BDT;
 however it has been shown that more sophisticated techniques using neural network classifiers
-and detailed jet image inputs can improve the performance~\cite{JackThesis}.
+and detailed jet inputs can improve the performance~\cite{JackThesis}.
 The full set of input variables for the dijet BDT are:
 \begin{itemize}
 \item the transverse momentum of the two leading photons, divided by the diphoton mass, $\pt^{1,2}/\mgg$;
@@ -598,7 +611,7 @@ which pass the analysis preselection,
 and this problem is exacerbated by applying additional requirements on the dijet system.
 %Have a go at explaining why here?
 Consequently, there are few events with which to train the dijet BDT, 
-and those events which are present have a extremely high weights.
+and those events which are present have extremely high weights.
 This results in multiple issues that reduce the effectiveness of the dijet BDT.
 If these high-weight events are included in the training, 
 the classifier assigns too much importance to specific instances 
@@ -655,12 +668,12 @@ the outline of the procedure is as follows:
 There are four distinct regions considered in the data-driven replacement method.
 Events entering the analysis comprise the signal region, 
 where both photons pass the photon identification BDT requirements;
-the total number of events is $N_{pp}$.
+the total number of events is $N_{\textrm{pp}}$.
 There are two control regions, where one photon passes the requirement and one fails it.
-The number of events in each are denoted by $N_{pf}$ 
-(where the leading photon passes and the subleading photon fails) and $N_{fp}$ 
+The number of events in each are denoted by $N_{\textrm{pf}}$ 
+(where the leading photon passes and the subleading photon fails) and $N_{\textrm{fp}}$ 
 (where the leading photon fails and the subleading photon passes).
-Lastly there is the region where both photons fail the requirement, with $N_{ff}$ events.
+Lastly there is the region where both photons fail the requirement, with $N_{\textrm{ff}}$ events.
 %Table~\ref{tab:cat_RegionDefinitions} shows the definition of each region.
 %TODO put in table. Mention reason for gap in ID BDT score?
 Figure~\ref{fig:cat_DDschematic} illustrates how the method works.
@@ -673,6 +686,12 @@ Figure~\ref{fig:cat_DDschematic} illustrates how the method works.
     A schematic illustrating the data-driven method for replacing the simulated
     prompt-fake and fake-fake events with reweighted data events from control regions 
     defined by the photon identification BDT. 
+    The ratio of events which pass the photon identification requirement to events that fail 
+    is taken from simulation in bins of \pt and $\eta$, 
+    and used to calculate so-called ``fake-factors". 
+    These fake factors are then applied to events in data where one or more photons fail 
+    the photon identification requirement, 
+    and these reweighted events replace the simulation in the training of the dijet BDT.
   }
   \label{fig:cat_DDschematic}
 \end{figure}
@@ -680,9 +699,12 @@ Figure~\ref{fig:cat_DDschematic} illustrates how the method works.
 Once these regions have been defined, it is possible to define so-called ``fake-factors" 
 to extrapolate from the number of events in the control regions 
 to the expected number of events in the signal region.
-These factors are calculated from simulation, in bins of \pt and $\eta$.
+These factors are calculated from simulation, in bins of \pt and $\eta$; 
+this ensures that the distributions of \pt and $\eta$ are well-modelled.
 Kinematic variables other than \pt and $\eta$ are assumed to be similar 
 across the control and signal regions.
+This is checked by comparing the distributions constructed using the data-driven replacement 
+method with data in the $\mgg$ sideband.
 In order to minimise the statistical error on the fake factors, 
 the loosened VBF preselection is used.
 The full VBF preselection is then applied before training, 
@@ -705,7 +727,7 @@ w_{\textrm{fake}} = w_{\textrm{fake}}(\eta,\pt)
 \end{equation*}
 \begin{equation*}
 w_{\textrm{QCD}} = w_{\textrm{QCD}}(\eta,\pt)
-= \left( \frac{N^{CR}_{pf} + N^{CR}_{ff}} {N^{CR}_{pp} + N^{CR}_{pf} + N^{CR}_{ff}} \right)_{MC} ,
+= \left( \frac{N^{CR}_{\textrm{pf}} + N^{CR}_{\textrm{ff}}} {N^{CR}_{\textrm{pp}} + N^{CR}_{\textrm{pf}} + N^{CR}_{\textrm{ff}}} \right)_{MC} ,
 \end{equation*}
 \begin{equation*}
 f = f(\eta,\pt) = w_{\textrm{fake}} \times w_{\textrm{QCD}} , 
@@ -715,7 +737,7 @@ where $N^{SR}$ and $N^{CR}$ are the number of events in the signal and control r
 each is a function of the photon \pt and $\eta$.
 The number of prompt-prompt, prompt-fake, and fake-fake events in the control regions 
 are also a function of photon \pt and $\eta$, 
-and are denoted by $N^{CR}_{pp}$, $N^{CR}_{pf}$, and $N^{CR}_{ff}$ respectively.
+and are denoted by $N^{CR}_{\textrm{pp}}$, $N^{CR}_{\textrm{pf}}$, and $N^{CR}_{\textrm{ff}}$ respectively.
 The fake factors are calculated in four bins of \pt and two bins of $\eta$.
 Figure~\ref{fig:cat_FakeFactors} shows the values of the factors in each of these bins.
 
@@ -725,6 +747,9 @@ Figure~\ref{fig:cat_FakeFactors} shows the values of the factors in each of thes
   \caption[Values of the fake factors used in the data-driven dijet BDT method.]
   {
     Fake factor values in each of the four \pt and two $\eta$ bins.
+    The left two plots show the values where the subleading photon is a fake, 
+    whilst in the right two plots the leaing photon is fake.
+    The values are taken from simulation.
   }
   \label{fig:cat_FakeFactors}
 \end{figure}
@@ -778,6 +803,8 @@ The area of this ROC curve is also 0.87,
 which confirms that the observed improvement is reasonable.
 The performance is 2017 is very similar, 
 with the data-driven method improving the ROC score from 0.83 to 0.86.
+After the category boundaries have been optimised, 
+this results in an increase in the final value of the AMS score of approximately 10\%.
 
 The agreement between data and simulation for the dijet BDT score is validated 
 in a similar way to the diphoton BDT.
@@ -821,7 +848,7 @@ Its input variables are:
 The combined BDT is trained with VBF as signal against the three sources of SM background, 
 using simulated events in each case.
 Gluon fusion is not included in the training because it is found to worsen the performance 
-of the combined BDT to reject true background.
+of the combined BDT to reject non-Higgs boson background.
 Since these backgrounds have a greater impact on the final sensitivity 
 than the contamination from other signal processes, 
 this is considered a higher priority.
@@ -932,6 +959,8 @@ together with the expected number of signal and background events and the per-ca
       the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the VBF phase space 
       for 2016 data and simulation, assuming an integrated luminosity of \SI{35.9}{\fbinv}.
+      The categories targeting each stage 1 bin are ordered such that ``Tag 0" 
+      has the highest S/B value, ``Tag 1" the next highest, and so on. 
     }
     \label{tab:cat_VBFcuts2016}
   \end{centering}
@@ -946,6 +975,8 @@ together with the expected number of signal and background events and the per-ca
       the expected number of signal (S) and background (B) events, 
       and the expected significance (defined by the AMS metric) of each category in the VBF phase space 
       for 2017 data and simulation, assuming an integrated luminosity of \SI{41.5}{\fbinv}.
+      The categories targeting each stage 1 bin are ordered such that ``Tag 0" 
+      has the highest S/B value, ``Tag 1" the next highest, and so on. 
     }
     \label{tab:cat_VBFcuts2017}
   \end{centering}

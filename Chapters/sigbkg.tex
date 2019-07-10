@@ -12,8 +12,8 @@ of the parameter of interest.
 In addition, systematic uncertainties are included in the fit to account for 
 imperfect knowledge of both theoretical and experimental inputs to the analysis.
 These uncertainties are implemented in the form of nuisance parameters.
-A nuisance parameter is a variable which affects the measured value 
-but is not in itself of any interest.
+A nuisance parameter is any parameter of the model for which 
+an uncertainty interval is not constructed.
 In the final fit, nuisance parameters are ``profiled".
 This means their values are allowed to vary, 
 either freely or with an additional constraint applied 
@@ -527,6 +527,8 @@ the systematic uncertainties will become more important.
     The impact of the different systematic uncertainties on the inclusive, VBF, and ttH 
     signal strength modifiers in the previous CMS \Hgg analysis \cite{HIG-16-040}.
     The observed (expected) results are shown by the solid (empty) bars.
+    The expected uncertainties are constructed using the Asimov dataset~\cite{Cowan}.
+    The observed uncertainties are those arising in the fit to data. 
     This figure was first shown in Ref.~\cite{HIG-16-040}, 
     and is based on the results described therein.
   }

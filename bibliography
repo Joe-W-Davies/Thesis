@@ -1908,9 +1908,77 @@ year = "1998"
 }
 
 @book{ElementsLearning,
-      author         = "Hastie, T. and Tibshirani, R. and Friedman, Jerome",
+      author         = "Hastie, T. and Tibshirani, R. and Friedman, J.",
       title          = "{The Elements of Statistical Learning}",
       publisher      = "Springer",
       year           = "2009",
       ISBN           = "9780387848587",
+}
+
+@article{LHCpaper,
+  doi = {10.1088/1748-0221/3/08/s08001},
+  year = 2008,
+  volume = {3},
+  number = {08},
+  pages = {S08001--S08001},
+  author = {L. Evans and P. Bryant},
+  title = {{LHC} Machine},
+  journal = {Journal of Instrumentation},
+}
+
+@article{Moedal,
+      author         = "Acharya, B. and others",
+      title          = "{The Physics Programme Of The MoEDAL Experiment At The
+                        LHC}",
+      collaboration  = "MoEDAL",
+      journal        = "Int. J. Mod. Phys.",
+      volume         = "A29",
+      year           = "2014",
+      pages          = "1430050",
+      doi            = "10.1142/S0217751X14300506",
+      eprint         = "1405.7662",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+}
+
+@inproceedings{LHCf,
+      author         = "Berti, E. and others",
+      title          = "{The LHCf experiment: present status and physics results}",
+      collaboration  = "LHCf",
+      year           = "2017",
+      eprint         = "1710.03991",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      SLACcitation   = "%%CITATION = ARXIV:1710.03991;%%"
+}
+
+@article{TOTEM,
+	doi = {10.1088/1748-0221/3/08/s08007},
+	url = {https://doi.org/10.1088%2F1748-0221%2F3%2F08%2Fs08007},
+	year = 2008,
+	volume = {3},
+	number = {08},
+	pages = {S08007},
+	author = {The TOTEM Collaboration},
+	title = {The {TOTEM} Experiment at the {CERN} Large Hadron Collider},
+	journal = {Journal of Instrumentation},
+}
+
+@article{ATLAS_QG,
+      author         = "ATLAS Collaboration",
+      title          = "{Light-quark and gluon jet discrimination in $pp$
+                        collisions at $\sqrt{s}=7\mathrm {\ TeV}$ with the ATLAS
+                        detector}",
+      collaboration  = "ATLAS",
+      journal        = "Eur. Phys. J.",
+      volume         = "C74",
+      year           = "2014",
+      number         = "8",
+      pages          = "3023",
+      doi            = "10.1140/epjc/s10052-014-3023-z",
+      eprint         = "1405.6583",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ex",
+      reportNumber   = "CERN-PH-EP-2014-058",
+      SLACcitation   = "%%CITATION = ARXIV:1405.6583;%%"
 }

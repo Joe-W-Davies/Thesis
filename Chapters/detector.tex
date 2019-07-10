@@ -20,7 +20,9 @@ these  act as the injection system for the LHC.
 The two counter-circulating beams cross at four interaction points, at each of which a detector is situated.
 Directly opposite CMS is a second general purpose detector, ATLAS~\cite{ATLAS}, 
 whose physics objectives are identical to those of CMS but whose design and operation are independent. 
-The other two detectors, LHCb~\cite{LHCb} and ALICE~\cite{ALICE}, focus on flavour and heavy-ion physics respectively.
+Two further detectors, LHCb~\cite{LHCb} and ALICE~\cite{ALICE}, focus on flavour and heavy-ion physics respectively.
+Three smaller experiments are also situated at the LHC; these are MoEDAL, TOTEM and LHCf~\cite{Moedal,TOTEM,LHCf}, 
+which between them perform studies of forward physics and searches for magnetic monopoles.
 Whilst the LHC is capable of producing heavy ion collisions in addition to proton-proton collisions, 
 the remainder of this section will be dedicated to its proton-proton operations.
 A schematic of the full CERN accelerator complex and the LHC experiments is shown in Figure~\ref{fig:detector_CERNschematic}.
@@ -100,7 +102,7 @@ These are summarised as:
   \item{\textbf{Muon identification and resolution:}
   muons must be identified and well-measured over a wide range in energy and angle, 
   with good dimuon mass resolution and the capability to accurately determine their charge.
-  This is very important for Higgs boson searches, particularly in the $ZZ$ decay channel.}
+  This is very important for Higgs boson measurements, particularly in the $ZZ$ decay channel.}
   \item{\textbf{Charged particle measurement:}
   good momentum resolution along with efficient reconstruction and triggering on $\tau$ leptons and $b$ quarks.
   Excellent jet reconstruction is essential in the majority of physics measurements.}
@@ -136,7 +138,8 @@ and described in detail in the remainder of this chapter.
 
 A cylindrical coordinate system is used to describe events within CMS, with its centre at the nominal proton-proton interaction point.
 The central part is referred to as the barrel, with two endcaps closing the cylinder.
-The positive $z$-axis is defined to be parallel to the beampipe in the direction of the Jura mountains, anti-clockwise when viewed from above.
+The positive $z$-axis is defined to be parallel to the beampipe, anti-clockwise when viewed from above; 
+this defines a right-handed coordinate system with the positive $x$-axis in the direction of the centre of the ring and the positive $y$-axis pointing vertically upwards.
 The azimuthal angle $\phi$ is measured from the $z$-axis, and polar angle $\theta$ from the plane perpendicular to the $z$-axis.
 Other common quantities are: pseudorapidity, defined as $\eta \, = \, -\ln{\tan{(\theta/2)}}$; 
 momentum in the direction transverse to the plane of the LHC, \pt; 
@@ -149,7 +152,7 @@ The central feature of the CMS detector is the superconducting solenoid, whose 2
 The coil of the magnet measures 6\,m in diameter, is 13\,m long, and provides a maximum field strength of 4\,T, storing a total energy of 1.6\,GJ.
 During normal operation, however, the current is reduced to approximately 95\% of its capacity, resulting in a field strength of 3.8\,T.
 This ensures the longevity of the solenoid.
-The magnetic flux is returned by a 10,000 tonne yoke, composed of three disk-like layers in both the barrel and endcaps.
+The magnetic flux is returned by a 10,000 tonne yoke, composed of three layers in both the barrel and endcaps.
 
 The extremely high bending power of the CMS magnet enables precise measurement of charged particle tracks , 
 and hence excellent momentum resolution up to very high particle momenta.
@@ -273,7 +276,7 @@ The setup as a whole is displayed using one quadrant of the detector in Figure~\
   \label{fig:detector_ECALquadrant}
 \end{figure}
 
-To reconstruct the shower energy, the photodetectors amplify the scintillation light to produce around 4,500 photoeletrons per GeV.
+To reconstruct the shower energy, the photodetectors amplify the scintillation light to produce around 4,500 photoelectrons per GeV.
 After digitisation by 12-bit analogue-to-digital converters (ADCs), ten consecutive amplitude measurements are stored in a buffer.
 Once a trigger is received, these recordings are sent to the off-detector electronics. 
 There the original energy deposition in the crystal can be inferred with knowledge of the typical pulse shape of each channel.
@@ -313,7 +316,7 @@ The $S_i (t)$ monitor the radiation-induced change in transparency over time by 
 The intercalibration factors $C_i$ reflect the need to have an equal response from each crystal in the detector.
 These are computed using both the $\phi-\textrm{symmetry}$ of the detector and the known mass of $\pi^{0}$ and $\eta$ diphoton decays.
 The global scale $G$ is derived by requiring the measured dielectron mass of the $Z$ boson to match its known true value.
-Finally, the particle-dependent $F_{e/\gamma}$ corrections are estimated using a multivariate analysis (MVA) which mostly accounts for the varying material budget in front of the ECAL.
+Finally, the particle-dependent $F_{e/\gamma}$ corrections are estimated using a multivariate regression which mostly accounts for the varying material budget in front of the ECAL~\cite{ECALperformance}.
 After this lengthy procedure, the final energy resolution on the high \pt, unconverted photons which drive the \Hgg sensitivity is approximately 1\%.
 
 \subsection{Hadronic calorimeter}
@@ -327,8 +330,8 @@ Wavelength-shifting fibres contained within scintillator tiles channel emitted l
 Division into 16 $\eta$ sectors and 16 wedges in $\phi$ results in a granularity of $0.087\times0.087$.
 The HB has 14 brass layers surrounded by a layer of steel at the front and back, 
 which totals between 5.8 and and 10.6 interaction lengths ($\lambda_I$) depending on $\eta$ \footnote{An 
-interaction length is defined as the length over which 
-a particle has a probability $e^{-1}$ of decaying.}.
+interaction length is defined as the mean free path, or the mean distance travelled, of
+a hadronic particle before it undergoes an inelastic nuclear interaction in a given material.}.
 This is not sufficient to completely contain hadronic showers, due to the space restriction imposed by the magnet coil.
 Consequently an additional outer hadron calorimeter (HO) is present beyond the solenoid.
 The HO uses the solenoid coil as an absorber, with the same scintillator technology as the HB.

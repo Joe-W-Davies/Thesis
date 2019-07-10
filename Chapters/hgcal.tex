@@ -17,7 +17,7 @@ and the detector's physics potential is demonstrated using the example of the VB
 
 \section{The High Luminosity LHC}
 
-Run~2 of the LHC is now complete, with over \SI{190}{\fbinv} of data delivered at $\sqrt{s}\,=\,\SI{13}{TeV}$. %original target was 150 Run 1 plus Run 2
+Run~2 of the LHC is now complete, with over \SI{190}{\fbinv} of data delivered at ${\sqrt{s}\,=\,\SI{13}{TeV}}$. %original target was 150 Run 1 plus Run 2
 This exceeds the original target of \SI{150}{\fbinv}, and was achieved partly because the machine was eventually operated at twice its nominal instantaneous luminosity.
 The instantaneous luminosity reached values as high as \SI{2e34}{\lumi} during 2018.
 The second long shutdown (LS2) commenced following the completion of Run~2 and will last until 2021.
@@ -168,6 +168,8 @@ The active medium in the CE-H varies as a function of depth and radius, and is d
 In regions of sufficiently low fluence (those which are nearest the back of the detector and furthest from the beam-pipe), plastic scintillator tiles are used with SiPM readout.
 The exact threshold between the scintillator and silicon is determined by the S/N required to measure the MIP response, which is decreased by exposure to radiation.
 Further detail on the design specifications of the HGCAL can be found in Ref.~\cite{HGCAL}.
+The results detailed in this chapter use the same detector geometry and central CMS
+software (version 9.3.7) as described in Ref.~\cite{HGCAL}.
 
 \begin{figure}[h!]
   \centering
@@ -249,7 +251,7 @@ The algorithm proceeds as follows, and is illustrated in Figure~\ref{fig:hgcal_c
   The density is defined simply as the energy sum of all hits within a critical distance $\delta_c$, 
   whose value is chosen to be similar to the Moli\`ere radius.
   \item For each hit, calculate the distance to the nearest hit with higher density.
-  \item Assign hits with both both density and distance parameters greater than threshold values as cluster centres.
+  \item Assign hits with both density and distance parameters greater than threshold values as cluster centres.
   The density threshold ($\rho_c$) can be defined relative to the maximum density in the event,
   or as a function of the noise resolution.
   The distance threshold is equal to $\delta_c$.
@@ -432,8 +434,8 @@ is used to discriminate between ggH and VBF using photon and jet kinematic varia
 Here, the possibility of exploiting the granularity of the HGCAL 
 by using jet shape variables as BDT inputs in addition to the kinematic variables is explored. %TODO check definitions of jet shape variables
 
-Jets initiated by gluons tend to have lower \pt values and be more dispersed than quark-initiated jets, 
-which are relatively highly collimated and contain fewer particles. 
+Jets initiated by gluons tend to be more dispersed than quark-initiated jets, 
+which are relatively highly collimated and contain fewer particles~\cite{ATLAS_QG}. 
 Therefore variables relating to the jet shapes can be used to discriminate between the two.
 Since jets in ggH events tend to be gluon-initiated, 
 and the VBF jets quark-initiated, 
@@ -480,6 +482,8 @@ the mass resolution estimates, and the vertex probability estimate.
 
 A 2D scan was used to choose cut values on both the dijet and background BDTs, 
 and generate the working points in Table \ref{tab:hgcal_yields}.
+Three categories were chosen in order to faciliate comparison with the Run~2 results presented 
+in Ref.~\cite{HIG-16-040}.
 The working points were chosen to maximise the total expected significance, 
 using the simple metric of the sum in quadrature of the 
 the ratio of signal events to the square root of signal plus background events
