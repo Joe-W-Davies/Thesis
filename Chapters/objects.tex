@@ -66,6 +66,8 @@ This step is designed to recover energy lost via bremsstrahlung;
 radiated showers typically have very similar $\eta$ values 
 but are spread out in the $\phi$ direction by the magnetic field.
 
+\newpage
+
 Given these tracks and calorimeter clusters as inputs, the particle flow algorithm forms collections of candidates for five types of particle:
 \begin{itemize}
   \item{\textbf{Muons:} a path extrapolated from the tracker is consistent with a muon track. 
@@ -177,7 +179,9 @@ They can be divided into shower shape and isolation variables.
 The ECAL shower shape information is used both to correct the energy and discriminate between real and fake photons.
 Isolation variables can be used to reduce the mis-identification of jets and other objects imitating a real photon signal.
 The full set of variables used in this section and their definitions are given below.
-\\ \\
+
+\newpage
+
 \textbf{Shower shape variables:}
 \begin{itemize}[noitemsep]
   \item \emph{$E_{2\times2}/E_{5\times5}$}: the ratio of the energy in the $2\times2$ grid
@@ -569,7 +573,7 @@ The correction procedure can be summarised as~\cite{JEC}:
 
 Additional selection can be applied to these calibrated jets to further reject jets originating from pileup.
 Pileup jets are typically more dispersed than real jets, 
-since they are often composed of multiple overlapping jets with relative low \pt values.
+since they are often composed of multiple overlapping jets with relatively low \pt values.
 A pileup jet identification BDT is therefore trained using jet shape variables, 
 and additional track variables related to the interaction vertex of the jet.
 The output score of this BDT is used to reject pileup, with thresholds dependent on the \pt and $\eta$ of jets.
