@@ -139,7 +139,7 @@ from the events used to construct the final signal model of the analysis.
 
 Simulated background events are not used to produce the final results of the analysis, 
 but are used to train several of the classifiers used in the analysis.
-The predominant source of back is the irreducible SM production of two prompt (real) photons, 
+The predominant source of background is the irreducible SM production of two prompt (real) photons, 
 which is simulated using the \textsc{SHERPA}~\cite{sherpa} program. %Born processes up to three jets and boxes at LO
 There are two types of reducible background: $\gamma$ + jet events where the jet is misidentified as a photon (``prompt-fake" events), 
 and events where two jets are misidentified as photons (``fake-fake" events).
@@ -271,15 +271,15 @@ the detector response changes to damage from radiation during LHC operation and 
 This can cause the measured energy to both drift slowly and change discontinuously over time.
 Corrections are derived using \Zee events where the electrons are reconstructed as photons, using the known Z boson mass.
 These corrections are extracted differentially in time, and binned in the photon $\eta$ (two bins in each of barrel and endcap) and \RNINE (two bins).
-Their magnitude varies from 0.1-0.3\% in the barrel and from 0.2 to 2\% in the endcaps.
+Their magnitude varies from 0.1\% to 0.3\% in the barrel and from 0.2\% to 2.0\% in the endcaps.
 
 Finally, the energy resolution in simulation is corrected to match that in data.
 This is implemented as a Gaussian smearing using the same bins as the energy corrections.
-The size of the corrections range from approximately 0.1 to 2.7\%.
-Once all the corrections have been applied, the photon energy resolution ranges from around 1 to 2.5\% in the barrel
+The size of the corrections range from approximately 0.1\% to 2.7\%.
+Once all the corrections have been applied, the photon energy resolution ranges from around 1.0\% to 2.5\% in the barrel
 and from 2.5\% to 3.5\% in the endcaps.
 Validation of the energy after corrections is shown in Figure~\ref{fig:obj_mee}, 
-where data is compared to simulation in \Zee events with electrons reconstructed as photons.
+where data are compared to simulation in \Zee events with electrons reconstructed as photons.
 Full details of the entire energy correction procedure can be found in Ref.~\cite{PhotonReco}.
 
 \begin{figure}[h!]
@@ -357,8 +357,8 @@ To measure the electron veto efficiency, \Zmumug events are used.
 Efficiencies range from over 94\% for high \RNINE photons in the barrel, 
 to around 50\% for low \RNINE photons in the endcaps.
 Good agreement is observed between data and simulation, 
-with differences between data and simulation in the range 0.1-0.3\% in the barrel 
-and 0.5-1\% in the endcap.
+with differences between data and simulation in the range 0.1\% to 0.3\% in the barrel 
+and 0.5\% to 1\% in the endcap.
 
 \subsection{Photon identification}
 \label{sec:objects_PhotonIDBDT}

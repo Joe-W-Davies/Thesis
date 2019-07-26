@@ -165,7 +165,7 @@ The dijet is formed from the two leading jets in the event.
 This region is split into two-jet-like ($\ptHjj < \SI{25}{GeV}$) 
 and three-jet-like ($\ptHjj > \SI{25}{GeV}$) bins, 
 where \ptHjj is defined as the transverse momentum of the Higgs boson plus dijet system.
-Each bin is exclusive; events passing the the VBF-like selection enter the VBF-like region
+Each bin is exclusive; events passing the VBF-like selection enter the VBF-like region
 and are not considered for the other ggH 2J bins.
 A table summarising the definition of each bin, its cross section, and the fraction of the 
 total ggH cross section is shown in Table \ref{tab:cat_ggHfractions}.
@@ -184,7 +184,7 @@ Approximately $44.2~\textrm{pb}$ of this is within $|y_H| < 2.5$.
       The fractions are estimated from simulated ggH \Hgg events 
       within the region $|y_H| < 2.5$.
       Details of the simulated samples can be found in Chapter~\ref{chap:objects}.
-      Each bin is exclusive; events passing the the VBF-like selection enter the VBF-like region
+      Each bin is exclusive; events passing the VBF-like selection enter the VBF-like region
       and are not considered for the other ggH 2J bins.
     }
     \label{tab:cat_ggHfractions}
@@ -278,6 +278,7 @@ assuming the resolutions are independent and Gaussian distributed:
                               + \left(\frac{\sigma_{E_2}}{E_2}\right)^{2}}
 \end{equation}
 
+\noindent
 where both the energy ($E_{1,2}$) and energy resolution ($\sigma_{E_{1,2}}$) estimates 
 are obtained from the regression described in Chapter~\ref{chap:objects}.
 Under the incorrect vertex hypothesis, an additional term must be added to account for the 
@@ -395,7 +396,7 @@ for both the inputs to the diphoton BDT and the output score itself.
 In this \Zee control region, the electrons are reconstructed as photons, 
 and the presence of an electron pair with invariant mass $80 < m_{ee} < \SI{100}{GeV}$ is required.
 Otherwise the event selection is the same as the analysis selection for diphoton events, 
-except for the additional requirement that the leading electron $\pt > \SI{40}{GeV}$.
+except for the additional requirement that the leading electron has $\pt > \SI{40}{GeV}$.
 This requirement is necessary to ensure that no bias is introduced by the electron trigger, 
 which has selection thresholds at $\pt = \SI{32}{GeV}~(\SI{35}{GeV})$ for 2016 (2017) data.
 
@@ -443,10 +444,11 @@ The formula for the AMS for a given analysis category is given by
   AMS = \sqrt{ 2 \left( (S+B) \ln{\left(1+\frac{S}{B}\right)} - S \right) }
 \end{equation*}
 
+\noindent
 where $S$ is 68\% (corresponding to $\pm 1\sigma_{eff}$) of the number of signal events 
 from the desired truth bin (not the total number of signal events), and $B$ is the background.
 The value of B is calculated by performing an exponential fit to the background, 
-and then integrating the number of events between $125 - \sigma_{eff} < \mH < 125 + \sigma_{eff}$.
+and then integrating the number of events between $\S{125}{GeV} - \sigma_{eff} < \mH < \S{125}{GeV} + \sigma_{eff}$.
 This formula reduces to $S/\sqrt{S+B}$ in the limit of small $S/B$.
 Results are found to be robust to the choice of metric; 
 only in bins with a very low number of events (e.g. the BSM bins) 
@@ -560,7 +562,7 @@ Different categorisation scenarios are considered for the VBF process.
 Ideally categories would be constructed to target each stage 1 bin.
 However, the experimental sensitivity to the BSM-like, VH-like, and VBF rest bins is limited.
 Care is therefore taken not reduce the sensitivity to inclusive VBF production when designing 
-the categories for each of these categories.
+the categories for each of these scenarios.
 
 The bins which can be most precisely measured are the 2J-like and 3J-like VBF bins.
 In addition to migrations between the categories targeting each bin, 
@@ -583,7 +585,7 @@ whereas ggH events typically originate from gluons.
 This results in subtle differences in the internal structure of the jet objects, 
 as discussed in Chapter~\ref{chap:hgcal}.
 Adding the jet shape variables used there as inputs 
-do not significantly improve the performance of the dijet BDT;
+does not significantly improve the performance of the dijet BDT;
 however it has been shown that more sophisticated techniques using neural network classifiers
 and detailed jet inputs can improve the performance~\cite{JackThesis}.
 The full set of input variables for the dijet BDT are:
@@ -691,6 +693,8 @@ Figure~\ref{fig:cat_DDschematic} illustrates how the method works.
     The ratio of events which pass the photon identification requirement to events that fail 
     is taken from simulation in bins of \pt and $\eta$, 
     and used to calculate so-called ``fake-factors". 
+    The fake-factor for the leading photon is denoted by $f(\gamma_1)$ 
+    and the fake-factor for the subleading photon by $f(\gamma_2)$.
     These fake factors are then applied to events in data where one or more photons fail 
     the photon identification requirement, 
     and these reweighted events replace the simulation in the training of the dijet BDT.
@@ -735,6 +739,7 @@ w_{\textrm{QCD}} = w_{\textrm{QCD}}(\eta,\pt)
 f = f(\eta,\pt) = w_{\textrm{fake}} \times w_{\textrm{QCD}} , 
 \end{equation*}
 
+\noindent
 where $N^{SR}$ and $N^{CR}$ are the number of events in the signal and control regions respectively;
 each is a function of the photon \pt and $\eta$.
 The number of prompt-prompt, prompt-fake, and fake-fake events in the control regions 
@@ -766,11 +771,11 @@ The new training inputs,
 comprising the simulated prompt-prompt events and data-driven prompt-fake and fake-fake events, 
 are compared with data from sidebands in the diphoton mass distribution.
 The usual signal region selection is applied to the sideband data, 
-but with the requirement that the diphoton mass does not lie in the region $115 < \mgg < \SI{135}{GeV}$.
-These data cannot be used for training the dijet BDT since its reuse in the final fits 
+but with the requirement that the diphoton mass does not lie in the region $\SI{115}{GeV} < \mgg < \SI{135}{GeV}$.
+These events cannot be used for training the dijet BDT since their reuse in the final fits 
 could then induce bias; 
-however it is very useful for validating the method, 
-since its kinematic properties should be essentially identical to the data-driven output.
+however they are useful for validating the method, 
+since their kinematic properties should be essentially identical to the data-driven output.
 Figure~\ref{fig:cat_DDvalidation} shows the good agreement between the data-driven output
 and the sideband data. 
 The figure also shows how the method solves the problem of the high-weight events present in the MC; 

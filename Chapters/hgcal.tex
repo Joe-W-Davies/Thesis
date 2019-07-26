@@ -6,7 +6,7 @@ In order to fully exploit the physics potential of the LHC,
 the accelerator will be operated until around 2040 
 in order to collect as much data as possible.
 During this period, various upgrades are planned 
-which are designed to maximise the instantaneous delivered to the experiments, including CMS.
+which are designed to maximise the instantaneous luminosity delivered to the experiments, including CMS.
 As a result of this increase, and due to accumulated radiation damage, 
 parts of the CMS detector will need to be upgraded.
 A key part of this upgrade program is the replacement of the electromagnetic 
@@ -59,7 +59,7 @@ however an additional 50\% beyond the nominal value is allowed for in the HL-LHC
 which would result in mean pileup values of up to 200.
 This constitutes a major change, and the environment will be significantly harsher than with the current LHC conditions.
 These conditions pose serious challenges to the detectors in terms of radiation tolerance and reconstruction in high pileup.
-In order to maintain or improve upon the excellent performance exhibited in Run~2, a suite of upgrades to the CMS detector are planned.
+In order to maintain or improve upon the excellent performance exhibited in Run~2, a suite of upgrades to the CMS detector is planned.
 The key aspects of the CMS Phase~2 upgrade can be summarised as follows~\cite{UpgradeTP,MTD}:
 \begin{itemize}
   \item{\textbf{Tracker:}
@@ -128,7 +128,7 @@ To maintain performance throughout the operation of the HL-LHC it is necessary
 to inter-calibrate cells to the level of a few per-cent.
 This is possible provided the signal-to-noise ratio (S/N) 
 for minimum-ionising particles (MIPs) is sufficiently high.
-For this to be achieved after \SI{3000}{\fbinv} of data has been collected, 
+For this to be achieved after \SI{3000}{\fbinv} of data have been collected, 
 small silicon cells with low capacitance are required, which results in high lateral granularity.
 Fine lateral granularity also has many benefits for physics performance, 
 including the ability to separate nearby showers, identify narrow jets 
@@ -220,7 +220,7 @@ where the endcap resolution is significantly worse than the barrel. %TODO quanti
     The intrinsic energy resolution for single photons in PU 200. 
     The energy is estimated by summing all deposits within a \SI{26}{mm} radius 
     of the generated particle axis. 
-    Figure first shown in from Ref.~\cite{HGCAL}.
+    Figure taken from Ref.~\cite{HGCAL}.
   }
   \label{fig:hgcal_PhotonReso}
 \end{figure}
@@ -293,13 +293,13 @@ Therefore the 2D clusters, or layer clusters, produced are associated together i
 An axis is defined by the highest energy 2D cluster, then any layer clusters within a certain distance of this axis are added to the multicluster.
 Using this procedure with sensible parameters, an unconverted photon will have almost all of its energy contained within a single multicluster.
 Optimisation can then be performed by minimising the energy resolution of unconverted photons simulated at a range of \pt values.
-Further detail on the 2D clustering and multiclustering procedures are given in Ref.~\cite{ClusteringConf}.
+Further detail on the 2D clustering and multiclustering procedures is given in Ref.~\cite{ClusteringConf}.
 %It is anticipated that this two-step process could be improved by performing 3D clustering directly, but this remains to be studied in detail. 
 
 Finally, electromagnetic objects are formed using a superclustering procedure very similar to the one utilised in Run 2, 
 where showers which have been spread out in the $\phi$ direction by the magnetic field are collected together.
 To perform this step, multiclusters are used as inputs to the existing Run~2 algorithm~\cite{PhotonReco}; no re-optimisation is performed.
-Despite this, high \pt photons reconstructed in this way in have a resolution of below 2\%, 
+Despite this, high \pt photons reconstructed in this way have a resolution of below 2\%, 
 not far from the intrinsic resolution values shown in Figure~\ref{fig:hgcal_PhotonReso}.
 This method of electromagnetic object reconstruction was used for all the physics results in Ref.~\cite{HGCAL}, 
 including the study described in Section~\ref{sec:hgcal_physics}.
@@ -378,11 +378,11 @@ For the physics results in Ref.~\cite{HGCAL}, a realistic truth-information-driv
 
 \subsection{Future development}
 The reconstruction methods described above are preliminary and designed only to show the potential performance of the HGCAL subdetector.
-There are a wide range of possibilities that will be explored before the eventual installation of the HGCAL.
+There is a wide range of possibilities that will be explored before the eventual installation of the HGCAL.
 Firstly, it is possible to extend the 2D clustering algorithm to three dimensions, enabling the construction of multicluster-like objects in one step.
 This could potentially improve performance by including correlations between layers and including the longitudinal shower shape, 
 rather than treating each layer as independent.
-Furthermore, the image-like data produced by the HGCAL is well-suited to the use of machine learning algorithms, particularly those based on neural networks (NNs).
+Furthermore, the image-like data produced by the HGCAL are well-suited to the use of machine learning algorithms, particularly those based on neural networks (NNs).
 It is likely that eventually the initial pattern recognition step identifying showers will use NNs, and this is already under study.
 
 Secondly, as mentioned above, the CMS particle flow algorithm has not yet been optimised to include all of the new information provided by the upgraded detector.
@@ -448,7 +448,7 @@ its inputs are identical to the dijet BDT used in the Run~2 analysis
 (see Chapter~\ref{chap:categorisation} for details), but with the three jet shape variables added.
 The same training procedure as that used in the Run~2 analysis was followed, 
 where the VBF events are treated as signal, with the ggH as background.
-The performance of the two classifiers is illustrated below in Figure \ref{fig:hgcal_VBFvsGGH}.
+The performance of the two classifiers is illustrated in Figure \ref{fig:hgcal_VBFvsGGH}.
 In each case, a receiver operating characteristic (ROC) curve is constructed.
 The ROC curve shows the selection efficiency for signal VBF and background ggH events 
 for all values of the BDT output score.
@@ -472,9 +472,10 @@ into an improvement at the analysis level.
 \end{figure}
 
 Separately, another BDT is trained to reduce the amount of background entering analysis categories.
-The VBF events are treated as signal, trained against prompt-prompt, 
-prompt-fake and fake-fake \Hgg backgrounds.
-This classifier uses only the kinematics of the the two photons as inputs. 
+The VBF events are treated as signal, and are trained against \Hgg backgrounds 
+including events with two real photons, events with one real photon and one jet misidentified as a photon, 
+and events with two jets misidentified as photons.
+This classifier uses only the kinematics of the two photons as inputs. 
 It is less powerful than the Run~2 equivalent 
 because not all of the inputs used in the Run~2 version are available.
 These include the photon identification score, 
@@ -485,7 +486,7 @@ and generate the working points in Table \ref{tab:hgcal_yields}.
 Three categories were chosen in order to facilitate comparison with the Run~2 results presented 
 in Ref.~\cite{HIG-16-040}.
 The working points were chosen to maximise the total expected significance, 
-using the simple metric of the sum in quadrature of the 
+using the simple metric of the sum in quadrature of 
 the ratio of signal events to the square root of signal plus background events
 for each working point~\cite{Asymptotic}.
 The number of signal events selected, the fraction of ggH and VBF events, 
@@ -571,7 +572,7 @@ meaning it does not degrade with increasing radiation exposure.
 
 \section{Summary}
 
-The HGCAL is a key part of the CMS detector upgrade planned as part of the HL-LHC program, 
+The HGCAL is a key part of the CMS detector upgrade planned as part of the HL-LHC programme, 
 which is expected to collect \SI{3000}{\fbinv} of data.
 The design of the HGCAL is driven by the need to sustain the excellent performance of the CMS detector
 in the harsh conditions of the HL-LHC, 
