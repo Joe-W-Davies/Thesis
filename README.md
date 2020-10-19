@@ -1,2 +1,2 @@
 Current status of my PhD thesis.
-Thanks a lot to Jack for the template.
+Thanks a lot to Ed (from Jack) for the template.

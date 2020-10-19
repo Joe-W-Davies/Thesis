@@ -1,147 +1,31 @@
 \chapter*{\centering Abstract}
-Measurements of Higgs boson production cross sections 
-with the Higgs boson decaying into a pair of photons are reported.
-Events with two photons are selected from a sample of proton-proton collisions 
-at a centre-of-mass energy of \SI{13}{TeV} 
-collected by the Compact Muon Solenoid detector at the Large Hadron Collider in 2016 and 2017,
-corresponding to a total integrated luminosity of $77.4~\mathrm{fb}^{-1}$.
-Cross sections for gluon fusion and vector boson fusion production, 
-relative to the corresponding standard model predictions,
-are measured to be $1.15 \pm 0.15$ and $0.83_{-0.31}^{+0.37}$ respectively.
-These two production modes are further measured in kinematic regions 
-within the simplified template cross section framework.
-All results are found to be in agreement with the standard model expectations.
 
 
 \chapter*{\centering }% Dedication}
 \begin{center}
     \thispagestyle{empty}
-    To Mum and Dad
+    To X
 \end{center}
 
 
 \chapter*{\centering Declaration}
-The work contained within this thesis is my own. 
-It was produced using existing work from, and in collaboration with, 
-several individuals and the Compact Muon Solenoid (CMS) Collaboration. 
-The details of the contributions relevant to each chapter are set out below;
-in all cases, the work of others has been referenced appropriately.
-
-Chapter~\ref{chap:intro} introduces our current understanding of particle physics 
-and the Higgs boson in my own words.
-
-Chapter~\ref{chap:theory} explains the theory of the Standard Model and the Higgs mechanism, 
-which is the work of others, in my own words. 
-The status of the latest Higgs boson measurements is summarised, 
-which includes my own work on the CMS \Hgg analysis based on the 2016 dataset~\cite{HIG-16-040}.
-
-Chapter~\ref{chap:detector} describes the CMS detector, 
-which was designed, built, and operated by others, in my own words.
-
-Chapter~\ref{chap:hgcal} describes the High Granularity Calorimeter (HGCAL), 
-the design and testing of which is the work of others within the CMS collaboration. 
-The section on reconstruction is based on my own work, 
-which was performed together with Lindsey Gray, Clemens Lange and Emilio Meschi~\cite{ClusteringConf}.
-The demonstration of the HGCAL's potential for a vector boson fusion analysis 
-in the \Hgg decay channel is my own work~\cite{HGCAL}.
-
-Chapters~\ref{chap:objects}-\ref{chap:results} describe the methodology and results of the CMS \Hgg analysis
-which constitute the main part of this thesis and consist primarily of my own work.
-This analysis has also been documented in Ref.~\cite{HIG-18-029}.
-The detailed breakdown of each chapter is given below.
-
-Chapter~\ref{chap:objects} describes how events are reconstructed at CMS.
-These techniques were developed and optimised by others within the \Hgg analysis group 
-and the CMS collaboration, but are summarised in my own words.
-
-Chapter~\ref{chap:categorisation} describes the categorisation of events 
-to maximise the sensitivity of the analysis.
-This is my own work, and is based on the strategies adopted in previous CMS \Hgg analyses.
-The data-driven method for the training of the dijet boosted decision tree 
-was initially developed by Yacine Haddad, and was implemented in this analysis by Shameena Bonomally.
-
-Chapter~\ref{chap:sigbkg} describes the construction of the signal and background models, 
-and the various uncertainties included in the analysis.
-This is my own work, although the techniques utilised were first developed by others.
-
-Chapter~\ref{chap:results} reports the final observed results and their uncertainties.
-This is also my own work, but the methods and tools used are originally the work of others.
-
-Chapter~\ref{chap:conclusions} summarises the work done in this thesis 
-and the implications of the results.
-This is in my own words and with my own considerations for the future development of this work.
 
 \begin{flushright}
-    Edward John Titman Scott
+    Jonathon Mark Langford
 \end{flushright}
 
 
 \chapter*{\centering Acknowledgements}
-Many, many people have helped me through the past three and a half years, 
-far more than I can list here.
-I am sincerely grateful to all of you; I have felt very lucky throughout my time at Imperial.
-
-Firstly, thank you to the Imperial HEP group and STFC for together 
-allowing me to do this PhD in the first place. 
-There is a great environment both here and at CERN, 
-and the opportunity to spend time out in Geneva was a fantastic one.
-The various conferences and travel opportunities have been terrific too.
-
-This thesis contains the contributions of hundreds of members of the CMS Collaboration.
-Working as part of CMS has meant a lot to me, 
-and the \Hgg group in particular was lively, warm, and, at times, hilarious. 
-I would like to thank the various CMS \Hgg conveners for helping get us through 
-the numerous approval processes over the years.
-
-The IC \Hgg has been a brilliant place to work, starting with my two supervisors. 
-My experience as a student has been immeasurably improved by the kindness of both of you.
-Gavin, I cannot thank you enough for your incredible wisdom and patience; 
-you have always kept me on track and focused on the bigger picture.
-Seth, you are the main reason this thesis was possible at all. 
-The amount of help you have given me over the years is astonishing, 
-as is your dedication. 
-The humourous spirit with which you handled all that has kept me both sane and happy, somehow.
-I'd also like to thank Chris Seez for the help out at CERN, 
-always delivered in a very much no-nonsense manner; I greatly enjoyed my HGCAL work because of you.
-Also thanks to Nick Wardle, for answering many stupid questions and always being up for a laugh.
-
-To my friends at IC and from CERN: thank you so much. 
-We have had a pretty intense time, but together it's been fun.
-I'm proud of us all, in advance.
-Thank you also to my friends at home, who mean so much to me.
-Your loyalty, support, laughter and provision of all-round decent times have been invaluable.
-
-Mum and Dad: thank you for everything. 
-Your love and support have been the most important things in my life.
-In my memory at least, this came more often in the form of driving me to and from Croydon 
-for basketball practices than particularly encouraging me to wonder about physics, 
-but it had the same effect.
-You always encouraged me to pursue anything that I wanted to pursue, 
-and made me believe it was worth doing so.
-I cannot thank you enough for that.
-To Jonny and Adam; I would not be who I am without you two.
-Growing up together has been more than anyone could ask for, 
-and I amazed and proud of who you have become.
-
-Finally, Ari. 
-Spending the last ten (!) years with you has been the best thing I have ever done.
-Your patience, support, laughter, and passion mean the world to me. 
-I love you more than anything.
-
 
 \tableofcontents
 \listoffigures
 \listoftables
 
-
 \chapter*{}
 \epigraph{
-  \textit{``And once you have tasted flight, \\ \\
-            you will walk the Earth \\ \\
-            with your eyes turned skyward; \\ \\
-            for there you have been, \\ \\
-            and there you long to return''}}
-         {Leonardo da Vinci}
-
+  \textit{``Things are so hard to figure out \\ \\
+            when you live from day to day \\ \\
+            in this feverish and silly world''}}
+          {Jack Kerouac, On the Road}
 
 \cleardoublepage
