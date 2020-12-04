@@ -33,6 +33,14 @@ where $E_{\gamma1}$ and $E_{\gamma2}$ are the measured energies of $\gamma_1$ an
 
 This chapter will focus on the experimental techniques used to maximise the sensitivity of the analysis, according to the three aspects stated above. After first introducing the data and simulation samples used in the analysis, section \ref{sec:event_reconstruction} details the procedure used to reconstruct candidate \Hgg events, specifically the techniques which improve the diphoton mass resolution, namely the photon identification and selection, the photon energy regression and the primary vertex selection. Following this, the categorisation of events is described in section~\ref{sec:event_categorisation}. Additional objects in the events such as jets, charged leptons and missing transverse momentum are used to define categories targeting the different STXS stage 1.2 bins. This section covers the methods used to both reduce background contamination and to increase the purity of the targeted signal process in such categories.
 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Samples}
 \subsection{Data}
 This analysis uses p-p collision data collected by the CMS experiment at $\sqrt{s}$~=~13~TeV during Run 2 of the LHC. The total integrated luminosity is 137~\fbinv, of which 35.9~\fbinv was collected in 2016, 41.5~\fbinv in 2017 and 59.4~\fbinv in 2018.
@@ -83,15 +91,24 @@ The signal samples are normalised according to the production cross sections and
     \end{tabular}
 \end{table}
 
+\begin{itemize}
+    \item In the caption for STXS splitting tables, make clear definition of jets i.e. distance param etc.
+\end{itemize}
+
 The final background model used for the extraction of results is derived directly from data. Nevertheless, simulated background events are required for training the multivariate event classifiers. For inclusive production, the dominant source of background is SM diphoton production, which is simulated using the \textsc{sherpa} (version 2.2.4) generator~\cite{}. In this sample, matrix elements are calculated at NLO and LO for up to one and up to three additional partons respectively, which are subsequently matched with the \textsc{Sherpa} generator parton showering. A subdominant background originates from $\gamma$~+~jet or jet~+~jet events, where the jets are misidentified as photons. These backgrounds are simulated with \textsc{Pythia8}, applying a filter in the generation to enrich the production of jets with high electromagnetic activity. Furthermore, other sources of background become important for categories targeting the sub-dominant production modes, such as $V+\gamma\gamma$ in the VH leptonic categories and $tt+\gamma\gamma$ in the top-associated categories. Additional MC samples simulated with the XYZ are used to model such backgrounds.
 
 Finally, Drell-Yan events with leptonic final states are used for validation purposes and are simulated with the \textsc{MG5\_aMC@NLO} generator.
 
 Each sample is propagated through the \textsc{Geant4} package to model the response of the CMS detector~\cite{}. Separate MC samples are produced for each year to account for the variations in the detector conditions and the LHC beam parameters. This modelling includes the effect of pileup interactions originating from both the nominal bunch cross-crossing (in-time pileup) and the crossing of previous and subsequent bunch crossings (out-of-time pileup). The simulation is weighted to match the distribution of the number of interaction vertices in data, which corresponds to an average pileup of 23 in 2016, and 32 in 2017 and 2018.
 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Event reconstruction}\label{sec:event_reconstruction}
 This section describes the offline reconstruction of events passing the trigger selection. 
-
 
 \subsection{Photon reconstruction}
 Photons are defined using the set of photon candidates from the PF algorithm (see section \ref{sec:particle_flow}). In the algorithm, SC's are formed by clustering together deposits of energy in the ECAL crystals, consistent with originating from the same electromagnetic shower. Due to imperfect shower containment in the crystals and shower losses for photons which convert to \ee pairs before reaching the ECAL, the SC energy, \Eraw, can often differ from the true initial photon energy, \Etrue. A multivariate regression technique is used to correct for such losses per photon, estimating both \Etrue and its uncertainty. Remaining differences in the photon energy scale and resolution are accounted for using a series of additional scale and smearing corrections, derived using \Zee events. Photons are then subject to a set of selection criteria (pre-selection) concerning the photon shower shape, kinematic and isolation variables. In addition, a photon identification Boosted Decision Tree (BDT) is trained to separate genuine photons from fake photons. The selection includes a minimum requirement on the output score of this BDT to vastly reduce the contribution from background processes entering the analysis, in which hadronic jets mimic the photon signature. Before describing the photon reconstruction techniques in more detail, it is useful to list the photon variables used in \Hgg analysis.
@@ -158,14 +175,51 @@ Table \ref{tab:photon_preselection} provides a schema of the selection criteria 
 
 
 \subsubsection{Photon identification}
-The photon identification BDT aims to distinguish between real photons in the CMS detector and hadronic jets mimicking a photon signature. The BDT is trained using the $\gamma$~+~jet simulation sample, where the true photon is used as signal and the jet as background. Photon shower shape, kinematic and isolation variables are used as inputs to the BDT, along with parameters sensitive to pileup, such as $\rho$.
+The photon identification BDT aims to distinguish between real photons in the CMS detector and hadronic jets mimicking a photon signature. The BDT is trained using the $\gamma$~+~jet simulation sample, where the true photon is used as signal and the fake photon from the jet as background. Photon shower shape, kinematic and isolation variables are used as inputs to the BDT, along with parameters sensitive to pileup, such as $\rho$. 
 
-One of the dominant sources of systematic uncertainty in the \Hgg analysis arises from the modeling of the electromagnetic shower in simulation, in particular the variables describing the shower shape and isolation. Since these variables are direct inputs to the photon identification BDT, any discrepancies between data and simulation are propagated to the output BDT score, and therefore introduce a systematic uncertainty into the analysis. To mitigate this, 
+\begin{itemize}
+    \item \textbf{Add panel of input variables for jet vs photon}.
+\end{itemize}
 
-Output score distributions. Uses.
+One of the dominant sources of systematic uncertainty in the \Hgg analysis arises from the modeling of the electromagnetic shower in simulation, in particular the variables describing the shower shape and isolation. Since these variables are direct inputs to the photon ID BDT, any discrepancies between data and simulation are propagated to the output BDT score, and thus introduce a systematic uncertainty into the analysis. To mitigate this, a chained quantile regression (CQR) method is applied, which sequentially corrects the photon ID BDT input variables in simulation. 
 
-One of main systematic uncertainties. Chained quantile regression to ensure shower shape and isolation variables agree. Explain reduction in systematic uncertainty using this technique.
+The corrections are derived using an unbiased set of probe electrons in \Zee events. The CQR method aims to morph the distribution of some input variable, $y_i$, in simulation to match that in data by training a series of 21 BDTs to predict points along the cumulative distribution function, CDF($y_i$): [0.01,0.05,0.10,...,0.95,0.99]. The full CDF is determined by linearly interpolating between these 21 points, and is extracted separately for both data and simulation. A correction is then applied to the simulation, per electron, according to:
+\begin{equation}
+    y_i \longrightarrow y_i^{\rm{corr}} = \rm{CDF}^{-1}_{\rm{data}}(\rm{CDF}_{\rm{simulation}}(y_i)),
+\end{equation}
+\noindent 
+which successfully morphs the distribution of $y_i$ in simulation to match that in data. 
 
+Shower shape variables are first ordered into a chain: [$S_1$,$S_2$,...$S_N$]. The CDF for the first variable, $S_1$, is predicted using solely the electron $p_T$, $\eta$, $\phi$ and global energy density, $\rho$, as input features to the 21 BDTs. For variable, $S_i$, the input features also include the previously processed shower shape variables: [$S^{\rm{corr}}_1$,...,$S^{\rm{corr}}_{i-1}$] for simulation and [$S_1$,...,$S_{i-1}$] for data. By deriving the corrections in this manner, correlations between photon ID input variables are accounted for. The ordering of the chain is optimised to minimise the final discrepancy between data and simulation in the output photon ID BDT score.
+
+For isolation variables, $\mathcal{I}_i$, an additional stochastic shifting procedure is applied to account for electrons migrating across the discontinuity in the distributions i.e. from the peak at $\mathcal{I}=0$, to the tail at $\mathcal{I}>0$. Two additional classifiers are trained to predict the probabilities for electrons to fall in the peak or tail, given the electron $p_T$, $\eta$ and $\phi$, and the energy density, $\rho$. Using the output probabilities, the simulated electrons are then migrated between the peak and tail to match the relative compositions in data. Finally, the distribution of electrons in the tail is then corrected using the quantile morphing technique described above. Figure \ref{fig:photon_id_0} demonstrates the performance of the CQR method for shower shape variable, \RNINE (left) and isolation variable, $\mathcal{I}_{\rm{ph}}$ (right).
+
+\begin{figure}[hptb]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/dataMC_probeR9_0.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/dataMC_probePhoIso_0.pdf}
+  \caption[Corrections from the chained quantile regression method for \RNINE and $\mathcal{I}_{\rm{ph}}$]
+  {
+    Update plots to be neater!
+  }
+  \label{fig:photon_id_0}
+\end{figure}
+
+The systematic uncertainty originating from these corrections is derived by splitting the original \Zee samples in half, and re-calculating the corrections using the two independent event sets. The magnitude of the uncertainty is defined per bin of the output photon ID BDT score, as the standard deviation of the event-by-event corrected output score values. This assumes the major source of uncertainty in the method is originating from the limited size of the training samples. All in all, the CQR method provides a vastly improved technique for calculating the shower shape and isolation corrections, reducing the impact of a dominant systematic uncertainty from around 5\% in previous \Hgg analyses to roughly 2\%.
+
+The output score of the photon ID BDT, for the lowest scoring photon in the photon pair, is shown in Figure \ref{fig:photon_id_1}. The left-hand plot shows the distribution for signal and background processes, highlighting the impressive discriminating power between events with two real photons and the $\gamma$~+~jet and jet~+~jet backgrounds. The right-hand plot shows the output score distribution for \Zee events in both data and simulation. The two are in excellent agreement, within the calculated uncertainties, demonstrating the impressive power of the CQR method in correcting the shower shape and isolation variables in simulation. 
+
+Each photon in an event is required to have photon ID BDT score $>0.9$. Akin to the pre-selection critera, the efficiency of this requirement is derived in simulation and data using the tag-and-probe method on \Zee events, and the events in simulation are scaled to match the efficiency in data. In addition, the photon ID BDT score is used in numerous ways in the event categorisation.
+
+\begin{figure}[hptb]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/hgg_overview/photon_id_0.pdf}
+  \caption[Photon ID output score distributions]
+  {
+    Add caption
+  }
+  \label{fig:photon_id_1}
+\end{figure}
 
 \subsection{Vertex selection}
 Equation \ref{eq:mgg} demonstrates that the diphoton mass resolution depends not only on the per-photon energy resolutions, but also on the determination of the photon opening angle, $\theta$. For this, it is necessary to know the precise location of the primary hard-scattering vertex from which the photons originate. If the location is correctly determined within 1~cm of the true vertex position, the diphoton mass resolution is dominated by the photon energy resolution. For events with additional objects such as charged leptons and jets, it is relatively easy to assign the primary vertex, due to the presence of distinct charged particle tracks. On the other hand, for \Hgg events with no additional objects (e.g. ggH 0J), it becomes a much more difficult problem. In the \Hgg anaylsis, the diphoton vertex assignment is performed using a dedicated BDT, which is trained using ggH \Hgg simulated events and takes as input variables related to the tracks recoiling against the diphoton system:
@@ -198,8 +252,10 @@ An additional vertex-related BDT is trained to estimate the \textit{probability}
 Finally, the width of the $z$ distribution of reconstructed vertices, known as the beamspot width, is measured to be between 3.4--3.6~cm in data. A year-dependent correction is applied to simulated events to ensure the beamspot width matches that observed in data.
 
 \subsection{Reconstruction of other objects}
-Needed for categorisation.
+The analysis categories are defined to target events from different bins of the STXS stage 1.2 framework. In order to define such categories it is necessary to place requirements on additional objects in the event, such as two forward jets in VBF production or two same flavour, opposite charge leptons in ZH leptonic production. The following section briefly describes the reconstruction of these additional objects. \textbf{Do particle flow first!}
+
 \subsubsection{Jets}
+Jet definition and energy fractions. 
 
 \subsubsection{Electrons}
 
@@ -209,25 +265,67 @@ Needed for categorisation.
 
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Event categorisation}\label{sec:event_categorisation}
 
 \subsection{Overview}
-\begin{itemize}
-    \item Merged across years: more statistics to train MVA
-    \item Discuss tag sequence
-    \item Briefly discuss Machine learning
-    \item 
-\end{itemize}
+After reconstructing the events, as described in section \ref{sec:event_reconstruction}, a total of 73 analysis categories are constructed, in which the \mgg spectrum is fit simultaneously to measure Higgs boson properties. Each category imposes a set of selection criteria related to the features of both the reconstructed diphoton system and the additional objects in the event. The criteria of a given category are defined to maximise the sensitivity to events from a particular STXS stage 1.2 bin (or group of bins if the statistics are insufficient).
 
-\subsection{Top associated production}
+Before applying the dedicated per-category selection criteria, all events are required to have at least two pre-selected photon candidates, satisfying $p_T^{\gamma 1}>m_{\gamma\gamma}/3$ and $p_T^{\gamma 2}>m_{\gamma\gamma}/4$, with a diphoton invariant mass in the range $100<m_{\gamma\gamma}<180$~GeV. The scaled transverse momentum cuts on the photons mitigate distortions at the lower end of the mass spectrum. Furthermore, both photons are required to be in geometrical acceptance: $|\eta|<2.5$, excluding the transition region $1.44<|\eta|<1.57$ between the barrel and endcaps. 
 
-\subsection{VH leptonic production}
+The categories are then constructed, following the procedure described below.
 
-\subsection{qqH production}
+\begin{enumerate}
+    \item Global categories are defined to target the different Higgs boson production modes. Background rejection discriminant
+    
+    
+    \item The next step is to divide the per-production mode global categories to differentiate between different bins of the STXS. This enables cross sections of the STXS framework to be measured individually. For ggH production, excluding the region with high dijet mass (\mjj~$>350$~GeV), the division is performed using a dedicated multivariate classifier with output classes corresponding to the targeted ggH STXS bins. For the other production modes, the global categories are split according to the reconstructed equivalents of the truth-level variables defining the STXS boundaries e.g. $p_T^{\gamma\gamma}$ for $p_T^H$. These divisions are performed as long as there exists some statistical sensitivity to the split STXS bins. If not, then the targeted group of STXS bins are merged together in the final cross section measurements (see section \ref{sec:merging_schemes}). 
+    
+    \item If the statistics are sufficiently large at this stage, a category can be further sub-divided according to the signal-to-background purity. This is performed by placing boundaries on the relevant background rejection discriminant(s). The position of these boundaries is optimised independently in each category to maximise the sensitivity to the targeted STXS bin(s). The usual metric for this optimisation is the approximate median signficance (AMS),
+    \begin{equation}
+        \rm{AMS} = \sqrt{2\Big((S+B)\ln(1+S/B)-S\Big)},
+    \end{equation}
+    \noindent
+    where $S$ is the number of signal events from the targeted STXS bin(s) and $B$ the number of background events, both calculated within a $\pm1\sigma_{\rm{eff}}$ window of $m_H$. Here, $\sigma_{\rm{eff}}$ is defined as the shortest interval containing 68\% of the total number of targeted signal events. The background estimate, $B$, is determined by fitting an exponential function to background events, either directly to data sidebands or to the MC simulated background events. In the limit of small $S/B$, the AMS reduces to the familiar $S/\sqrt{S+B}$ formula.
+    
+    The resulting categories are referred to as ``tags", which are defined in a decreasing order of the expected signal-to-background ratio. For example, the tag with the highest S/B, targeting the ggH 0J \ptH~$<10$~GeV STXS bin, is denoted as 0J $p_T^{\gamma\gamma}<10$~GeV Tag0. The total number of tags is realised by a stopping criterion, where the expected AMS gain by introducing an additional boundary is below some threshold e.g. 5\% improvement.
+\end{enumerate}
 
-\subsection{ggH production}
+In this analysis, the data and simulation from all three years are merged together in each category. This provides larger statistics for the training of the numerous multivariate discriminants, and the subsequent optimisation of the selection criteria. In addition, the larger statistics reduces the uncertainty in the shape parameters of the per-category background models (see section \ref{sec:bkg_modeling}). The potential gain in splitting each category by year, and thus exploiting the year-dependent mass resolution information in the final fit, was found to be negligible. 
 
-\subsection{Validation}
+It is possible for any given event to pass the selection criteria for multiple analysis categories. A priority sequence is defined to ensure the categories are truly orthogonal; each event is assigned to at most one category, choosing the category with the highest priority. The sequence is defined to prioritise rarer Higgs boson production modes, by ordering according to the expected number of signal events, such that global categories with a lower expected signal yield are given a higher priority.
+
+A summary of all analysis categories is provided in Table \ref{tab:categorisation_overview}, ordered according to decreasing priority in the category sequence. Example Feynman diagrams are shown for the targeted Higgs production modes. The background rejection discriminants are listed, as well as the methods for the splitting of categories to target specific bins of the STXS framework. Finally, the number of tags for each targeted bin(s) are shown, defined by placing boundaries on the respective background rejection discriminants. A graphical schema of the full categorisation procedure is provided in Appendix XXX. In addition, table \ref{tab:categorisation_discriminants} provides detail on each multivariate discriminant used in the categorisation, including the training samples, the output classes and the full set of input features. The remainder of this chapter provides additional detail concerning both the optimisation and validation of the categorisation workflow, and shows the performance in terms of the purity of the final analysis categories.
+
+\begin{table}[htb]
+    \caption[Add caption]{Add caption.}
+    \label{tab:categorisation_overview}
+    % \vspace{.5cm}
+    \centering
+    \tiny
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{2pt}
+    \input{Tables/hgg_overview/categorisation_overview}
+\end{table}
+
+\begin{landscape}
+\begin{table}[htb]
+    \caption[Add caption]{Add caption.}
+    \label{tab:categorisation_discriminants}
+    % \vspace{.5cm}
+    \centering
+    \scriptsize
+    \renewcommand{\arraystretch}{1.5}
+    \setlength{\tabcolsep}{5pt}
+    \input{Tables/hgg_overview/categorisation_discriminants}
+\end{table}
+\end{landscape}
+
+
+\subsection{Top associated production modes}
 
 \subsection{Summary}
 \begin{itemize}
