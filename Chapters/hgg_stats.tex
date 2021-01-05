@@ -1,31 +1,101 @@
-\chapter{Statistical framework}
+\chapter{Statistical inference}
 \label{chap:hgg_stats}
 
-\section{Likelihoods and the extraction of results}
-This chapter details how go from diphton invariant mass distribution to Higgs boson properties. Fixed mass.
-In addition to the STXS measurements, other interpretations of the data are performed, including signal strength modifiers, both for inclusive Higgs boson production and for individual production modes, and coupling modifiers in the $\kappa$-framework~\cite{}.Categories are sensitive to! POIS.
+\section{Introduction}
+The statistical methodology used to extract the results follows the procedure developed by the ATLAS and CMS collaborations, documented in Ref.~\cite{Khachatryan:2014jba}. 
 
-Per category likelihood, total product of all.
+\subsection{Construction of the per-category likelihood}
+A simultaneous binned maximum likelihood fit is performed to the $m_{\gamma\gamma}$ distributions of all analysis categories. This requires the construction of a likelihood function for each analysis category, $k$, of the form,
 
-\begin{equation}
-    S^{\gamma\gamma}_{ij} = \sigma_i \cdot \mathcal{B}^{\gamma\gamma} \cdot \epsilon^{\gamma\gamma}_{ij} \cdot \mathcal{L}
+\begin{equation}\label{eq:category_likelihood}
+\begin{split}
+    L_k({\rm{data}}\,|\,\mu^{i,\gamma\gamma},m_H,\vec{\theta}_s,\vec{\theta}_b) = \\
+    \prod^{N_{\rm{bins}}}_{X} {\rm{Poisson}} \Big( N_{k,X}^{\rm{data}} \, \Big| \, \Big[ \sum_{i} S_{k,X}^{i,\gamma\gamma}(\mu^{i,\gamma\gamma},m_H,\vec{\theta}_s)\Big] + B_{k,X}(\vec{\theta}_b) \Big) \times \mathcal{C}(\vec{\theta}_s,\vec{\theta}_b),        
+\end{split}
 \end{equation}
 
-Total efficiency is the reconstruction and then category selection criteria. Effectively the probability of event of signal process, $i$, falling in category, $j$.
+\noindent
+where the index, $X$, runs over bins in the $m_{\gamma\gamma}$ distribution in the range $100<m_{\gamma\gamma}<180$~GeV with a bin width of 250~MeV (CHECK!); this choice is sufficiently small compared to the diphoton mass resolution to ensure that a negligible amount of information is lost. The likelihood itself is a function of the signal parameters, $\mu^{i,\gamma\gamma}$, the Higgs boson mass, $m_H$, and nuisance parameters, $\vec{\theta}$~=~$\{\vec{\theta}_s,\vec{\theta}_b\}$, which account for systematic uncertainties in the signal and background estimates. The nuisance parameters are grouped according to their effect, as shown in equation \ref{eq:systematics_grouping},
 
-\section{Signal modelling}
-\subsection{Shape}
-Beamspot reweigh. 
+\begin{equation}\label{eq:systematics_grouping}
+    \big\{\vec{\theta}_s,\vec{\theta}_b\big\} = \big\{ \vec{\theta}^{\,\rm{th}}_{s}, \vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}, \vec{\theta}^{\,\epsilon,{\rm{exp}}}_{s}, \vec{\theta}^{\,\rm{shape}}_{s}, \vec{\theta}^{\,\rm{lumi}}_{s}, \vec{\theta}^{\,\rm{shape}}_{b}, \vec{\theta}^{\,\rm{discrete}}_{b}  \big\},
+\end{equation}
 
-\subsection{Normalisation}
+\noindent
+where $\vec{\theta}^{\,\rm{th}}_{s}$ are the uncertainties in the SM prediction of the cross sections times branching ratio, $[\sigma^i \cdot \mathcal{B}^{\gamma\gamma}]_{\rm{SM}}$. The $\vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}$ and $\vec{\theta}^{\,\epsilon,{\rm{exp}}}_{s}$ terms correspond to systematic uncertainties in the efficiency times acceptance of the final analysis categories, originating from theoretical and experimental sources respectively. Nuisances parameters affecting the shape of the analytic signal model, described in more detail in section \ref{sec:systematics}, are labelled by $\vec{\theta}^{\,\rm{shape}}_{s}$. The uncertainties in the luminosity are referred to as $\vec{\theta}^{\,\rm{lumi}}_{s}$; these affect only the signal estimate as the background estimate is derived directly from data. Finally, the background model shape parameters are labelled as $\vec{\theta}^{\,\rm{shape}}_{b}$, whilst the discrete nuisance parameters corresponding to the uncertainty in the choice of background function are labelled as $\vec{\theta}^{\,\rm{discrete}}_{b}$. More detail concerning the individual sources of the systematic uncertainties is provided in section \ref{sec:systematics}.
 
+In the poisson term of the likelihood, $N_{k,X}^{\rm{data}}$, corresponds to the number of data events in bin $X$ of category $k$, and $S_{k,X}^{i,\gamma\gamma}$ and $B_{k,X}$ are the signal and background estimates in the same bin. The index, $i$, labels the particular \textit{signal process}, which in this analysis corresponds to the STXS stage 1.2 bins (i.e. the sum in equation \ref{eq:category_likelihood} iterates over all STXS bins). Equation \ref{eq:signal_yield} shows the total signal yield for process, $i$, in analysis category, $k$, integrated over all $m_{\gamma\gamma}$ bins,
+
+\begin{equation}\label{eq:signal_yield}
+    S_k^{i,\gamma\gamma} = \mu^{i,\gamma\gamma} \times \big[\sigma^i \cdot \mathcal{B}^{\gamma\gamma} \big]_{\rm{SM}}(m_H,\vec{\theta}^{\,\rm{th}}_{s}) \times \epsilon^{i,\gamma\gamma}_k(m_H,\vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}, \vec{\theta}^{\,\epsilon,{\rm{exp}}}_{s}) \times \mathcal{L}(\vec{\theta}^{\,\rm{lumi}}_{s}).
+\end{equation}
+
+\noindent
+Here $[\sigma^i \cdot \mathcal{B}^{\gamma\gamma}]_{\rm{SM}}$ is the SM prediction for the cross section times branching ratio for process $i$, as listed in Tables XX-YY for $m_H$~=~125.0~GeV. The efficiency times acceptance term, $\epsilon^{i,\gamma\gamma}_k$, encodes the fraction of the total yield of process, $i$, which lands in analysis category, $k$, and $\mathcal{L}$ represents the luminosity estimate. The signal parameters, $\mu^{i,\gamma\gamma}$, define the \textit{parameters of interest}. For example, when measuring cross sections in the STXS framework,
+
+\begin{equation}\label{eq:mu_stxs}
+    \mu^{i,\gamma\gamma} = \frac{\big[\sigma^i \cdot \mathcal{B}^{\gamma\gamma} \big]_{\rm{obs}}\hfill}{\big[\sigma^i \cdot \mathcal{B}^{\gamma\gamma} \big]_{\rm{SM}}(m_H,\vec{\theta}^{\,\rm{th}}_{s})}.
+\end{equation}
+
+\noindent
+In this signal parametrisation, the theory systematic uncertainties, $\vec{\theta}^{\,\rm{th}}_{s}$, in the denominator of equation \ref{eq:mu_stxs} cancel out the same terms in equation \ref{eq:signal_yield}. As a result, $\vec{\theta}^{\,\rm{th}}_{s}$, do not enter the cross section measurements, but are instead attributed to the uncertainty in the SM predictions (see grey bands of Figure \ref{fig:stxs_maximal}). This property of the measurements has the added benefit that they remain useful in the long-term, as they can accommodate future advances in the SM theoretical predictions.
+
+Other signal parametrisations are considered. The per-production mode signal strength parametrisation defines four POIs: $\mu_{\rm{ggH}}$, $\mu_{\rm{VBF}}$, $\mu_{\rm{VH}}$ and $\mu_{\rm{top}}$, which act as global scaling factors for the respective Higgs boson production modes. The $\kappa$-framework~\cite{Heinemeyer:2013tqa} replaces $\mu^{i,\gamma\gamma}$ with functions of Higgs boson coupling modifiers ($\kappa$-parameters), $\mu^{i,\gamma\gamma}(\vec{\kappa})$, where the form of the function depends on the signal process, $i$ (see section \ref{sec:results_kappa})\footnote{Looking ahead to Section \ref{chap:eft}, here the signal yields are parametrised in an EFT framework, $\mu^{i,\gamma\gamma}(c_j)$, so that the same statistical procedure can be used to extract constraints on EFT parameters, $c_j$.}. In such \textit{interpretations}, there is no cancellation of $\vec{\theta}^{\,\rm{th}}_{s}$, meaning these nuisance parameters are directly folded into the measurements. In general, we can write $\mu^{i,\gamma\gamma}$ as a function of some set of parameters of interest, $\vec{\alpha}$,
+
+\begin{equation}
+    \mu^{i,\gamma\gamma} \equiv \mu^{i,\gamma\gamma}(\vec{\alpha}).
+\end{equation}
+
+To determine $S_{k,X}^{i,\gamma\gamma}$ (i.e the fraction of $S_k^{i,\gamma\gamma}$ that falls in bin $X$ of the $m_{\gamma\gamma}$ distribution), it is necessary to model the functional form of the signal peak in the diphoton invariant mass distribution. Analytic models are constructed for each process, $i$, in each reconstructed analysis category, $k$. Both the shape and normalisation (see equation \ref{eq:signal_yield}) of the signal models are parametrised as a function of $m_H$. More information regarding the signal modelling is provided in section \ref{sec:sig_modelling}.
+
+The background model is derived directly from the observed diphoton mass distribution in data. Described in more detail in section \ref{sec:bkg_modeling}, the form of the analytic model in each analysis category is treated as a discrete nuisance parameter in the fit, with options coming from a number of different smoothly-falling functions. The background estimate, $B_{k,X}$, is inferred from the analytic background model.
+
+Finally, the constraint term in the likelihood, $\mathcal{C}$, applies a penalty for deviations from the expected values of the signal nuisance parameters, $\vec{\theta}_s$. The form of this penalty depends on the choice of prior probability-density-function (pdf) for a given nuisance; in this analysis all nuisance parameters affecting the signal estimate are associated with a Gaussian or log-normal prior. The background nuisance parameters, $\vec{\theta}_b$, are instead associated with a flat prior, since there is no a-priori knowledge of their values, and therefore changes in their value are not explicitly penalised by the constraint term. However, an additional penalty is included according to the total number of degrees of freedom in the background model function (CHECK!). 
+
+\subsection{Extraction of results}
+The total likelihood function is defined as the product over all 80 per-category likelihoods,
+
+\begin{equation}
+    L({\rm{data}}\,|\,\vec{\alpha},m_H,\vec{\theta}) = \prod_{k=1}^{80}  L_k({\rm{data}}\,|\,\vec{\alpha},m_H,\vec{\theta}),
+\end{equation}
+
+\noindent
+where the signal parameters, $\mu^{i,\gamma\gamma}$, have been expressed in terms of the general parameters of interest, $\vec{\alpha}$, and $\vec{\theta}$~=~$\{\vec{\theta}_s,\vec{\theta}_b\}$. In all fits, the Higgs boson mass, $m_H$, is fixed to its most precisely measured value of 125.38~GeV~\cite{Sirunyan:2020xwk}. This ensures all measurements are reported with respect to the theoretical predictions consistent with the best available knowledge of $m_H$. Ultimately, the fixing of the Higgs boson mass means the dependence of the likelihood on $m_H$ is dropped.
+
+In practice, the fit is performed by minimising the value of $-2 \ln L({\rm{data}}\,|\,\vec{\alpha},\vec{\theta})$. This is done numerically using the RooFit software package~\cite{Verkerke:2003ir}. The values of the parameters of interest which minimise this quantity are described as the ``best-fit" values, and are labelled as the point in the parameter space, $\hat{\vec{\alpha}}$. The values of the nuisance parameters at this point, $\hat{\vec{\theta}}$, are referred to as the unconditional maximum likelihood estimates of $\vec{\theta}$. 
+
+To calculate the confidence intervals for the parameters of interest, a profile likelihood test statistic, $q(\vec{\alpha})$ is constructed as shown in equation \ref{eq:test_statistic},
+
+\begin{equation}\label{eq:test_statistic}
+    q(\vec{\alpha}) = -2 \ln \Bigg( \frac{L({\rm{data}}\,|\,\vec{\alpha},\hat{\vec{\theta}}_{\vec{\alpha}})}{L({\rm{data}}\,|\,\hat{\vec{\alpha}},\hat{\vec{\theta}})} \Bigg).
+\end{equation}
+
+\noindent
+The quantity $\hat{\vec{\theta}}_{\vec{\alpha}}$ corresponds to the conditional maximum likelihood estimates of the nuisance parameters, for fixed values of the parameters of interest, $\vec{\alpha}$. For one-dimensional measurements, such as the signal strength and cross section fits, the 68\% and 95\% confidence intervals are defined by the union of intervals for which $q(\alpha)<0.99$ and $q(\alpha)<3.84$, respectively. In the case where there are multiple parameters of interest in the signal parametrisation, the intervals are determined by treating the other parameters as nuisance parameters i.e. profiling them in the minimisation. In practice, for each parameter of interest, $\alpha$, the minimisation is performed for a discrete set of points, and the full $q(\alpha)$ distribution is determined by interpolating between these points. The number of points is chosen to sufficiently cover the shape of the $q(\alpha)$ distribution.
+
+For two-dimensional measurements, such as those performed in the $\kappa$-framework (see Figure \ref{fig:kappas}), the 68\% and 95\% confidence regions are defined by the set of parameter values for which $q(\alpha_1,\alpha_2)<2.30$ and $q(\alpha_1,\alpha_2)<5.99$, respectively. Again, the full $q(\alpha_1,\alpha_2)$ distribution is determined by performing the numerical minimisation for a discrete grid of parameter points, $(\alpha_1,\alpha_2)$, and interpolating between these values.
+
+In addition to the observed results, it useful to compute the results one would expect to obtain given the SM hypothesis. These so-called \textit{expected results} are determined by replacing the observed data with an Asimov toy dataset, in which all parameters take their SM expected values~\cite{Cowan:2010js}.
+
+
+\section{Signal modelling}\label{sec:sig_modelling}
+
+\begin{itemize}
+    \item Introduction: (proc,cat,Vertex scenario). Separate for different years, how to think about equation \ref{eq:signal_yield}
+\end{itemize}
+
+
+Beamspot reweigh. Year-dependent: affect on normalisation $\epsilon$
 
 \section{Background modelling}\label{sec:bkg_modeling}
 
-\section{Systematic uncertainties}
+\section{Systematic uncertainties}\label{sec:systematics}
 A systematic uncertainty is included in the analysis to account for the minor differences between photon and electron. Signal shape etc. Vertex assignment.
 \subsection{Theoretical uncertainties}
+Acceptance and normalisation. Complication when merging bins.
 
 \subsection{Experimental uncertainties}
+Signal shape systematics: how are they calculated. Correlated with effect on rate. Plot showing the maximum effect (are nuisance params pulled to 1sigma).
+
 
 \subsection{Correlation schemes}

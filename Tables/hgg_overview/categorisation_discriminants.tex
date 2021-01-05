@@ -1,4 +1,24 @@
-\begin{tabular}{c|c|c|c|c}
-    Discriminant/Classifier & Training software & Training samples & Input features & Output \\ \hline
-    ggH multiclassifier BDT & \textsc{XGBoost} & ggH (\textsc{Powheg}) & \begin{tabular}{c}{$p_T^{\gamma 1}/m_{\gamma\gamma}$, $p_T^{\gamma 1}/m_{\gamma\gamma}$, $\eta_{\gamma_1}$, $\eta_{\gamma_2}$ \\ $m_{jj}$, $p_T^{\gamma\gamma jj}$}\end{tabular} 
+\begin{tabular}{l|c|m{6cm}<{\centering}|c|m{2.5cm}<{\centering}|m{4.5cm}<{\centering}}
+    Discriminant/Classifier & Software & Training samples (simulation unless stated) & Common Input features & Additional features & Output \\ \hline
+    ggH BDT & \textsc{XGBoost} & ggH & \begin{tabular}{c}{$p_T^{\gamma 1}/m_{\gamma\gamma}$, $p_T^{\gamma 1}/m_{\gamma\gamma}$, $\eta_{\gamma_1}$, $\eta_{\gamma_2}$ \\ $m_{jj}$, $p_T^{\gamma\gamma jj}$}\end{tabular} & - & 9 ggH STXS class probabilities: {\tiny 0J~low~\ptH, 0J~high~\ptH, 1J~low~\ptH, 1J~med~\ptH, 1J~high~\ptH, $\geq$2J~low~\ptH, $\geq$2J~med~\ptH, $\geq$2J~high~\ptH, $p_T^H>200$} \\ \hline
+    
+    Diphoton BDT & \textsc{XGBoost} & \makecell*{S: all Higgs boson events \\ B: SM $\gamma\gamma$} & & - & S-vs-B score \\ \hline
+    
+    Dijet BDT & \textsc{XGBoost} & VBF, ggH, SM $\gamma\gamma$ + data-driven estimate for $\gamma$+jet \& jet+jet & & - & \makecell{3 output class probabilities: \\ {\tiny VBF, ggH, bkg}} \\ \hline
+    
+    VH hadronic BDT & \textsc{XGBoost} & \makecell*[{{m{6cm}}}]{\centering S: VH hadronic \\ B: ggH, SM $\gamma\gamma$ + data-driven estimate for $\gamma$+jet \& jet+jet} & & - & S-vs-B score \\ \hline    
+    
+    VH MET BDT & \textsc{TMVA} & \makecell*[{{m{6cm}}}]{\centering S: VH 0-leptons \\ B: other H prod modes, SM $\gamma\gamma$, Drell-Yan, diboson, top quark prod. + data-driven estimate for $\gamma$+jet} & & - & S-vs-B score \\ \hline
+    
+    WH leptonic BDT &  \textsc{TMVA} & \makecell*[{{m{6cm}}}]{\centering S: VH 1-lepton \\ B: other H prod modes, SM $\gamma\gamma$, $\gamma$+jet, Drell-Yan, diboson, top-associated bkgs} & & - & S-vs-B score \\ \hline
+    
+    ZH leptonic BDT &  \textsc{TMVA} & \makecell*[{{m{6cm}}}]{\centering S: VH $\geq$2-leptons \\ B: other H prod modes, SM $\gamma\gamma$, $\gamma$+jet, Drell-Yan, diboson, top-associated bkgs} & & - & S-vs-B score \\ \hline
+
+    ttH hadronic BDT-bkg &  \textsc{XGBoost} & \makecell*[{{m{6cm}}}]{\centering S: ttH 0-leptons, $\geq$3-jets ($\geq$1 b-tagged) \\ B: other H prod modes, SM $\gamma\gamma$, Drell-Yan, V+$\gamma$, diboson, top-associated bkgs + data-driven estimate for $\gamma$+jet \& jet+jet} & & - & S-vs-B score \\ \hline
+    
+    ttH leptonic BDT-bkg &  \textsc{XGBoost} & \makecell*[{{m{6cm}}}]{\centering S: ttH $\geq$0-leptons, $\geq$1-jet \\ B: other H prod modes, SM $\gamma\gamma$, $\gamma$+jet, Drell-Yan, V+$\gamma$, diboson, top-associated bkgs} & & - & S-vs-B score \\ \hline
+    
+    tHq leptonic BDT-bkg &  \textsc{TMVA} & \makecell*[{{m{6cm}}}]{\centering S: tHq leptonic \\ B: SM $\gamma\gamma$, $\gamma$+jet, top-associated bkgs} & & - & S-vs-B score \\ \hline
+    
+    top DNN &  \makecell{\textsc{Keras}~+\\\textsc{TensorFlow}} & tHq and ttH & & - & tHq-vs-ttH score \\
 \end{tabular}
