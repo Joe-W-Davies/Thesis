@@ -31,7 +31,7 @@ where $E_{\gamma1}$ and $E_{\gamma2}$ are the measured energies of $\gamma_1$ an
   \label{fig:hgg_overview_improving_measurements}
 \end{figure}
 
-This chapter will focus on the experimental techniques used to maximise the sensitivity of the analysis, according to the three aspects stated above. After first introducing the data and simulation samples used in the analysis, section \ref{sec:event_reconstruction} details the procedure used to reconstruct candidate \Hgg events, specifically the techniques which improve the diphoton mass resolution, namely the photon identification and selection, the photon energy regression and the primary vertex selection. Following this, the categorisation of events is described in section~\ref{sec:event_categorisation}. Additional objects in the events such as jets, charged leptons and missing transverse momentum are used to define categories targeting the different STXS stage 1.2 bins. This section covers the methods used to both reduce background contamination and to increase the purity of the targeted signal process in such categories.
+This chapter will focus on the experimental techniques used to maximise the sensitivity of the analysis, according to the three aspects stated above. After first introducing the data and simulation samples used in the analysis, section \ref{sec:event_reconstruction} details the procedure used to reconstruct candidate \Hgg events, specifically the techniques which improve the diphoton mass resolution: the photon identification and selection, the photon energy regression and the primary vertex selection. Following this, the categorisation of events is described in section~\ref{sec:event_categorisation}. Additional objects in the events such as jets, charged leptons and missing transverse momentum are used to define categories targeting the different STXS stage 1.2 bins. This section covers the methods used to both reduce background contamination and to increase the purity of the targeted signal process in such categories.
 
 
 
@@ -221,7 +221,7 @@ Each photon in an event is required to have photon ID BDT score $>0.9$. Akin to 
   \label{fig:photon_id_1}
 \end{figure}
 
-\subsection{Vertex selection}
+\subsection{Vertex selection}\label{sec:vertex_selection}
 Equation \ref{eq:mgg} demonstrates that the diphoton mass resolution depends not only on the per-photon energy resolutions, but also on the determination of the photon opening angle, $\theta$. For this, it is necessary to know the precise location of the primary hard-scattering vertex from which the photons originate. If the location is correctly determined within 1~cm of the true vertex position, the diphoton mass resolution is dominated by the photon energy resolution. For events with additional objects such as charged leptons and jets, it is relatively easy to assign the primary vertex, due to the presence of distinct charged particle tracks. On the other hand, for \Hgg events with no additional objects (e.g. ggH 0J), it becomes a much more difficult problem. In the \Hgg anaylsis, the diphoton vertex assignment is performed using a dedicated BDT, which is trained using ggH \Hgg simulated events and takes as input variables related to the tracks recoiling against the diphoton system:
 
 \begin{itemize}
@@ -330,7 +330,7 @@ In order to introduce some of the key techniques used in the event categorisatio
 
 The nine ggH classes are uniquely defined by the Higgs boson transverse momentum and the number of jets. It was found that the ggH BDT outperforms the assignment from using the reconstructed \ptgg and number of jets alone. This improvement arises as the BDT can exploit the correlations between the photon and jet kinematic properties, and thus use the well-measured photon quantities to infer information related to the less well-measured jets. As a result, the correct assignment of the per-event number of jets increases from 77\% to 82\%; the improvement is negligible for the \ptgg assignment since this is already a well-measured quantity with little migration across the \ptH boundaries. Propagating this to the final results leads to an improvement in the measured cross sections, particularly for the 0J and 1J bins, and reduces the correlations between measured quantities.
 
-Each event is assigned to the output class with the highest probability. The final 12 analysis regions (9 output ggH BDT classes, where the $p_T^H>200$~GeV class is further split using the boundaries in the reconstructed \ptgg at 300, 450 and 650~GeV) are then divided into the final tags using the diphoton BDT. This BDT is trained to discriminate all Higgs boson signal from all other modes of SM diphoton production, meaning the output score, as shown in Figure \ref{fig:diphoton_score}, can be used to reduce the background contamination in each of the analysis regions. The boundaries on the diphoton BDT output are optimised independently in each region to maximise the expected AMS. Three tags are defined for the eight STXS bins with $p_T^H<200$~GeV, two for the two bins with $200<p_T^H<450$~GeV, and one for the two bins with $p_T^H>450$~GeV. Events that fail the lowest diphoton BDT output threshold in the respective analysis region are discarded from the analysis. 
+Each event is assigned to the output class with the highest probability. The final 12 analysis regions (9 output ggH BDT classes, where the $p_T^H>200$~GeV class is further split using boundaries in the reconstructed \ptgg at 300, 450 and 650~GeV) are then divided into the final tags using the diphoton BDT. This BDT is trained to discriminate all Higgs boson signal from all other modes of SM diphoton production, meaning the output score, as shown in Figure \ref{fig:diphoton_score}, can be used to reduce the background contamination in each of the analysis regions. The boundaries on the diphoton BDT output are optimised independently in each region to maximise the expected AMS. Three tags are defined for the eight STXS bins with $p_T^H<200$~GeV, two for the two bins with $200<p_T^H<450$~GeV, and one for the two bins with $p_T^H>450$~GeV. Events that fail the lowest diphoton BDT output threshold in the respective analysis region are discarded from the analysis. 
 
 Table \ref{tab:ggH_category_yields} presents the expected signal and background yields in each of the ggH analysis categories. The signal yields are broken down into the fractional contribution from the target STXS bin(s), as well as the fractional contributions from the different Higgs boson production modes.
 
@@ -510,6 +510,8 @@ Table \ref{tab:top_category_yields} presents the expected signal and background 
     \input{Tables/hgg_overview/top_yields}
 \end{table}
 
+\FloatBarrier
+
 \subsection{Validation}
 It is necessary to validate the modelling of the large number of multivariate classifiers used in this analysis. In the context of event categorisation, validation means requiring a good agreement between data and MC simulation in the outputs of the numerous classifiers, particularly in the signal-like regions where events enter the analysis. If the agreement is poor in a number of the input features then the classifier performance can be sub-optimal. However, if this disagreement propagates to the classifier output then it may introduce a systematic uncertainty on the signal events entering the analysis. No such systematic uncertainty enters for the background estimate, as this is modelled directly from data sidebands (see section \ref{sec:bkg_modeling}).
 
@@ -527,9 +529,9 @@ Independent validation samples are used. The examples in Figure \ref{fig:categor
   \label{fig:categorisation_validation}
 \end{figure}
 
-\FloatBarrier
+% \FloatBarrier
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+% \newpage
 \section{Summary}
 
 This chapter has described the selection, reconstruction and subsequent categorisation of p-p collision events recorded by the CMS detector in order to measure cross sections in the Higgs to two photon decay channel. The confusion matrix in Figure \ref{fig:purity_matrix} displays the expected signal composition of the final analysis categories in terms of a set of merged STXS bins. The numbers in the matrix represent the percentage contributions to the total signal yield in a given category arising from each signal process, such that each row sums to 100\%.
@@ -543,7 +545,7 @@ The next chapter explains the procedure for fitting the diphoton mass distributi
   {
     Confusion matrix displaying the composition of each analysis category in terms of a reduced set of STXS bins. The colour scale indicates the fractional yield in each category (rows) accounted for by each STXS process (columns). Each row therefore sums to 100\%. Entries with values less than 0.5\% are not shown. Simulated events for each year in the period 2016-2018 are combined with appropriate weights corresponding to their relative integrated luminosity in data. The column labelled as qqH rest includes the contributions from the qqH 0J, qqH 1J, qqH $m_{jj}<60$~GeV and the qqH $120<m_{jj}<350$~GeV STXS bins.
   }
-  \label{fig:categorisation_validation}
+  \label{fig:purity_matrix}
 \end{figure}
 
 
