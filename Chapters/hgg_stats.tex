@@ -15,7 +15,7 @@ A simultaneous binned maximum likelihood fit is performed to the $m_{\gamma\gamm
 \end{equation}
 
 \noindent
-where the index, $X$, runs over bins in the $m_{\gamma\gamma}$ distribution in the range $100<m_{\gamma\gamma}<180$~GeV with a bin width of 250~MeV (CHECK!); this choice is sufficiently small compared to the diphoton mass resolution to ensure that a negligible amount of information is lost. The likelihood itself is a function of the signal parameters, $\mu^{i,\gamma\gamma}$, the Higgs boson mass, $m_H$, and nuisance parameters, $\vec{\theta}$~=~$\{\vec{\theta}_s,\vec{\theta}_b\}$, which account for systematic uncertainties in the signal and background estimates. The nuisance parameters are grouped according to their effect, as shown in equation \ref{eq:systematics_grouping},
+where the index, $X$, runs over bins in the $m_{\gamma\gamma}$ distribution in the range $100<m_{\gamma\gamma}<180$~GeV with a bin width of 250~MeV; this choice is sufficiently small compared to the diphoton mass resolution to ensure that a negligible amount of information is lost. The likelihood itself is a function of the signal parameters, $\mu^{i,\gamma\gamma}$, the Higgs boson mass, $m_H$, and nuisance parameters, $\vec{\theta}$~=~$\{\vec{\theta}_s,\vec{\theta}_b\}$, which account for systematic uncertainties in the signal and background estimates. The nuisance parameters are grouped according to their effect, as shown in equation \ref{eq:systematics_grouping},
 
 \begin{equation}\label{eq:systematics_grouping}
     \big\{\vec{\theta}_s,\vec{\theta}_b\big\} = \big\{ \vec{\theta}^{\,\rm{th}}_{s}, \vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}, \vec{\theta}^{\,\epsilon,{\rm{exp}}}_{s}, \vec{\theta}^{\,\rm{shape}}_{s}, \vec{\theta}^{\,\rm{lumi}}_{s}, \vec{\theta}^{\,\rm{shape}}_{b}, \vec{\theta}^{\,\rm{discrete}}_{b}  \big\},
@@ -40,7 +40,7 @@ Here $[\sigma^i \cdot \mathcal{B}^{\gamma\gamma}]_{\rm{SM}}$ is the SM predictio
 \noindent
 In this signal parametrisation, the theory systematic uncertainties, $\vec{\theta}^{\,\rm{th}}_{s}$, in the denominator of equation \ref{eq:mu_stxs} cancel out the same terms in equation \ref{eq:signal_yield}. As a result, $\vec{\theta}^{\,\rm{th}}_{s}$, do not enter the cross section measurements, but are instead attributed to the uncertainty in the SM predictions (see grey bands of Figure \ref{fig:stxs_maximal}). This property of the measurements has the added benefit that they remain useful in the long-term, as they can accommodate future advances in the SM theoretical predictions.
 
-Other signal parametrisations are considered. The per-production mode signal strength parametrisation defines four POIs: $\mu_{\rm{ggH}}$, $\mu_{\rm{VBF}}$, $\mu_{\rm{VH}}$ and $\mu_{\rm{top}}$, which act as global scaling factors for the respective Higgs boson production modes. The $\kappa$-framework~\cite{Heinemeyer:2013tqa} replaces $\mu^{i,\gamma\gamma}$ with functions of Higgs boson coupling modifiers ($\kappa$-parameters), $\mu^{i,\gamma\gamma}(\vec{\kappa})$, where the form of the function depends on the signal process, $i$ (see section \ref{sec:results_kappa})\footnote{Looking ahead to Section \ref{chap:eft}, here the signal yields are parametrised in an EFT framework, $\mu^{i,\gamma\gamma}(c_j)$, so that the same statistical procedure can be used to extract constraints on EFT parameters, $c_j$.}. In such \textit{interpretations}, there is no cancellation of $\vec{\theta}^{\,\rm{th}}_{s}$, meaning these nuisance parameters are directly folded into the measurements. In general, we can write $\mu^{i,\gamma\gamma}$ as a function of some set of parameters of interest, $\vec{\alpha}$,
+Other signal parametrisations are considered. The most-constraining fit that is performed introduces a single inclusive signal strength modifier, $\mu$, which scales all Higgs boson signal processes equally. Adding more the freedom, the per-production mode signal strength parametrisation defines four POIs: $\mu_{\rm{ggH}}$, $\mu_{\rm{VBF}}$, $\mu_{\rm{VH}}$ and $\mu_{\rm{top}}$, which act as global scaling factors for the respective Higgs boson production modes. The $\kappa$-framework~\cite{Heinemeyer:2013tqa} replaces $\mu^{i,\gamma\gamma}$ with functions of Higgs boson coupling modifiers ($\kappa$-parameters), $\mu^{i,\gamma\gamma}(\vec{\kappa})$, where the form of the function depends on the signal process, $i$ (see section \ref{sec:results_kappa})\footnote{Looking ahead to Section \ref{chap:eft}, here the signal yields are parametrised in an EFT framework, $\mu^{i,\gamma\gamma}(c_j)$, so that the same statistical procedure can be used to extract constraints on EFT parameters, $c_j$.}. In such \textit{interpretations}, there is no cancellation of $\vec{\theta}^{\,\rm{th}}_{s}$, meaning these nuisance parameters are directly folded into the measurements. In general, we can write $\mu^{i,\gamma\gamma}$ as a function of some set of parameters of interest, $\vec{\alpha}$,
 
 \begin{equation}
     \mu^{i,\gamma\gamma} \equiv \mu^{i,\gamma\gamma}(\vec{\alpha}).
@@ -50,8 +50,9 @@ To determine $S_{k,X}^{i,\gamma\gamma}$ (i.e the fraction of $S_k^{i,\gamma\gamm
 
 The background model is derived directly from the observed diphoton mass distribution in data. Described in more detail in section \ref{sec:bkg_modeling}, the form of the analytic model in each analysis category is treated as a discrete nuisance parameter in the fit, with options coming from a number of different smoothly-falling functions. The background estimate, $B_{k,X}$, is inferred from the analytic background model.
 
-Finally, the constraint term in the likelihood, $\mathcal{C}$, applies a penalty for deviations from the expected values of the signal nuisance parameters, $\vec{\theta}_s$. The form of this penalty depends on the choice of prior probability-density-function (pdf) for a given nuisance; in this analysis all nuisance parameters affecting the signal estimate are associated with a Gaussian or log-normal prior. The background nuisance parameters, $\vec{\theta}_b$, are instead associated with a flat prior, since there is no a-priori knowledge of their values, and therefore changes in their value are not explicitly penalised by the constraint term. However, an additional penalty is included according to the total number of degrees of freedom in the background model function (CHECK!). 
+Finally, the constraint term in the likelihood, $\mathcal{C}$, applies a penalty for deviations from the expected values of the signal nuisance parameters, $\vec{\theta}_s$. The form of this penalty depends on the choice of prior probability-density-function (pdf) for a given nuisance; in this analysis all nuisance parameters affecting the signal estimate are associated with a Gaussian or log-normal prior. The background nuisance parameters, $\vec{\theta}_b$, are instead associated with a flat prior, since there is no a-priori knowledge of their values, and therefore changes in their value are not explicitly penalised by the constraint term. However, an additional penalty is included according to the total number of degrees of freedom in the background model function to penalise unnecessarily complex functions. 
 
+\newpage
 \subsection{Extraction of results}\label{sec:results_extraction}
 The total likelihood function is defined as the product over all 80 per-category likelihoods,
 
@@ -156,7 +157,7 @@ Going further, we can plot the sum of all per-category models to show the total 
     \mathcal{S}^' = \sum_k w_k\,\mathcal{S}_k; \qquad w_k = (F^k_{68}) \times \frac{\sum_l S^l_{68}}{\sum_l F^l_{68} S^l_{68}}.
 \end{equation}
 
-\begin{figure}[hptb]
+\begin{figure}[h]
   \centering
   \includegraphics[width=.8\textwidth]{Figures/hgg_stats/smodel_all_weight.pdf}
   \caption[Weighted sum of all signal models]
@@ -166,6 +167,7 @@ Going further, we can plot the sum of all per-category models to show the total 
   \label{fig:sigmodels_weighted}
 \end{figure}
 
+\newpage
 \section{Background modelling}\label{sec:bkg_modeling}
 Events entering the analysis categories that do not originate from Higgs boson production form a smoothly falling \mgg distribution, on top of which the signal peak resides. To derive the $B_{k,X}$ terms of equation \ref{eq:category_likelihood}, an analytic model is constructed in each analysis category to describe the distribution of background events. These models are extracted directly from data.
 
@@ -191,11 +193,11 @@ Figure \ref{fig:nuisance_illustration} illustrates a different approach to the s
 \subsection{Discrete profiling method}
 The example described above was introduced in the context of a continuous nuisance parameter. This same approach of building the envelope can be extended to the discrete case, where the nuisance parameter is limited to discrete values, albeit provided there is sufficient freedom in the allowed values to provide good coverage of the uncertainty.
 
-In this analysis, the so-called \textit{discrete profiling method} is applied to model the uncertainty in the choice of background function~\cite{Dauncey:2014xga}. A number of candidate functions are considered to fit the background in each category, and a discrete nuisance parameter is introduced to label the choice of function. In theory, the complete set of all analytic functions should be considered to obtain the exact uncertainty; in practice it is sufficient to consider a subset of functions which provide a reasonable fit to data. This keeps the computing time required for the full minimisation to a tolerable level. By allowing the value of the discrete nuisance, and thus the functional form of the background to vary, an envelope of likelihoods is constructed (as in Figure \ref{fig:}) which successfully approximates the uncertainty in the choice of background function.
+In this analysis, the so-called \textit{discrete profiling method} is applied to model the uncertainty in the choice of background function~\cite{Dauncey:2014xga}. A number of candidate functions are considered to fit the background in each category, and a discrete nuisance parameter is introduced to label the choice of function. In theory, the complete set of all analytic functions should be considered to obtain the exact uncertainty; in practice it is sufficient to consider a subset of functions which provide a reasonable fit to data. This keeps the computing time required for the full minimisation to a tolerable level. By allowing the value of the discrete nuisance, and thus the functional form of the background to vary, an envelope of likelihoods is constructed (as in Figure \ref{fig:nuisance_envelope}) which successfully approximates the uncertainty in the choice of background function.
 
 \begin{table}[htb]
     \caption[Function families considered in the discrete profiling method]{Blah}
-    \label{tab:photon_preselection}
+    \label{tab:discrete_functions}
     \vspace{.5cm}
     \centering
     \footnotesize
@@ -222,9 +224,9 @@ In this analysis, the so-called \textit{discrete profiling method} is applied to
 
 The different families of functions considered are listed in Table~\ref{tab:discrete_functions}. For each family, the form is shown for order, $N$, uniquely described by parameters: $p_0$, $p_1$, ..., $p_N$. The following procedure is used to determine the final set of candidate functions for a given analysis category, $\mathcal{F}^k$:
 \begin{itemize}
-    \item A background-only fit is performed to the \mgg distribution in data, using the lowest-order function in a given family. This is performed by minimising the value of $-2\ln{L}_b$, allowing the normalisation and shape parameters of the function to vary, where the subscript $b$ has been added to indicate this is a background-only fit. A penalty term, $P$, is added to $-2\ln{L}_b$, equal to the number of parameters in the function. This prevents functions with arbitrarily high freedom being chosen. The process is repeated, incrementally raising the order, until a minimum goodness-of-fit criteria is reached. All orders below are not considered in $\mathcal{F}^k$ as they do not fit the data well.
+    \item A background-only fit is performed to the \mgg distribution in data, using the lowest-order function in a given family. This is performed by minimising the value of $-2\ln{L}_b$, allowing the parameters of the function to vary, where the subscript $b$ has been added to indicate this is a background-only fit. A penalty term, $P$, is added to $-2\ln{L}_b$, equal to the number of parameters in the function. This prevents functions with arbitrarily high freedom being chosen. The process is repeated, incrementally raising the order, until a minimum goodness-of-fit criteria is reached. All orders below are not considered in $\mathcal{F}^k$ as they do not fit the data well.
     
-    \item For all subsequent orders, an F-test is performed to decide if the improvement in fit quality warrants the increase in function complexity~\cite{}. Using the same procedure, the $-2\ln{L}_b+P$ value is determined for the next-highest order function in the family. Given a large enough sample size, the difference in $-2\ln{L}_b+P$ values for successive orders, $\Delta$, is distributed according to the $\chi^2$ distribution with $m$ degrees of freedom, where $m$ is the difference in the number of parameters between the two orders. A $p$-value is calculated as,
+    \item For all subsequent orders, an F-test is performed to decide if the improvement in fit quality warrants the increase in function complexity~\cite{10.2307/2340521}. Using the same procedure, the $-2\ln{L}_b+P$ value is determined for the next-highest order function in the family. Given a large enough sample size, the difference in $-2\ln{L}_b+P$ values for successive orders, $\Delta$, is distributed according to the $\chi^2$ distribution with $m$ degrees of freedom, where $m$ is the difference in the number of parameters between the two orders. A $p$-value is calculated as,
     
     \begin{equation}
         p = {\rm{Prob}}\Big(\Delta<\,\Delta_{\rm{obs}}\,\Big|\,\chi^2(m)\Big),
@@ -235,7 +237,7 @@ The different families of functions considered are listed in Table~\ref{tab:disc
     \item This process is repeated for each of the four families listed in Table \ref{tab:discrete_functions}, where each order passing the above selection procedure enters $\mathcal{F}^k$.
 \end{itemize}
 
-The set of candidate functions, $\mathcal{F}^k$, are shown for the XX and YY analysis categories in Figure \ref{fig}. Clearly, the different functional forms provide a different background estimate when integrating under the signal peak. This sometimes large variation in the background estimate gives rise to an uncertainty in the fitted signal parameters of interest, originating from the lack of knowledge of the true background functional form.
+The set of candidate functions, $\mathcal{F}^k$, are shown for the XX and YY analysis categories in Figure \ref{fig:bkgmodels_category}. Clearly, the different functional forms provide a different background estimate when integrating under the signal peak. This sometimes large variation in the background estimate gives rise to an uncertainty in the fitted signal parameters of interest, originating from the lack of knowledge of the true background functional form.
 
 \begin{figure}[hptb]
   \centering
@@ -246,18 +248,151 @@ The set of candidate functions, $\mathcal{F}^k$, are shown for the XX and YY ana
   {
     Add caption.
   }
-  \label{fig:sigmodels_category}
+  \label{fig:bkgmodels_category}
 \end{figure}
 
 In the final results extraction (see section \ref{sec:results_extraction}), both the discrete nuisance parameters describing the choice of background functions ($\vec{\theta}^{\,\rm{discrete}}_{b}$), and the parameters of the functions themselves ($\vec{\theta}^{\,\rm{shape}}_{b} \equiv p_0,...,p_N$) are free to vary. In accordance with the procedure described above, a penalty term is added to the value of $-2\ln{L}$ equal to the number of parameters in the chosen function, thus penalizing functions with high complexity. Further details concerning the discrete profiling method are provided in Ref.~\cite{Dauncey:2014xga}. This includes a series of tests to show the method provides good coverage of the uncertainty in the choice of background function and leads to unbiased estimates of the parameters of interest.
 
+\newpage
 \section{Systematic uncertainties}\label{sec:systematics}
-A systematic uncertainty is included in the analysis to account for the minor differences between photon and electron. Signal shape etc. Vertex assignment.
-\subsection{Theoretical uncertainties}
-Acceptance and normalisation. Complication when merging bins.
+This section provides further detail on the sources of systematic uncertainty in the signal estimate, and how they are modelled using different types nuisance parameters. The uncertainties are divided into experimental sources and theoretical sources, described in sections \ref{sec:systematics_experimental} and \ref{sec:systematics_theoretical} respectively. For each source, the magnitude of the uncertainty's impact is calculated separately per year for each STXS stage 1.2 bin in each analysis category.
 
-\subsection{Experimental uncertainties}
-Signal shape systematics: how are they calculated. Correlated with effect on rate. Plot showing the maximum effect (are nuisance params pulled to 1sigma).
+\subsection{Uncertainty correlation scheme}
+Before listing the various sources, it is important to introduce the concept of correlating nuisance parameters. As mentioned in section \ref{sec:sig_modelling}, the signal is modelled independently for the 2016, 2017, and 2018 data. This allows for a choice in the modelling of each uncertainty source. A correlated uncertainty means defining a single nuisance parameter in the final fit which affects the signal estimate in multiple years simultaneously. Note, this correlation may be defined for a pair of years, or can extend to a correlation across all three years. Alternatively, uncorrelated means defining a separate nuisance parameters for each year, such that the impacts on the signal estimates from each year are independent. 
+
+Theoretical uncertainties are fully correlated across years. This somewhat trivial assignment is made since the underlying theoretical predictions are constant and do not depend on the data-taking conditions. In general, experimental sources are uncorrelated across years. This choice reflects the difference in data-taking conditions and data reconstructions for each year. Exceptions are the uncertainties in the luminosity estimate and the jet energy scale. For these, a partial correlation scheme is used i.e. a combination of uncorrelated and correlated nuisance parameters are defined, where the correlated parameters correspond to uncertainty sources that are common across years.
+
+At least for the STXS measurements, in which the dominant uncertainties are statistical in origin, the choice of uncertainty correlation scheme is a subdominant feature of the analysis. Nevertheless, the importance will increase as more data is recorded or when the results are combined with other decay channels, as the systematic uncertainties become comparable in size to the statistical component.
+
+\subsection{Experimental uncertainties}\label{sec:systematics_experimental}
+Experimental uncertainties can be separated into those which affect the shape of the signal \mgg peak, and those that do not. Uncertainties that affect the signal shape are modelled using Gaussian-constrained nuisance parameters, $\vec{\theta}^{\,\rm{shape}}_{s}$, that can simultaneously shift the mean, width, and normalisation of the Gaussian functions in the signal models. Typically, the sources for $\vec{\theta}^{\,\rm{shape}}_{s}$ are related to the measurement and reconstruction of the photon energy. On the other hand, uncertainties which do not affect the signal shape are treated as log-normal variations in the event yield estimates. 
+
+\subsubsection{Signal shape uncertainties}
+The experimental sources of uncertainty which affect the shape of the signal \mgg peak are listed below. Their effect is directly encoded into the signal models themselves as variations in the Gaussian function parameters. The general approach here is to vary the source of uncertainty and compare the mean, width, and normalisation of the resulting signal \mgg peak to the nominal. Uncertainties concerning the energy scale predominantly affect the mean values, whilst uncertainties in the energy resolution mostly affect the widths. Nevertheless, for each source of uncertainty the combined effects on the mean, width, and normalisation of the signal peak are correlated into a single nuisance parameter. Figure \ref{fig:shape_systematics} shows the maximum variation in the signal shape by deviating the nuisance parameters to $\pm 1\sigma$. For illustration purposes the total effect has been decomposed into the maximum variation in the mean (left), width (middle) and rate (right). Ultimately, the total impact from the signal shape uncertainties on the inclusive Higgs boson signal strength measurement is approximately 2\%.
+
+\begin{itemize}
+    \item \textit{Photon energy scale and resolution}: the residual corrections to the photon energy scale in data and photon energy resolution in simulation, defined in section \ref{sec:photon_reconstruction}, introduce uncertainties into the analysis. These uncertainties are evaluated using \Zee events, by varying the energy regression training scheme, the distribution of shower shape variable \RNINE, and the electron selection criteria, and re-deriving the scale and smearing corrections. Typically, the resulting uncertainty in the photon energy scale is 0.05-0.1\%, but can rise to be 0.5--3\% for very high \pt photons.
+    
+    \item \textit{Nonlinearity of the photon energy scale}: an additional source of uncertainty covering differences in the linearity of the photon energy scale between data and simulation arises since the corrections are estimated using \Zee events with electron \pt typically around 45~GeV, but are applied to photons with typical \pt around 60~GeV. The magnitude of this uncertainty is estimated using boosted \Zee events, and is calculated to be 0.2\% for the full range of photon \pt values.
+    
+    \item \textit{Shower shape corrections}: imperfect modelling of electromagnetic shower shapes in simulation is a source of uncertainty. The impact of this uncertainty is derived by evaluating the energy scale in simulation before and after the CQR corrections to the shower shape variables are applied. The magnitude of the uncertainty in the energy scale depends on the photon $|\eta|$ and \RNINE values, ranging from 0.01-0.15\%.
+    
+    \item \textit{Non-uniformity of light collection in the ECAL crystals}: the maximum shower length is deeper for photons than electrons by approximately one radiation length. Again, as the corrections are derived using electrons, an uncertainty is introduced concerning the modelling of light collection as a function of emission depth within a given ECAL crystal. The calculation of this uncertainty is described in detail in Ref~\cite{Sirunyan:2020xwk}. For photons with $\RNINE > 0.96$, the uncertainty in energy is between 0.16--0.25\%, whereas the magnitude is below 0.07\% for low \RNINE photons, which are more likely to have undergone a conversion in the tracker.
+    
+    \item \textit{Modelling of material in front of the ECAL}: the amount of material upstream of the ECAL affects the properties of the electromagnetic shower, and may not be perfectly modelled in simulation. Dedicated simulation samples are used with differing amounts of upstream material to evaluate the impact on the photon energy measurement. For the most central photons, the uncertainty in the energy ranges from 0.02--0.05\%, but increases to a maximum of 0.24\% for photons in the endcaps.
+    
+    \item \textit{Vertex assignment}: somewhat different to the sources described above, a nuisance parameter is introduced to model the uncertainty in the vertex scenario assignment, directly modifying the value of $f_{RV}$. The largest contribution originates from the modelling of the underlying event i.e. everything in the event that is not associated with the hard-scattering process. An additional contribution comes from the vertex assignment BDT correction factors due to differences between \Zmumu events in data and simulation. The total uncertainty allows $f_{RV}$ to vary by $\pm$2\%.
+\end{itemize}
+
+\begin{figure}[hptb]
+  \centering
+  \includegraphics[width=.32\textwidth]{Figures/hgg_stats/smodel_RECO_0J_PTH_GT10_Tag0.pdf}
+%   \hfill
+  \includegraphics[width=.32\textwidth]{Figures/hgg_stats/smodel_RECO_VBFTOPO_VHHAD_Tag0.pdf}
+%   \hfill
+  \includegraphics[width=.32\textwidth]{Figures/hgg_stats/smodel_RECO_VBFTOPO_VHHAD_Tag0.pdf}
+  \caption[Affect of the signal shape systematic uncertainties]
+  {
+    Add caption.
+  }
+  \label{fig:systematics_sigshape}
+\end{figure}
 
 
-\subsection{Correlation schemes}
+\subsubsection{Yield uncertainties}
+The experimental sources of uncertainty that only modify the event yield estimates are listed below. This includes the uncertainties in the luminosity, $\vec{\theta}^{\,\rm{lumi}}_{s}$, and those affecting the efficiency times acceptance of the event selection, $\vec{\theta}^{\,\epsilon,{\rm{exp}}}_{s}$. In general, the magnitude of the yield variation is calculated by varying the uncertainty source in simulation, propagating the events to the final analysis categories, and comparing the systematic-varied yield to the nominal. The combined effect of these uncertainties on the inclusive Higgs boson signal strength measurement is between 3--4\%.
+
+\begin{itemize}
+    \item \textit{Integrated luminosity}:
+    
+    \item \textit{Photon identification BDT score}:
+    
+    \item \textit{Jet energy scale and smearing corrections}:
+    
+    \item \textit{Per-photon energy resolution estimate}:
+    
+    \item \textit{Trigger efficiency}:
+    
+    \item \textit{Photon preselection}:
+    
+    \item \textit{Missing transverse momentum}:
+    
+    \item \textit{Pileup jet identification}:
+    
+    \item \textit{Lepton isolation and identification}:
+    
+    \item \textit{Jet b tagging}:
+\end{itemize}
+
+\subsection{Theoretical uncertainties}\label{sec:systematics_theoretical}
+All theory uncertainties are modelled as log-normal variations in the event yield estimates. Introduced in section \ref{sec:category_likelihood}, theory uncertainties contribute to the likelihood in two ways. Firstly, there are the uncertainties in the SM predictions of the cross sections and the \hgg branching ratio, $\vec{\theta}^{\,\rm{th}}_{s}$. The cross section uncertainties include both the inclusive per-production mode effects and the uncertainties which migrate events across STXS bin boundaries. As a result of the signal parametrisation used for the cross section measurements, shown in equation \ref{eq:mu_stxs}, uncertainties of this first type cancel in the ratio with equation \ref{eq:signal_yield}, and therefore do not enter the final fit likelihood. Instead, they are attributed to the uncertainties in the SM predictions of the measured quantities, represented by the shaded grey bands in Figures XX, YY and ZZ. Conversely, for all interpretations of cross section measurements e.g. signal strengths, coupling modifiers or EFT parameters, the $\vec{\theta}^{\,\rm{th}}_{s}$ nuisance parameters are folded into the measurement i.e. included in the likelihood.
+
+Originating from our lack of understanding of the underlying theory when simulating events, the second type of uncertainty, $\vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}$, affects the acceptance of the analysis categories. For each uncertainty source, the total effect on each STXS stage 1.2 bin is integrated out, providing a nuisance parameter that models the migration of events from a given STXS bin between analysis categories. In other words, this models the within-bin shape effects. When calculating the impact of these nuisance parameters, it is imperative to include events that do not enter any analysis category to ensure that the migrations of events in and out-of-acceptance is accurately modelled. In contrast to the first type, these uncertainties enter the cross section measurements as variations in the calculated $\epsilon^{i,\gamma\gamma}_{k}$ values.
+
+The different sources of theoretical uncertainty and their application via $\vec{\theta}^{\,\rm{th}}_{s}$ and $\vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}$ nuisance parameters are described below.
+
+\begin{itemize}
+    \item \textit{QCD scale}: the uncertainty arising from varying the renormalisation and factorisation scales from the nominal value used to calculate the SM predictions for the cross sections, and to simulate the kinematic properties of the events. These uncertainties account for missing higher order terms in perturbative calculations, and reduce in size as the order of the calculation is increased. The recommendations from Ref.~\cite{deFlorian:2016spz} are used, where the $\pm$1$\sigma$ variations are displayed for the different Higgs boson production modes in Table~\ref{tab:qcdscale_variation}. The effect on the ggH cross section depends on the number of jets in the event.
+    
+    \begin{table}[htb]
+        \caption[QCD scale uncertainties in production mode cross sections]{The QCD scale uncertainties in the production mode cross sections, expressed as percentage variations.}
+        \label{tab:qcdscale_variation}
+        % \vspace{.5cm}
+        \centering
+        \footnotesize
+        \setlength{\tabcolsep}{3pt}
+        \renewcommand{\arraystretch}{2}
+        \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+            ggH 0J & ggH 1J & ggH $\geq$2J & VBF & WH & ZH & ggZH & ttH & tHq & tHW & bbH   \\ \hline
+            $\pm$3.8\%  & $\pm$5.2\%  & $\pm$8.9\% & $\pm$0.4\% & $^{+0.5}_{-0.7}$\% & $^{+3.8}_{-3.1}$\%  & $^{+25.1}_{-18.9}$\% & $^{+5.8}_{-9.2}$\% & $^{+6.5}_{-14.9}$\% & $^{+4.9}_{-6.7}$\% & $^{+20.2}_{-23.9}$\% \\ 
+        \end{tabular}
+    \end{table}
+
+    \noindent
+    An additional uncertainty is included for ggH production originating from the resummation of divergent terms in the perturbative expansion. The magnitude of this uncertainty is 0.1\% for 0J events, 4.5\% for 1J events, and 8.9\% for events with at-least two jets.
+    
+    The within-bin shape variations in the event kinematic properties originating from uncertainties in the QCD scale are modelled by recalculating the fraction of events in each category, $\epsilon^{i,\gamma\gamma}_{k}$, when changing the renormalisation and factorisation scales by a factor of two in the same direction simultaneously. These uncertainties, of type $\vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}$, are decorrelated for different production modes and different regions of the Higgs boson phase space, resulting in 22 independent nuisance parameters. The magnitude of these within-bin migration uncertainties are in general around 1\%, but can be as large as 5\% for off-diagonal elements in Figure \ref{fig:purity_matrix}.
+    
+    \item \textit{Modelling of ggH STXS fractions}: additional sources of uncertainty of type $\vec{\theta}^{\,\rm{th}}_{s}$ are included to account for the migration of events \textit{across} STXS bin boundaries, which therefore affect the SM predictions of the cross sections in each bin. These migration uncertainties are defined such that the total cross section of the summed bins, either side of the boundary, remains constant. In other words, the effect of such across-bin migration uncertainties cancels in their sum.
+    
+    \noindent
+    In total, fifteen of such nuisance parameters are defined for ggH. Nine account for the uncertainty in the modelling of the \ptH distribution: four for migrations across the $\ptH$~=~200, 300, 450, and 650~GeV boundaries, one for the migration of 0J events across the $\ptH$~=~10~GeV, and four nuisances for migrations across the $\ptH$~=~60 and 120~GeV, defined independently for 1J and $\geq$2J events. Two nuisance parameters are defined to reflect migrations across the \mjj boundaries at 350 and 700~GeV, and a further two to account for the variations in the poorly-modelled \ptHjj variable, covering migrations across the 25~GeV boundary for events in different \mjj bins. Finally, two nuisances are included to account for the migration between the zero, one and two or more jet bins. 
+    
+    \noindent
+    An additional source is included to model the uncertainty of ggH in the boosted regime. The value of 15\% is taken directly from Ref.~\cite{}, and affects all ggH STXS bins with $\ptH>200$~GeV. Figure \ref{fig:ggH_uncertainty_scheme} shows the full set of $\vec{\theta}^{\,\rm{th}}_{s}$ nuisance parameters considered for ggH, and their relative impact on each STXS bin. The total magnitude of these uncertainties ranges from 6.5\% for ggH 0J high \ptH, to around 40\% for bins in the VBF-like region.
+    
+    \item \textit{Modelling of qqH STXS fractions}:
+    
+    \item \textit{Modelling of VH leptonic STXS fractions}:
+    
+    \item \textit{Modelling of ttH STXS fractions}:
+    
+    \item \textit{Parton density functions}:
+    
+    \item \textit{Strong force coupling constant, $\alpha_s$}:
+    
+    \item \textit{Underlying event}:
+    
+    \item \textit{Parton shower}:
+    
+    \item \textit{Modelling of ggH contamination in the top-associated categories}:
+    
+    \item \textit{$H\rightarrow\gamma\gamma$ branching fraction}:
+\end{itemize}
+
+\begin{figure}[hptb]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/hgg_stats/ggH_theoryunc_scheme.pdf}
+  \caption[The ggH theory uncertainty scheme]
+  {
+    Add caption.
+  }
+  \label{fig:systematics_sigshape}
+\end{figure}
+
+
+As described later in section \ref{sec:merging_schemes}, it is necessary to merge groups of STXS bins in the measurement to avoid large uncertainties or very high correlations between the measured cross sections. This induces an additional complication into the theory uncertainty scheme, such that the nuisance parameter representing the migration of events across the merged boundary must be introduced into the cross section measurement. Effectively, this act of merging re-defines the signal process and changes the across-bin migration uncertainty ($\vec{\theta}^{\,\rm{th}}_{s}$), to a within-merged-bin shape effect ($\vec{\theta}^{\,\epsilon,{\rm{th}}}_{s}$). For example, if the WH lep 0J $150<\ptV<250$, WH lep $\geq$1J $150<\ptV<250$ and WH lep $\ptV>250$ STXS bins are merged into a single parameter of interest, the nuisance parameters representing migrations across the $\ptV=250$~GeV boundary and the $N_{\rm{jets}}=1$ for $150<\ptV<250$~GeV boundary are included in the cross section measurement.
+
+
+
+
