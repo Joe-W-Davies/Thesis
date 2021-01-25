@@ -14,19 +14,19 @@ Building upon the strategies developed in previous CMS \Hgg analyses~\cite{}, a 
 where $E_{\gamma1}$ and $E_{\gamma2}$ are the measured energies of $\gamma_1$ and $\gamma_2$ respectively, and $\theta$ is the opening angle between the two photons. As displayed graphically in Figure~\ref{fig:hgg_overview_improving_measurements}, it is possible to isolate three aspects of the $m_{\gamma\gamma}$ spectrum which affect the sensitivity to Higgs boson properties: 
 
 \begin{enumerate}
-    \item The diphoton mass resolution: a narrower signal peak leads to enhanced sensitivity. This can be improved by correctly identifying photons from other objects in the detector such as jets, and subsequently making accurate measurements of the photon position and energy. Furthermore, the precise assertion of the interaction vertex from which the two photons originate is crucial for accurately determining the opening angle, $\theta$.
+    \item The diphoton mass resolution: integrating under a narrower signal peak results in a smaller background component and therefore an enhanced sensitivity. This can be improved by correctly identifying photons from other objects in the detector such as jets, and subsequently making accurate measurements of the photon position and energy. Furthermore, the precise assertion of the interaction vertex from which the two photons originate is crucial for accurately determining the opening angle, $\theta$.
     
     \item The signal-to-background ratio in an event category: the sensitivity is improved by reducing the background contamination under the Higgs boson peak. In this analysis, traditional cut-based methods are improved upon by using machine learning algorithms, which better discriminate between signal and background. Since different background processes are important for different Higgs boson production modes, a number of signal-vs-background classifiers are trained and used in the relevant event categories.
     
     \item The purity of the signal events in an event category: here, event categories are defined to target specific bins of the STXS framework. Therefore to improve the sensitivity, we aim to maximise the purity of an event category with respect to the targeted bin. In other words, make the confusion matrix between the truth-level STXS bin and the reconstruction-level event category as diagonal as possible (see Figure~\ref{fig:purity_matrix}). This in turn reduces the correlations between the measured cross sections.
 \end{enumerate}
 
-\begin{figure}[hptb]
+\begin{figure}[htb]
   \centering
   \includegraphics[width=1\textwidth]{Figures/hgg_overview/hgg_improve_measurement.pdf}
   \caption[Avenues for improving \Hgg measurements.]
   {
-    Detailed caption
+    An illustration of the various means of improving the measurements of Higgs boson properties in the diphoton decay channel. The top row demonstrates the effect of improving the diphoton mass resolution, leading to a narrower signal peak. The middle row shows the effect of improving the signal-to-background ratio, which would result from using a more powerful signal-vs-background discriminator. Finally, the bottom row represents the improvement from increasing the target signal process purity.
   }
   \label{fig:hgg_overview_improving_measurements}
 \end{figure}
@@ -58,44 +58,21 @@ Monte Carlo (MC) simulated events are used for both training event classifiers a
 
 Signal samples are simulated for the different Higgs boson production mechanisms at next-to-leading order (NLO) in quantum chromodynamics (QCD) using the \textsc{MG5\_aMC@NLO} (version 2.4.2)~\cite{}, and \textsc{Powheg} (version 2.0) generators~\cite{}. When possible, an independent event sample from the alternative generator is used for training event classifiers, thus ensuring the event categorisation and the construction of the final signal model are independent. Events produced via ggH production are weighted as a function of $p_T$ and $\eta$ to match the predictions of the NNLOPS program~\cite{}. Parton distribution functions (PDFs) are used to model the distribution of colliding partons inside the initial state protons. Events are subsequently interfaced with \textsc{Pythia8} (version 8.226 for 2016 MC and version 8.230 for 2017/2018 MC) for decaying the Higgs boson to photons, parton showering and hadronization~\cite{}. 
 
-The signal samples are normalised according to the production cross sections and the \Hgg branching fraction (0.227\%) recommendations by the LHCHWG~\cite{}. The fractional breakdown of each production mode in the STXS stage 1.2 bins is computed directly from the signal MC samples, and serves as the SM prediction of the cross section in each bin. Table \ref{tab:signal_samples} summarises the event generators, PDF sets and \textsc{Pythia} tunes used for the signal simulation, as well as the total cross section times branching ratio for each production mode with details on the order of the calculation. The fractional breakdowns of each production mode into the stage 1.2 bins are shown in Tables~\ref{tab:stxs_frac_ggH}--\ref{tab:stxs_frac_top}.
+The signal samples are normalised according to the production cross sections and the \Hgg branching fraction (0.227\%) recommendations by the LHCHWG~\cite{}. The fractional breakdown of each production mode in the STXS stage 1.2 bins is computed directly from the signal MC samples, and serves as the SM prediction of the cross section in each bin. Table \ref{tab:signal_samples} summarises the event generators, PDF sets and \textsc{Pythia} tunes used for the signal simulation, as well as the total cross section times branching ratio for each production mode with details on the order of the calculation. The fractional breakdowns of each production mode into the stage 1.2 bins are shown in chapter \ref{chap:theory} in Tables~\ref{tab:ggH_definitions}--\ref{tab:top_definitions}.
 
 \begin{table}[htb]
-    \caption{Add caption: cross section evaluated at 13 TeV + MH. Actually fill table in correctly}
-    \label{tab:signal samples}
+    \caption[Signal simulation details]{Details of the signal simulation. For each production mode, the generator used for the signal modelling, the hadronization and showering interface, and the choice of parton distribution function are listed. In addition, the cross sections times branching ratio are provided for a nominal Higgs boson mass, $m_H=125.0$~GeV, at $\sqrt{s}~=~13$~TeV. The final column details the order of the cross section calculation.}
+    \label{tab:signal_samples}
     \vspace{.5cm}
     \centering
-    \centering
     \scriptsize
+    \hspace*{-5cm}
     \renewcommand{\arraystretch}{1.8}
-    \begin{tabular}{lccccc}
-       & Generator (for classifiers) & \textsc{PYTHIA8} tune & PDF & $\sigma\cdot\rm{BR}$~[fb] & Order of $\sigma$ calc \\ \hline
-       ggH & \textsc{Madgraph5\_aMC@NLO} & \textsc{Pythia8} & - & 110.27 & N$^{\rm{3}}$LO(QCD)+NLO(EW) \\
-       gg$\rightarrow$ZH, Z$\rightarrow$qq & \textsc{Powheg} & \textsc{Pythia8} & - & 0.19 & NNLO(QCD)+NLO(EW) \\
-       \hline
-       VBF & \textsc{Madgraph5\_aMC@NLO} & \textsc{Pythia8} & - & 8.59 & NNLO(QCD)+NLO(EW) \\
-       qq/qg$\rightarrow$WH, W$\rightarrow$qq & \textsc{Madgraph5\_aMC@NLO} & \textsc{Pythia8} & - & 2.10 & NNLO(QCD)+NLO(EW) \\
-       qq/qg$\rightarrow$ZH, Z$\rightarrow$qq & \textsc{Madgraph5\_aMC@NLO} & \textsc{Pythia8} & - & 1.40 & NNLO(QCD)+NLO(EW) \\
-       \hline
-       qq/qg$\rightarrow$WH, W$\rightarrow\ell\nu$ & \textsc{Madgraph5\_aMC@NLO} & \textsc{Pythia8} & - & 1.016 & NNLO(QCD)+NLO(EW) \\
-       qq/qg$\rightarrow$ZH, Z$\rightarrow\ell\ell/\nu\nu$ & \textsc{Madgraph5\_aMC@NLO} & \textsc{Pythia8} & - & 0.520 & NNLO(QCD)+NLO(EW) \\
-       gg$\rightarrow$ZH, Z$\rightarrow\ell\ell/\nu\nu$ & \textsc{Powheg} & \textsc{Pythia8} & - & 0.084 & NNLO(QCD)+NLO(EW) \\
-       \hline
-       ttH & \textsc{MG5\_aMC@NLO} & \textsc{Pythia8} & - & 1.155 & NLO(QCD)+NLO(EW) \\
-       \hline
-       tHq & \textsc{MG5\_aMC@NLO} & \textsc{Pythia8} & - & 0.175 & NLO(QCD) in 5FS \\
-       tHW & \textsc{MG5\_aMC@NLO} & \textsc{Pythia8} & - & 0.034 & NLO(QCD) in 5FS \\
-       \hline
-       bbH & \textsc{MG5\_aMC@NLO} & \textsc{Pythia8} & - & 1.108 & NNLO(5FS)+NLO(4FS) \\
-
-    \end{tabular}
+    \input{Tables/hgg_overview/simulation_samples}
+    \hspace*{-5cm}
 \end{table}
 
-\begin{itemize}
-    \item In the caption for STXS splitting tables, make clear definition of jets i.e. distance param etc.
-\end{itemize}
-
-The final background model used for the extraction of results is derived directly from data. Nevertheless, simulated background events are required for training the multivariate event classifiers. For inclusive production, the dominant source of background is SM diphoton production, which is simulated using the \textsc{sherpa} (version 2.2.4) generator~\cite{}. In this sample, matrix elements are calculated at NLO and LO for up to one and up to three additional partons respectively, which are subsequently matched with the \textsc{Sherpa} generator parton showering. A subdominant background originates from $\gamma$~+~jet or jet~+~jet events, where the jets are misidentified as photons. These backgrounds are simulated with \textsc{Pythia8}, applying a filter in the generation to enrich the production of jets with high electromagnetic activity. Furthermore, other sources of background become important for categories targeting the sub-dominant production modes, such as $V+\gamma\gamma$ in the VH leptonic categories and $tt+\gamma\gamma$ in the top-associated categories. Additional MC samples simulated with the XYZ are used to model such backgrounds.
+The final background model used for the extraction of results is derived directly from data. Nevertheless, simulated background events are required for training the multivariate event classifiers. For inclusive production, the dominant source of background is SM diphoton production, which is simulated using the \textsc{sherpa} (version 2.2.4) generator~\cite{}. In this sample, matrix elements are calculated at NLO and LO for up to one and three additional partons respectively, which are subsequently matched with the \textsc{Sherpa} generator parton showering. A subdominant background originates from $\gamma$~+~jet or jet~+~jet events, where the jets are misidentified as photons. These backgrounds are simulated with \textsc{Pythia8}, applying a filter in the generation to enrich the production of jets with high electromagnetic activity. Furthermore, other sources of background become important for categories targeting the sub-dominant production modes, such as $V+\gamma\gamma$ in the VH leptonic categories and $tt+\gamma\gamma$ in the top-associated categories. Additional MC samples simulated with the XYZ are used to model such backgrounds.
 
 Finally, Drell-Yan events with leptonic final states are used for validation purposes and are simulated with the \textsc{MG5\_aMC@NLO} generator. Plus others e.g. ttZ.
 
@@ -126,10 +103,11 @@ Referring back to equation \ref{eq:mgg}, the techniques described above aim to m
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=1\textwidth]{Figures/hgg_overview/photon_energy_0.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/money_run2_EbEb_inclusive.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/money_run2_EeEe_inclusive.pdf}
   \caption[Dielectron mass spectrum for \Zee events in data and simulation after the energy corrections are applied]
   {
-    Comparison of the dielectron mass spectrum for \Zee events in data (black points) and simulation (filled histogram), after the full set of energy scale and smearing corrections are applied. The total uncertainty on simulated events is shown by the red bands. The plots show the full data set collected during run II of the LHC, and the corresponding simulation, where the left-hand (right-hand) panel corresponds to events in which both electrons are reconstructed in the ECAL barrel (endcaps).
+    Comparison of the dielectron mass spectrum for \Zee events in data (black points) and simulation (filled histogram), after the full set of energy scale and smearing corrections are applied. The total uncertainty in the simulated events is shown by the red bands. The plots show the full data set collected during the 2016-2018 data-taking period, and the corresponding simulation, where the left-hand (right-hand) panel corresponds to events in which both electrons are reconstructed in the ECAL barrel (endcaps).
   }
   \label{fig:photon_energy_0}
 \end{figure}
@@ -188,15 +166,15 @@ which successfully morphs the distribution of $y_i$ in simulation to match that 
 
 Shower shape variables are first ordered into a chain: [$S_1$,$S_2$,...$S_N$]. The CDF for the first variable, $S_1$, is predicted using solely the electron $p_T$, $\eta$, $\phi$ and global energy density, $\rho$, as input features to the 21 BDTs. For variable, $S_i$, the input features also include the previously processed shower shape variables: [$S^{\rm{corr}}_1$,...,$S^{\rm{corr}}_{i-1}$] for simulation and [$S_1$,...,$S_{i-1}$] for data. By deriving the corrections in this manner, correlations between photon ID input variables are accounted for. The ordering of the chain is optimised to minimise the final discrepancy between data and simulation in the output photon ID BDT score.
 
-For isolation variables, $\mathcal{I}_i$, an additional stochastic shifting procedure is applied to account for electrons migrating across the discontinuity in the distributions i.e. from the peak at $\mathcal{I}=0$, to the tail at $\mathcal{I}>0$. Two additional classifiers are trained to predict the probabilities for electrons to fall in the peak or tail, given the electron $p_T$, $\eta$ and $\phi$, and the energy density, $\rho$. Using the output probabilities, the simulated electrons are then migrated between the peak and tail to match the relative compositions in data. Finally, the distribution of electrons in the tail is then corrected using the quantile morphing technique described above. Figure \ref{fig:photon_id_0} demonstrates the performance of the CQR method for shower shape variable, \RNINE (left) and isolation variable, $\mathcal{I}_{\rm{ph}}$ (right).
+For isolation variables, $\mathcal{I}_i$, an additional stochastic shifting procedure is applied to account for electrons migrating across the discontinuity in the distributions i.e. from the peak at $\mathcal{I}_i=0$, to the tail at $\mathcal{I}_i>0$. Two additional classifiers are trained to predict the probabilities for electrons to fall in the peak or tail, given the electron $p_T$, $\eta$ and $\phi$, and the energy density, $\rho$. Using the output probabilities, the simulated electrons are then migrated between the peak and tail to match the relative compositions in data. Finally, the distribution of electrons in the tail is then corrected using the quantile morphing technique described above. Figure \ref{fig:photon_id_0} demonstrates the performance of the CQR method for shower shape variable, \RNINE (left) and isolation variable, $\mathcal{I}_{\rm{ph}}$ (right).
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/dataMC_probeR9_0.pdf}
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/dataMC_probePhoIso_0.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/dataMC_probeR9_0_corr.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/dataMC_probePhoIso_0_corr.pdf}
   \caption[Corrections from the chained quantile regression method for \RNINE and $\mathcal{I}_{\rm{ph}}$]
   {
-    Update plots to be neater!
+    Probe electron \RNINE (left) and $\mathcal{I}_{\rm{ph}}$ (right) distributions, where the probe electron is reconstructed in the ECAL barrel. The black points correspond to data taken in 2017. The corresponding simulation is shown without corrections in orange, and with the CQR corrections in blue. The bottom panel shown the ratio of data to simulation, clearly demonstrating the improved agreement after applying the CQR corrections.
   }
   \label{fig:photon_id_0}
 \end{figure}
@@ -209,10 +187,11 @@ Each photon in an event is required to have photon ID BDT score $>-0.9$. Akin to
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=1\textwidth]{Figures/hgg_overview/photon_id_0.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DiphoBDT_minIDMVA_logPlot.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DYValidation_DiphoBDT_RatioPlot_minIDMVA_logPlot.pdf}
   \caption[Photon ID output score distributions]
   {
-    Add caption
+    The left plot shows the distribution of the photon ID BDT score of the lowest scoring photon in diphoton pairs with an invariant mass in the range $100<\mgg<180$~GeV. Data events passing preselection are shown by the black points. Simulated background events with the corresponding statistical uncertainty are shown by the red band. The different components of the background and the Higgs boson signal events are also plotted, shown by the red and blue histograms respectively. The right plot shows the same distribution for \Zee events in data and simulation, where the electrons are reconstructed as photons. The total uncertainty in the simulation, calculated as the quadrature some of the statistical and systematic components, is shown by the pink band. The shaded grey regions demonstrate the minimum threshold applied for photons in this analysis. The full data set collected in the period 2016-2018 and the corresponding simulation is shown.
   }
   \label{fig:photon_id_1}
 \end{figure}
@@ -233,14 +212,15 @@ where the sum runs over all particle flow tracks associated with a given vertex,
 
 The performance of the vertex assignment BDT is evaluated using \Zmumu events. Here, the vertices are reconstructed after omitting the muon tracks, in order to imitate a diphoton-like system. The vertex is then said to be correctly assigned by the BDT if the location is within 1~cm of the true vertex position. Figure \ref{fig:vertex_selection_0} (left) shows the efficiency of the vertex assignment as a function of the dimuon $p_T$, for both simulation and data, demonstrating an agreement within 2\% across the whole $p_T$ range. Correction factors are applied to simulation to match the efficiencies observed in data, keeping the total number of events constant. For inclusive \Hgg events, the efficiency of correctly assigning the diphoton vertex to be within 1~cm of the true vertex is roughly 79\%. This value rises for events with additional objects such as jets and charged leptons.
 
-An additional vertex-related BDT is trained to estimate the \textit{probability} that the vertex assignment is within 1~cm of the interaction point from which the diphoton originates. The inputs variables are the total number of reconstructed vertices in an event, the relative positions and respective vertex assignment BDT scores for the three highest scoring vertices, $|{p}_T^{\,\gamma\gamma}|$, as well as the number of converted photons in the tracker. Akin to the vertex-assignment BDT, this vertex-probability BDT is trained using ggH, \Hgg events. The right-hand panel of Figure \ref{fig:vertex_selection_0} demonstrates the agreement between the output probability and the vertex assignment efficiency for simulated \Zmumu events.
+An additional vertex-related BDT is trained to estimate the \textit{probability} that the vertex assignment is within 1~cm of the interaction point from which the diphoton originates. The inputs variables are the total number of reconstructed vertices in an event, the relative positions and respective vertex assignment BDT scores for the three highest scoring vertices, $|{p}_T^{\,\gamma\gamma}|$, as well as the number of converted photons in the tracker. Akin to the vertex-assignment BDT, this vertex-probability BDT is trained using ggH, \Hgg events. The right-hand panel of Figure \ref{fig:vertex_selection_0} demonstrates the agreement between the output probability and the true vertex assignment efficiency for simulated \Zmumu events.
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=1\textwidth]{Figures/hgg_overview/vertex_assignment_0.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/Zmumu_eff_vs_pt_All.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/AverageProbPlotFullRunIIVersusPt.pdf}
   \caption[Vertex-assignment and vertex-probability BDT]
   {
-    Add caption.
+    The left plot shows the fraction of \Zmumu events where the assigned vertex is within 1~cm of the true vertex position as a function of $p_T^{\mu\mu}$, for simulated events in red and data events in black. Here, the muon tracks are omitted from the event reconstruction to mimic a \Hgg system. Simulated events are weighted to match the pileup and beamspot width distributions observed in data. The right plot demonstrates that the average vertex probability BDT score agrees with the true vertex assignment efficiency in simulated events. The full data set collected in the period 2016-2018 and the corresponding simulation is shown.
   }
   \label{fig:vertex_selection_0}
 \end{figure}
@@ -248,7 +228,9 @@ An additional vertex-related BDT is trained to estimate the \textit{probability}
 Finally, the width of the $z$ distribution of reconstructed vertices, known as the beamspot width, is measured to be between 3.4--3.6~cm in data. A year-dependent correction is applied to simulated events to ensure the beamspot width matches that observed in data.
 
 \subsection{Reconstruction of other objects}
-The analysis categories are defined to target events from different bins of the STXS stage 1.2 framework. In order to define such categories it is necessary to place requirements on additional objects in the event, such as two forward jets in VBF production or two same flavour, opposite charge leptons in ZH leptonic production. The following section briefly describes the reconstruction of these additional objects. \textbf{Do particle flow first!}
+\textbf{TODO}: complete this section after writing particle flow section in CMS chapter.
+
+The analysis categories are defined to target events from different bins of the STXS stage 1.2 framework. In order to define such categories it is necessary to place requirements on additional objects in the event, such as two forward jets in VBF production or two same flavour, opposite charge leptons in ZH leptonic production. The following section briefly describes the reconstruction of these additional objects.
 
 \subsubsection{Jets}
 Jet definition and energy fractions. B-tagging. Pile-up identification score.
@@ -293,23 +275,25 @@ It is possible for any given event to pass the selection criteria for multiple a
 
 A summary of all analysis categories is provided in Table \ref{tab:categorisation_overview}, ordered according to decreasing priority in the category sequence. Example Feynman diagrams are shown for the targeted Higgs boson production modes. The background rejection discriminants are listed, as well as the methods for splitting the global categories to target specific bins of the STXS framework. Finally, the number of tags for each targeted bin(s) are shown, defined by placing boundaries on the respective background rejection discriminants. A graphical schema of the analysis event categorisation procedure is provided in Appendix XXX.
 
-The remainder of this chapter provides additional detail concerning the optimisation and validation of the categorisation workflow, and shows the performance in terms of the purity of the final analysis categories. For reference, table \ref{tab:categorisation_discriminants} provides a summary of all the multivariate classifiers used in the categorisation, including the full set of input features, the outputs, and the training samples. When training the various classifiers, the samples are first weighted according to their respective SM cross sections, and are subject to the initial selection cuts of the relevant global category. Often, the weights of each output class (e.g. signal and background) are then equalised to improve the classifier performance.
+The remainder of this chapter provides additional detail concerning the optimisation and validation of the categorisation workflow, and shows the performance in terms of the purity of the final analysis categories. For reference, table \ref{tab:categorisation_discriminants} provides a summary of all the multivariate classifiers used in the categorisation, including the full set of input features, the outputs, and the training samples. When training the various classifiers, the samples are first weighted according to their respective SM cross sections, and are subject to the initial selection cuts of the relevant global category. Often, the weights of each output class (e.g. signal and background) are then equalised in the training to improve the classifier performance.
 
 \begin{table}[htb]
-    \caption[Add caption]{Add caption.}
+    \caption[Categorisation overview]{A summary of the full analysis event categorisation. For each global category, an example Feynman diagram of the targeted process is shown. In addition, the background rejection discriminants and the methods used to split the global category to target different bins of the STXS framework are listed. The final column shows the number of tags defined to target each bin or group of bins.}
     \label{tab:categorisation_overview}
     % \vspace{.5cm}
     \centering
     \tiny
     \renewcommand{\arraystretch}{1.3}
     \setlength{\tabcolsep}{2pt}
+    \hspace*{-5cm}
     \input{Tables/hgg_overview/categorisation_overview}
+    \hspace*{-5cm}
 \end{table}
 
 \begin{landscape}
 \thispagestyle{empty}
 \begin{table}[htb]
-    \caption[Add caption]{Add caption. Something about pre-selection. Fill in input features. Top associated background (tt+$\gamma\gamma$, tt+$\gamma$+jet, t+$\gamma$+jet, tt+jets.}
+    \caption[Categorisation multivariate classifiers]{A summary of the multivariate classifiers used in this analysis. Each classifier is trained using the listed samples after applying the preselection criteria of the relevant global category. In the list of samples, top-associated backgrounds correspond to events containing at least one top quark and at least two reconstructed photons, such as tt+$\gamma\gamma$ or tt+$\gamma$+jet where the jet is misidentified as a photon.  The training software, input features, and the output of the various classifiers are provided. Usually, the weights of each output class are equalised in training to improve the performance of the classifiers.}
     \label{tab:categorisation_discriminants}
     % \vspace{.5cm}
     \centering
@@ -332,23 +316,25 @@ Table \ref{tab:ggH_category_yields} presents the expected signal and background 
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.5\textwidth]{Figures/hgg_overview/DiphotonBDT.pdf}
+  \includegraphics[width=.5\textwidth]{Figures/hgg_overview/DiphoBDT_dipho_mva_logPlot_noStack.pdf}
   \caption[Diphoton BDT output distribution]
   {
-    The diphoton BDT score distribution for all events passing preselection and satisfying $100<m_{\gamma\gamma}<180$~GeV. Events from simulation and data are shown by the red band and the black points respectively. Histograms are shown for the different contributions of the simulated background in red. The blue histogram corresponds to simulated Higgs boson signal events, produced via gluon-gluon fusion, multiplied by a factor of 100 to ease the comparison with the background distributions. The shaded grey region represents scores below the lowest diphoton BDT threshold used to define the final analysis tags. The full data set collected in the period 2016-2018 is shown.
+    The diphoton BDT score distribution for all events passing preselection and satisfying $100<m_{\gamma\gamma}<180$~GeV. Events from simulation and data are shown by the red band and the black points respectively. Histograms are shown for the different contributions of the simulated background in red. The blue histogram corresponds to simulated Higgs boson signal events, produced via ggH, multiplied by a factor of 100 to ease the comparison with the background distributions. The shaded grey region represents scores below the lowest diphoton BDT threshold used to define the final analysis tags. The full data set collected in the period 2016-2018 and the corresponding simulation is shown.
   }
   \label{fig:diphoton_score}
 \end{figure}
 
 \begin{table}[htb]
-    \caption[Expected yields for the ggH production mode categories]{The expected number of Higgs boson events ($m_H$~=~125~GeV) in the analysis categories targeting the ggH production mode. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. The final column, shows the expected ratio of signal to signal-plus-background events (S/S+B) in a $1\pm\sigma_{\rm{eff}}$ window, centred on $m_H$. Here, S is the integrated yield of all Higgs boson production modes. (add column for targeted S/S+B only).}
+    \caption[Expected yields for the ggH production mode categories]{The expected number of Higgs boson events in the analysis categories targeting the ggH production mode, for a Higgs boson mass of $m_H=125$~GeV. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. Also provided are the estimated number of background events per GeV in the signal peak region, the quantity $F_{68}=S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected number of signal and background events in a $\pm1\sigma_{\rm{eff}}$ window centred on $m_H$, respectively, and the approximate significance, $Z_{68}=S_{68}/\sqrt{S_{68}+B_{68}}$. The final column shows the significance for the targeted STXS bin(s) only, $Z^{\rm{target}}_{68}$,  where other Higgs boson signal events are considered as background.}
     \label{tab:ggH_category_yields}
     % \vspace{.5cm}
     \centering
     \scriptsize
     \renewcommand{\arraystretch}{1.3}
-    \setlength{\tabcolsep}{2pt}
+    \setlength{\tabcolsep}{5pt}
+    \hspace*{-5cm}
     \input{Tables/hgg_overview/ggh_yields}
+    \hspace*{-5cm}
 \end{table}
 
 \FloatBarrier
@@ -370,7 +356,7 @@ The dijet BDT is trained using simulated VBF, ggH and SM diphoton production eve
     
     \item As the SM diphoton contribution of the background is predicted directly from simulation, it is necessary to remove this contribution from the control regions to avoid double counting. Again using simulation, the fraction of background events in the control region which originate from a fake photon ($\gamma$~+~jet and jet~+~jet) is calculated in bins of $p_T^{\gamma}$ and $\eta^\gamma$ as,
     \begin{equation}
-        p_{\rm{QCD}}(p_T^\gamma,\eta^\gamma) = \Big(\frac{N_{\gamma j}^{\rm{CR}}+N_{jj}^{\rm{CR}}}{N_{\gamma\gamma}^{\rm{CR}}+N_{\gamma j}^{\rm{CR}}+N_{jj}^{\rm{CR}}}\Big)_{\rm{MC}}.
+        p_{\rm{QCD}}(p_T^\gamma,\eta^\gamma) = \Big(\frac{N_{\gamma j}^{\rm{CR}}(p_T^\gamma,\eta^\gamma)+N_{jj}^{\rm{CR}}(p_T^\gamma,\eta^\gamma)}{N_{\gamma\gamma}^{\rm{CR}}(p_T^\gamma,\eta^\gamma)+N_{\gamma j}^{\rm{CR}}(p_T^\gamma,\eta^\gamma)+N_{jj}^{\rm{CR}}(p_T^\gamma,\eta^\gamma)}\Big)_{\rm{MC}}.
     \end{equation}    
     
     \item The total transfer factor, evaluated for each photon with photon ID BDT score less than -0.5, is defined as,
@@ -382,10 +368,10 @@ The dijet BDT is trained using simulated VBF, ggH and SM diphoton production eve
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=1\textwidth]{Figures/hgg_overview/dijetbdt_illustration.pdf}
+  \includegraphics[width=.9\textwidth]{Figures/hgg_overview/dijetbdt_illustration.pdf}
   \caption[Illustration of the data-driven background estimate method for the dijet BDT]
   {
-    Add caption.
+    A schematic showing the application of transfer factors to estimate the fake component of the background in the signal region (SR) directly from data events in dedicated control regions (CR).
   }
   \label{fig:dijetbdt_transferfunctions}
 \end{figure}
@@ -394,12 +380,12 @@ The data-driven approach is validated by comparing the dijet BDT input feature d
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DijetBDT_input_Mjj.pdf}
+  \includegraphics[width=.4\textwidth]{Figures/hgg_overview/DijetBDT_input_Mjj.pdf}
 %   \hfill
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DijetBDT_input_dPhi.pdf}
+  \includegraphics[width=.4\textwidth]{Figures/hgg_overview/DijetBDT_input_dPhi.pdf}
   \caption[Dijet BDT input features using the data-driven background estimate]
   {
-    Add caption.
+    Input features to the Dijet BDT: \mjj and $\Delta\phi_{jj,\gamma\gamma}$. The data events shown by the black points were collected in the 2018 period. The simulated $\gamma\gamma$ background estimate and the data-driven $\gamma$~+~jet and jet~+~jet background estimates are shown by the filled green and blue histograms, respectively. In addition, the simulated $\gamma$~+~jet and jet~+~jet background estimate is shown by the blue line. The bottom panel shows the ratio of the purely simulated background estimate to data, where the agreement clearly suffers from a lack of MC statistics in the fake component of the background. The middle panel shows the ratio including the data-driven estimate of the background, where the agreement is much improved.
   }
   \label{fig:dijetbdt_validation}
 \end{figure}
@@ -408,13 +394,13 @@ Figure \ref{fig:dijetbdt_outputs} shows the two independent output probabilities
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DijetBDT_VBFprob.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DijetBDT_DD_vbfMvaResult_prob_VBF_logPlot.pdf}
   \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DijetBDT_ggHprob.pdf}
   \caption[Dijet BDT output probabilities: $p_{\rm{VBF}}$ and $p_{\rm{ggH}}$]
   {
-    Add caption. Update ggH probability plot.
+    The Dijet BDT output probabilities, $p_{\rm{VBF}}$ (left) and $p_{\rm{ggH}}$ (right), for events with an invariant mass in the range $100<\mgg<180$~GeV, passing the VBF-like signal region selection. Data events are shown by the black points, and the corresponding background simulation with statistical uncertainty is shown by the red band. The components of the background are plotted in separate histograms in red. In addition the orange and blue histograms show the simulated VBF and ggH signal events, respectively. The shaded grey regions contain $p_{\rm{VBF}}$ values below the lowest threshold used to define the VBF production tags, and the $p_{\rm{ggH}}$ values below the lowest threshold used to define the ggH VBF-like tags. The full data set collected in the period 2016-2018 and the corresponding simulation is shown.
   }
-  \label{fig:categorisation_vhlep}
+  \label{fig:dijetbdt_outputs}
 \end{figure}
 
 The VBF-like global category is split to target different bins of the STXS framework. For the qqH STXS bins, events are assigned to one of five regions using the reconstructed equivalents of the truth-level variables. Firstly, the qqH BSM region is defined by requiring $p_T^{\gamma\gamma}>200$~GeV. The four remaining VBF-like bins are targeted according to a boundary in the reconstructed $m_{jj}$ at 700~GeV, and a boundary in the transverse momentum of the dijet plus diphoton system, $p_T^{\gamma\gamma jj}$ at 25~GeV. In each region, two tags are constructed by placing optimised boundaries on the dijet BDT output probabilities. This optimisation considers VBF production as signal and groups ggH production with other background events. In this manner, a lower bound is placed on $p_{\rm{VBF}}$, and an upper bound is placed on $p_{\rm{ggH}}$. On top of this, the optimisation procedure includes a threshold on the diphoton BDT score to further reduce the number of background events.
@@ -428,14 +414,16 @@ The VH hadronic BDT is then trained to isolate VH signal events, and subsequentl
 Table \ref{tab:qqH_category_yields} provides a summary of the expected signal and background yields in each of the analysis categories described in this section: those targeting the VBF-topology from both the ggH and qqH production modes and the VH hadronic topology.
 
 \begin{table}[htb]
-    \caption[Expected yields for the qqH production mode categories]{The expected number of Higgs boson events ($m_H$~=~125~GeV) in the analysis categories targeting the EW qqH production mode, in addition to the two tags targeting ggH production with a VBF-like topology. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. The final column, shows the expected ratio of signal to signal-plus-background events (S/S+B) in a $1\pm\sigma_{\rm{eff}}$ window, centred on $m_H$. Here, S is the integrated yield of all Higgs boson production modes. (add column for targeted S/S+B only).}
+    \caption[Expected yields for the qqH production mode categories]{The expected number of Higgs boson events in the analysis categories targeting the EW qqH production mode, in addition to the two tags targeting ggH production with a VBF-like topology, for a Higgs boson mass of $m_H=125$~GeV. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. Here, ggH also includes contributions from the sub-dominant bbH production mode. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. Also provided are the estimated number of background events per GeV in the signal peak region, the quantity $F_{68}=S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected number of signal and background events in a $\pm1\sigma_{\rm{eff}}$ window centred on $m_H$, respectively, and the approximate significance, $Z_{68}=S_{68}/\sqrt{S_{68}+B_{68}}$. The final column shows the significance for the targeted STXS bin(s) only, $Z^{\rm{target}}_{68}$,  where other Higgs boson signal events are considered as background.}
     \label{tab:qqH_category_yields}
     % \vspace{.5cm}
     \centering
     \scriptsize
     \renewcommand{\arraystretch}{1.3}
-    \setlength{\tabcolsep}{2pt}
-    \input{Tables/hgg_overview/qqh_yields}
+    \setlength{\tabcolsep}{3pt}
+    \hspace*{-5cm}
+    \input{Tables/hgg_overview/qqH_yields}
+    \hspace*{-5cm}
 \end{table}
 
 \FloatBarrier
@@ -447,27 +435,29 @@ To further distinguish between VH leptonic signal and background events, a BDT i
 
 The WH leptonic category is sensitive to a reduced set of the STXS stage 1.2 bins. Boundaries are placed on the reconstructed \ptgg at 75 and 150~GeV, to target the equivalent truth-level splittings in the $p_T^V$ variable. Note, the reconstructed \ptgg provides the best handle on the truth-level $p_T^V$, since the presence of a neutrino in the final state means that the vector boson cannot be fully reconstructed. No splitting of the ZH leptonic or the VH MET categories is performed. The final analysis categories are constructed by placing optimised boundaries on the respective BDT output scores (shown for the ZH leptonic and VH MET BDT scores by the dashed vertical lines in Figure \ref{fig:categorisation_vhlep}). In total, two tags are defined for ZH leptonic, five for WH leptonic (two for the $p_T^V<75$~GeV and $75<p_T^V<150$~GeV bins, one for the $p_T^V>150$~GeV bin), and three for VH MET. The expected signal and background yields for the categories targeting VH leptonic production are shown in Table \ref{tab:vhlep_category_yields}.
 
-\begin{figure}[hptb]
+\begin{figure}[htb]
   \centering
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/ZH_LEPTONIC_BDT.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/ZHMVA.pdf}
   \hfill
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/VH_MET_BDT.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/VHMETMVA.pdf}
   \caption[Output scores of two discriminants used for the VH leptonic production mode categories]
   {
-    Distributions of the ZH leptonic BDT (left) and VH MET BDT (right) scores, for both data (black points) and simulated signal and background events (histograms). The $\gamma$~+~jet component of the background is derived directly from data for the VH MET BDT. The statistical uncertainty on the data (simulation) is shown by the black error bars (shaded pink band). The vertical dotted lines indicate the position of the BDT boundaries that define the final analysis tags. Events in the regions shaded grey are not considered for the VH leptonic categories. The signal components have been scaled by 50 and 500 for the ZH leptonic and VH MET BDT distributions respectively.
+    Distributions of the ZH leptonic BDT (left) and VH MET BDT (right) scores, for both data (black points) and simulated signal and background events (histograms). The $\gamma$~+~jet component of the background is derived directly from data for the VH MET BDT. The statistical uncertainty on the data (simulation) is shown by the black error bars (shaded pink band). The vertical dotted lines indicate the position of the BDT boundaries that define the final analysis tags. Events in the regions shaded grey are not considered for the VH leptonic categories. The signal components have been scaled by 50 and 500 for the ZH leptonic and VH MET BDT distributions respectively. The full data set collected in the period 2016-2018 and the corresponding simulation is shown.
   }
   \label{fig:categorisation_vhlep}
 \end{figure}
 
 \begin{table}[htb]
-    \caption[Expected yields for the VH leptonic production mode categories]{The expected number of Higgs boson events ($m_H$~=~125~GeV) in the analysis categories targeting the VH leptonic production modes. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. Here, ggH also includes contributions from the sub-dominant bbH production mode. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. The final column, shows the expected ratio of signal to signal-plus-background events (S/S+B) in a $1\pm\sigma_{\rm{eff}}$ window, centred on $m_H$. Here, S is the integrated yield of all Higgs boson production modes. (add column for targeted S/S+B only).}
+    \caption[Expected yields for the VH leptonic production mode categories]{The expected number of Higgs boson events in the analysis categories targeting the VH leptonic production modes, for a Higgs boson mass of $m_H=125$~GeV. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. Here, ggH also includes contributions from the sub-dominant bbH production mode. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. Also provided are the estimated number of background events per GeV in the signal peak region, the quantity $F_{68}=S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected number of signal and background events in a $\pm1\sigma_{\rm{eff}}$ window centred on $m_H$, respectively, and the approximate significance, $Z_{68}=S_{68}/\sqrt{S_{68}+B_{68}}$. The final column shows the significance for the targeted STXS bin(s) only, $Z^{\rm{target}}_{68}$,  where other Higgs boson signal events are considered as background.}
     \label{tab:vhlep_category_yields}
     % \vspace{.5cm}
     \centering
     \scriptsize
     \renewcommand{\arraystretch}{1.3}
-    \setlength{\tabcolsep}{2pt}
+    \setlength{\tabcolsep}{3pt}
+    \hspace*{-1.5cm}
     \input{Tables/hgg_overview/vhlep_yields}
+    \hspace*{-1.5cm}
 \end{table}
 
 \FloatBarrier
@@ -479,14 +469,14 @@ Due to their similar final state topology, a dedicated deep neural network, refe
 
 The ttH leptonic global category is split using the reconstructed diphoton transverse momentum, $p_T^{\gamma\gamma}$, with boundaries matching the truth-level $p_T^H$ splittings of the ttH STXS stage 1.2 bins. Boundaries on the ttH leptonic BDT-bkg score are then optimised separately in each split category to maximise the expected sensitivity to each STXS bin: three tags are defined for the two bins with $p_T^H<120$~GeV bin, two tags for the bin with $120<p_T^H<200$~GeV, and one tag for the two bins with $p_T^H>200$~GeV. Due to the low expected tHq signal yield, a single tag is defined for tHq leptonic.
 
-\begin{figure}[hptb]
+\begin{figure}[htb]
   \centering
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/top_DNN.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/tHq_DNN_score.pdf}
   \hfill
-  \includegraphics[width=.4\textwidth]{Figures/hgg_overview/ttH_leptonic_BDTbkg.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/ttHLeptonic_MVA.pdf}
   \caption[Output scores of two discriminants used for the top-associated production mode categories]
   {
-    Distributions of the top DNN (left) and ttH leptonic BDT-bkg (right) scores, for both data and simulated signal and background events. The data (CHECK!) events are taken from the \mgg sidebands: $[100,120]\cup[130,180]$~GeV. The statistical (statistical~$\oplus$~systematic) component of the uncertainty on the background estimate is shown by the black (red) shaded band. The grey shaded region for top DNN displays the upper threshold for the tHq leptonic category, whereas for the ttH leptonic BDT-bkg, the grey shaded region illustrates the lowest threshold for the ttH leptonic categories. \textbf{Make these plots consistent (hopefully this will be done for the paper)}.
+    Distributions of the top DNN (left) and ttH leptonic BDT-bkg (right) scores, for both data and simulated signal and background events. The data events are taken from the \mgg sidebands: $[100,120]\cup[130,180]$~GeV. The statistical (statistical~$\oplus$~systematic) component of the uncertainty in the background estimate is shown by the red shaded band in the top DNN (ttH leptonic BDT-bkg) score distribution. The grey shaded region for top DNN displays the upper threshold for the tHq leptonic category, whereas for the ttH leptonic BDT-bkg, the grey shaded region illustrates the lowest threshold for the ttH leptonic categories. The full data set collected in the period 2016-2018 and the corresponding simulation is shown.
   }
   \label{fig:categorisation_top}
 \end{figure}
@@ -496,31 +486,33 @@ The ttH hadronic global category targets ttH production in which both top quarks
 Table \ref{tab:top_category_yields} presents the expected signal and background yields in each of the analysis categories targeting the top-associated Higgs boson production modes.
 
 \begin{table}[htb]
-    \caption[Expected yields for the top-associated production mode categories]{The expected number of Higgs boson events ($m_H$~=~125~GeV) in the analysis categories targeting the top-associated production modes. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. Here, ggH also includes contributions from the sub-dominant bbH production mode. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. The final column, shows the expected ratio of signal to signal-plus-background events (S/S+B) in a $1\pm\sigma_{\rm{eff}}$ window, centred on $m_H$. Here, S is the integrated yield of all Higgs boson production modes. (add column for targeted S/S+B only).}
+    \caption[Expected yields for the top-associated production mode categories]{The expected number of Higgs boson events in the analysis categories targeting the top-associated production modes, for a Higgs boson mass of $m_H=125$~GeV. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. Here, ggH also includes contributions from the sub-dominant bbH production mode. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. Also provided are the estimated number of background events per GeV in the signal peak region, the quantity $F_{68}=S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected number of signal and background events in a $\pm1\sigma_{\rm{eff}}$ window centred on $m_H$, respectively, and the approximate significance, $Z_{68}=S_{68}/\sqrt{S_{68}+B_{68}}$. The final column shows the significance for the targeted STXS bin(s) only, $Z^{\rm{target}}_{68}$,  where other Higgs boson signal events are considered as background.}
     \label{tab:top_category_yields}
     % \vspace{.5cm}
     \centering
     \scriptsize
     \renewcommand{\arraystretch}{1.3}
-    \setlength{\tabcolsep}{2pt}
+    \setlength{\tabcolsep}{3pt}
+    \hspace*{-1.5cm}
     \input{Tables/hgg_overview/top_yields}
+    \hspace*{-1.5cm}
 \end{table}
 
 \FloatBarrier
 
 \subsection{Validation}
-It is necessary to validate the modelling of the large number of multivariate classifiers used in this analysis. In the context of event categorisation, validation means requiring a good agreement between data and MC simulation in the outputs of the numerous classifiers, particularly in the signal-like regions where events enter the analysis. If the agreement is poor in a number of the input features then the classifier performance can be sub-optimal. However, if this disagreement propagates to the classifier output then it may introduce a systematic uncertainty on the signal events entering the analysis. No such systematic uncertainty enters for the background estimate, as this is modelled directly from data sidebands (see section \ref{sec:bkg_modeling}).
+It is necessary to validate the modelling of the large number of multivariate classifiers used in this analysis. In the context of event categorisation, validation means requiring a good agreement between data and MC simulation in the outputs of the numerous classifiers, particularly in the signal-like regions where events enter the analysis. If the agreement is poor in a number of the input features then the classifier performance can be sub-optimal. However, if this disagreement propagates to the classifier output then it may introduce a systematic uncertainty in the signal estimate in a particular analysis category. No such systematic uncertainty enters for the background estimate, as this is modelled directly from data sidebands (see section \ref{sec:bkg_modeling}).
 
-Independent validation samples are used. The examples in Figure \ref{fig:categorisation_validation} show the validation of the ggH BDT, the diphoton BDT, and the VH hadronic BDT, all using \Zee events in simulation and data. The uncertainty band on the simulation demonstrates the addition in quadrature of the statistical and systematic components, where the systematic component includes uncertainties originating from the photon ID BDT, photon energy resolution, and the jet energy scale and resolution (see section \ref{sec:systematics}). The ggH BDT distribution shows the number of events attributed to each output class. It can be seen that there is an excellent agreement between data and simulation, well within uncertainties, particularly in the signal regions which enter the analysis.
+Independent validation samples are used. The examples in Figure \ref{fig:categorisation_validation} show the validation of the ggH BDT, the diphoton BDT, and the VH hadronic BDT, all using \Zee events in simulation and data. The uncertainty band on the simulation demonstrates the addition in quadrature of the statistical and systematic components, where the systematic component includes uncertainties originating from the photon ID BDT, photon energy resolution, and the jet energy scale and resolution (see section \ref{sec:systematics}). The ggH BDT distribution shows the number of events attributed to each output class. It can be seen that there is an excellent agreement between data and simulation, well within uncertainties, particularly in the signal regions which enter the analysis. All in all, this means the included systematic uncertainties in the signal estimates are sufficient to cover the discrepancies in the output classifier scores, and no additional sources of systematic uncertainty are required.
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.55\textwidth]{Figures/hgg_overview/ggH_BDT_validation.pdf}
-  \includegraphics[width=.47\textwidth]{Figures/hgg_overview/DiphotonBDT_validation.pdf}
-  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/VHHadronicBDT_validation.pdf}
+  \includegraphics[width=.6\textwidth]{Figures/hgg_overview/DYValidation_ggH_argmax_ratioPlot_logPlot.pdf}
+  \includegraphics[width=.47\textwidth]{Figures/hgg_overview/DYValidation_DiphoBDT_ratioPlot_dipho_mva_logPlot.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/hgg_overview/DYValidation_VHBDT_VH_had_mvascore_ratioPlot.pdf}
   \caption[Validation of the event categorisation classifiers]
   {
-    Add caption.
+    The validation of the ggH multiclassifer BDT (top), diphoton BDT (bottom-left) and VH hadronic BDT (bottom-right), where the distribution of the outputs are shown for \Zee events in data (black points) and simulation (filled histogram). The pink bands represent the quadrature sum of the statistical and systematic uncertainties in the simulated events. The regions shaded grey in the bottom two plots show the thresholds in the scores, below which no events enter the relevant analysis categories. The full data set collected in the period 2016-2018 and the corresponding simulation is shown.
   }
   \label{fig:categorisation_validation}
 \end{figure}
@@ -536,7 +528,7 @@ The next chapter explains the procedure for fitting the diphoton mass distributi
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=1\textwidth]{Figures/hgg_overview/purityMatrix_UL_final.pdf}
+  \includegraphics[width=1\textwidth]{Figures/hgg_overview/purityMatrix_thesis.pdf}
   \caption[Confusion matrix for the full set of analysis categories]
   {
     Confusion matrix displaying the composition of each analysis category in terms of a reduced set of STXS bins. The colour scale indicates the fractional yield in each category (rows) accounted for by each STXS process (columns). Each row therefore sums to 100\%. Entries with values less than 0.5\% are not shown. Simulated events for each year in the period 2016-2018 are combined with appropriate weights corresponding to their relative integrated luminosity in data. The column labelled as qqH rest includes the contributions from the qqH 0J, qqH 1J, qqH $m_{jj}<60$~GeV and the qqH $120<m_{jj}<350$~GeV STXS bins.
