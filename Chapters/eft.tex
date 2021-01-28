@@ -2,36 +2,160 @@
 \label{chap:eft}
 
 \section{Introduction}
+
+Effective field theories were introduced in section \ref{sec:theory_eft} as a model-independent approach to constraining BSM physics. In EFT, new BSM states are assumed to exist with masses at an energy scale, $\Lambda$, far beyond the electroweak energy scale, $v$~=~246~GeV. The dynamics introduced by the BSM states can be parametrised at low energies ($E \sim v$) using higher-dimensional operators built up from the SM fields, where the operators are confined to respect both the symmetries and gauge invariance of the SM. This expansion of the SM Lagrangian, shown explicitly in equation \ref{eq:eft_expansion}, is fully general and thus can be used to constrain a wide class of BSM theories that reduce to the SM at low energies. The Wilson coefficients, $c_p$, directly parametrise the contribution from operator, $\mathcal{O}_p$, and by constraining these coefficients it is possible to infer both the strength and potential type of new BSM interactions. Ultimately, the final constraints on the Wilson coefficients can then be systematically matched to explicit UV-complete BSM theories~\cite{}.
+
+This chapter details the application of EFT to Higgs boson property measurements at CMS. The Higgs Effective Lagrangian (HEL) is used as the language to encode modifications to Higgs boson properties from BSM physics~\cite{Contino:2013kra,Alloul:2013naa}. This interpretation is applied to the most recent CMS Higgs boson combination, documented in Ref.\cite{CMS-PAS-HIG-19-005}, which combines the measurements of Higgs boson properties from multiple decay channels. In doing so, a more complete set of EFT operators, describing multiple Higgs boson interactions with other particles, can be constrained. Additionally, by performing the EFT interpretation \textit{in-house}, the fit uses the full likelihood surface, meaning no assumptions regarding the Gaussian nature of the likelihood are required.
+
+In contrast to the $\kappa$-framework discussed in section \ref{sec:results_kappa}, the EFT approach is based on a fully consistent expansion of the SM Lagrangian. As a result, the EFT dependence can be extended from simple normalisation effects on inclusive production mode cross sections, to also capture shape variations in the kinematic distributions e.g. \ptH, \mjj, $N_{\rm{jets}}$ etc. In this interpretation, the parametrisation is defined at the granularity of the STXS framework. This ensures that the kinematic information available in STXS measurements is used to better constrain BSM physics. Additionally, the $\kappa$-framework defines coupling modifiers at LO. The EFT approach on the other hand is systematically improvable by computing higher-order contributions to the EFT predictions~\cite{Degrande:2020evl}. The interpretation shown in this chapter only considers EFT effects at LO, however the future transition to higher-orders is briefly discussed in section \ref{sec:eft_improving}.
+
+The structure of this chapter is as follows: firstly the HEL model is described in section \ref{sec:eft_HEL} and the choice of operators considered in the fit is motivated. Following this, the CMS Higgs combination~\cite{CMS-PAS-HIG-19-005} is detailed in section \ref{sec:eft_combination}, including the full set of input analyses and the extension to the statistical inference techniques introduced in chapter \ref{chap:hgg_stats}. Section \ref{sec:eft_parametrisation} discusses the EFT parametrisation of the signal yield, where the cross sections and branching ratios are expressed as functions of the Wilson coefficients, $\mu^{i,f}(c_p)$. These functions are then used to fit the Wilson coefficients to Higgs boson measurements, and extract their respective confidence intervals. This is performed using both a simplified re-interpretation procedure and using the full likelihood fit, described in sections \ref{sec:eft_simplified} and \ref{sec:eft_results}, respectively. Finally, the future of EFT measurements in CMS and how they can be improved is discussed in section \ref{sec:eft_improving}.
+
+\section{Higgs Effective Lagrangian}\label{sec:eft_hel}
+The Higgs Effective Lagrangian (HEL) model is a partial implementation of the complete SILH basis~\cite{}, encompassing all operators at dimension-6 related to the Higgs sector. The perturbative expansion is defined in terms of a singlet scalar state, h, instead of the usual complex scalar field, H, used in the constructions of both the SM and the SMEFT~\cite{}. This choice reflects minimal assumptions in the scalar sector, and therefore can account for the possibility that the Higgs boson may deviate from the SU$_{\rm{L}}$(2) doublet nature in the SM, such as in composite Higgs models~\cite{} and theories with extra dimensions~\cite{}. The implication of this choice is that unitarity is not exactly preserved; this is not essential for EFT as long as unitarity is preserved up to the cut-off scale, $\Lambda$.
+
+The HEL model extends the SM Lagrangian by introducing 39 flavour independent dimension-6 operators, $\mathcal{O}^{(6)}_p$, as shown in equation \ref{eq:hel_expansion}, such that new BSM dynamics in the Higgs sector would manifest itself as deviations from zero in the Wilson coefficients, $c_p$. Operators representing four-fermion interactions are not included. 
+
+\begin{equation}\label{eq:hel_expansion}
+    \mathcal{L}_{\rm{HEL}} = \mathcal{L}_{\rm{SM}} + \sum_p \frac{c_p}{\Lambda^2}\mathcal{O}^{(6)}_p .
+\end{equation}
+
+\noindent
+Currently, there is insufficient data to constrain all directions of parameter space, $\vec{c}$. As a result, a subset of operators, $\{\mathcal{O}\}$  most relevant to the input Higgs boson measurements is considered. This choice ultimately introduces a model dependence into the interpretation, assuming the contribution from other operators is zero: 
+
+\begin{equation}
+  c_p=0 \; \forall \; \mathcal{O}_p \notin \{\mathcal{O}\}.   
+\end{equation}
+
+\noindent
+The subset of operators considered in this analysis is motivated in the section \ref{sec:eft_operator}.
+
+The nominal HEL model is uniquely defined by the input parameters: $m_W$, $\alpha_{\rm{EM}}$ and $G_F$, where $m_W$ is the W boson mass, $\alpha_{\rm{EM}}$ is the electromagnetic coupling constant, and $G_F$ is the Fermi constant. In this input parameter scheme, the Z boson mass, $m_Z$, is dependent on the Wilson coefficients, $c_T$, $c_{WW}$, $c_B$ and $c_A$, according to equation \ref{eq:hel_mz},
+
+\begin{equation}\label{eq:hel_mz}
+    m_Z^2 = m_{Z,\rm{SM}}^2 \Big[ 1-c_T+\frac{8\,c_A\,\sin^4(\theta_W)+2\,c_{WW}\,\cos^2(\theta_W)+c_B\,\sin^2(\theta_W)}{\cos^2(\theta_W)} \Big],
+\end{equation}
+
+\noindent
+where $m_{Z,\rm{SM}}$ is the Z boson mass in the SM, and $\theta_W$ is the Weinberg angle. In the interpretation documented here, the HEL model has been adapted to remove the $c_p$ dependence of $m_Z$, and instead fix it's value to the SM prediction. This reflects the fact that, although there is no explicit Z boson mass measurement entering the combination, it is well measured experimentally and therefore it is not physical to consider large variations in it's value. In fact, the chosen operator subset, $\{\mathcal{O}\}$, does not include $\mathcal{O}_T$, and $\mathcal{O}_{WW}$ and $\mathcal{O}_B$ are fit together in the combination of Wilson coefficients, $c_{WW}-c_B$, which equation \ref{eq:hel_mz} does not explicitly depend on. The operator $\mathcal{O}_A$ is included in the subset, however the $c_A$ dependence is small ($\propto \sin^4(\theta_W)$), such that over the allowed range in $c_A$ there is a negligible shift in the $m_Z$ value, well within it's measured uncertainty. All in all, this means the treatment of $m_Z$ has a negligible effect on the measured parameters of interest. \textbf{Check this paragraph: is it theoretically sound.}
+
+\subsection{Operator selection}\label{sec:eft_operator}
+Non-zero contributions are considered in a total of eight dimension-6 operators,
+\begin{equation}
+    \{\mathcal{O}\} = \{\mathcal{O}_G,\mathcal{O}_A,\mathcal{O}_u,\mathcal{O}_d,\mathcal{O}_\ell,\mathcal{O}_{HW},\mathcal{O}_{WW},\mathcal{O}_B\},
+\end{equation}
+\noindent
+where the explicit form of these operators in terms of the SM fields, the corresponding Wilson coefficients, $\vec{c}$, and the relevant Higgs boson interaction vertices are listed in Table~\ref{tab:hel_operators}. These operators are chosen since $\vec{c}$ account for the leading CP-even terms in the scaling functions for the measured cross sections and branching ratios, and are not tightly constrained by existing measurements. CP-odd parameters are neglected as they do not enter the parametrisation at leading order in $1/\Lambda^2$, and since there is no splitting in the STXS framework that is sensitive to the Higgs boson CP (e.g. a splitting in $\Delta\phi_{jj}$) the dependence is completely degenerate with the corresponding CP-even terms at $1/\Lambda^4$.
+
+The Wilson coefficients, $c_{WW}$ and $c_B$ are fit together in the combination, $c_{WW}-c_B$, since the orthogonal combination ($S=c_{WW}+c_B$) is strongly constrained at zero by electroweak precision data~\cite{Ellis:2014jta}. Finally, the operator, $\mathcal{O}_{HB}$, is neglected. Despite having a sizeable impact on the measured quantities, the effect of $\mathcal{O}_{HB}$ is synonymous with $\mathcal{O}_{HW}$, without including additional differential measurements of the VH production mode cross sections. In conclusion, seven parameters of interest are defined:
+
+\begin{equation}
+    c_G, c_A, c_u, c_d, c_\ell, c_{HW}, c_{WW}-c_B.
+\end{equation}
+
 \begin{itemize}
-    \item Why EFT? Going beyond inclusive rates.
-    \item Copy of structure of ATLAS note.
-    \item Advantage of performing interpretation in-house, exploit full likelihood. Compare to theory approach.
+    \item \textbf{Add table here}
 \end{itemize}
 
-\subsection{Higgs Effective Lagrangian}
+\section{CMS Higgs combination}\label{sec:eft_combination}
+The HEL interpretation is applied to the latest Higgs boson combination performed by the CMS experiment, documented in Ref.~\cite{CMS-PAS-HIG-19-005}. The combination includes analyses targeting all the major Higgs boson decay channels, with integrated luminosities ranging from 35.9~\fbinv to 137~\fbinv, depending on the input analysis. By targeting different final states, most analyses are orthogonal by construction. For similar final states, the overlap in the selected events has been checked and found to be negligible. 
 
-\subsection{Standard Model EFT (SMEFT)}
+The inclusion of different decay channels ensures sensitivity to a larger subset of operators (see Table~\ref{tab:hel_operators}). Each input analysis measures cross sections in the STXS framework; however, these measurements are performed at different \textit{stages} which define binning schemes of varying granularity.
+As a result, the EFT parametrisation of the signal yield is defined at the granularity of all STXS stages which enter the combination: stage 0, 1.0 and 1.1. For stage 1.0 and above, the bins are split according to the event kinematics (e.g. \ptH, $N_{\rm{jets}}$ etc), and as a result the kinematic information available in these measurements is used to further constrain BSM effects beyond simple inclusive effects.
 
-\section{CMS Higgs combination}
+The full list of input analyses is provided in Table~\ref{tab:combination_inputs}. Note, this combination was performed before the \Hgg analysis described in chapters~\ref{chap:hgg_overview}--\ref{chap:hgg_results}, and so the \Hgg inputs are taken from previous analyses. For each decay channel, the targeted production modes and final states are listed, in addition to the STXS stage of the measurements and the integrated luminosity of the data set used in the corresponding analyses. More detailed information on each input analysis can be found in the corresponding references.
 
-Quanta of likelihood: binned + unbinned. 
+\textbf{Add input analysis table here}.
 
-Extension of equation to all final states, product of likelihood in categories from different anaylses. Table of input analyses.
+\subsection{Statistical procedure}
 
-Simplified equation \ref{eq:signal_yield} without nuisances, for generic decay channel
+The statistical inference procedure used in the combination is a simple extension to that described in sections \ref{sec:category_likelihood} and \ref{sec:results_extraction}. A likelihood function\footnote{The dependence of the likelihood on the Higgs boson mass, $m_H$, has been dropped from the notation. For the form of the Poisson terms, please refer to equation \ref{eq:poisson_def}.} is constructed for each analysis category or \textit{region}, $k$, now defined for a generic final state, $f$,
 
-Correlation of nuisances across channels (introduced concept of correlation across years in ...)
-\section{Signal yield parametrization}
+\begin{equation}
+    L_k({\rm{data}}\,|\,\vec{\alpha},\vec{\theta}_s,\vec{\theta_b}) = \mathcal{P}_k( {\rm{data}}\,|\,\vec{\alpha},\vec{\theta_s},\vec{\theta}_b),
+\end{equation}
+
+\noindent
+where the quanta of the likelihood, $\mathcal{P}_k$, takes the following form for binned analysis regions,
+
+\begin{equation}
+    \mathcal{P}^{\rm{binned}}_k = \prod^{N_{\rm{bins}}}_X {\rm{Poisson}}\Big( N^{\rm{data}}_{k,X} \, \Big| \, \Big[\sum_{i,f} S^{i,f}_{k,X}(\vec{\alpha},\vec{\theta}_s) \Big] + B_{k,X}(\vec{\theta}_b) \Big).  
+\end{equation}
+\noindent
+Here, the index $X$ runs over bins of some observable(s) e.g. \mgg for the \Hgg analyses. The quantity $S^{i,f}_{k,X}$ corresponds to the signal estimate in bin $X$, of analysis region $k$, originating from STXS bin, $i$, and decaying to final state, $f$. The background estimate and number of data events in the same observable bin are referred to as $B_{k,X}$ and $N^{\rm{data}}_{k,X}$, respectively. For unbinned analysis regions, the quanta is defined as,
+
+\begin{equation}
+    \mathcal{P}^{\rm{unbinned}}_k = \frac{1}{z} \prod^{z}_j {\rm{Poisson}}\Big(1 \, \Big| \, \Big[\sum_{i,f} S^{i,f}_{k}(\vec{\alpha},\vec{\theta}_s) \cdot \rho^{i,f}_{k,{\rm{sig}}}(x_j|\vec{\alpha},\vec{\theta}_s) \Big] + B_{k}(\vec{\theta}_b)\cdot \rho_{k,{\rm{bkg}}}(x_j|\vec{\theta}_b) \Big),
+\end{equation}
+
+\noindent
+for $z$ events in data landing in region $k$, where each event is labelled by the index $j$. The terms $\rho^{i,f}_{k,{\rm{sig}}}(x)$ and $\rho_{k,{\rm{bkg}}}(x)$ are the probability density functions of some observable(s) $x$, for signal and background, respectively. The total signal and background yield estimates in region $k$ are expressed by $S^{i,f}_{k}$ and $B_{k}$. Comparing to the binned scenario, $S^{i,f}_{k}$ and $B_{k}$, are equal to the sum of the $S^{i,f}_{k,X}$ and $B_{k,X}$ terms over all observable bins, $X$. In all equations, it is assumed that the background estimate does not depend on the parameters of interest, $\vec{\alpha}$, which may not always be the case in an EFT framework (see section \ref{sec:eft_improving}). Also, the modelling of the signal in terms of the observable(s) is extracted using the SM template, and is assumed to be independent of $\vec{\alpha}$. For example, the shape of the signal \mgg peak in the \Hgg analysis is not parametrised as a function of the EFT Wilson coefficients.
+
+In the EFT interpretation, the signal yield for STXS bin, $i$, in final state, $f$, landing in analysis category, $k$ is expressed as, 
+
+\begin{equation}
+    S_k^{i,f} = \mu^{i,f}(\vec{c}) \times \big[\sigma^i \cdot \mathcal{B}^{f} \big]_{\rm{SM}} \times \epsilon^{i,f}_k(\vec{c}) \times \mathcal{L}.
+\end{equation}
+
+\noindent
+This is effectively an extension of equation \ref{eq:signal_yield}, where the explicit dependence on the HEL Wilson coefficients, $\vec{c}(\equiv\vec{\alpha}$ is stated. Note, the dependence on the nuisance parameters, $\vec{\theta}$, has been dropped from the notation for simplicity. The extraction of the cross section times branching ratio scaling functions, $\mu^{i,f}(\vec{c})$, is described in section~\ref{sec:eft_parametrisation}. Interestingly, since the EFT operators can distort the event kinematics away from the SM hypothesis, the efficiency times acceptance values, $\epsilon^{i,f}_k(\vec{c})$ become dependent on the Wilson coefficients. This is especially true for measurements in the STXS framework, where the products of the Higgs boson decay are not restricted to fiducial phase space definitions. Nevertheless, in this interpretation, the so-called \textit{acceptance corrections} are ignored. The potential impact of fully accounting for the detector efficiencies and analysis acceptance is investigated in section \ref{sec:eft_acceptance_corrections}.
+
+Total likelihood function. Correlation of nuisance parameters across channels (as well as years, refer back). As with other interpretations, theory uncertainties directly folded into measurement. Extract of results identical to blah.
+
+\subsection{Results in the signal strength parametrisation}
+
+
+\section{Signal yield parametrization}\label{sec:eft_parametrisation}
+Simplified equation \ref{eq:signal_yield} without nuisances, for generic decay channel. Use highest order calculations for SM predictions. Working under assumption that acceptance corrections are small. Split into effect at production and decay. 
+
+\begin{itemize}
+    \item In terms of matrix elements
+    \item parametrization equations: $A_p$, $B_{pq}$
+    \item branching ratio
+    \item Decays are not restricted to fiducial phase space in STXS, therefore acceptance corrections can be large point to later chapter.
+\end{itemize}
+
+
 
 \subsection{Derivation: Monte Carlo reweighting}
 \begin{itemize}
+    \item Derived using LO particle-level samples. Reweighting: number of points required.
     \item Make clear the assumptions!
     \item Table of MC options
 \end{itemize}
+
 \subsection{Effect at production}
 
 \subsection{Effect at decay}
 
 \subsection{Validation}
 
-\section{Results and discussion}
+\subsection{Summary}
+
+\section{Simplified likelihood re-interpretation procedure}\label{sec:eft_simplified}
+\begin{itemize}
+    \item Equation: assess sensitivity
+    \item Plot pull of other EFT coefficient
+    \item Linear vs quadratic
+\end{itemize}
+
+\section{Full likelihood results and discussion}\label{sec:eft_results}
+
+\section{Progression of EFT measurements in CMS}\label{sec:eft_improving}
+\begin{itemize}
+    \item Obvious: more data + combination with latest results. Allows to constrain more EFT operators simultaneously
+\end{itemize}
+
+\subsection{Standard Model EFT (SMEFT)}
+\begin{itemize}
+    \item More general framework, combine with results from other areas: SMP and top
+    \item Extraction of scaling functions
+    \item Apply simplifiered re-interpretation procedure to combination measurements
+    \item SMEFT@NLO
+\end{itemize}
+
+\subsection{EFT after the detector}\label{sec:eft_acceptance_corrections}
+\begin{itemize}
+    \item Explain for some channels acceptance correction breaks down. Show example for 4-lepton
+    \item Reweighting procedure: show case for \Hgg, with acceptance like cuts.
+\end{itemize}

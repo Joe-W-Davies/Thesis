@@ -2,12 +2,10 @@
 \label{chap:hgg_results}
 
 \section{Introduction}
-This chapter presents the results of the \Hgg analysis, extracted using the statistical inference techniques introduced in the chapter \ref{chap:hgg_stats}. The measurements of Higgs boson properties are presented in a number of parametrisations, corresponding to different definitions of the parameters, $\mu^{i,\gamma\gamma}$. The simplest of such parametrisations are the signal strength modifiers, which act as global scaling factors either inclusively or per Higgs boson production mode. The results of the signal strength modifier fits are shown in section \ref{sec:results_mu}.
-
-Following this, the STXS fits, for which the analysis is optimised, are shown in section \ref{sec:results_STXS}. To ensure a reasonable sensitivity to the measured parameters, it is necessary to merge groups of STXS bins in the cross section measurements. The results of three different merging schemes with varying degrees of granularity are presented. Finally, section \ref{sec:results_kappa} shows the fits to Higgs boson coupling modifiers in the $\kappa$-framework~\cite{Heinemeyer:2013tqa}.
+This chapter presents the results of the \Hgg analysis, extracted using the statistical inference techniques introduced in the chapter \ref{chap:hgg_stats}. The measurements of Higgs boson properties are presented in a number of parametrisations, corresponding to different definitions of the parameters, $\mu^{i,\gamma\gamma}$. The simplest of such parametrisations are the signal strength modifiers, which act as global scaling factors either inclusively or per Higgs boson production mode. The results of the signal strength modifier fits are shown in section \ref{sec:results_mu}. Following this, the STXS fits for which the analysis is optimised, are shown in section \ref{sec:results_STXS}. To ensure a reasonable sensitivity to the measured parameters, it is necessary to merge groups of STXS bins in the cross section measurements. The results of three different merging schemes with varying degrees of granularity are presented. Finally, section \ref{sec:results_kappa} shows the fits to Higgs boson coupling modifiers in the $\kappa$-framework~\cite{Heinemeyer:2013tqa}.
 
 \section{Signal strengths}\label{sec:results_mu}
-The most-constraining fit that can be performed introduces a common signal strength modifier, $\mu$, for all signal processes. This is defined as the ratio of the observed product of the Higgs boson cross section and diphoton branching fraction to the SM expectation, such that a value of one corresponds directly to the SM prediction. The observed test-statistic curve, $q(\mu)$, is shown by the solid line in Figure \ref{fig:likeihood_mu_inclusive}, in addition to the dashed lines representing the $q(\mu)$ curves when groups of nuisance parameters are fixed to their best-fit values. The best-fit value of $\mu$ and the corresponding 68\% confidence intervals are inferred from the curves to be,
+The most-constraining fit that can be performed introduces a common signal strength modifier, $\mu$, for all signal processes. This is defined as the ratio of the observed product of the Higgs boson cross section and diphoton branching fraction to the SM expectation, such that a value of one corresponds directly to the SM prediction. The observed test-statistic curve, $q(\mu)$, is shown by the solid line in Figure \ref{fig:likelihood_mu_inclusive}, in addition to the dashed lines representing the $q(\mu)$ curves when groups of nuisance parameters are fixed to their best-fit values. The best-fit value of $\mu$ and the corresponding 68\% confidence intervals are inferred from the curves to be,
 
 \begin{equation*}
   \mu = 1.12 ^{+0.09}_{-0.09} = 1.12 ^{+0.06}_{-0.06}({\rm{th.}}) ^{+0.03}_{-0.03}({\rm{exp.}}) ^{+0.07}_{-0.06}({\rm{stat.}}),
@@ -32,14 +30,14 @@ The observed diphoton mass distribution in data is shown for the sum of all anal
   \includegraphics[width=.6\textwidth]{Figures/hgg_results/sPlusBweighted.pdf}
   \caption[Observed diphoton mass distribution for the sum of all analysis categories]
   {
-    Data points (black) and the best-fit signal-plus-background model for the sum of all analysis categories is shown. The best-fit model corresponds to the inclusive signal strength fit. In the plot, each category is weighted according to $S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected signal and background estimates, respectively, in a $\pm$1$\sigma_{\rm{eff}}$ window centred on $m_H$, such that the total signal yield remains constant. The solid red line shows the best-fit signal-plus-background model, whereas the dashed lines shown the background component only. The one standard deviation (green) and two standard deviation (yellow) bands show the uncertainties in the background component of the fit. The bottom panel shows the residuals after subtraction of this background component.
+    Data points (black) and the best-fit signal-plus-background model for the sum of all analysis categories is shown. The best-fit model corresponds to the inclusive signal strength fit. In the plot, each category is weighted according to $S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected signal and background estimates, respectively, in a $\pm$1$\sigma_{\rm{eff}}$ window centred on $m_H$, such that the total signal yield remains constant. The solid red line shows the best-fit signal-plus-background model, whereas the dashed line shows the background component only. The one standard deviation (green) and two standard deviation (yellow) bands show the uncertainties in the background component of the fit. The bottom panel shows the residuals after subtraction of this background component.
   }
   \label{fig:sb_inclusive}
 \end{figure}
 
-A more granular fit is performed in the signal strength modifier parametrisation, introducing a separate $\mu_i$ parameter for each Higgs boson production mode. Unlike, the subsequent STXS fits described in section \ref{sec:results_STXS}, the VH hadronic and VH leptonic processes are grouped to scale according to $\mu_{\rm{VH}}$, whereas the VBF production mode scales with $\mu_{\rm{VBF}}$. The parameter, $\mu_{\rm{top}}$ scales the ttH, tHq, and tHW production modes equally, and $\mu_{\rm{ggH}}$ scales both ggH and bbH production. This defines four independent parameters of interest in total.
+A more granular fit is performed in the signal strength modifier parametrisation, introducing a separate $\mu_i$ parameter for each Higgs boson production mode. Unlike, the subsequent STXS fits described in section \ref{sec:results_STXS}, the VH hadronic and VH leptonic processes are grouped to scale according to $\mu_{\rm{VH}}$, whereas the VBF production mode scales with $\mu_{\rm{VBF}}$. The parameter $\mu_{\rm{top}}$ scales the ttH, tHq, and tHW production modes equally, and $\mu_{\rm{ggH}}$ scales both ggH and bbH production. This defines four independent parameters of interest in total.
 
-The best-fit signal-plus-background model in this signal parametrisation is shown with data in the \mgg distributions in Figure \ref{fig:sb_mu}. Here, the analysis categories have been divided into four groups, corresponding to those targeting the ggH, VBF, VH, and top-associated production modes. In each group, the individual categories are again summed and weighted according to the procedure defined by equation \ref{eq:sigmodel_wsum}. In all cases, the signal peak is clearly visible amongst the smoothly falling background distribution. The respective distributions for each individual analysis category are presented in Appendix \ref{app:diphoton_mass}.
+The best-fit signal-plus-background model in this signal parametrisation is shown with data in the \mgg distributions in Figure \ref{fig:sb_mu}. Here, the analysis categories have been divided into four groups, corresponding to those targeting the ggH, VBF, VH, and top-associated production modes. In each group, the individual categories are again summed and weighted according to the procedure defined by equation \ref{eq:sigmodel_wsum}. In all cases, the signal peak is clearly visible amongst the smoothly falling background distribution. The equivalent plots for each individual analysis category are presented in Appendix \ref{app:diphoton_mass}.
 
 \begin{figure}[htbp]
   \centering
@@ -49,9 +47,9 @@ The best-fit signal-plus-background model in this signal parametrisation is show
   \includegraphics[width=.49\textwidth]{Figures/hgg_results/sPlusBweighted_top.pdf}
   \caption[Observed diphoton mass distribution for groups of categories targeting different Higgs boson production modes]
   {
-    Data points (black) and the best-fit signal-plus-background model for groups of analysis categories targeting ggH (top-left), VBF (top-right), VH (bottom-left) and top-associated (bottom-right) production. The best-fit model corresponds to the per-production mode signal strength fit. In each category group, the individual categories are weighted according to $S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected signal and background estimates, respectively, in a $\pm$1$\sigma_{\rm{eff}}$ window centred on $m_H$, such that the total signal yield in each category group remains constant. The solid red line shows the best-fit signal-plus-background model, whereas the dashed lines shown the background component only. The one standard deviation (green) and two standard deviation (yellow) bands show the uncertainties in the background component of the fit. The bottom panels in each plot show the residuals after subtraction of this background component.
+    Data points (black) and the best-fit signal-plus-background model for groups of analysis categories targeting ggH (top-left), VBF (top-right), VH (bottom-left) and top-associated (bottom-right) production. The best-fit model corresponds to the per-production mode signal strength fit. In each category group, the individual categories are weighted according to $S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected signal and background estimates, respectively, in a $\pm$1$\sigma_{\rm{eff}}$ window centred on $m_H$, such that the total signal yield in each category group remains constant. The solid red line shows the best-fit signal-plus-background model, whereas the dashed line shows the background component only. The one standard deviation (green) and two standard deviation (yellow) bands show the uncertainties in the background component of the fit. The bottom panels in each plot show the residuals after subtraction of this background component.
   }
-  \label{fig:sb_inclusive}
+  \label{fig:sb_mu}
 \end{figure}
 
 The best-fit values of the per-production mode signal strength modifiers and their respective uncertainties are summarised in Figure~\ref{fig:summary_mu}. Again, the uncertainties are decomposed into the theoretical systematic, experimental systematic, and statistical components. For $\mu_{\rm{ggH}}$, the systematic and statistical uncertainties are comparable, whereas for other parameters the dominant source of uncertainty is statistical in origin. All production modes are observed to have a signal strength larger than unity. Nevertheless, the results are compatible with the SM prediction, corresponding to a $p$-value of $p_{\rm{SM}}=50\%$.
@@ -61,12 +59,12 @@ The best-fit values of the per-production mode signal strength modifiers and the
   \includegraphics[width=1\textwidth]{Figures/hgg_results/mu_summary.pdf}
   \caption[Summary of the signal strength fit results]
   {
-    Observed best-fit values and confidence intervals for the per-production mode signal strength parameters. The uncertainty bands are shown for including all systematic uncertainties, and the statistical uncertainty only. In addition, the results are tabulated, where the systematic uncertainty is further decomposed into the contributions from theoretical and experimental sources. Also shwon in black is the result of the inclusive signal strength modifier fit.
+    Observed best-fit values and confidence intervals for the per-production mode signal strength parameters. The uncertainty bands are shown for including all systematic uncertainties, and the statistical uncertainty only. In addition, the results are tabulated, where the systematic uncertainty is further decomposed into the contributions from theoretical and experimental sources. Also shown in black is the result of the inclusive signal strength modifier fit.
   }
   \label{fig:summary_mu}
 \end{figure}
 
-The correlation coefficients between the fitted parameters are displayed in Figure \ref{fig:corr_mu}. The correlations are in general small, with the largest value of -0.20 occurring between the $\mu_{\rm{ggH}}$ and $\mu_{\rm{VBF}}$ parameters due to the contamination of VBF events in the analysis categories targeting ggH. Finally, the main sources of systematic uncertainty affecting each production mode signal strength modifier are presented in Figure~\ref{fig:systematics_mu}. The impact from each source, or group of sources, is derived using the procedure detailed in section \ref{sec:effect_of_nuisance}. The bottom half of the plot shows the theoretical sources of uncertainty, including the impact of the $\vec{\theta}^{\,\rm{th}}_{s}$ nuisance parameters which are directly folded into the measurement in the signal strength parametrisation.
+The correlation coefficients between the fitted parameters are displayed in Figure \ref{fig:corr_mu}. The correlations are in general small, with the largest value of -0.20 occurring between the $\mu_{\rm{ggH}}$ and $\mu_{\rm{VBF}}$ parameters due to the contamination of VBF events in the analysis categories targeting ggH. Finally, the main sources of systematic uncertainty affecting each production mode signal strength modifier are presented in Figure~\ref{fig:syst_mu}. The impact from each source, or group of sources, is derived using the procedure detailed in section \ref{sec:effect_of_nuisance}. The bottom half of the plot shows the theoretical sources of uncertainty, including the impact of the $\vec{\theta}^{\,\rm{th}}_{s}$ nuisance parameters which are directly folded into the measurement in the signal strength parametrisation.
 
 \begin{figure}[htbp]
   \centering
@@ -85,7 +83,7 @@ The correlation coefficients between the fitted parameters are displayed in Figu
   {
     A summary of the absolute impact of the main sources of systematic uncertainty in the four parameters: $\mu_{\rm{ggH}}$, $\mu_{\rm{VBF}}$, $\mu_{\rm{VH}}$, $\mu_{\rm{top}}$. The uncertainties are split into experimental (top half) and theoretical (bottom half) sources. The obseved (expected) impacts are shown by the solid (empty) bars.
   }
-  \label{fig:corr_mu}
+  \label{fig:syst_mu}
 \end{figure}
 
 
@@ -98,7 +96,7 @@ In contrast to the signal strength fits, the VH hadronic processes are grouped w
 In each fit the cross section parameters are limited to the positive domain: $\sigma_{\rm{obs}}\geq0$~fb. This eliminates the possibility of the signal-plus-background model going below zero in some bins of the \mgg distributions, which subsequently causes the minimisation procedure to fail.
 
 \subsection{STXS stage 0}
-A fully-merged fit is performed, corresponding to the STXS stage 0 bin definitions~\cite{deFlorian:2016spz}. The parameters of interest roughly correspond to the different Higgs boson production modes, such that all STXS stage 1.2 bins from a given mode are merged. This scheme defines six parameters in total: ggH, qqH, WH lep, ZH lep, ttH, and tH, where tH includes the contributions from both tHq and tHW production. The best-fit values of the cross sections times branching ratio, \xsbr, and their respective 68\% confidence levels are shown in Figure \ref{fig:stage0_results}. In the plot, the colour scheme has been chosen to match the STXS bin schematic in Figure \ref{fig:stxs_schematic}. The systematic components of the measured uncertainties are shown by the coloured boxes, highlighting that for all parameters except ggH, the statistical uncertainty dominates. The 68\% uncertainties in the SM predicted values are shown by the hatched grey boxes, where the size of the uncertainty is computed by adding the effect of the $\theta^{\,\rm{th}}_{s}$ nuisance parameters which do not enter the measurement in quadrature.
+A fully-merged fit is performed, corresponding to the STXS stage 0 bin definitions~\cite{deFlorian:2016spz}. The parameters of interest roughly correspond to the different Higgs boson production modes, such that all STXS stage 1.2 bins from a given mode are merged. This scheme defines six parameters in total: ggH, qqH, WH lep, ZH lep, ttH, and tH, where tH includes the contributions from both tHq and tHW production. The best-fit values of the cross sections times branching ratio, \xsbr, and their respective 68\% confidence levels are shown in Figure \ref{fig:stage0_results}. In the plot, the colour scheme has been chosen to match the STXS bin schematic in Figure \ref{fig:stxs_schematic}. The systematic components of the measured uncertainties are shown by the coloured boxes, highlighting that for all parameters except ggH, the statistical uncertainty dominates. The 68\% uncertainties in the SM predicted values are shown by the hatched grey boxes, where the size of the uncertainty is computed by adding the effect of the $\vec{\theta}^{\,\rm{th}}_{s}$ nuisance parameters which do not enter the measurement in quadrature.
 
 \begin{figure}[htbp]
   \centering
@@ -110,7 +108,7 @@ A fully-merged fit is performed, corresponding to the STXS stage 0 bin definitio
   \label{fig:stage0_results}
 \end{figure}
 
-All measurements are consistent with the SM predicted values within one standard deviation, barring the tH parameter which is measured to have an excess of around six times the SM prediction. Despite this, the low expected tH event yield results in a large statistical uncertainty, meaning the excess corresponds to a less than 2$\sigma$ deviation from the SM. For all parameters, the measured compatibility with the SM is $p_{\rm{SM}}=35\%$. The correlation coefficients between parameters are displayed in Figure \ref{fig:stage0_correlations}. The largest (anti-)correlation exists between the ttH and tH parameters, due to the significant contamination of ttH in the tHq leptonic analysis category.
+All measurements are consistent with the SM predicted values within one standard deviation, barring the tH parameter which is measured to have an excess of around six times the SM prediction. Despite this, the low expected tH event yield results in a large statistical uncertainty, meaning the excess corresponds to a less than 2$\sigma$ deviation from the SM. The overall compatibility with the SM is measured to be $p_{\rm{SM}}=35\%$. The correlation coefficients between parameters are displayed in Figure \ref{fig:stage0_correlations}. The largest (anti-)correlation exists between the ttH and tH parameters, due to the significant contamination of ttH in the tHq leptonic analysis category.
 
 Importantly, this is the first independent measurement of single-top associated production in the \Hgg channel at CMS. The observed (expected) limit on tH production at 95\% $\rm{CL}$, using the $\rm{CL}_s$ procedure detailed in Ref.~\cite{CMS-NOTE-2011-005}, is 14 (8) times the SM expectation. This represents one of the most precise measurements of tH production to-date.
 
@@ -125,14 +123,15 @@ Importantly, this is the first independent measurement of single-top associated 
 \end{figure}
 
 \subsection{STXS stage 1.2: maximal merging}
-Increasing in granularity, the \textit{maximal} merging scheme defines 17 parameters of interest which begin to target a number of the STXS stage 1.2 splittings. In the scheme, bins are merged until their expected uncertainty is less than 150\% of the SM prediction. This is true for all parameters except tH, which is again measured separately. The VBF-like regions ($\geq$2J, $\mgg>350$~GeV) in the ggH and qqH schemes are merged to define the ggH VBF-like and qqH VBF-like parameters, respectively. The four bins with $\ptH>200$~GeV in the ggH scheme are merged into a single bin, labelled as ggH BSM. Additionally, the WH leptonic, ZH leptonic, and ttH bins are fully merged into single parameters. The ZH leptonic parameter groups both (qq-initiated) ZH and ggZH production. Due to a lack of constraining power, in this fit the 0J, 1J, $\mjj<60$ and $120<\mjj<350$ bins in the qqH binning scheme are constrained to their SM prediction within theory uncertainties. Table \ref{tab:merging_schemes} summarises the maximal merging scheme, listing the STXS bins which contribute to each parameter. A schematic representation of the merging scheme is presented in Appendix~\ref{app:merging_schemes}.
+Increasing in granularity, the \textit{maximal} merging scheme defines 17 parameters of interest which begin to target a number of the STXS stage 1.2 splittings. In the scheme, bins are merged until their expected uncertainty is less than 150\% of the SM prediction. This is true for all parameters except tH, which is again measured separately. The VBF-like regions ($\geq$2J, $\mgg>350$~GeV) in the ggH and qqH schemes are merged to define the ggH VBF-like and qqH VBF-like parameters, respectively. The four bins with $\ptH>200$~GeV in the ggH scheme are merged into a single bin, labelled as ggH BSM. Additionally, the WH leptonic, ZH leptonic, and ttH bins are fully merged into single parameters. The ZH leptonic parameter groups both (qq-initiated) ZH lep and ggZH lep production. Due to a lack of constraining power, in this fit the 0J, 1J, $\mjj<60$ and $120<\mjj<350$ bins in the qqH binning scheme are constrained to their SM prediction within theory uncertainties. Table \ref{tab:merging_schemes} summarises the maximal merging scheme, listing the STXS bins which contribute to each parameter. A schematic representation of the merging scheme is presented in Appendix~\ref{app:merging_schemes}.
 
 \begin{table}[htbp]
   \centering
   \scriptsize
   \renewcommand{\arraystretch}{1.2}
   \setlength{\tabcolsep}{2.2pt}
-  \caption{
+  \caption[Summary of the maximal and minimal parameter merging scenarios]
+  {
     A summary of the maximal and minimal parameter merging scenarios. 
     The STXS bins that contribute to each parameter are listed. 
     Furthermore, the bins that are constrained to their respective SM predictions 
@@ -144,7 +143,7 @@ Increasing in granularity, the \textit{maximal} merging scheme defines 17 parame
   \hspace*{-1cm}
 \end{table}
 
-Figure \ref{fig:stage1p2_maximal_results} shows the results of the maximal merging fit, plotted in the same style as the STXS stage 0 results. With this level of splitting, the statistical component of the uncertainty dominates for all measured parameters. For a number of parameters, the uncertainty in the measurement is becoming comparable to the uncertainty in the SM prediction, meaning the possibility of constraining Higgs boson theory using experimental measurements is approaching. This is especially interesting for the ggH BSM parameter, which is particularly sensitive to new physics in the ggH loop. That said, the measured value of the ggH BSM \xsbr is in excellent agreement with the SM prediction. The overall compatibility with the SM is $p_{\rm{SM}}=31\%$. Table \ref{tab:stage1p2_maximal_results} summarises these results, providing in addition the expected uncertainties in the parameters. \textbf{Add impacts to main body/appendix.}
+Figure \ref{fig:stage1p2_maximal_results} shows the results of the maximal merging fit, plotted in the same style as the STXS stage 0 results. With this level of splitting, the statistical component of the uncertainty dominates for all measured parameters. For a number of parameters, the uncertainty in the measurement is becoming comparable to the uncertainty in the SM prediction, meaning the possibility of constraining Higgs boson theory using experimental measurements is approaching. This is especially interesting for the ggH BSM parameter, which is particularly sensitive to new physics in the ggH loop. That said, the measured value of the ggH BSM \xsbr is in excellent agreement with the SM prediction. The overall compatibility with the SM is $p_{\rm{SM}}=31\%$. Table \ref{tab:stage1p2_maximal_results} summarises these results, providing in addition the expected uncertainties in the parameters, derived using the Asimov data set. \textbf{Add impacts to main body/appendix.}
 
 \begin{figure}[htbp]
   \centering
@@ -156,7 +155,7 @@ Figure \ref{fig:stage1p2_maximal_results} shows the results of the maximal mergi
   \label{fig:stage1p2_maximal_results}
 \end{figure}
 
-The correlation coefficients between the maximal merging parameters are shown in Figure \ref{fig:stage1p2_maximal_correlations}. For the ggH parameters, the correlations are as expected; small correlations for parameters representing adjacent \ptH bins but larger correlations for parameters representing adjacent $N_{\rm{jet}}$ bins. This stems from the fact that \ptgg is a well-measured quantity, whereas reconstructing the number of jets in an event is a more difficult problem. Nevertheless, the application of the ggH multiclassifier BDT in the event categorisation helps to reduce these correlations. The largest correlations exist between the qqH VBF-like and ggH VBF-like parameters (-0.76), and the tH and ttH parameters (-0.59). This results from the difficulty in distinguishing qqH from ggH production in the VBF-like phase space, and in distinguishing tH from ttH, attempted by the Dijet BDT and top DNN respectively. Two dimensional likelihood scans are performed for each pair of highly-correlated parameters to gain a better understanding of the impact of their correlations on the total $q(\vec{\alpha})$ surface. The 68\% and 95\% confidence regions are plotted for ggH VBF-like vs qqH VBF-like (left) and tH vs ttH (right) in Figure \ref{fig:2d_maximal}. In the scans, all other maximal merging parameters are profiled. Both scans show compatibility with the SM within the 95\% confidence contour.
+The correlation coefficients between the maximal merging parameters are shown in Figure \ref{fig:stage1p2_maximal_correlations}. For the ggH parameters, the correlations are as expected: small correlations for parameters representing adjacent \ptH bins but larger correlations for parameters representing adjacent $N_{\rm{jet}}$ bins. This stems from the fact that \ptgg is a well-measured quantity, whereas reconstructing the number of jets in an event is a more difficult problem. Nevertheless, the application of the ggH BDT in the event categorisation helps to reduce these correlations. The largest correlations exist between the qqH VBF-like and ggH VBF-like parameters (-0.76), and the tH and ttH parameters (-0.59). This results from the difficulty in distinguishing qqH from ggH production in the VBF-like phase space, and in distinguishing tH from ttH, attempted by the Dijet BDT and top DNN respectively. Two dimensional likelihood scans are performed for each pair of highly-correlated parameters to gain a better understanding of the impact of their correlations on the total $q(\vec{\alpha})$ surface. The 68\% and 95\% confidence regions are plotted for ggH VBF-like vs qqH VBF-like (left) and tH vs ttH (right) in Figure \ref{fig:2d_maximal}. In the scans, all other maximal merging parameters are profiled. Both scans show compatibility with the SM within the 95\% confidence contour.
 
 \begin{figure}[htbp]
   \centering
@@ -185,7 +184,8 @@ The correlation coefficients between the maximal merging parameters are shown in
   \scriptsize
   \renewcommand{\arraystretch}{2}
   \setlength{\tabcolsep}{2.2pt}
-  \caption{
+  \caption[Results of the STXS stage 1.2 maximal merging fit]
+  {
     The best-fit cross sections with 68\% confidence intervals for the STXS stage 1.2 maximal merging fit. The uncertainty is decomposed into the systematic and statistical components. The expected uncertainties in the fitted parameters are given in brackets. Also listed are the SM predictions for the cross sections times branching ratio and the theoretical uncertainty in these predictions. The final column shows the ratio of the observed value to the SM prediction.
   }
   \label{tab:stage1p2_maximal_results}
@@ -228,7 +228,8 @@ The correlations between parameters are shown in Figure~\ref{fig:stage1p2_minima
   \scriptsize
   \renewcommand{\arraystretch}{1.8}
   \setlength{\tabcolsep}{2.2pt}
-  \caption{
+  \caption[Results of the STXS stage 1.2 minimal merging fit]
+  {
     The best-fit cross sections with 68\% confidence intervals for the STXS stage 1.2 minimal merging fit. The uncertainty is decomposed into the systematic and statistical components. The expected uncertainties in the fitted parameters are given in brackets. Also listed are the SM predictions for the cross sections times branching ratio and the theoretical uncertainty in these predictions. The final column shows the ratio of the observed value to the SM prediction.
   }
   \label{tab:stage1p2_minimal_results}
@@ -238,7 +239,7 @@ The correlations between parameters are shown in Figure~\ref{fig:stage1p2_minima
 \end{table}
 
 \newpage
-\section{Coupling modifiers in the $\kappa$ framework}\label{sec:results_kappa}
+\section{Coupling modifiers in the $\kappa$-framework}\label{sec:results_kappa}
 In the $\kappa$-framework, coupling modifiers are introduced to directly parametrise deviations from the SM expectation in the couplings of the Higgs boson to other particles~\cite{Heinemeyer:2013tqa}. Under the assumption that there are no additional Higgs boson decays, beyond SM particles, the cross section times branching fraction for production mode, $i$, and decay channel, $f$, can be expressed as,
 
 \begin{equation}\label{eq:kappa_param}
@@ -250,7 +251,8 @@ where $\Gamma_H$ is the total Higgs boson decay width, and $\Gamma^f$ is the par
 
 \begin{table}[htbp]
   \centering
-  \caption{
+  \caption[The $\kappa$-framework parametrisation]
+  {
     Scaling functions for all the major Higgs boson production modes and decay channels. The effective $\kappa$ parameters representing deviations in loop processes are provided, as well as the fully resolved scaling functions into the fundamental SM couplings.
   }
   \label{tab:kappa_param}
@@ -275,14 +277,14 @@ In this analysis two independent parametrisations are considered. The first uses
     \end{split}
 \end{equation}
 \noindent
-As shown in Table~\ref{tab:kappa_param}, the tHq and tHW production mode cross sections include an interference term proportional to the product, $\kappa_V\kappa_F$. This means that by measuring single-top associated production with the novel tHq leptonic category, the analysis becomes sensitive to the relative sign of the t-H (fermion) and V-H (vector boson) couplings, unlike when measuring ttH alone. Figure \ref{fig:kappa_F} shows both the observed (black) and expected (red) $q(\kappa_F)$ curves, where the value of $\kappa_V$ is profiled in the fit. In addition, the dashed red curve represents the expected likelihood that would be obtained if the tHq leptonic category is removed from the analysis. Clearly, the inclusion of the tHq leptonic category successfully reduces/removes the degeneracy between positive and negative $\kappa_F$ values. The observed likelihood shows a slight favouring for negative $\kappa_F$ values with respect to the expected likelihood, due to the observed excess in the tH production cross section. Furthermore, the results of a two-dimensional likelihood scan in $\kappa_V$ and $\kappa_F$ are presented in the upper plot of Figure \ref{fig:2d_kappa}. The region with negative values of $\kappa_F$ is observed (expected) to be excluded with a significance of 0.5$\sigma$ (2.4$\sigma$).
+As shown in Table~\ref{tab:kappa_param}, the tHq and tHW production mode cross sections include an interference term proportional to the product, $\kappa_V\kappa_F$. This means that by measuring single-top associated production, the analysis gains sensitivity to the relative sign of the t-H (fermion) and V-H (vector boson) couplings, unlike when measuring ttH alone. Figure \ref{fig:kappa_F} shows both the observed (black) and expected (red) $q(\kappa_F)$ curves, where the value of $\kappa_V$ is profiled in the fit. In addition, the dashed red curve represents the expected likelihood that would be obtained if the tHq leptonic category is removed from the analysis. Clearly, the inclusion of the tHq leptonic category successfully reduces the degeneracy between positive and negative $\kappa_F$ values. The observed likelihood shows a slight favouring for negative $\kappa_F$ values with respect to the expected likelihood, due to the observed excess in the tH production cross section. Furthermore, the results of a two-dimensional likelihood scan in $\kappa_V$ and $\kappa_F$ are presented in the upper plot of Figure \ref{fig:2d_kappa}. The region with negative values of $\kappa_F$ is observed (expected) to be excluded with a significance of 0.5$\sigma$ (2.4$\sigma$).
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=.6\textwidth]{Figures/hgg_results/profile1D_kappa_F.pdf}
   \caption[Observed and expected likelihood curves for $\kappa_F$]
   {
-    The observed (solid black) and expected (solid red) $q(\kappa_F)$ curves, where $\kappa_V$ is profiled in the fit. The expected curve that would be obtained by removing the tHq leptonic event category from the analysis is shown by the dashed red line. \textbf{Add line}.
+    The observed (solid black) and expected (solid red) $q(\kappa_F)$ curves, where $\kappa_V$ is profiled in the fit. The expected curve that would be obtained by removing the tHq leptonic event category from the analysis is shown by the dashed red line.
   }
   \label{fig:kappa_F}
 \end{figure}
@@ -291,11 +293,11 @@ The second parametrisation considered uses the effective coupling modifiers to g
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.65\textwidth]{Figures/hgg_results/scan2D_syst_obs_kappa_V_vs_kappa_F_obs.pdf}
-  \includegraphics[width=.65\textwidth]{Figures/hgg_results/scan2D_syst_obs_kappa_gam_vs_kappa_g_obs.pdf}
+  \includegraphics[width=.65\textwidth]{Figures/hgg_results/scan2D_kappa_V_vs_kappa_F_obs.pdf}
+  \includegraphics[width=.65\textwidth]{Figures/hgg_results/scan2D_kappa_gam_vs_kappa_g_obs.pdf}
   \caption[Two dimensional likelihood scans in the coupling modifier parametrisation]
   {
-    Observed two dimensional likelihood scans performed in the $\kappa$-framework: $\kappa_V$ vs $\kappa_F$ using the resolved scaling functions (top), and $\kappa_\gamma$ vs $\kappa_g$ using the effective scaling functions (bottom). The 68\% and 95\% confidence level regions are represented by the solid and dashed contours, respectively. The best-fit and SM expected points are shown by the black cross and red diamond, respectively. The colour scale indicates the value of the test statistic, $q(\alpha_1,\alpha_2)$. \textbf{Change Z-axis in plots}
+    Observed two dimensional likelihood scans performed in the $\kappa$-framework: $\kappa_V$ vs $\kappa_F$ using the resolved scaling functions (top), and $\kappa_\gamma$ vs $\kappa_g$ using the effective scaling functions (bottom). The 68\% and 95\% confidence level regions are represented by the solid and dashed contours, respectively. The best-fit and SM expected points are shown by the black cross and red diamond, respectively. The colour scale indicates the value of the test statistic, $q(\alpha_1,\alpha_2)$.
   }
   \label{fig:2d_kappa}
 \end{figure}
@@ -305,4 +307,4 @@ Ultimately, the coupling modifier scaling functions are defined inclusively for 
 \section{Summary}
 This section concludes the description of Higgs boson property measurements using the diphoton decay channel. Chapter \ref{chap:hgg_overview} detailed the techniques used to reconstruct events consistent with the \Hgg decay in proton-proton collision data, and subsequently categorise the events to become sensitive to cross sections at stage 1.2 of the STXS framework. In chapter~\ref{chap:hgg_stats}, the statistical inference methods were described. This amounts to performing a likelihood fit to the observed \mgg distribution in each analysis category, where the signal and background contributions are estimated using analytic models derived from simulation and data respectively. This chapter presented the results of the analysis.
 
-The inclusive Higgs boson signal strength is measured to be 1.12, relative to the SM prediction, with a $\pm 9\%$ uncertainty. This represents the most accurate measurement of the rate of Higgs boson production in a single decay channel at CMS. A number of signal parametrisations are considered, including per-production mode signal strength modifiers, coupling modifiers, and production cross sections in the STXS framework. The minimal merging scheme fit corresponds to the current most granular Higgs boson cross section fit performed by the CMS experiment. This is the first time the new splittings introduced at stage 1.2 in the ttH and ggH $\ptH>200$~GeV regions, have been explicitly measured. In addition, single-top associated production is targeted for the first time in the \Hgg channel, with a corresponding observed (expected) limit at 95\% CL of 14 (8) times the SM prediction. This measurement of tH production also allows the degeneracy in the relative sign of the $\kappa_V$-$\kappa_F$ couplings to be lifted. In conclusion, all results are found to be in agreement with the SM expectations.
+The inclusive Higgs boson signal strength is measured to be 1.12, relative to the SM prediction, with a $\pm 9\%$ uncertainty. This represents the most accurate measurement of the rate of Higgs boson production in a single decay channel at CMS. A number of signal parametrisations are considered, including per-production mode signal strength modifiers, coupling modifiers, and production cross sections in the STXS framework. The minimal merging scheme fit corresponds to the current most granular Higgs boson cross section fit performed by the CMS experiment. This is the first time the new splittings introduced at stage 1.2 in the ttH and ggH $\ptH>200$~GeV regions, have been explicitly measured. In addition, single-top associated production is targeted for the first time in the \Hgg channel, with a corresponding observed (expected) limit at 95\% CL of 14 (8) times the SM prediction. This measurement of tH production also allows the degeneracy in the relative sign of the $\kappa_V$-$\kappa_F$ couplings to be reduced. In conclusion, all results are found to be in agreement with the SM expectations.
