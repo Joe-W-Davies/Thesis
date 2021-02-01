@@ -5,7 +5,7 @@
 The statistical methodology used to extract the results follows the procedure developed by the ATLAS and CMS collaborations, documented in Ref.~\cite{Khachatryan:2014jba}. The following section uses the definition,
 
 \begin{equation}\label{eq:poisson_def}
-    {\rm{Poisson}}\Big(n\,\Big|\,a+b\Big) = \frac{(a+b)^n}{n!} \cdot e^{-(a+b)}.
+    {\rm{Poisson}}\Big(n\,\Big|\,s+b\Big) = \frac{(s+b)^n}{n!} \cdot e^{-(s+b)}.
 \end{equation}
 
 \subsection{Construction of the likelihood}\label{sec:category_likelihood}
@@ -275,7 +275,7 @@ In the final results extraction (see section \ref{sec:results_extraction}), both
 \section{Systematic uncertainties}\label{sec:systematics}
 This section provides further detail on the sources of systematic uncertainty in the signal estimate, and how they are modelled using different types nuisance parameters. The uncertainties are divided into experimental sources and theoretical sources, described in sections \ref{sec:systematics_experimental} and \ref{sec:systematics_theoretical} respectively. For each source, the magnitude of the uncertainty's impact is calculated separately per year for each STXS stage 1.2 bin in each analysis category.
 
-\subsection{Uncertainty correlation scheme}
+\subsection{Uncertainty correlation scheme}\label{sec:correlation_scheme}
 Before listing the various sources, it is important to introduce the concept of correlating nuisance parameters. As mentioned in section \ref{sec:sig_modelling}, the signal is modelled independently for the 2016, 2017, and 2018 data. This allows for a choice in the modelling of each uncertainty source. A correlated uncertainty means defining a single nuisance parameter in the final fit which affects the signal estimate in multiple years simultaneously. Note, this correlation may be defined for a pair of years, or can extend to a correlation across all three years. Alternatively, uncorrelated means defining a separate nuisance parameter for each year, such that the impacts on the signal estimates from each year are independent. 
 
 Theoretical uncertainties are fully correlated across years. This somewhat trivial assignment is made since the underlying theoretical predictions are constant and do not depend on the data-taking conditions. In general, experimental sources are uncorrelated across years. This choice reflects the difference in data-taking conditions and data reconstructions for each year. Exceptions are the uncertainties in the luminosity estimate and the jet energy scale. For these, a partial correlation scheme is used i.e. a combination of uncorrelated and correlated nuisance parameters are defined, where the correlated parameters correspond to uncertainty sources that are common across years.
