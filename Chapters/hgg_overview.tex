@@ -1,7 +1,7 @@
 \chapter{Measuring Higgs boson properties in the \Hgg decay channel}
 \label{chap:hgg_overview}
 
-\section{Introduction}
+\section{Introduction}\label{sec:hgg_introduction}
 The following three chapters provide a detailed description of the CMS \Hgg analysis documented in Ref.~\cite{CMS-PAS-HIG-19-015}. This analysis measures Higgs boson properties in the diphoton decay channel, using proton-proton collision data at $\sqrt{s}$~=~13~TeV collected by the CMS experiment at the LHC from 2016 to 2018, corresponding to an integrated luminosity of 137~\fbinv. The increased statistical power, which comes with using the full Run 2 data, leads to an improvement in the precision of existing measurements and enables measurements of more granular regions of Higgs boson production phase space. 
 
 Building upon the strategies developed in previous CMS \Hgg analyses~\cite{Sirunyan:2018ouh,CMS-PAS-HIG-18-029,Sirunyan:2020sum}, a set of orthogonal event categories are constructed to target bins at stage 1.2 of the STXS framework. The production cross sections are then measured directly from the diphoton invariant mass distributions in the event categories. This extremely powerful observable effectively distinguishes signal from background, where photon pairs produced via Higgs boson decay form a narrow signal peak centred around $m_H$, lying above a smoothly-falling background distribution from other SM processes. For events with two reconstructed photons, $\gamma_1$ and $\gamma_2$, the diphoton invariant mass, $m_{\gamma\gamma}$, is calculated according to,
@@ -56,7 +56,7 @@ Given the proximity of the Z boson and Higgs boson masses, as well as the fact t
 \subsection{Simulation}
 Monte Carlo (MC) simulated events are used for both training event classifiers and constructing the final signal model. The simulated events are subject to the exact same event reconstruction and categorisation procedure as used for data. 
 
-Signal samples are simulated for the different Higgs boson production mechanisms at next-to-leading order (NLO) in quantum chromodynamics (QCD) using the \textsc{MG5\_aMC@NLO} (version 2.4.2)~\cite{Alwall:2014hca}, and \textsc{Powheg} (version 2.0) generators~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2008tz,Nason:2009ai,Alioli:2010xd,Hartanto:2015uka}. When possible, an independent event sample from the alternative generator is used for training event classifiers, thus ensuring the event categorisation and the construction of the final signal model are independent. Events produced via ggH production are weighted as a function of $p_T$ and $\eta$ to match the predictions of the NNLOPS program~\cite{Hamilton:2013fea}. Parton distribution functions (PDFs) are used to model the distribution of colliding partons inside the initial state protons, taken from the NNPDF 3.0 (NNPDF~3.1) set~\cite{Ball:2014uwa,Ball:2017nwa}, when simulating 2016 (2017/2018) data. The parton-level events are subsequently interfaced with \textsc{Pythia8} (version 8.226 for 2016 MC and version 8.230 for 2017/2018 MC) for decaying the Higgs boson to photons, parton showering and hadronization~\cite{Sjostrand:2014zea}. The \textsc{Pythia8} CUETP8M1~\cite{Khachatryan:2015pea} and CP5~\cite{Sirunyan:2019dfx} tunes are used for the simulation of 2016 data and 2017/2018 data, respectively.
+Signal samples are simulated for the different Higgs boson production mechanisms at next-to-leading order (NLO) in perturbative quantum chromodynamics (QCD) using the \textsc{MG5\_aMC@NLO} (version 2.4.2)~\cite{Alwall:2014hca}, and \textsc{Powheg} (version 2.0) generators~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2008tz,Nason:2009ai,Alioli:2010xd,Hartanto:2015uka}. When possible, an independent event sample from the alternative generator is used for training event classifiers, thus ensuring the event categorisation and the construction of the final signal model are independent. Events produced via ggH production are weighted as a function of $p_T$ and $\eta$ to match the predictions of the NNLOPS program~\cite{Hamilton:2013fea}. Parton distribution functions (PDFs) are used to model the distribution of colliding partons inside the initial state protons, taken from the NNPDF 3.0 (NNPDF~3.1) set~\cite{Ball:2014uwa,Ball:2017nwa}, when simulating 2016 (2017/2018) data. The parton-level events are subsequently interfaced with \textsc{Pythia8} (version 8.226 for 2016 MC and version 8.230 for 2017/2018 MC) for decaying the Higgs boson to photons, parton showering and hadronization~\cite{Sjostrand:2014zea}. The \textsc{Pythia8} CUETP8M1~\cite{Khachatryan:2015pea} and CP5~\cite{Sirunyan:2019dfx} tunes are used for the simulation of 2016 data and 2017/2018 data, respectively.
 
 The signal samples are normalised according to the production cross sections and the \Hgg branching fraction (0.227\%) recommendations by the LHCHWG~\cite{deFlorian:2016spz}. The fractional breakdown of each production mode in the STXS stage 1.2 bins is computed directly from the signal MC samples, and serves as the SM prediction of the cross section in each bin. Table \ref{tab:signal_samples} summarises the event generators used for the signal simulation, as well as the total cross section times branching ratio for each production mode with details on the order of the calculation. The fractional breakdowns of each production mode into the stage 1.2 bins are shown in chapter \ref{chap:theory} in Tables~\ref{tab:ggH_definitions}--\ref{tab:top_definitions}.
 
@@ -208,7 +208,7 @@ An additional vertex-related BDT is trained to estimate the \textit{probability}
 
 Finally, the width of the $z$ distribution of reconstructed vertices, known as the beamspot width, is measured to be between 3.4--3.6~cm in data. A year-dependent correction is applied to simulated events to ensure the beamspot width matches that observed in data.
 
-\subsection{Reconstruction of other objects}
+\subsection{Reconstruction of other objects}\label{sec:hgg_otherobjects}
 \textbf{TODO}: complete this section after writing particle flow section in CMS chapter.
 
 The analysis categories are defined to target events from different bins of the STXS stage 1.2 framework. In order to define such categories it is necessary to place requirements on additional objects in the event, such as two forward jets in VBF production or two same flavour, opposite charge leptons in ZH leptonic production. The following section briefly describes the reconstruction of these additional objects.
@@ -295,7 +295,7 @@ Each event is assigned to the output class with the highest probability. The fin
 
 Table \ref{tab:ggH_category_yields} presents the expected signal and background yields in each of the ggH analysis categories. The signal yields are broken down into the fractional contribution from the target STXS bin(s), as well as the fractional contributions from the different Higgs boson production modes.
 
-\begin{figure}[hptb]
+\begin{figure}[htb!]
   \centering
   \includegraphics[width=.5\textwidth]{Figures/hgg_overview/DiphoBDT_dipho_mva_logPlot_noStack.pdf}
   \caption[Diphoton BDT output distribution]
@@ -305,7 +305,7 @@ Table \ref{tab:ggH_category_yields} presents the expected signal and background 
   \label{fig:diphoton_score}
 \end{figure}
 
-\begin{table}[htb]
+\begin{table}[htb!]
     \caption[Expected yields for the ggH production mode categories]{The expected number of Higgs boson events in the analysis categories targeting the ggH production mode, for a Higgs boson mass of $m_H=125$~GeV. The yield is broken down into the fraction originating from the targeted STXS bin(s), as well as the fractional breakdown into the different Higgs boson production modes. The $\sigma_{\rm{eff}}$, defined as the smallest interval containing 68.3\% of the $m_{\gamma\gamma}$ distribution provides an indication of the mass resolution in each category. Also provided are the estimated number of background events per GeV in the signal peak region, the quantity $F_{68}=S_{68}/(S_{68}+B_{68})$, where $S_{68}$ and $B_{68}$ are the expected number of signal and background events in a $\pm1\sigma_{\rm{eff}}$ window centred on $m_H$, respectively, and the approximate significance, $Z_{68}=S_{68}/\sqrt{S_{68}+B_{68}}$. The final column shows the significance for the targeted STXS bin(s) only, $Z^{\rm{target}}_{68}$,  where other Higgs boson signal events are considered as background.}
     \label{tab:ggH_category_yields}
     % \vspace{.5cm}
