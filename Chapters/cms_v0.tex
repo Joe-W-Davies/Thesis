@@ -1,0 +1,636 @@
+\chapter{The CMS experiment}
+\label{chap:cms}
+
+\section{Introduction}
+With a circumference of 27~km, the Large Hadron Collider (LHC)~\cite{} at CERN is both the largest and most powerful particle accelerator in the world. The machine is designed to collide hadrons together with sufficiently high energy and frequency to enable stringent tests of the SM at the electroweak energy scale. The ATLAS~\cite{}, ALICE~\cite{}, CMS~\cite{} and LHCb~\cite{} experiments are situated at four independent locations along the LHC ring, at which the oppositely circulating hadron beams are focused and brought into collision. Each experiment consists of a particle detector apparatus to measure the products of the hadron collisions, where the design of the detector is chosen to facilitate the respective physics programme: ATLAS and CMS are general purpose detectors designed to measure a wide range of physics processes, whereas LHCb and ALICE are more specialised, focusing on flavour physics and heavy-ion physics respectively. 
+
+The measurements presented in this thesis are performed using data collected by the CMS experiment. This chapter serves as an introduction to both the LHC and the CMS detector, and will help the reader understand how the design of these machines enable the predictions of the SM to be accurately probed using high energy hadron collisions. After introducing the operation and design of the machines in sections \ref{sec:lhc} and \ref{sec:cms}, the focus shifts towards the techniques used to reconstruct the collision products in the CMS detector, detailed in \ref{sec:particle_flow}. Here, particular attention is given to the objects which are most relevant for the \Hgg measurements outlined in chapters~\ref{chap:hgg_overview}--\ref{chap:hgg_results}. Following this, the chapter concludes by looking at a future operation of the LHC machine, known as the High-Luminosity LHC (HL-LHC)~\cite{}, where the rate of collisions will be increased to approximately five times the nominal value. To accommodate this, many parts of the CMS detector will need to be upgraded. Section \ref{sec:hgcal} details one of the key parts of the upgrade programme known as the high granularity calorimeter (HGCAL)~\cite{}. The application of a Boosted Decision Tree (BDT) algorithm to identify electrons and photons from hadronic objects in the HGCAL Level-1 trigger system is detailed. Finally, a simulation-only study is presented in section \ref{sec:trilinar}, looking at the physics reach of the HL-LHC in terms of the sensitivity to the Higgs boson self coupling from top-associated Higgs boson production.
+
+\section{Large Hadron Collider}\label{sec:lhc}
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/cern_accelerator.png}
+  \caption[The CERN accelerator complex]
+  {
+    An illustration of the CERN accelerator complex, including the four main LHC experiments: ATLAS, ALICE, CMS, and LHCb. The LINAC 2, BOOSTER, PS and SPS are used to sequentially accelerate the proton beams, at which point they are injected into the LHC ring. Diagram is taken from Ref.~\cite{Mobs:2684277}.
+  }
+  \label{fig:cern_accelerator_complex}
+\end{figure}
+
+The LHC is situated 100~m underground the French-Swiss border in the tunnel which previously housed the LEP collider~\cite{}. Both proton-proton (p-p) collisions and heavy ion collisions are performed, where the former is used for measurements at the electroweak scale such as those presented in this thesis. Therefore p-p collisions will be the focus of this section. A chain of machines, known as the CERN accelerator complex, are used to progressively accelerate protons to higher and higher energies, until they are eventually injected into the LHC ring and brought into collision. The full CERN accelerator complex, including the LHC and its experiments are illustrated in Figure \ref{fig:cern_accelerator_complex}.
+
+Firstly, protons are extracted by stripping electrons from hydrogen atoms using a strong electric field. The protons are sequentially accelerated to an energy of 50~MeV by the Linear Accelerator 2 (LINAC 2), to 1.4~GeV in the BOOSTER, and to 25~GeV in the Proton Synchotron (PS). Here, they are additionally spaced into bunches, with each bunch containing several billion protons. Following this, the bunched beams are fed into the Super Proton Synchotron (SPS), accelerated to an energy of 540~GeV and finally injected into the two concentric LHC beam pipes. The beam travels clockwise in the first pipe, and counter-clockwise in the second, producing two counter-circulating proton beams in the LHC ring. This injection is performed until each beam consists of 2808 proton bunches, with a spacing between them of around 25~ns.
+
+A series of 1,232 super-conducting dipole magnets are located along the LHC ring to keep the beams in a circular orbit. These bending magnets are cooled to a temperature of 1.9~K using superfluid helium. Sixteen radiofrequency (RF) cavities are used to accelerate the beams from 540~GeV to the final beam energy. As the beam energy increases, the magnetic field delivered by the bending magnets is increased accordingly to maintain the circular trajectories of the beams. Currently, the highest energy reached for stable operation is 6.5~TeV per beam, which corresponds to a bending magnetic field of 8.3~T. Quadrapole magnets are then used to focus the protons beams at the four interaction points, where the beams are made to collide every 25~ns with a corresponding centre-of-mass energy of $\sqrt{s}=13$~TeV. Note, this is slightly below the maximum LHC design energy of 14~TeV, which would require an energy of 7~TeV per beam; this is expected to be achieved either during run 3 of the LHC (beginning 2022) or during the HL-LHC operation (beginning 2027).
+
+\subsection{Luminosity}
+The rate of a particular physics process, $R$, in an LHC experiment is governed by the following relation,
+
+\begin{equation}\label{eq:lumi_rate}
+    R = \sigma(\sqrt{s}) \cdot \mathcal{L}_{\rm{inst}}
+\end{equation}
+\noindent
+where $\sigma$ is the cross section of the process of interest, and $\mathcal{L}_{\rm{inst}}$ is the instantaneous luminosity of the LHC machine. The cross section depends on the collision centre-of-mass energy, $\sqrt{s}$, such that raising the collision energy can increase the probability of rare, high-energy processes. The instantaneous luminosity depends solely on the beam parameters according to~\cite{},
+
+\begin{equation}\label{eq:inst_lumi}
+    \mathcal{L}_{\rm{inst}} = \frac{n_bN_b^2f_{\rm{rev}}\gamma_r}{4\pi\epsilon_n\beta^*}F,
+\end{equation}
+
+\noindent
+where $n_b$ is the number of bunches per beam, $N_b$ is the number of particles per bunch, $f_{\rm{rev}}$ is the revolution frequency, $\gamma_r$ is the relativistic gamma factor, $\epsilon_n$ is the normalised transverse beam emittance, $\beta^*$ is the beta-function at the collision point, and $F$ is a reduction factor which accounts for the crossing angle of the beams at the collision point. Ultimately, the exploration of rare events in an LHC experiment requires both high energy and high luminosity.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/luminosity.pdf}
+  \caption[The total integrated luminosity delivered to the CMS experiment]
+  {
+    The total integrated luminosity delivered to the CMS experiment as a function of time, for each year of operation.
+    Figure is taken from Ref.~\cite{CMSLumiPublic}.
+  }
+  \label{fig:luminosity}
+\end{figure}
+
+The LHC was initially designed to run with an instantaneous luminosity of $1\times10^{34}$~cm$^{\rm{2}}$~s$^{\rm{-1}}$. During the 2016-2018 data-taking period this design luminosity was exceeded, eventually levelling at a value of $2 \times 10^{34}$~cm$^{\rm{2}}$~s$^{\rm{-1}}$ for most of the 2018 operation. By integrating the relation in equation \ref{eq:lumi_rate}, we arrive at an expression for the number of events of the process of interest, $N=\sigma\cdot\mathcal{L}$, where $\mathcal{L}$ is the time-\textit{integrated luminosity}, and is a direct measure of the amount of p-p collision data delivered to a collider experiment. Figure~\ref{fig:luminosity} summarises the total integrated luminosity delivered to the CMS experiment throughout its operation. There have been two active phases of the LHC, separated by a shutdown period for upgrades. Run 1 began in 2010 with $\sqrt{s}=7$~TeV, continuing to 2011, such that a total of 6.1~\fbinv of data were collected by CMS at this centre-of-mass energy. In 2012, the energy was increased to $\sqrt{s}=8$~TeV, and a further 23.3~\fbinv of data were collected. This Run 1 dataset was the one used for the Higgs boson discovery~\cite{}. 
+
+Run 2 commenced in 2015 and finished in 2018, where protons were collided with $\sqrt{s}=13$~TeV for the full data-taking period. The increase in instantaneous luminosity (gradient of the lines in Figure \ref{fig:luminosity}) during this period has allowed for an extremely large p-p collision dataset to be accumulated, therefore enabling a large improvement in the statistical precision of the measured processes of interest. The results presented in this thesis use data collected during the 2016-2018 data-taking period. In practice, the CMS experiment operates with a data-taking efficiency of around 90\%, such that the amount of data recorded by the experiment and available for physics analysis, over this period, is approximately 137~\fbinv.
+
+One of the drawbacks of increasing the instantaneous luminosity is the enhancement of \textit{pileup}, defined as the number of additional inelastic p-p collisions for each hard-scattering process of interest. As pileup increases, more sophisticated techniques are required to separate the rare process of interest from the objects originating from pileup interactions. In 2016, the mean number of pileup interactions was 23 per bunch crossing, rising to 32 in both the 2017 and 2018 periods. During the HL-LHC phase of operation, the pileup will increase up to a maximum value of around 200, which poses a major challenge to maintain the current excellent reconstruction performance of the CMS detector.
+
+\section{The CMS detector}\label{sec:cms}
+CMS is one of two general purpose particle detectors at the LHC~\cite{}, located close to the French village of Cessy. It is over 28~m long, 15~m in diameter, and weighs approximately 14,000~tons. The detector is designed to overcome the experimental challenges that arise in a high-energy collision environment with $\mathcal{O}(1000)$ charged particles being produced every 25~ns. This includes a high level of spatial and timing granularity, with many synchronized detector electronic channels, to maintain a sufficiently low occupancy in these conditions. In addition, the detector and front end electronics must be sufficiently radiation-hard to accommodate the high flux of particles.
+
+One of the main goals of the CMS physics programme was the discovery, and is now the measurement of the Higgs boson and its interactions with other particles. Moreover, the programme includes the precise measurement of other rare processes in the SM, and the search for new BSM physics such as supersymmetry or extra dimensions. To achieve these goals, the detector is designed to:
+
+\begin{itemize}
+    \item Identify and reconstruct muons with excellent efficiency and precision. This must be achieved over a wide range of muon energies and angles. In addition, the charge of a muon must be ascertained to a high level of accuracy. The reconstruction of muons is central to Higgs boson measurements, specifically in the \Hfl decay channel.
+    \item Achieve a good momentum resolution for charged particles, as well as have the ability to locate secondary vertices consistent with originating from $\tau$'s and b quarks.
+    \item Measure the energy of electrons and photons with excellent resolution over a wide geometrical coverage. Additionally, the detector is able to isolate photons and electrons efficiently in a high occupancy environment. These characteristics are key to the \Hgg measurement described in chapters \ref{chap:hgg_overview}-\ref{chap:hgg_results}.
+    \item Identify sprays of hadrons, known as jets, which originate from the hadronisation of quarks and gluons, and achieve a good dijet mass resolution.
+    \item Accurately calculate the missing energy in an event, which is the key signature of neutrinos or potential BSM particles which do not interact with the detector material.
+\end{itemize}
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/cms_detector.pdf}
+  \caption[The CMS detector]
+  {
+    A schematic of the CMS detector. Part of the detector has been removed so that the layout is visible. Figure is taken from Ref.~\cite{Sakuma_2014}.
+  }
+  \label{fig:cms_detector}
+\end{figure}
+
+A schematic of the CMS detector is provided in Figure~\ref{fig:cms_detector}. The detector consists of a number of components layered around the beam axis, where each component is comprised of a cylindrical \textit{barrel} section and two \textit{endcaps}. At the heart of this (almost) hermetic cylindrical design is the 3.8~T superconducting solenoid magnet, which provides an extremely high bending power for charged particles traversing the inner region of the detector. Within the coil of the 13~m long, 6~m in diameter solenoid lies the silicon tracker (section \ref{sec:cms_tracker}), the homogeneous crystal electromagnetic calorimeter (section \ref{sec:cms_ecal}), and the sampling hadronic calorimeter (section \ref{sec:cms_hcal}), listed in increasing distance from the interaction point. The muon detection system (section \ref{sec:cms_muon}) is embedded within the iron return yoke of the solenoid. This system of subdetectors, and their respective layering, enables the precise reconstruction of the wide range of physics objects produced in hadron collisions.
+
+\subsection{Co-ordinate system}
+A right-handed Cartesian co-ordinate system is adopted, centred at the nominal interaction point, such that the $x$-axis points towards the centre of the LHC ring, the $y$-axis points vertically upwards, and the $z$-axis points along the beam pipe in the direction of the counter-clockwise beam. It is more convenient to use a cylindrical co-ordinate system where the direction of an outgoing particle is expressed using the angular quantities: $\phi$ and $\eta$. Here, $\phi \in [-\pi,\pi]$ is defined as the azimuthal angle in the ($x-y$) plane, relative to the $x$-axis. The quantity $\eta$, referred to as the pseudorapidity, is a measure of the polar angle relative to the beam axis, $\theta$, such that,
+\begin{equation}
+    \eta = - \ln[\tan(\theta/2)].
+\end{equation}
+Particles with high values of $\eta$ correspond to a direction close to the LHC beam pipe, and are said to be \textit{forward}. The distance measure in the $(\eta,\phi)$ space is defined as $\Delta R = \sqrt{\Delta\eta^2+\Delta\phi^2}$. 
+
+In processes of interest, particles are generally produced with a high momentum in the plane perpendicular to the beam axis. As a result, a useful quantity to characterise a particle is the transverse momentum, $p_T = \sqrt{p_x^2+p_y^2}$, defined as the projection of the particle's total momentum onto this transverse plane. Finally, the missing transverse momentum, \met, is defined as the magnitude of the negative vector sum of particle's momenta in the transverse plane.
+
+\subsection{Tracker}\label{sec:cms_tracker}
+The tracker is the innermost component of the CMS detector~\cite{}, and is designed to measure the trajectory of charged particles deflected by the 3.8~T magnetic field. The tracker is also able to accurately locate the position of the primary hard scattering interaction vertex, as well as identify secondary interaction vertices which originate from the decay of $\tau$'s or b quarks. 
+
+Being the closest subdetector to the interaction point (IP), the tracker experiences an intense particle flux of $\mathcal{O}(1000)$ particles every 25~ns. As a result, it must simultaneously be able to withstand severe radiation damage, whilst exhibiting excellent spatial and temporal granularity to correctly identify trajectories and attribute them to the correct proton bunch crossing. To achieve such levels of granularity, a complicated system of power-dense on-detector electronics are required, which in-turn require an efficient cooling system to obviate overheating. These technical requirements directly oppose the need to limit the amount of material in the tracker to mitigate unwanted interactions, such as bremsstrahlung and photon conversions. Effectively, a larger amount of material in the tracker leads to a worse energy measurement in the electromagnetic calorimeter, directly impacting the sensitivity of the \Hgg analysis. Ultimately, to satisfy the requirements of radiation hardness and granularity, whilst keeping the material budget to a minimum, the tracker is composed entirely of silicon detector technology.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/tracker.pdf}
+  \caption[The CMS silicon tracker]
+  {
+    A diagram showing one quarter of the CMS tracker in the $r$-$z$ view, where $r$ is a measure of the radial distance in the ($x$-$y$)-plane. The pixel detector, closest to the interaction point (IP, black circle) is shown in green. The sections of the silicon strip tracker (TIB, TID, TOB, TEC) are also shown, where the red and blue lines signify one-sided and two-sided strips respectively. Figure has been adapted from the original in Ref.~\cite{CERN-LHCC-2017-009}.
+  }
+  \label{fig:cms_tracker}
+\end{figure}
+
+Figure \ref{fig:cms_tracker} shows one quarter of the CMS tracker, where the full tracker layout is symmetric about the $r$ and $z$-axes. A pixel detector is located closest to the beampipe. The original pixel detector was designed to operate for ten years at a maximum instantaneous luminosity of $1\times10^{34}$~\lumi, and consisted of three barrel layers at radii of 44, 73, and 102~mm, and two endcap disks at distances of 345 and 465~mm from the IP. To accommodate the enhancement of the LHC instantaneous luminosity, an upgraded pixel detector was installed during the end-of-year technical stop of the LHC in 2016/2017~\cite{}. The upgraded detector lies closer to the beampipe with \textit{four} barrel layers at radii of 29, 68, 109, and 160~mm, and \textit{three} endcap disks at distances of 291, 396, and 516~mm from the IP. This enables the measurement of four high precision space points (hits) on each charged particle trajectory, over the pseudorapidity range: $|\eta|<2.5$. Additionally, the upgrade brings an improved performance at higher rates, increased radiation tolerance and offers more robust tracking. The upgraded pixel detector consists of approximately 124~million individual silicon pixels, each of size $100\mu$m~$\times$~$150\mu$m, covering a total area of approximately 1.9~$m^2$. This results in a spatial resolution of around 10~$\mu$m in the transverse ($r$-$\phi$) direction and around 20~$\mu$m in the longitudinal ($z$) direction.
+
+%Whilst, these improvements have a sizeable impact for analyses that rely on the efficient identification of secondary vertices e.g. \Hbb,  the impact on the \Hgg analysis is small.
+Beyond a radius of 200~mm, the reduced particle flux allows for the use of silicon strip detectors. The CMS strip tracker consists of three sub-systems. The Tracker Inner Barrel and Disks (TIB/TID) contains four layers of $320$~$\mu$m thick silicon strip sensors in the barrel, supplemented by three disks of the same width at each end. The Tracker Outer Barrel (TOB) encompasses the TIB/TID, extending out to a radius of 1200~mm from the beam pipe, and $\pm$1180~mm in the $z$-direction. It consists of six $500$~$\mu$m thick layers, positioned with their strips parallel to the beam axis. Beyond this $z$-range, the Tracker Endcaps (TECs) extend out to $\pm$2820~mm in $z$, providing a pseudorapidity coverage of $|\eta|<2.4$. Each TEC is composed of 9 disks, carrying as many as seven rings of silicon strip sensors. 
+
+Each silicon strip sensor provides a one-dimensional measurement in $\phi$ of a point along a charged particles trajectory. In addition, the first two layers of the TIB/TID and the TOB, as well as the first, second and fifth rings of the TEC are supplemented with a second strip sensor to provide a measurement of a second spatial co-ordinate: $z$ in the barrel and $r$ in the disks. All in all, the CMS strip tracker has a total of 9.3 millions strips, corresponding to 198~$m^2$ of active silicon.
+
+Charged particles follow helical trajectories in the solenoidal field. By making several precise measurements of hits in both the pixel and strip tracker systems, these charged particle trajectories (tracks) can be reconstructed. In total, approximately X hits are measured in the range $|\eta|<2.5$. The momentum of the outgoing particle is then inferred from the curvature of the track, with a resolution of 2\% for high $p_T$ (100~GeV) charged particles up to $|\eta|\approx1.5$~\cite{}. This momentum resolution worsens as a function of charged particle $p_T$, as the curvature of the track decreases. All tracks are extrapolated back to a common point of origin, to identify the primary hard-scattering vertex and any secondary interaction vertices. The performance of this vertex location is driven by the excellent longitudinal resolution of the pixel detector.
+
+\subsection{Electromagnetic calorimeter}\label{sec:cms_ecal}
+The electromagnetic calorimeter (ECAL) is used to reconstruct the energy of electromagnetic showers originating from electrons and photons, and therefore is the key sub-detector in the \Hgg analysis. The overall structure of the CMS ECAL is shown in Figure~\ref{fig:cms_ecal}. 
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/ecal.pdf}
+  \caption[The CMS electromagnetic calorimeter]
+  {
+    A schematic of the CMS ECAL. The tracker and LHC beampipe have been removed from the diagram, in addition to a section of the ECAL, for clarity. Figure has been adapted from that shown in Ref.~\cite{}.
+  }
+  \label{fig:cms_ecal}
+\end{figure}
+
+The ECAL is a homogeneous calorimeter consisting of 75,848 lead-tungstage (PbWO$_4$) scintillating crystals. It is comprised of the ECAL barrel (EB) section, covering the pseudorapidity region, $|\eta|<1.48$, and two ECAL endcaps (EE), which extend the coverage up to $|\eta|<3.0$. The barrel and endcaps are separated by a transition region, $1.44<|\eta|<1.57$, in which electromagnetic showers cannot be reconstructed. 
+
+When photons and electrons interact with ECAL crystals, they produce scintillation light which is collected by photo-sensors to measure the energy of the incident particle. The choice of PbWO$_4$ is made due to the following properties of the material:
+\begin{itemize}
+    \item Short radiation length, defined as the mean distance over which an electron loses all but $1/e$ of its energy due to bremsstrahlung, of approximately $X_0=0.89$~cm. This means the longitudinal extension of the electromagnetic shower is kept to a reasonable level.
+    \item Narrow Moli\`ere radius, defined as the average radius containing on average 90\% of a shower's total energy deposit, of $r_M=2.19$~cm. This means the lateral extension of the electromagnetic shower is kept to a reasonable level.
+    \item Fast response time, such that approximately 80\% of the total scintillation light is emitted by the crystals in  25~ns. This is necessary so that the majority of the energy is collected before the next proton bunch crossing.
+    \item Hard radiation tolerance.
+\end{itemize}
+
+\noindent
+The crystals are arranged in a \textit{quasi}-projective geometry, such that their axis makes a small angle (3$^\circ$) with the vector pointing directly from the nominal IP. This ensures no particle trajectories are completely aligned with the cracks between crystals and therefore a decent fraction of all electromagnetic showers are contained within the crystals. The EB (EE) crystals are $\sim$26 ($\sim$25)~$X_0$ long, meaning that electromagnetic showers up to an energy of approximately 500~GeV are fully contained within the ECAL. The front-face cross section of the EE (EB) crystals are $2.2\times2.2$~cm$^{\rm{2}}$ ($2.86\times2.86$~cm$^{\rm{2}}$); this size is comparable to the Moli\`ere radius, and therefore provides a handle on the shape of the electromagnetic shower which can subsequently be used for photon/electron identification. In the current CMS ECAL, the crystals are arranged in a single layer. A future upgrade of the calorimeter endcaps, known as the HGCAL (section \ref{sec:hgcal}), will also exhibit longitudinal segmentation, and therefore provide granular measurements of the electromagnetic shower in the direction of propagation.
+
+One of the disadvantages of PbWO$_4$ is the relatively low light yield, which demands the use of photo-sensors with internal amplification inside the CMS solenoidal magnetic field. Silicon avalanche photodiodes (APDs) operating with an amplification factor of around 50, and vacuum photo-triodes (VPTs) operating with an amplication factor of around 10, are used in the EB and EE, respectively. Both produce roughly 4,500 photo-electrons per GeV, which are subsequently digitised using a 12-bit analog-to-digital converter (ADC), and stored as discrete amplitude measurements in a buffer. For each crystal, ten consecutive amplitude measurements are stored. If the event is deemed of interest and a trigger (section \ref{sec:trigger}) is received, the ten measurements pass to the off-detector electronics, where the amount of energy deposited in the crystal is inferred from the pulse shape.
+
+An additional subdetector, referred to as the preshower detector (ES)~\cite{}, is mounted in front of each endcap, providing a coverage of the pseudorapidity region: $1.65<|\eta|<2.6$. The ES is a 20~cm thick sampling calorimeter composed of two alternating layers of lead (to initiate the electromagnetic showers from incoming photons and electrons), and silicon strips (to measure the deposited energy and the transverse shower profile). The main aim of the ES is to distinguish neutral pions ($\pi^0$), from true photons in this $\eta$ range. 
+
+\subsubsection{Electromagnetic shower energy reconstruction}
+As described in section \ref{sec:hgg_introduction}, the ECAL energy resolution drives the sensitivity in the \Hgg analysis. The intrinsic energy resolution of the ECAL crystals is modelled according to,
+\begin{equation}
+    \Big(\frac{\sigma}{E}\Big)^2 =  \Big(\frac{S}{\sqrt{E}}\Big)^2 + \Big(\frac{N}{E}\Big)^2 + C^2,
+\end{equation}
+\noindent
+where $S=2.8\%$ is the stochastic term, $N=12\%$ is the noise term, and $C=0.3\%$ is the constant term, whose values have been derived using test beam data~\cite{}. The energy, $E$, is expressed in units of GeV, and corresponds to the sum of energy in a $5\times5$ array of ECAL crystals. The energy resolution can be improved using a series of corrections, described below.
+
+A typical photon or electron shower is spread over many ECAl crystals. To encompass the energy deposited in the ECAL, a dynamic clustering algorithm is applied (section \ref{sec:particle_flow}). Here, clusters are extended in the $\phi$-direction to form superclusters (SC), which improves the containment for showers that undergo photon conversions or bremsstrahlung in the material upstream of the ECAL. The reconstructed photon or electron energy, $E_{e,\gamma}$, is calculated according to the following equation,
+\begin{equation}
+    E_{e,\gamma} = F_{e,\gamma} \cdot E_{\rm{SC}} = F_{e,\gamma} \cdot \big[ G(\eta) \cdot \sum_i (C_i \cdot S_i(t) \cdot A_i) + E_{\rm{ES}} \big],
+\end{equation}
+\noindent
+where the index, $i$, iterates over crystals in the SC. The individual channel amplitudes, $A_i$, are multiplied by a time-dependent crystal response correction, $S_i(t)$, and a channel calibration constant, $C_i$, before being summed and multiplied by the global ADC to GeV absolute energy scale factor, $G(\eta)$. Showers in the EE are supplemented with the energy measured in the preshower detector, $E_{\rm{ES}}$. Finally, the energy of the SC, \Eraw, is corrected by applying a multivariate regression, $F_{e,\gamma}$, separately for photons~\cite{} and electrons~\cite{}. More detail of the photon energy regression is provided in the following chapter when the \Hgg analysis is introduced. The impact of these energy corrections is illustrated in Figure \ref{fig:shower_energy_reconstruction}.
+
+The final energy resolution after corrections is shown as a function of $\eta$ for \Zee electrons in data (blue) and simulation (red) in Figure \ref{fig:ecal_energy_resolution}. In the simulation, the ECAL conditions are set to reflect the status of the detector after collecteing an integrated luminosity of 25~\fbinv. A resolution of around 1.5\% is observed in data for low bremsstrahlung electrons ($\RNINE<0.94$) up to an $|\eta|=1$, rising to around 3\% towards the edge of the EB, and up to 4\% in the EE. High bremsstrahlung electrons have a worse resolution of about 2-3\% up to $|\eta|=1$, 3-4\% up to $|\eta|=1.44$, and up to 5\% in the EE\footnote{As electron and photons showers are practically indistinguishable, the photon energy resolution in \Hgg decays is approximately the same, with low bremsstrahlung electrons mapping to unconverted photons, and high bremsstrahlung electrons mapping to photons undergoing a conversion to $e^+e^-$ pairs in the tracker.}. The worse energy resolution in the EE compared to the EB is a direct consequence of the higher radiation dose in the forward region, which affects the crystal transparency.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/cms/zee_mass_bb.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/cms/zee_mass_ee.pdf}
+  \caption[Impact of the shower energy reconstruction]
+  {
+    Improvements to the ECAL energy reconstruction, illustrated using the invariant mass distribution of electron pairs from \Zee events. The left (right) plot shows electron pairs reconstructed in the EB (EE). The yellow histogram uses the simple energy sum over the $5\times5$ array of ECAL crystals. The green line uses the supercluster energy after applying the clustering algorithm, and the purple line in the EE plot also includes the energy deposited in the ES detectors. Finally, the blue histogram uses the energy after all corrections are applied, including the multivariate regression. The data shown was collected during the 2015 period. Figure is taken from Ref~\cite{CMS-DP-2015-057}.
+  }
+  \label{fig:shower_energy_reconstruction}
+\end{figure}
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/cms/2017_resolution_highR9.png}
+  \includegraphics[width=.49\textwidth]{Figures/cms/2017_resolution_lowR9.png}
+  \caption[ECAL energy resolution in 2017 data]
+  {
+    ECAL energy resolution as a function of $\eta$ for electrons from \Zee decays. Both the EB and EE are shown, separated by the transition region (shaded grey). The resolution is plotted for 2017 data after two calibrations: the blue points correspond to the full calibration where the all corrections are applied, whilst the black points represent a calibration in which only the time-dependent effects are corrected for. Also shown is the resolution for simulated \Zee events in red, where the simulation reflects the status of the ECAL after collected 25~\fbinv of data in 2017. The left plot corresponds to low bremsstrahlung electrons ($\RNINE>0.94$), and the right plot to high bremsstrahlung electrons ($\RNINE<0.94$), where the variable \RNINE is defined in table~\ref{tab:photon_variables}. Figure is taken from Ref~\cite{CMS-DP-2018-015}.
+  }
+  \label{fig:ecal_energy_resolution}
+\end{figure}
+
+\subsection{Hadronic calorimeter}\label{sec:cms_hcal}
+Quarks and gluons produced in the proton collisions hadronise in the detector, resulting in collimated sprays of particles known as jets. The CMS hadronic calorimeter (HCAL)~\cite{} is used to measure the position and energy of hadrons in jets. This is especially important for neutral hadrons which leave no track in the silicon tracker, and deposit little energy in the ECAL. Additionally, the HCAL is required for the reconstruction of the \met. The layout of the HCAL for one quarter of the CMS detector is displayed in Figure \ref{fig:cms_hcal}.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/cms/hcal.pdf}
+  \caption[The CMS hadronic calorimeter]
+  {
+    A schematic showing one quarter of the CMS detector. The dashed lines indicate lines of constant pseudorapidity. The locations of the HB, HO, HE and HF components of the HCAL are shown. Figure is taken from Ref.~\cite{}.
+  }
+  \label{fig:cms_hcal}
+\end{figure}
+
+The HCAL is a sampling calorimeter consisting of absorber plates made from brass or steel, interleaved with active layers of plastic scintillator. Hadrons traversing the HCAL, shower due to nuclear interactions. Light produced in the scintillator material from these showers is read out by wavelength-shifting plastic fibres, and is used to infer the energy of the incident hadron. It is important that the shower is fully contained to make an accurate measurement of the hadron energy. The HCAL is split up into four components:
+
+\begin{itemize}
+    \item The barrel (HB) has coverage up to $|\eta|=1.3$, and consists of 18 identical azimuthal wedges in both the $+z$ and $-z$ directions from the IP. The scintillator in each wedge is divided into 16 $\eta$-sectors, resulting in a spatial granularity of $\Delta\eta\times\Delta\phi=0.087\times0.087$. The HB is confined radially from the outer-edge of the EB at $r=1.77$~m to the inner-coil of the CMS solenoid magnet at $r=2.95$~m. This corresponds to a depth of between 5.8 and 10.6 nuclear interaction lengths ($\lambda_I$), increasing as a function of $\eta$. Here, $\lambda_I$ is a property of the material defined as the mean distance a hadron travels before undergoing an inelastic nuclear interaction.
+    \item To ensure hadronic showers in the central region are fully contained, an outer calorimeter (HO) is placed outside of the solenoid. This component treats the solenoidal coil as the absorber, and uses the same active scintillator as the HB, extending the minimum depth to 11.8~$\lambda_I$.
+    \item The endcap (HE) calorimeters cover the pseudorapidity range: $1.3<|\eta|<3$. They are designed to be particularly radiation-hard due to the increased particle flux at high $\eta$. The spatial granularity is equivalent to the HB for $|\eta|<1.6$, reducing to $\Delta\eta\times\Delta\phi=0.17\times0.17$ for higher pseudorapidities. In the HE, the minimum depth is 10$~\lambda_I$.
+    \item Additional forward calorimeters (HF) are placed 11.2~m from the IP, and extend the coverage up to $|\eta|=5.2$. The particle flux in this region is extremely high, resulting in a very hostile environment; at the design luminosity approximately 800~GeV per p-p collision is deposited in the two HF, compared to only 100~GeV across the rest of the detector. To withstand this extremely high radiation dose, steel-quartz fibres are chosen as the active material, encompassed by a steel absorber structure. Charged particles in the shower emit Cherenkov light in the fibres, which is read by photo-multiplier tubes. Ultimately, the HF are important for the measurement of forward jets, such as those produced in VBF production, and for making the overall HCAL structure as hermetic as possible for the \met reconstruction.
+\end{itemize}
+
+\subsection{Muon chambers}\label{sec:cms_muon}
+Muons traverse the CMS calorimeters with few interactions. A dedicated muon tracking system~\cite{} is positioned furthest from the IP, built into the steel return yoke structure outside the solenoid magnet. Using a combination of information from the innermost silicon tracker and the muon tracking system, CMS is able to accurately identify muons, infer their charge, and measure their energy with excellent resolution. The muon tracking system is comprised of three different gaseous particle detector technologies, where the layout is shown for one quarter of the CMS detector in figure~\ref{fig:cms_muon}. 
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.6\textwidth]{Figures/cms/muon.pdf}
+  \caption[The CMS hadronic calorimeter]
+  {
+    A schematic showing one quarter of the CMS detector. The dashed lines indicate lines of constant pseudorapidity. The locations of the DT, RPC and CSC of the muon tracking system are shown. Figure is taken from in Ref.~\cite{Chatrchyan:2012xi}.
+  }
+  \label{fig:cms_muon}
+\end{figure}
+
+Drift tube (DT) chambers are located in the barrel region, and detect muons for $|\eta|<1.2$, whilst cathode strip chambers (CPS) cover the pseudorapidity range $0.9<|\eta|<2.4$. Both are complimented by a system of resistive plate chambers (RPC) for $|\eta|<1.6$. All rely on gaseous detector technology. As a muon traverses the chamber it ionises gas molecules. The resulting ionisation electrons drift towards the detector's anode producing an electric signal. The choice of detector technology in each region is driven by the properties of the return magnetic field at that point, the rate of muons, and the level of neutron-induced background.
+
+Overall, muons with $p_T$ larger than a few GeV are identified with an efficiency of above 95\%; the corresponding misidentification rate is lower than 1\% for a loose selection and 0.1\% for a tight selection. The momentum resolution for muons with $20<p_T<100$~GeV is between 1.3 and 2.0\% in the barrel ($|\eta|<1.2$) and better than 6\% in the endcaps ($1.2<|\eta|<2.4$). Over this $p_T$ range, the momentum measurement is provided by the silicon tracker. For higher $p_T$ muons, the best momentum measurement is obtained using a combination of information from the silicon tracker and muon chambers, providing a resolution of better than 10\% up to 1~TeV.
+
+\subsection{Trigger}\label{sec:trigger}
+The CMS detector operates at a proton bunch crossing frequency of 40~MHz, where each event contains of the order 1~Mb of data~\cite{}. A two-tiered trigger system is implemented to manage this high collision rate, selecting only events of interest to be recorded. The Level-1 Trigger (L1T), composed of custom hardware processor boards, successfully reduces the output rate from 40~MHz to 100~kHz~\cite{}. This is compatible with the design read-out rate of the CMS sub-detector electronics~\cite{}. Selected events are then propagated to the software-based High-Level Trigger (HLT), where more sophisticated algorithms are applied using more detailed event information. The HLT further reduces the event rate to 1~kHz~\cite{}; an acceptable rate to be saved to disk. Crucially, this total reduction in the event rate by a factor of 40,000 is achieved whilst maintaining a high efficiency for the physics processes of interest.
+
+The event detail used in the L1T is limited by the design latency; it must be decided whether to keep or discard an event within a fixed time interval of 4~$\mu$s. As a result, the L1T decision is based on \textit{coarse} measurements of the energy deposited in the calorimeters and muon chambers, and it is currently not possible to use information from the tracker. Simple algorithms are applied to this coarse data, such as the energy sum in an array of ECAL crystals, to decide if the event contains a signature of interest. During the processing time, the full event information is stored in a buffer. Upon reception of a L1T \textit{accept signal}, this full information is read-out and passed to the HLT.
+
+The HLT decision is based on more granular event information, including measurements from the tracker~\cite{}. A single farm of around 1000 commercially-available processors is used, where simplified versions of the full offline reconstruction algorithms are applied to the events. If the event is deemed to be of interest, it is saved to disk and subsequently reconstructed using the full CMS software.
+
+\subsection{Summary}
+Figure \ref{fig:cms_interactions} illustrates how different objects produced in a p-p collision interact with the CMS detector. Clearly, it is the combination of the different sub-detectors that makes it possible to reconstruct the full range of final-state objects. The CMS approach to object reconstruction is detailed in the following section.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/CMS-PRF-14-001_Figure_001.pdf}
+  \caption[Particle interactions in the CMS detector]
+  {
+    A transverse slice of the CMS detector. The diagram illustrates the typical interactions of multiple final-state objects, produced at the interaction point (furthest left), with the various CMS sub-detectors. Charged particles, such as electrons, muons and charged hadrons, are deflected by the solenoidal field and leave hits in the silicon tracker. Electrons and photons create electromagnetic showers in the ECAL, whilst charged and neutral hadrons produce hadronic showers in the HCAL. Muons traverse through the detector, are deflected in the opposite direction by the return magnetic field, and leave hits in the muon chambers. Figure is taken from Ref.~\cite{Sirunyan:2017ulk}.
+  }
+  \label{fig:cms_interactions}
+\end{figure}
+
+\section{Object reconstruction: particle flow}\label{sec:particle_flow}
+CMS adopts a holistic approach to event reconstruction: the information from all subdetectors is correlated to identify each final-state particle, and the corresponding measurements are combined to reconstruct the particle properties based on this identification~\cite{Sirunyan:2017ulk}. The comprehensive list of final-state particles produced by the algorithm then enters physics analyses. This approach, referred to as the \textit{Particle-Flow} (PF) reconstruction, provides a global event description and offers unprecedented performance in terms of jet and \met reconstruction, and electron and muon identification. Furthermore, objects produced from pileup interactions can be identified efficiently, enabling powerful pileup mitigation.
+
+The basic elements of the PF reconstruction are \textit{tracks} in the silicon tracker and muon systems, and \textit{clusters} of energy in the ECAL and HCAL. Tracks are built using a combinatorial track finder algorithm~\cite{Chatrchyan:2014fea}, that proceeds in the following way:
+\begin{itemize}
+    \item An initial track candidate (seed) is identified as a few (2-3) hits in the tracker, from which the initial trajectory parameters and their corresponding uncertainties are calculated.
+    \item A Kalman filter~\cite{BILLOIR1990219} based track finder is applied: the expected flight path of a charged particle is extrapolated from the seed trajectory parameters, where additional hits along this path are assigned to the track candidate. Following this, a track-fitting module is used to calculate the trajectory parameters more precisely.
+    \item The track candidate is accepted or rejected based on a set of quality criteria.
+\end{itemize}
+\noindent
+This is repeated for six iterations, in a process referred to as \textit{iterative tracking}. The initial iterations locate the most prominent tracks, for example those with high $p_T$ and lying close to the IP. After each iteration, hits associated with a track are removed from the process, and the quality criteria for forming seeds and building tracks are relaxed. Subsequent iterations then locate a more difficult class of tracks with low $p_T$ and/or high displacement, in a less combinatorial-complex environment. Ultimately, this iterative procedure helps to increase the tracking efficiency, whilst keeping the misreconstructed track rate to a reasonable level. An additional procedure is used to build muon tracks from hits in the muon chambers~\cite{Chatrchyan:2012xi}.
+
+Clusters are built by collecting the energy deposits in the calorimeters using a dedicated clustering algorithm~\cite{Khachatryan:2015hwa}. The procedure is effectively the same for the ECAL and HCAL, but is introduced in the context of a photon shower in the ECAL here:
+\begin{itemize}
+    \item A seed crystal is identified as a local energy maximum, above a given energy threshold.
+    \item Clusters are built iteratively around the seed. This is done by aggregating crystals which share at least one corner in common with a crystal already in the cluster, and have an energy in excess of twice the noise level of the ECAL.
+    \item If a given crystal can belong to multiple clusters, the crystal energy is shared between them assuming a Gaussian shower profile.
+    \item Photons that convert to $e^+e^-$ pairs in the tracker, typically have a wider shower profile. This results from the bending of the electrons/positrons in the solenoidal field, which radiate bremsstrahlung photons and thus deposit energy over a wide azimuthal ($\phi$) range. Superclusters (SC) are built by merging together clusters. This ensures good containment of the electromagnetic shower for converting photons. The spatial position of the SC ($\eta$,$\phi$) is defined as the logarithmic energy-weighted average position of the individual crystals. The SC energy reconstruction was previously discussed in section \ref{sec:cms_ecal}.
+\end{itemize}
+\noindent
+The procedure for reconstructing photon and electron showers in the ECAL is identical. This is an important feature of the \Hgg analysis described in chapters \ref{chap:hgg_overview}-\ref{chap:hgg_results}, as it allows the use of \Zee events for the photon energy calibration and for the validation of numerous multivariate algorithms.
+
+A given final-state particle can give rise to several tracks and clusters in the various CMS subdetectors. The dedicated \textit{link algorithm} is applied to connect these basic PF elements and output a PF candidate from the following classes:
+\begin{itemize}
+    \item \textbf{Muons}: identified as a track in the muon chambers linked to a track in the tracker. Energy is calculated from the track curvature.
+    \item \textbf{Electrons}: identified as an ECAL SC linked to a track in the tracker. Energy is calculated from a combination of the track curvature and the SC energy. 
+    \item \textbf{Photons}: identified as an ECAL SC with no associated track in the tracker. Energy is calculated from the SC energy only.
+    \item \textbf{Neutral hadrons}: identified as linked clusters in the ECAL and HCAL, with no associated track in the tracker. Energy is calculated as the sum of cluster energies.
+    \item \textbf{Charged hadrons}: identified as linked clusters in the ECAL, HCAL, and a track in the tracker. Energy is calculated from a combination of the track curvature and the sum of cluster energies.
+\end{itemize}
+\noindent
+Collections of PF candidates are then used in CMS physics analyses. Chapter \ref{chap:hgg_overview} details how they are used in the \Hgg analysis
+
+\section{Monte Carlo generators}\label{sec:mc}
+Goal of experiment is ultimately to use observations to infer something about parameters of model Lagrangian (either SM or BSM) e.g. couplings via cross sections or masses. Likelihood of observing events, where each event characterised by vector of observables of final state particles, as function of model parameters, $\theta$.
+
+Likelihood equation, what different terms mean, model parameters to $z_p$ (hard interaction), hadronisation and shower history of each particle, billions of detector channels. Means Integral is intractable, impossible over huge space. Need method to approximate this integral: Use chain of MC simulators: use simulation to sample hypothetical observations based on model parameters. Compare this to observed data to extract information/constraints on parameters.
+
+\begin{itemize}
+    \item Figure: illustration of MC chain
+\end{itemize}
+
+Where used in this thesis: Trilinear, SM simulation in \Hgg stuff. Also for derivation of EFT parametrisation in section X. Purpose of this section is to introduce some features of the MC which will help reader understand future chapters.
+
+\begin{itemize}
+    \item Hard interaction: parton level, change parameters and features of lagrangian
+    \item Renormalisation and factorisation scales
+    \item Parton distribution function
+    \item Matrix element order: calculations are done up to some order. Diagrams enter at which order in perturbation theory. Uncertainty from doing up to finite order, depending on $\mu_R$ and $\mu_F$.
+    \item Parton showering and hadronisation + underlying event
+    \item Jets: matching and merging, clustering algorithm anti-$k_T$
+    \item Detector simulation: truth vs reconstruction level
+    \item Different generators: most common madgrpah + pythia. Also powheg + sherpa.
+\end{itemize}
+
+\newpage
+\section{The High-Luminosity LHC}
+The obvious means for improving precision measurements is to take more data. Run 2 of the LHC finished in 2018, delivering p-p collisions at $\sqrt{s}=13$~TeV and reaching a maximum instantaneous luminosity of around $2\times10^{34}$~\lumi. After a shutdown period for upgrades and maintenance, Run 3 is expected to commence in 2022 and finish in 2024. Here, the LHC machine will operate with an instantaneous luminosity of $2\times10^{34}$~\lumi over the full data-taking period, at $\sqrt{s}=13$ or $14$~TeV. By the end of Run 3, over $\mathcal{L}=300$~\fbinv of p-p collision data will have been collected by the CMS experiment.
+
+Since the statistical uncertainty in a measurement scales according to $1/\sqrt{\mathcal{L}}$, simply operating with the same beam conditions beyond Run 3 is not particularly interesting; the machine would have to run for many years to see a worthwhile improvement in the precision. A future operation of the LHC machine, referred to as the High-Luminosity LHC (HL-LHC)~\cite{}, will upgrade the LHC beam and therefore maximise the physics potential. During this phase, proton bunches will be collided at $\sqrt{s}=14$~TeV, with a nominal instantaneous luminosity of $5\times10^{34}$~\lumi, rising to as high as $7.5\times10^{34}$~\lumi towards the end of operation. Scheduled to begin in 2027, this means by the mid-2030s an integrated luminosity of around 3000~\fbinv (3~\abinv) will be available for physics analysis. Not only will this dramatically reduce the statistical uncertainty in existing measurements, but it will also open the door for new measurements and analyses that are not possible with a limited dataset. One such example is provided in section \ref{sec:trilinear}, looking at the potential of constraining the Higgs boson self coupling using ttH~+~tH differential measurements.
+
+Unfortunately, the increase in the instantaneous luminosity comes at a price. At the HL-LHC, the mean pileup per bunch crossing is expected to be as high as 200. This poses a major challenge both in terms of the higher radiation levels delivered to the LHC experiments, and the ability to trigger on and reconstruct physics objects of interest in a high pileup environment. As a result, all LHC experiments will undergo major upgrade programmes to accommodate the HL-LHC conditions. The operation of the CMS detector during the HL-LHC is referred to as CMS Phase-2. For this operation, the CMS experiment will not only replace the existing parts of the detector with high levels of radiation damage, but will improve the functionality of these parts in terms of the radiation hardness and the granularity~\cite{}. Amongst the numerous upgrades, two of the most substantial developments are with respect to the L1T and the endcap calorimeters~\cite{}.
+
+The design latency of the CMS Phase-2 L1T will be extended to 12.5~$\mu$s. This enables the use of more granular information from the various subdectors in the trigger decision including, for the first time, hits in the inner tracker. Advances in Field Programmable Gate Array (FPGA) technology~\cite{}  will also facilitate more complex algorithms at the L1T stage, including the application of a PF-like algorithm to link the various subdetectors, as well as machine learning (ML) algorithms such as Boosted Decision Trees (BDTs). Furthermore, the combined improvements in the front-end electronics and the data acquisition (DAQ) system~\cite{} allow the maximum output event rate of the L1T to be increased to 500~kHz. All in all, these upgrades are crucial for maintaining an excellent trigger efficiency in a high pilueup environment.
+
+By the end of Run 3, the CMS endcap calorimeters will be significantly radiation damaged, such that their performance will be substantially reduced. For Phase-2, the ECAL and HCAL endcaps will be completely replaced by a single subdetector, known as the High Granularity Calorimeter (HGCAL), which will have both electromagnetic and hadronic components. The HGCAL will exhibit a fine segmentation in both the transverse and longitudinal directions, as well as timing capabilities, to enable the precise reconstruction of both electromagnetic and hadronic showers in four dimensions. This is an extremely exciting prospect for studying physics processes in the forward region, such as reactions initiated by vector boson fusion (VBF) and those with highly boosted objects.
+
+\subsection{The High Granularity Calorimeter}\label{sec:hgcal}
+The design of the HGCAL~\cite{} is driven mainly by the need to be radiation tolerant and maintain a good energy resolution over the full lifetime of the HL-LHC project, as well as exhibiting sufficient granularity to perform calorimetry in the forward region; a schematic of this design is provided in Figure~\ref{fig:cms_hgcal}. It will cover the pseudorapidity region: $1.5<\eta<3$, and  consist of an electromagnetic compartment (CE-E), followed by a hadronic compartment (CE-H). The design is comprised mainly of silicon detector technology, which has been shown to withstand and perform well in the high particle-flux environment. This is supplemented with plastic scintillator tiles towards the rear of the detector, where the scintillation light is read out by silicon photo-multiplier tubes. The active material of the detector is interleaved with layers of lead and stainless steel absorber, which increases the effective depth of the calorimeter and thus provides good containment of the particle showers.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/hgcal.pdf}
+  \caption[Longitudinal structure of the High-Granularity Calorimeter]
+  {
+    Longitudinal structure of the HGCAL. The electromagnetic compartment (CE-E) consists of 28 sampling layers, interleaved with hexagonal silicon sensors (green). The total depth of the CE-E is 26 radiation lengths ($X_0$) and 1.7 nuclear interaction lengths ($\lambda_I$). The hadronic compartment (CE-H) is formed of 24 sampling layers, with an increased thickness for the rear 12 layers. The active material in this region is composed of silicon sensors (green) and plastic scintillator (blue), for the region of the detector with lower levels of radiation. The CE-H extends the total depth of the HGCAL to 10.7~$\lambda_I$. In front of the CE-E lies the endcap timing layer (TE, purple) which aids in the mitigation of pileup, and a polythene neutron moderator (PM) layer to reduce the neutron flux in the CE-E. Figure has been adapted from that shown in Ref.~\cite{}.
+  }
+  \label{fig:cms_hgcal}
+\end{figure}
+
+The HGCAL will feature unprecedented transverse and longitudinal segmentation. Both the silicon sensors and the plastic scintillator tiles will be highly segmented, with a size of $\approx0.5-1$~cm$^{\rm{2}}$ and $\approx4-30$~cm$^{\rm{2}}$, respectively. Coupling this property, with the fact that the highly dense material in the HGCAL leads to laterally compact showers, enables excellent shower separation. Moreover, fine lateral granularity limits the region used for the shower energy measurement and thus minimises the energy enhancement from particles originating in pileup interactions. The longitudinal segmentation of 28 layers in the CE-E and 24 layers in the CE-H provides a handle on the longitudinal development of a particle  shower. This capability, which is not possible in the current CMS calorimeters, improves the electromagnetic energy resolution, enables pattern recognition, and helps to mitigate showers originating from pileup. Finally, the intrinsic timing capabilities of the silicon sensors means that each energy deposit can be given a precise time stamp. This timing information is especially useful for pileup rejection, identification of the interaction vertex, and for the PF reconstruction.
+
+% All of these attributes make the HGCAL an extremely powerful component for the CMS Phase-2 physics programme. Being in the forward region, the HGCAL will be key for triggering and reconstructing processes initiated by Vector Boson Fusion (VBF) and those including highly-boosted objects. The superb shower separation and pattern recognition capabilities will help identify narrow jets (e.g. from $\tau$'s) or merged jets (e.g. from the hadronic decays of boosted W and Z bosons). Finish physics goals!
+
+An extra design requirement of the HGCAL is the ability to contribute to the L1T decision.
+%, particularly for the signatures of the aforementioned processes of interest. 
+As introduced in the previous section, advances in FPGA technology enables the application of more complex and powerful algorithms at the L1T stage. The remainder of this section is dedicated to a machine learning (ML) algorithm designed to differentiate electrons and photons from jets in the HGCAL L1T. Before going into the specific details, a general introduction to ML algorithms is provided, which become a recurrent tool in the \Hgg analysis described in Chapter~\ref{chap:hgg_overview}.
+
+\subsection{ML algorithms}
+The field of machine learning (ML) concerns developing sophisticated algorithms with the ability to \textit{learn} from data, and subsequently apply the learnt information to solve complex problems~\cite{}. A generic ML problem can be formulated as follows. The data are expressed as a vector space of dimension $m$: $X = \mathbb{R}^m$, where each dimension corresponds to an observable quantity referred to as a \textit{feature}. An element of the data set, for example an event in a event classification task or a SC in an energy regression task, corresponds to a single feature vector, $\vec{x} \in X$. The full data set of $N$ elements is defined by the set of feature vectors, $\vec{x}_i$, where $i=1,...,N$. The purpose of the ML algorithm is to develop a model,
+
+\begin{equation}
+    f(\vec{x}\,|\,\vec{w}) \rightarrow Y,
+\end{equation}
+
+\noindent
+to \textit{predict an outcome}, $Y$, based on the feature vector, $\vec{x}$, given a set of model parameters, $\vec{w}$. We can identify two main types of ML algorithm based on the form of the predicted outcome:
+
+\begin{itemize}
+    \item A \textit{classification task} equates to predicting one of $k$ possible \textit{output classes}: $f(\vec{x}\,|\,\vec{w})\rightarrow y$, where $y\in \{1,...,k\}$. The obvious example here is a binary signal-vs-background event classifier, which aims to predict if an event looks signal-like or background-like based on a set of kinematic features. Many classification algorithms are introduced throughout this thesis, including the HGCAL L1T algorithm introduced in the following section.
+    
+    \item A \textit{regression task} equates to predicting a quantitative outcome, or in other words a continuous value: $f(\vec{x}\,|\,\vec{w})\rightarrow y$, where $y\in \mathbb{R}$. An example in this thesis is the SC energy regression described in section \ref{sec:photon_reconstruction}, where the regressor predicts the true energy of the SC (and its uncertainty) using a combination of shower shape, seed crystal, and pileup-related features.
+\end{itemize}
+
+There are two stages when developing an ML algorithm. The learning process is referred to as \textit{training} the model, where the values of the model parameters, $\vec{w}$, are optimised to maximise the performance. Following this, the performance of the model is evaluated using so-far unseen data; this is referred to as the \textit{testing} stage.
+
+A loss function, $L$, is constructed to measure the performance of the model, $f$, for a given set of input features, $\vec{x}$:
+\begin{equation}
+    L[\,f(\vec{x}\,|\,\vec{w})\,] \rightarrow \mathbb{R}.
+\end{equation}
+\noindent
+\textit{Supervised} learning algorithms refer to the case where the target values, $y$, are known for each element of the training data set, $\vec{x}$. In this case, the loss function is constructed to minimise the discrepancy between the true and estimated values of the outcome, $y$. An additional class of algorithms where the target values are not known are referred to as \textit{unsupervised} learning algorithms~\cite{}; these do not feature in this thesis and are therefore not described further. Learning effectively corresponds to reducing the value of $L$ by optimising the parameters, $\vec{w}$. In practice, for most ML algorithms this consists of some gradient based optimisation, where one descents the gradient of $L$ with respect to $\vec{w}$ in order to find the minimum,
+\begin{equation}\label{eq:loss_minimum}
+    \vec{\nabla}_{\vec{w}}\,L = 0.
+\end{equation}
+\noindent
+It is often not viable to evaluate this expression over the entire training dataset, especially in the case of large statistics with a high number of input features (dimensionality). A number of powerful optimisation algorithms have been developed to combat this~\cite{}. These typically involve calculating the gradient for small batches of training data and optimising $\vec{w}$ iteratively~\cite{}, and extending this with the concept of \textit{momentum}, where the update to the parameter vector, $\vec{w}$, depends on the size of the gradient at that point~\cite{}.
+
+Crucially, it is not sufficient to simply find the configuration of $\vec{w}$ which minimises the loss for the training data set. In addition, the model is also required to generalise to new data~\cite{}. Therefore, the performance is evaluated on an independent test set, which is chosen to be representative of the whole data set. If the performance is significantly degraded for the test set, then the model is said to have \textit{over-trained} and has become specific to properties of the training set. One approach to controlling the level of over-training is to introduce regularisation terms into the loss function~\cite{}.
+
+A large variety of ML algorithms are used in high energy physics. In this thesis, the most commonly used is the Boosted Decision Tree (BDT) algorithm~\cite{}, which is described in the remainder of this section. Neural networks are also used for discriminating between the ttH and tH production modes in the \Hgg event classification (section \ref{sec:event_categorisation}), as well as for identifying jets originating from the decay of b quarks (section \ref{sec:hgg_otherobjects}); further detail concerning neural networks can be found in Refs.~\cite{}-\cite{}.
+
+BDTs are an example of \textit{ensembling}, where multiple models are trained (base learners) and combined in some way to improve the overall performance of the algorithm. The base learners in this case are Decision Trees (DT)~\cite{}, which are built according to the following procedure:
+
+\begin{itemize}
+    \item The feature space is partitioned into regions according to some selection (cut) on one or more of the input features. The choice and position of the cut is optimised according to a measure of purity for classification tasks, or a loss function such as the mean-squared error for regression tasks.
+    
+    \item This partitioning is repeated in each region, creating further subregions based on a new, optimised selection cut.
+    
+    \item The procedure terminates when a stopping criterion is reached. This can either be due to a predefined \textit{max depth} (maximum number of splittings), or when a particular value of the splitting quantity (e.g. purity) has been reached. The final regions of the feature space that are not further split are referred to as \textit{leaves}. Each leaf is assigned an output value according to the data points in that region: for classification, this is the most common output class; for regression, this is the mean of the data values.
+    
+    \item DTs are regularised by \textit{pruning} branches which use unimportant features and give no performance improvement. This help mitigate over-training.
+\end{itemize}
+
+An ensemble of DTs is then constructed using a \textit{boosting algorithm}~\cite{}. Here, multiple DTs are trained in succession, where each iteration aims to improve upon the weaknesses of the previous base learners. The final ensemble (BDT) is defined as a weighted linear combination of the individual DTs, $f_j(\vec{x}\,|\,\vec{w}_j)$, with corresponding selection cuts, $\vec{w}_j$, according to,
+\begin{equation}
+    F(\vec{x}\,|\,\vec{\gamma},\vec{w}) = \sum^{N_{\rm{DT}}}_j \gamma_j \cdot f_j(\vec{x}\,|\,\vec{w}_j).
+\end{equation}
+\noindent
+The set of coefficients, $\vec{\gamma} = (\gamma_1,...,\gamma_{N_{\rm{DT}}})$, are determined by the boosting algorithm. Building an ensemble, $F$, in this way produces a more powerful predictor and helps to overcome the disadvantages of individual DTs~\cite{}. One important consequence for classification tasks is the BDT outputs are no longer restricted to discrete values, but become continuous variables representing the output class probabilities. For a binary signal-vs-background classifier, a value close to 1 corresponds to a signal-like event, whereas a value close to -1 corresponds to a background-like event. Selection criteria on these so-called \textit{output scores} are a common feature of the \Hgg analysis in chapter \ref{chap:hgg_overview}. 
+
+\subsection{Electron and photon identification in the HGCAL L1T}
+The high granularity of the HGCAL enables electromagnetic showers originating from single electrons or photons ($e/\gamma$) to be resolved, even in the very high occupancy environment of the HL-LHC. To successfully reconstruct events containing such objects, it is necessary to correctly identify $e/\gamma$ showers at the L1T decision stage. This section investigates the application of a BDT to distinguish $e/\gamma$ candidates (signal) from pileup-induced clusters (background) in the HGCAL L1T. For the studies, dedicated MC simulation samples are used which correspond to collisions in the CMS Phase-2 detector with a centre-of-mass energy of $\sqrt{s}=14$~TeV and an average of 200 pileup interactions per event.
+
+Despite the increased total latency of the CMS Phase-2 L1T allowing HGCAL information to be used, it is not possible to read out the data with full granularity. To reduce the data, only alternate layers in the CE-E are used, and neighbouring silicon sensors (scintillator tiles) are summed into so-called \textit{trigger cells} with a granularity of approximately 4~cm$^{\rm{2}}$ (16-100~cm$^{\rm{2}}$). Additionally, a reasonably tight energy threshold is placed on the trigger cells and no timing information is stored. A clustering algorithm~\cite{CERN-LHCC-2020-004} is applied to the selected trigger cells, which (in a similar fashion to the algorithm described in section \ref{sec:particle_flow}) first seeds the clusters and then builds topological clusters around these identified seeds. The resulting 3D clusters form the collection of HGCAL \textit{trigger primitives}, on which the L1T decision is based. Even with the data reduction techniques, the trigger primitives contain sufficient information regarding the 3D development of the particle shower to efficiently identify $e/\gamma$ candidates and reject clusters originating from pileup.
+
+The \textsc{XGBoost} software package~\cite{10.1145/2939672.2939785} is used for BDT training, where the input data are simulated HGCAL trigger primitives (3D clusters). Input features ($\vec{x}$) are the five longitudinal and four lateral shower shape variables listed in table~\ref{tab:egid_features}. The energy weighted RMS features are defined for generic trigger cell co-ordinate, $p$, as,
+\begin{equation}
+    {\rm{Weighted}\,\,\rm{RMS}}(p) = \sqrt{\frac{1}{E_{\rm{tot}}}\sum^{N_{\rm{tc}}}_{i} E_i (p_i-\langle p \rangle)^2}\,
+\end{equation}
+\noindent
+where the sum is over a collection of trigger cells, each with energy, $E_i$, and co-ordinate, $p_i$. The quantity $\langle p \rangle$ is the energy weighted mean of $p$ over the whole collection, whilst $E_{tot}=\sum^{N_{\rm{tc}}}_iE_i$. Features of this type give an indication of the shower spread in the $p$ co-ordinate direction.
+
+In the training, signal clusters are identified as those consistent with originating from a generator-level electron of $p_T > 20$~GeV\footnote{This is done by requiring the reconstructed cluster to be within an angular separation of $\Delta R<0.2$ with a generator-level electron.}, where the cluster is required to pass a minimum $p_T$ threshold of 10~GeV. Note, only electron clusters are required for training the $e/\gamma$ identifier since both photon and electron showers have almost identical features in the HGCAL. Background clusters (pileup) are all clusters with $p_T>20$~GeV that are not matched to a generator level electron. 
+
+\begin{table}[htb!]
+    \caption[HGCAL L1T $e/\gamma$ identification BDT input features]{Input features to the HGCAL L1T $e/\gamma$ identification BDT.}
+    \label{tab:egid_features}
+    % \vspace{.5cm}
+    \centering
+    \scriptsize
+    \renewcommand{\arraystretch}{2}
+    \hspace*{-1.5cm}
+    \input{Tables/cms/egid_features}
+    \hspace*{-1.5cm}
+\end{table}
+
+Two separate BDTs are trained in the pseudorapidity regions, $1.5<|\eta|<2.7$ and $2.7<|\eta|<3.0$, to account for the fact that the $e/\gamma$ shower shape features evolve rapidly as a function of $\eta$. This improves the overall background rejection with respect to training a single BDT inclusive in $\eta$, particularly in the high $|\eta|$ region. Figure~\ref{fig:egid_features} shows the Max layer (longitudinal) and Weighted RMS($\eta$) (lateral) distributions for signal and background clusters in each $\eta$ region. Both features show good discriminating power. The Max layer distribution demonstrates that most $e/\gamma$ showers deposit their maximum energy in the CE-E compartment (first 28 layers, where only alternate layers contribute to the trigger primitive), whilst clusters originating from pileup are more likely to deposit their maximum energy in the CE-H compartment (back 24 layers). The distributions of all input features are shown in Appendix~\ref{app:egid_features}.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/cms/egid/cl3d_maxlayer.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/cms/egid/cl3d_seetot.pdf}
+  \caption[$e/\gamma$ identification input feature distributions]
+  {
+    The Max layer (left) and Weighted RMS($\eta$) (right) distributions for signal and background clusters, separated into the two pseudorapidity regions.
+  }
+  \label{fig:egid_features}
+\end{figure}
+
+\subsubsection{Performance}
+The \textit{output score} distributions of the two BDTs are shown for signal and background clusters in Figure~\ref{fig:egid_output}; the scores are effectively a measure of how signal-like (1) or background-like (-1) the clusters are based on the input shower shape features, $\vec{x}$. 
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/cms/egid/cl3d_bdt_electron_200PU_vs_neutrino_200PU_full_lo.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/cms/egid/cl3d_bdt_electron_200PU_vs_neutrino_200PU_full_hi.pdf}
+  \caption[$e/\gamma$ identification output score distributions]
+  {
+    BDT output score distributions for signal and background clusters. The BDT trained in the low $|\eta|$ region ($1.5<|\eta|<2.7$) and the BDT trained in the high $|\eta|$ region ($2.7<|\eta|<3.0$) are shown in the left and right plots, respectively. The outputs show excellent discrimination between signal and background clusters.
+  }
+  \label{fig:egid_output}
+\end{figure}
+
+The performance of the classifier is evaluated using the area under the receiver operating characteristic (ROC) curve~\cite{roc}. Each point in the ROC curve corresponds to the signal efficiency and background rejection evaluated at a given threshold on the BDT output score. Here, the signal efficiency is defined as the fraction of generator-matched electron clusters above the BDT output score threshold, whilst the background rejection is defined as the fraction of pileup clusters rejected at the same threshold. The ROC curves, evaluated using an independent test sample, are shown for both BDTs in Figure~\ref{fig:egid_roc}. The performance is shown to be slightly better for the low $\eta$ region. 
+
+\begin{figure}[htb!]
+  \centering
+%   \includegraphics[width=.45\textwidth]{Figures/hgg_overview/money_run2_EbEb_inclusive.pdf}
+  \includegraphics[width=.7\textwidth]{Figures/cms/egid/ROC.pdf}
+  \caption[$e/\gamma$ identification ROC curve]
+  {
+    ROC curves for the $e/\gamma$ identification BDTs, trained in the low $|\eta|$ region ($1.5<|\eta|<2.7$, green) and the high $|\eta|$ region ($2.7<|\eta|<3.0$, blue).
+  }
+  \label{fig:egid_roc}
+\end{figure}
+
+Baseline thresholds on the output scores (working points) are chosen for an inclusive signal efficiency of 97.5\% in the $1.5<|\eta|<2.7$ region and 90.0\% in the $2.7<|\eta|<3.0$ region. These correspond to background rejections of 96.7\% and 97.3\%, respectively. The tighter working point for high $|\eta|$ is chosen to combat the increased levels of pileup in this region. Ultimately, the excellent discriminating power is a result of the highly segmented design of the HGCAL, which provides a powerful handle on the lateral and longitudinal development of particle showers.
+
+The trigger efficiency of the algorithm is shown as a function of the generator level electron $p_T$ and $|\eta|$ in Figure~\ref{fig:egid_efficiency}. This efficiency is defined as the fraction of generator level electrons with $p_T>30$~GeV that:
+\begin{itemize}
+    \item have a matching trigger primitive cluster separated by an angle $\Delta R<0.2$ with respect to the generator level electron, where the cluster is required to have a reconstructed $p_T>20$~GeV \textit{and} pass the aforementioned working points on the $e/\gamma$ identification BDT.
+\end{itemize}
+\noindent
+In the plots, the grey lines indicate the fraction of electrons with a matching cluster; this is practically 100\% for all pseudorapidity bins, except the two at the HGCAL edges where the electron can fall outside of acceptance. The blue lines then indicate the efficiency after applying the $e/\gamma$ identification working points. It is shown to increase as a function of electron $p_T$, rising from 94\% at $p_T=30$~GeV to around 99\% for $p_T=100$~GeV. Also, the efficiency is shown to decrease with increasing electron $|\eta|$, barring the first pseudorapidity bin. This is especially noticeable in the high $|\eta|$ region ($2.7<|\eta|<3.0$) where a tighter working point is applied on the BDT output score.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/cms/egid/eff_vs_cl3d_gen_pt.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/cms/egid/eff_vs_cl3d_gen_eta.pdf}
+  \caption[Efficiency of the $e/\gamma$ identification as a function of electron $p_T$ and $\eta$.]
+  {
+    Trigger efficiency as a function of the generator level electron $p_T$ (left) and $\eta$ (right). The grey lines indicate the fraction of electrons that contain a matching cluster with reconstructed $p_T>20$~GeV, and $\Delta R<0.2$. The blue lines indicate the fraction of those electrons where the cluster passes the $e/\gamma$ identification working points.
+  }
+  \label{fig:egid_efficiency}
+\end{figure}
+
+Clusters passing the $e/\gamma$ identification BDT working point are subsequently promoted to calorimeter-only $e/\gamma$ candidates. The energy of the candidate is reconstructed and corrected to recover radiative losses from bremsstrahlung Candidates in the acceptance region of the tracker ($|\eta|<2.4$) are combined with track finder trigger primitives to build track-matched objects for electrons and isolated showers (without a matching track) for photons. The objects then enter the L1T decision process, where an \textit{accept signal} is sent to the detector read-out electronics if the event is deemed to be of interest~\cite{CERN-LHCC-2020-004}.
+
+The BDT algorithm described in this section was developed in offline software. In practice, the L1T operates in real time during data-taking (online) and therefore the algorithm must be implemented in firmware. Recent advances in FPGA technology have enabled the implementation of this particular $e/\gamma$ identification algorithm in firmware, using the \textsc{hls4ml} library~\cite{Duarte_2018}. Crucially, when developing such algorithms it is essential that the resources needed for running are consistent with the design constraints of the Phase-2 L1T. Studies looking at more complex algorithms for the $e/\gamma$ identification, such as neural networks, have been discussed. To be successful, it must be feasible to implement these algorithms in firmware, and the resources needed for running must be compatible with the constraints of the CMS Phase-2 L1T architecture.
+
+\subsection{Higgs boson physics reach at the HL-LHC}\label{sec:trilinear}
+The HL-LHC offers a wide and diverse physics programme over the coming decades~\cite{Atlas:2019qfx,Bediaga:2018lhg}. In particular, the potential gains from using the HL-LHC dataset for Higgs boson physics are striking~\cite{Cepeda:2019klc}. For example, the combination of future ATLAS and CMS measurements with 3~\abinv of p-p collision data is expected to achieve uncertainties $\mathcal{O}(1.5$--$2.5\%)$ in the Higgs boson couplings to vector bosons, and $\mathcal{O}(2$--$4\%)$ in the Higgs boson couplings to third generation fermions; where the dominant component of the uncertainties in all cases arises from the theoretical prediction. In comparison, the current best measurements from the CMS experiment alone are $\mathcal{O}(8$--$11\%)$ and $\mathcal{O}(10$--$17\%)$, respectively~\cite{Sirunyan:2020two}. Moreover, the increased dataset will enable more differential measurements, probing increasingly granular regions of the Higgs boson phase space, and will shed light on rarer Higgs boson interactions including the Higgs boson couplings to second generation fermions and the Higgs boson self-coupling. Altogether, the Higgs boson physics programme at the HL-LHC will go a long way towards elucidating the origins of electroweak symmetry breaking.
+
+The analysis described in this section extracts the expected sensitivity of differential $p^H_T$ cross section measurements for Higgs boson production in association with at least one top quark, with the Higgs boson decaying to photons (ttH~+~tH, \Hgg), using the CMS Phase-2 detector at the HL-LHC~\cite{CMS-PAS-FTR-18-020}. It is important to keep in mind that the observation of the ttH production mode was only made in 2018~\cite{Sirunyan:2018hoz,Aaboud:2018urx}. The results presented here show that by the mid-2030s, we will be able to measure this production mode \textit{differentially}, demonstrating impressive sensitivity ($\mathcal{O}(15$--$40\%)$ uncertainties in different $p_T^H$ bins) in a single Higgs boson decay channel. Furthermore, these measurements can be used to indirectly constrain the trilinear Higgs boson self-coupling ($\lambda_3$). Variations in $\kappa_\lambda = \lambda_3/\lambda_3^{\rm{SM}}$ from unity affects the values of the differential cross sections due to NLO corrections in electroweak theory. The expected constraints on $\lambda_3$ from this indirect approach are determined. Before embarking on the detail, it may benefit the reader to become familiar with the concepts of the \Hgg analysis in chapters~\ref{chap:hgg_overview} and \ref{chap:hgg_stats}, namely the event selection and categorisation, and the results extraction. Nevertheless, since the analysis is a sensitivity projection study for the HL-LHC, it is described here.
+
+\subsubsection{Top-associated differential $p_T^H$ cross sections}
+Signal and background events are simulated with $\sqrt{s}=14$~TeV using a combination of the \textsc{MG5\_aMC@NLO} (version 2.2.2)~\cite{Alwall:2014hca}, \textsc{Powheg} (version 2.0)~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2008tz,Nason:2009ai,Alioli:2010xd,Hartanto:2015uka}, and \textsc{sherpa} (version 2.2.5)~\cite{Gleisberg:2008ta} generators, interfaced with \textsc{Pythia8} (version 8.205)~\cite{Sjostrand:2014zea} for parton showering and hadronisation. The events are subsequently propagated through the \textsc{delphes} framework~\cite{deFavereau:2013fsa} to perform a \textit{fast simulation} of the CMS Phase-2 detector response under HL-LHC conditions. This works by parametrising the detector efficiency and resolution of the various upgraded Phase-2 subdetectors as a function of the different final-state objects properties (e.g. $p_T$, $\eta$), where the exact form of these parametrisations are derived using detailed simulations~\cite{Contardo:2020886}. The outputs of \textsc{delphes} are then collections of jets, $b$ tagged jets, photons, charged leptons and \met for each generator-level event, which approximately match the expected performance of the CMS Phase-2 detector. All samples are normalised to the expected yields at an integrated luminosity of 3~\abinv.
+
+The event selection adopts a similar strategy to the \Hgg analysis described in chapter~\ref{chap:hgg_overview}. Each event is required to contain two photons with $|\eta^\gamma|<2.5$, excluding the barrel-endcap transition region ($1.44<|\eta^\gamma|<1.57$), with a diphoton invariant mass satisfying $100<m_{\gamma\gamma}<180$~GeV. The leading (sub-leading) photon is also required to have $p^\gamma_T/m_{\gamma\gamma}>1/3$~($1/4$). Additionally, the two photons are required to have an angular separation, $\Delta R_{\gamma\gamma}>0.4$, and each photon must satisfy an isolation requirement which demands the sum of charged particle $p_T$ in a cone of radius $\Delta R_{\gamma}=0.4$, centred on the photon direction, is less than 30\% of the photon $p_T^\gamma$. For events with multiple photon pairs passing this selection, the pair with \mgg closest to the Higgs boson mass are chosen.
+
+Top quarks almost always decay to a W boson and a bottom quark. Therefore, to isolate events consistent with Higgs boson production in association with top quarks, all events are required to contain at least one b tagged jet (see section \ref{sec:hgg_otherobjects}). Events are then separated into two orthogonal categories depending on the decay products of the W boson: a hadronic category (W$\rightarrow$qq) and a leptonic category (W$\rightarrow\ell\nu$). In the hadronic category, events are required to contain at least three jets, clustered using the anti-$k_T$ algorithm~\cite{} with a distance parameter of $\Delta R=0.4$, where each jet must satisfy $p_T^j>30$~GeV and $|\eta^j|<4$, and be separated by $\Delta R_{j\gamma}>0.4$ with respect to both photon candidates. The leptonic category requires at least two jets, in addition to at least one isolated muon or electron. The muon or electron must satisfy $p_T^\ell>20$~GeV and $|\eta^\ell|<2.4$, excluding the barrel-endcap transition region for electrons. Muons are required to pass an isolation criteria, such that the sum of all particles $p_T$ in a cone of radius $\Delta R_{\mu}=0.4$, centred on the muon direction, is less than 25\% of the muon $p_T^\mu$. For electrons, the invariant mass of pairs formed from the electron and either photon, $m_{e\gamma}$, is required to be greater than 5~GeV from the Z boson mass to reduce the contamination from \Zee decays. Events passing the leptonic selection are excluded from the hadronic selection to ensure the two categories are orthogonal.
+
+To improve the signal-vs-background discrimination, a BDT is trained independently for each category using events passing the aforementioned selection criteria. The input features ($\vec{x}$) are the photon, jet and lepton $p_T$ and $\eta$ values, the photon isolation variables, the \met, the scalar sum of all final state objects $p_T$ (mitigating the effects of pileup), the azimuthal separation between the photon pair and the closest jet/leading lepton, and the total number of jets, b tagged jets, and leptons in the event. The BDT output score distributions for the hadronic and leptonic categories are shown in Figure~\ref{fig:trilinear_bdt}. The plots indicate the important background processes for this study, and also show the contributions from other Higgs boson production modes (ggH + VH).
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/cms/trilinear/CMS-PAS-FTR-18-020_Figure_002.pdf}
+  \caption[BDT output score distributions for the HL-LHC sensitivity study]
+  {
+    The BDT output score distributions for the hadronic (left) and leptonic (right) categories, after the preselection criteria are applied. The background processes are shown by the filled histograms, whilst the Higgs boson production modes are shown by the coloured lines. The dashed vertical lines indicate the positions of the BDT output score thresholds in the event categorisation.
+  }
+  \label{fig:trilinear_bdt}
+\end{figure}
+
+Table \ref{tab:trilinear_bins} shows the bin boundaries for which the differential $p_T^H$ cross sections are measured. The hadronic and leptonic event categories are split according to equivalent boundaries in the reconstructed diphoton transverse momentum, $p_T^{\gamma\gamma}$. Events in each $p_T^{\gamma\gamma}$ bin are required to have BDT output score values greater than fixed thresholds\footnote{These thresholds were chosen to maximise the sensitivity to $\kappa_\lambda$.}, shown by the dashed lines in Figure \ref{fig:trilinear_bdt}. In the hadronic channel, the five bins with $p_T^{\gamma\gamma}<350$~GeV are further split into low signal purity and high signal purity regions according to a second threshold on the BDT output score at a value of 0.61. This helps reduce the contamination from ggH production. In total, this corresponds to 17 analysis categories targeting the six $p_T^H$ bins with different requirements on the BDT output scores: 11 for the hadronic channel and six for the leptonic.
+
+\begin{table}[htb]
+    \caption[Top-associated differential cross section boundaries]{Bin boundaries for which the differential $p_T^H$ cross sections are measured. To target these bins, the hadronic and leptonic categories are sub-divided by equivalent boundaries on the reconstructed $p_T^{\gamma\gamma}$.}
+    \label{tab:trilinear_bins}
+    % \vspace{.5cm}
+    \centering
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{2}
+    \begin{tabular}{p{1cm}<\centering|p{1cm}<\centering|p{1cm}<\centering|p{1cm}<\centering|p{1cm}<\centering|p{1cm}<\centering|p{1cm}<\centering}
+        \multicolumn{7}{c}{\textbf{$p_T^H$ or $p_T^{\gamma\gmma}$ bin boundaries [GeV]}} \\ \hline
+        0 & 45 & 80 & 120 & 200 & 350 & $\infty$ \\
+    \end{tabular}
+\end{table}
+
+The cross sections are extracted using a simultaneous maximum likelihood fit to the \mgg distribution in all analysis categories. The signal models are built for each production mode using a sum of Gaussian functions to fit the \mgg peak. In order to account for detector resolution effects, a separate model is constructed for events from each generator-level $p_T^H$ bin in each reconstruction level $p_T^{\gamma\gamma}$ event category. The background models are a set of smoothly falling functions to fit the sum of simulated background events in each event category, where the choice of function is left free to vary in the likelihood fit. This procedure, known as the discrete profiling method~\cite{Dauncey:2014xga}, is described in more detail in section \ref{sec:bkg_modeling}. The final signal plus background models are shown for two example event categories in Figure~\ref{fig:trilinear_mgg}. The black points, shown purely for illustration purposes, represent a possible HL-LHC dataset and are extracted by throwing random toy data from the signal plus background model. The diphoton mass resolution corresponds to what is expected to be achieved during the HL-LHC operation.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/cms/trilinear/CMS-PAS-FTR-18-020_Figure_004-a.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/cms/trilinear/CMS-PAS-FTR-18-020_Figure_005-f.pdf}
+  \caption[Diphoton mass distributions for two event categories in the HL-LHC sensitivity study]
+  {
+     Best-fit signal and background models for the high purity $120<p_T^{\gamma\gamma}<200$~GeV hadronic event category (left) and the $p_T^{\gamma\gamma}>350$~GeV leptonic event category (right). An illustrative pseudo-dataset is thrown from the best-fit models. The one (green) and two (yellow) standard deviation bands show the uncertainties in the background component of the fit. The residuals minus the background component are shown in the lower panels.
+  }
+  \label{fig:trilinear_mgg}
+\end{figure}
+
+A likelihood function is constructed for each event category (see section \ref{sec:category_likelihood}), using the signal and background models, and an asimov dataset~\cite{Cowan:2010js}. The parameters of interest, $\mu_i$, are defined to scale the ttH~+~tH production cross section for each generator-level $p_T^H$ bin, $i$. Defining the parameters in this way enables a likelihood unfolding of the detector resolution effects i.e. the fit accounts for the migrations between the generator-level $p_T^H$ and reconstruction-level $p_T^{\gamma\gamma}$ bins. As this study concerns the expected sensitivity, the asimov dataset corresponds to the SM prediction (all $\mu_i=1$). The product over all per-category likelihoods is used to construct a profiled likelihood ratio test-statistic to determine the uncertainties in each $\mu_i$; a procedure described in detail in section~\ref{sec:results_extraction}.
+
+Systematic uncertainties affecting the signal yield estimates are included as Gaussian constrained nuisance parameters in the likelihood function. Experimental uncertainties originating from the reconstruction and identification efficiencies for photons and b jets, as well as the energy scale and resolution of jets, are modelled as log normal variations in the signal yields. Theoretical uncertainties which cause the migration of signal events between event categories are accounted for. Additionally, theoretical uncertainties which modify the overall rates of ggH and VH production are included, as these production modes are not explicitly extracted in the fit. Parameters of the background model functions are free to vary in the fit, and are therefore constrained directly from data. This means the uncertainties in the background estimation are statistical in nature.
+
+The $\mu_i$ parameters and their uncertainties are converted to fiducial cross sections times branching ratio, $\sigma^{\rm{ttH+tH}}_{\rm{fid}}\times{\rm{BR}}(\Hgg)$, by correcting for the event selection efficiencies. The fiducial region is common to both the hadronic and leptonic selections, and is defined according to the generator-level events as follows:
+\begin{itemize}
+    \item Higgs boson rapidity: $|Y_H|<2.5$.
+    \item Two photons from the Higgs boson decay: $p_T^\gamma > 20$~GeV and $|\eta^\gamma|<2.5$.
+    \item At least two jets: $p_T^\gamma > 25$~GeV and $|\eta^j|<4$.
+    \item At least one of the jets, satisfying the above criteria, originates from a b quark.
+\end{itemize}
+\noindent
+A small fraction of the events passing the full selection (0.7\% in the hadronic category, and 0.4\% in the leptonic category) are not contained in the fiducial region. Although these events are included in the construction of the likelihood, they are subtracted when calculating the fiducial cross sections.
+
+Figure \ref{fig:trilinear_dxs} shows the expected differential fiducial cross sections times branching ratio, for Higgs boson production in association with at least one top quark, in bins of $p_T^H$. The error bars indicate the combined statistical and systematic uncertainties in the measurements using 3~\abinv of HL-LHC data. Analogous likelihood fits are performed using only the hadronic event categories and only the leptonic event categories, shown by the red and purple error bars, respectively. In general, the hadronic channel is observed to provide greater sensitivity. This is a result of the larger absolute signal yield after selection, compared to the leptonic channel. The theoretical uncertainties in the predicted ttH~+~tH cross sections, displayed by the yellow boxes in the plot, are calculated by modifying the renormalisation and factorisation scales up and down by a factor of 2.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/cms/trilinear/CMS-PAS-FTR-18-020_Figure_006.pdf}
+  \caption[Expected top-associated differential $p_T^H$ cross section measurements at the HL-LHC]
+  {
+    Expected ttH~+~tH differential cross sections times branching ratio, in bins of $p_T^H$, for 3~\abinv of HL-LHC data. These are for the fiducial region of phase space defined in the bottom left of the plot. The error bars include the statistical, experimental systematic and ggH + VH theoretical systematic uncertainties. The theoretical uncertainties on the ttH~+~tH cross section predictions, originating from the uncertainty in the renormalisaion and factorisation scales, are shown by the shaded yellow boxes. The sensitivities extracted from the hadronic and leptonic categories alone, are indicated by the red and purple error bars respectively. The cross section for the $p_T^H=[350,\infty]$~GeV bin is scaled by the width of the previous bin. Additionally, the expected cross sections for anomalous values of the Higgs boson self-coupling ($\kappa_\lambda=10$ and $\kappa_\lambda=-5$) are shown by the horizontal dashed lines.
+  }
+  \label{fig:trilinear_dxs}
+\end{figure}
+
+The expected sensitivities are summarised in table~\ref{tab:trilinear_dxs_results}. Many extensions to the SM predict modifications to the Higgs boson interaction with the top quark. By measuring the differential cross sections within uncertainties $\mathcal{O}$(15--40\%), and therefore gaining a handle on the kinematic spectrum of top-associated production, we will be able to tightly constrain potential new physics affecting the Higgs-top sector. One such example concerning anomalous values of the Higgs boson self coupling, $\lambda_3$, is provided below.
+
+\begin{table}[htb!]
+  \centering
+%   \footnotesize
+  \renewcommand{\arraystretch}{1.8}
+  \setlength{\tabcolsep}{15pt}
+  \caption[Expected sensitivities of top-associated differential cross sections at the HL-LHC]
+  {
+    Expected uncertainties in the ttH~+~tH differential $p_T^H$ fiducial cross sections times branching ratio for 3~\abinv of data collected at the HL-LHC. The uncertainty is decomposed into the statistical and systematic components.
+  }
+  \label{tab:trilinear_dxs_results}
+  \hspace*{-1cm}
+  \input{Tables/cms/trilinear_dxs}
+  \hspace*{-1cm}
+\end{table}
+
+\subsubsection{Constraining $\kappa_\lambda$}
+Measurements of the trilinear self-interaction of the Higgs boson are of upmost priority in future physics programmes~\cite{}; they provide constraints on the shape of the Higgs potential close to the minimum, and will shed light on the dynamics of EWSB, including the order of the electroweak phase transition~\cite{}. In the SM, the trilinear coupling strength, $\lambda^{\rm{SM}}_3=m_H^2/2v$, is fixed according to the Higgs boson mass, $m_H$, and the vacuum expectation value, $v$. BSM physics, such as an extended scalar sector~\cite{}, can modify the value of $\lambda_3$ without affecting $m_H$ and $v$.
+
+The direct approach to constraining $\lambda_3$ is via searches for di-Higgs production (HH), which depends on $\lambda_3$ at LO. A number of HH final states have been explored by ATLAS and CMS at $\sqrt{s}=13$~TeV~\cite{}. The current best constraints on $\lambda_3$ come from the full Run 2 CMS HH$\rightarrow$bb$\gamma\gamma$ analysis~\cite{}, which excludes $\kappa_\lambda$ values outside of the range $-3.3 < \kappa_\lambda < 8.5$ at the 95\% confidence level. Despite this impressive result, HH production is not expected to be observed at $5\sigma$ until after the HL-LHC operation~\cite{}. This is due to the small SM cross section ($31.1^{+1.4}_{-2.0}$~fb), which suffers from destructive interference amongst diagrams~\cite{}. Consequently, alternative strategies for probing $\lambda_3$ are in high demand.
+
+One such approach is to exploit radiative corrections to inclusive and differential single-Higgs boson production rates~\cite{}. At NLO in electroweak theory, single-Higgs boson production includes diagrams with the trilinear self-interaction, such as that shown in Figure~\ref{fig:trilinear_feynman}. The effects of a modified $\lambda_3$ are sizeable for Higgs boson production in association with top quarks (ttH and tH) or a vector boson (VH). This is due to the large mass of the associated particles providing a larger coupling to the virtual Higgs boson. Moreover, the deformations to the Higgs boson rates are shown to have a non-flat kinematic dependence on $\lambda_3$~\cite{}. As a result, differential cross section measurements can disentangle the effects of a modified $\lambda_3$ from other effects such as the presence of an anomalous top-Higgs coupling. Altogether, these features mean the ttH~+~tH differential cross section measurements introduced in this section provide an excellent candidate for indirectly probing $\lambda_3$.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.35\textwidth]{Figures/cms/trilinear/CMS-PAS-HIG-19-005_Figure_001-d.pdf}
+  \includegraphics[width=.35\textwidth]{Figures/cms/trilinear/CMS-PAS-FTR-18-020_Figure_001.pdf}
+  \caption[Add caption]
+  {
+    Add caption
+  }
+  \label{fig:trilinear_feynman}
+\end{figure}
+
+The effect of anomalous $\kappa_\lambda=\lambda_3/\lambda_3^{\rm{SM}}$ values on the single-Higgs boson production cross sections and decay widths have been predicted~\cite{}. The cross section is parametrised as a function of $\kappa_\lambda$ according to the following function,
+\begin{equation}\label{eq:trilinear_scaling}
+    \mu(\kappa_\lambda,C_1) = \frac{\sigma}{\sigma_{\rm{SM}}} = \frac{1+\kappa_\lambda C_1 + \delta Z_H}{(1-(\kappa_\lambda^2-1)\delta Z_H)(1+C_1+\delta Z_H)}.
+\end{equation}
+The $\delta Z_H=-1.536\times10^{\rm{-3}}$ component originates from the Higgs boson wave function renormalisation and is universal to all production modes. The $C_1$ parameter is defined as the interference between the LO Born matrix element, $\mathcal{M}^{\rm{LO}}$, and the virtual $\lambda_3$-dependent SM matrix element at one-loop, $\mathcal{M}^{\rm{NLO}}_{\lambda_3^{\rm{SM}}}$, 
+\begin{equation}
+    C_1(\{p\}) = \frac{2{\rm{Re}}(\mathcal{M}^{{\rm{LO}}*}\mathcal{M}^{\rm{NLO}}_{\lambda_3^{\rm{SM}}})}{|\mathcal{M}^{{\rm{LO}}}|^2}.
+\end{equation}
+\noindent
+Crucially, $C_1$, depends both on the Higgs boson production mode, and on some final state observable, $p$. The $C_1$ factors relevant for this analysis are derived using the electroweak reweighting tool described in Ref.~\cite{}. Leading order (LO) parton-level ttH, tH and VH events are simulated using the \textsc{MG5\_aMC@NLO} (version 2.5.5) generator~\cite{}. The tool then calculates $\lambda_3$-dependent corrections at NLO ($\mathcal{O}(\lambda_3)$) by reweighting events on an event-by-event basis. A diagram filter is applied to select only the relevant one-loop matrix elements which feature the trilinear coupling. The $C_1$ factors are then extracted by taking the ratio of the $\mathcal{O}(\lambda_3)$ to LO contributions in bins of the generator-level $p_T^H$ spectrum. These $C_1$ factors are then plugged into equation~\ref{eq:trilinear_scaling} to determine the differential cross section scaling functions. It should be noted that this parametrisation relies on the assumption that higher-order QCD effects and other NLO EW contributions factorise from the anomalous $\lambda_3$ effects. The validity of this assumption has been studied in Ref.~\cite{}.
+
+The reweighting tool does not accommodate ggH production at LO. For this reason, an inclusive scaling function is used for ggH production, where the value of $C_1=0.0066$ is taken directly from Ref.~\cite{}; this is small compared to the $C_1$ values for the ttH and tH production modes. Additionally, there is a small correction to the \Hgg decay rate from anomalous $\kappa_\lambda$ which is also taken from Ref.~\cite{}. The final scaling functions for each Higgs boson production mode, in the different generator-level $p_T^H$ bins are shown in Figure~\ref{fig:trilinear_sf}.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.4\textwidth]{Figures/hgg_overview/ZHMVA.pdf}
+  \includegraphics[width=.4\textwidth]{Figures/hgg_overview/ZHMVA.pdf}
+  \caption[Add caption]
+  {
+    Add caption. Put scaling functions here: one for each ttH bin and \Hgg scaling function
+  }
+  \label{fig:trilinear_sf}
+\end{figure}
+
+The $\kappa_\lambda$ dependence is largest (largest $C_1$ values) for ttH production at threshold (low $p_T^H$). For example, a 20\% enhancement to the ttH production rate for $p_T^H\in[0,45]$~GeV is predicted for $\kappa_\lambda \sim 10$. The horizontal dashed lines in Figure~\ref{fig:trilinear_dxs} correspond to the predicted values of the differential cross sections for anomalous values of the Higgs boson self-coupling: $\kappa_\lambda=10$ and $\kappa_\lambda=-5$. It can be seen that the expected uncertainties in the differential cross section measurements will enable $\kappa_\lambda$ to be constrained roughly between these values.
+
+In order to extract the sensitivity to $\kappa_\lambda$, we make the substitution $\mu_i\rightarrow\mu_i(\kappa_\lambda)$ in the construction of the likelihood function, where $\mu_i(\kappa_\lambda)$ are directly the scaling functions shown in Figure~\ref{fig:trilinear_sf}. A scan of the profiled likelihood as a function of $\kappa_\lambda$ is shown in the left plot of figure~\ref{fig:trilinear_likelihood}. The scan is performed in the region $\kappa_\lambda \in [-10,20]$, beyond which the parametrisation becomes invalid as next-to-next-to-leading order (NNLO) effects become important. Additional likelihood scans are performed when only including the hadronic and leptonic categories, shown in red and purple, respectively. Clearly, both channels contribute significantly towards the final sensitivity. The constraints are tighter for negative values of $\kappa_\lambda$ since larger deviations in the ttH~+~tH differential cross sections are predicted, compared to positive values. The feature in the region around $-5<\kappa_\lambda<15$ is a result of the turning points in the ttH scaling functions, which introduce a degeneracy into the parametrisation. This degeneracy is somewhat alleviated by the contamination of ggH in the signal model, which has a different scaling behaviour. Ultimately, the scan shows that with 3~\abinv of HL-LHC data, we can expect to exclude $\kappa_\lambda$ values outside of the range $-4.1<\kappa_\lambda<14.1$ at the 95\% confidence level using ttH~+~tH differential measurements in the \Hgg decay channel.
+
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.49\textwidth]{Figures/cms/trilinear/CMS-PAS-FTR-18-020_Figure_007.pdf}
+  \includegraphics[width=.49\textwidth]{Figures/cms/trilinear/CMS-PAS-FTR-18-020_Figure_008.pdf}
+  \caption[Add caption]
+  {
+    Add caption
+  }
+  \label{fig:trilinear_likelihood}
+\end{figure}
+
+An additional fit is performed in which an overall normalisation parameter for Higgs boson signal processes, $\mu_H$, is profiled. This parameter incorporates other BSM effects, such as an anomalous top-Higgs coupling, which in general cause an inclusive shift across the whole $p_T^H$ spectrum. The right plot of figure~\ref{fig:trilinear_2d} shows the results of a two-dimensional fit in the ($\mu_H$,$\kappa_\lambda$)-plane, in terms of the 68\% and 95\% confidence level contours. In can be seen that differential cross section measurements still provide sensitivity to $\kappa_\lambda$, without exploiting the overall normalisation of the $p_T^H$ spectrum, or in other words the shape differences can be used to constrain $\kappa_\lambda$.
+
+\begin{itemize}
+    \item Closing sentence: ultimate sensitivity will be from combining all production and decay channels + HH. Cite global fit paper.
+\end{itemize}
+
+\section{Summary}
