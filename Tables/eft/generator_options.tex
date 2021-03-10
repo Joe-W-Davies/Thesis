@@ -1,0 +1,56 @@
+\begin{tabular}{cccc}
+    \hline
+    \textbf{Generator} & \textbf{Parton showering} & \textbf{Event classification} & \begin{tabular}{c} \textbf{Perturbative order} \\ (QCD and QED)\end{tabular} \\ \hline
+    \begin{tabular}{c}\textsc{MG5\_aMC@NLO}\\(v2.6.5)~\cite{Alwall:2014hca}\end{tabular} & \begin{tabular}{c}\textsc{Pythia8}\\ (v8.2XX)~\cite{}\end{tabular} & \begin{tabular}{c}\textsc{Rivet}: \\ {\tiny\texttt{HiggsTemplateCrossSections}}~\cite{}\end{tabular} & LO \\
+    \\
+\end{tabular}
+
+\begin{tabular}{l|c|p{0.65\textwidth}}
+    \hline
+    \multicolumn{3}{c}{\textbf{FeynRules \texttt{UFO} model}} \\ \hline
+    SILH basis (HEL) & \texttt{HEL\_UFO}~\cite{Alloul:2013naa} & Something about $m_Z$. Input parameter scheme \\
+    Warsaw basis & \texttt{SMEFTsim}~\cite{Brivio:2017btx} & Flavour symmetries, input parameter scheme. \\
+    \multicolumn{3}{c}{} \\
+\end{tabular}
+
+\begin{tabular}{c||c}
+    \hline
+    \multicolumn{2}{c}{\textbf{Madgraph process definitions}, $\mathcal{M}$} \\ \hline
+    \begin{tabular}{l|l}
+         Production Mode & Syntax \\ \hline
+         ggH & \begin{tabular}{@{}l}\texttt{generate p p > h QED=1} \\ \texttt{add process p p > h j QED=1} \\ \texttt{add process p p > h j j QED=1}\end{tabular} \\ \hline
+         qqH & \texttt{generate p p > h QED=1} \\ \hline
+         WH lep & \texttt{generate p p > h QED=1} \\ \hline
+         ZH lep & \texttt{generate p p > h QED=1} \\ \hline
+         ttH & \texttt{generate p p > h QED=1} \\ \hline
+         tHq & \texttt{generate p p > h QED=1} \\ \hline
+         tHW & \texttt{generate p p > h QED=1} \\ \hline
+         bbH & \texttt{generate p p > h QED=1} \\
+    \end{tabular}
+     & 
+    \begin{tabular}{l|l}
+         Decay channel & Syntax \\ \hline
+         \Hgg & \texttt{h > a a} \\ \hline
+         \Hfl & \texttt{h > a a} \\ \hline
+         \HWW & \texttt{h > a a} \\ \hline
+         \Htautau & \texttt{h > a a} \\ \hline
+         \Hbb & \texttt{h > a a} \\ \hline
+         \multicolumn{2}{c}{For total width, $\Gamma^H$} \\ \hline
+         Others & \texttt{h > a a} \\ \hline
+         Others & \texttt{h > a a} \\
+    \end{tabular}
+    
+    \\
+    \hline
+    \multicolumn{2}{c}{\textbf{New physics option}: \texttt{NP<=1}} \\ \hline
+    \multicolumn{2}{c}{} \\
+\end{tabular}
+
+\begin{tabular}{r|c|p{0.65\textwidth}}
+    \hline
+    \multicolumn{3}{c}{\textbf{Generator options}} \\ \hline
+    Jet matching algorithm & \textt{MLM} & Matching parameter, \texttt{xqcut=30} (what does this mean) \\ 
+    X & Y & Notes \\
+    X & Y & Notes \\
+    \multicolumn{3}{c}{} \\
+\end{tabular}
