@@ -279,27 +279,91 @@ A given final-state particle can give rise to several tracks and clusters in the
 Collections of PF candidates are then used in CMS physics analyses. Chapter \ref{chap:hgg_overview} details how they are used in the \Hgg analysis
 
 \section{Monte Carlo generators}\label{sec:mc}
-$10^8$ readout channels.
-Goal of experiment is ultimately to use observations to infer something about parameters of model Lagrangian (either SM or BSM) e.g. couplings via cross sections or masses. Likelihood of observing events, where each event characterised by vector of observables of final state particles, as function of model parameters, $\theta$.
+The goal of the CMS experiment is ultimately to use the final state objects in the detector to infer some knowledge on the parameters of the model Lagrangian, $\vec{\alpha}$. This could be, for example, the mass of the Higgs boson, the couplings of the Higgs boson to other SM fields, or even the Wilson coefficients of an EFT. We can establish a likelihood function~\cite{} which quantifies the probability of observing an event, x, given the model parameters, $\vec{\alpha}$,
 
-Likelihood equation, what different terms mean, model parameters to $z_p$ (hard interaction), hadronisation and shower history of each particle, billions of detector channels. Means Integral is intractable, impossible over huge space. Need method to approximate this integral: Use chain of MC simulators: use simulation to sample hypothetical observations based on model parameters. Compare this to observed data to extract information/constraints on parameters.
+\begin{equation}\label{eq:mc_integral}
+    L(x\,|\,\vec{\alpha}) = \int {\rm{d}}z_d \int {\rm{d}}z_s \int {\rm{d}}z_p \, p(x|z_d)p(z_d|z_s)p(z_s|z_p)p(z_p|\vec{\alpha}),
+\end{equation}
 
+\noindent
+where $x$ is a vector of observables such as the reconstructed energies, momenta, and angles of all final state objects. The latent variables, $z_i$, are defined as follows:
 \begin{itemize}
-    \item Figure: illustration of MC chain
-\end{itemize}
+    \item $z_p$: the four-momenta, charges and helicities of the partons in the hard scattering event. The quantity $p(z_p|\vec{\alpha})$, which defines the probability for partons, $z_p$, given the model parameters, $\vec{\alpha}$, is related to the squared hard-scattering matrix element, $|\mathcal{M}|^2$. The collection of incoming and outgoing partons is referred to as the \textit{parton-level} event.
+    \item $z_s$: encodes the entire shower history of the partons. Effectively, $p(z_s|z_p)$ describes the transition from the parton-level event, $z_p$, to the \textit{particle-level} event, $z_s$.
+    \item $z_d$: describes the interactions of the particles with the detector, such that $p(z_d|z_s)$ describes the probability of observing a set of electronic signals in the detector given the particles, $z_s$. This is not a simple problem; the CMS detector has around $10^8$ read-out channels. The final term, $p(x|z_d)$, explains how the detector signals are reconstructed into the final state objects (section \ref{sec:particle_flow}).
+\end{itemize} 
 
-Where used in this thesis: Trilinear, SM simulation in \Hgg stuff. Also for derivation of EFT parametrisation in section X. Purpose of this section is to introduce some features of the MC which will help reader understand future chapters.
+The sheer complexity of the problem is illustrated in Figure~\ref{fig:mc_illustration}. Clearly, evaluating the integral of equation~\ref{eq:mc_integral} over the full parameter space is impossible: we cannot simply take the observed events, $x$, and the model parameters, $\vec{\alpha}$, and compute the likelihood, $L(x\,|\,\vec{\alpha})$. Consequently, the likelihood is said to be \textit{intractable}.
 
-\begin{itemize}
-    \item Hard interaction: parton level, change parameters and features of lagrangian
-    \item Renormalisation and factorisation scales
-    \item Parton distribution function
-    \item Matrix element order: calculations are done up to some order. Diagrams enter at which order in perturbation theory. Uncertainty from doing up to finite order, depending on $\mu_R$ and $\mu_F$.
-    \item Parton showering and hadronisation + underlying event
-    \item Jets: matching and merging, clustering algorithm anti-$k_T$
-    \item Detector simulation: truth vs reconstruction level
-    \item Different generators: most common madgrpah + pythia. Also powheg + sherpa.
-\end{itemize}
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=.8\textwidth]{Figures/cms/mc_integral.pdf}
+  \caption[The intractable likelihood function of the CMS experiment]
+  {
+    An illustration of the intractable likelihood function of the CMS experiment. The Feynman diagram (top right) corresponds to tHq production in the \Hgg decay channel, in which the top quark decays leptonically. The event display (bottom right) corresponds to a candidate tHq, \Hgg event in the CMS detector, adapted from the additional material of Ref.~\cite{CMS-PAS-HIG-19-015}. The parton shower diagram (top right) and the and anti-$k_T$ algorithm illustration (bottom left) are taken from Refs~\cite{Hoche:2014rga} and \cite{Cacciari:2008gp}, respectively.
+  }
+  \label{fig:mc_illustration}
+\end{figure}
+
+To overcome this experimental challenge, we approximate the integral using a series of state-of-the-art Monte Carlo (MC) simulators. Firstly, the MC generation chain begins with simulating the hard scattering process. This models the distribution of initial state partons inside the colliding protons, computes the relevant matrix element, $\mathcal{M}_{i\rightarrow f}$, for certain values of the input model parameters, $\vec{\alpha}$, and generates parton-level final states with some probability. Following this, the parton shower is simulated, where initial and final state coloured partons are showered and formed into hadrons, and any remaining unstable particles (e.g. $H$, $W^{\pm}$, etc.) are decayed. Additional secondary interactions to the hard scattering process are modelled as underlying events. Finally, the events are propagated through a simulation of the CMS detector, where the response of the detector is calibrated to match the performance and efficiency observed in data. The final output of this chain is a collection of generated collision events which aims to match real events in data as closely as possible. Ultimately, we can then compare the MC simulation to data to infer knowledge on the model Lagrangian parameters, $\vec{\alpha}$.
+
+MC simulation is used in many ways in this thesis, most notably for the SM simulation of events in the \Hgg analysis (section \ref{sec:hgg_simulation}), and for deriving the EFT parametrisation of Higgs boson cross sections and decay widths (section~\ref{sec:eft_parametrisation}). The remainder of this section will help the reader understand some of the key concepts of MC event generation that are discussed throughout.
+
+\subsubsection{Renormalisation and factorisation}
+
+Two of the main theoretical concepts in the XXX are , Factorisation deals with X, introduced to avoid IR divergengences, Renormalisation deals with Y, introducted . Both give rise to scales
+Mention perturbation theory. Physics does not depend on scales. Artifact of cutting off to perturbation theory. Factorise the PDF from hard process.
+Both arise from the regularization of infrared (facotrisation) and UV (renormalisation) divergences.
+
+Renormalisation: Treatment of UV divergences, infinite momentum running through loops.
+Introduce scales to deal with this: running of the strong coupling constant. Asymptotic freedom, i.e. decreases as a function of momentum transfer. Treat colliding partons as individual.
+
+Factorisation: Splitting the hard processes from the short range physics. treatment of IR divergences (long distance physics) that arise from massless particles radiating another massless particle.  Introduced factorisations scale to define cut-off between long and short-distance physics. Absorbs all long-distance physics which is set by the factorisation scale, $\mu_F$. Decouple hard scattering from internal structure of proton. 
+
+Choosing the scale. Close to hard scattering energy scale to avoid large logarithms in the perturbative expansion.
+
+\subsubsection{Parton distribution function}
+Parton distribution functions (PDFs), $f_{i}(x,\mu_F)$, model the number density of parton type, $i=\{g,u,d,s,c,(b)$,+anti-quarks$\}$, with momentum fraction, $x$, inside the colliding proton. This is defined for a particular value of the factorisation scale, $\mu_F$. The exact forms of the PDFs are extracted using data from lepton-hadron and hadron-hadron collisions~\cite{}, and are defined in so-called PDF sets to be used by the MC generators~\cite{}. The evolution of the PDF with increasing $\mu_F$ is modelled with the DGLAP equations~\cite{}. Ultimately, the choice of PDF affects not only the simulation of the hard scattering, but also the parton showering and the modelling of multiple parton interactions in the underlying event. This influences both the predicted cross sections and the event kinematics.
+
+\subsubsection{Parton-level event generation}
+The fully differential cross section for a hard scatter process ($a,b \rightarrow f$) in a hadron collision is calculated by factorising the initial state physics from the hard scatter, according to~\cite{ellis_stirling_webber_1996},
+\begin{equation}\label{eq:cross_section_calc}
+    \frac{{\rm{d}}\sigma}{{\rm{d}}\Phi_n} = \sum_{a,b} \int^1_0 {\rm{d}}x_a {\rm{d}}x_b f_a(x_a,\mu_F) f_b(x_b,\mu_F) \times \frac{1}{\hat{s}}|\mathcal{M}_{a,b\rightarrow f}|^2(\Phi_n;\mu_F,\mu_R,\vec{\alpha}),
+\end{equation}
+\noindent
+where $\Phi_n$ represents the final-state phase space, $|\mathcal{M}_{a,b\rightarrow f}|^2$ is the squared-matrix element averaged over the initial state spin and colour degrees of freedom, and $1/\hat{s}=1/2x_ax_bs$ is the initial state parton flux, where $s$ is the squared hadronic centre-of-mass energy. This factorisation is possible since the hard scatter occurs over a very short timescale (high energy), whilst the interactions within the proton occur over much longer timescales (low energy). Effectively, when computing the hard scatter process, we can assume the dynamics within the proton are static and treat the initial state partons, $a$ and $b$, as independent. This enables the use of perturbation theory to calculate hard scatter matrix elements, as described in the following section.
+
+In the parton-level event generation, events are sampled from the initial and final-state phase spaces, and a probability is assigned according to equation~\ref{eq:cross_section_calc}. By generating large numbers of events, we can successfully build up the kinematic distributions that one would expect to see in data (for some values of the model parameters, $\vec{\alpha}$). A cross section, $\sigma^i$, for a particular region of the final state phase space, $\Phi^i_n$ can then be inferred by integrating equation~\ref{eq:cross_section_calc} over this region. In the STXS framework, the regions are defined according to the bin boundaries introduced in section~\ref{sec:theory_stxs}.
+
+\subsubsection{Order in perturbation theory}
+The hard scatter is defined by a high momentum transfer, $Q^2$, and as a result the strong coupling constant, $\alpha_s(Q^2,\mu_R)$, is small. The perturbative expansion can therefore be performed in powers of $\alpha_s$, which is done up to some finite order in the calculation. This can be pictured in terms of Feynamn diagrams,
+where going to higher orders equates to including diagrams with additional internal loops. The leading order (LO) calculation corresponds to including only the first term in the expansion. The subsequent orders are referred to as next-to-leading order (NLO), next-to-next-to-leading order (NNLO) and so on. For example, the inclusive ggH cross section has been calculated at N$^{3}$LO~\cite{Anastasiou:2016cez}.
+
+The neglection of higher-order terms introduces some intrinsic uncertainty into the calculation. This is typically modelled by varying the renormalisation and factorisation scales, $\mu_R$ and $\mu_F$, by a factor of two around the nominal scale values.
+Ultimately, the more terms we include in the perturbative expansion (going to a higher order), the less the predictions depend on the scales, or in other words, the accuracy of the predictions increases.
+
+\subsubsection{Parton shower and hadronisation}
+Parton showering describes the evolution in momentum transfer from the hard scattering process at high scales, to the formation of the final-state hadrons at low scales, typically $\mathcal{O}(1$~GeV). The evolution is performed by modelling the QCD radiation of initial state and final state coloured partons using perturbative QCD~\cite{}. The radiated gluons can go on to radiate further, producing additional gluons and quark-antiquark pairs, which are typically soft or collinear with the outgoing partons. In this manner, the parton shower effectively \textit{dresses} the event with additional QCD radiation, which is iterated until the momentum transfer reaches the scales associated with hadron formation. Free parameters of the parton showering model are tuned to improve the description of real data~\cite{}, where different values of these parameters are referred to as different parton shower tunes.
+
+Hadronisation occurs at the end of the parton shower, and describes the confinement of the outgoing coloured partons into colourless hadrons. At this energy scale, QCD becomes strongly interacting and perturbation theory breaks down. Dedicated hadronisation models have been developed to deal with this non-perturbative regime, such as the string fragmentation and cluster models~\cite{}. Fortunately, the hadronisation process can be effectively decoupled from the upstream hard scatter process, and therefore once tuned, the hadronisation model can be applied successfully to different physics processes at different energies~\cite{}.
+
+\subsubsection{Jets}
+The final state objects in hadron collisions typically include collimated sprays of hadrons, referred to as jets. These originate from the parton showering and hadronisation of both final state partons and the QCD radiation of initial state partons. Jets are not fundamental objects defined by theory, and as a consequence, they must be defined according to some jet algorithm~\cite{Salam:2009jx}. These algorithms associate which hadrons belong to which jet according to some set of rules, and then reconstructs their total momentum. One such example used in this thesis is the anti-$k_T$ algorithm, which repeatedly combines pairs of particles according to some specified distance measure~\cite{Cacciari:2008gp}.
+
+Jets can originate from both the hard scatter matrix element and the parton shower, where the former is more accurate for modelling harder (high momentum) jets and the latter for softer (low momentum) jets. When combining the two approaches a double-counting occurs, leading to an overestimation of the jet multiplicity in an event. This is avoided by applying a jet matching or merging procedure~\cite{Alwall:2007fs}. These typically introduce some cut-off merging scale, above which the event uses partons originating from the matrix element, and below which partons originating from the parton shower are used.
+
+\subsubsection{Underlying event}
+Secondary QCD interactions occur in each hadron collision in addition to the hard scattering process. The additional activity which is not associated with the hard interaction is referred to as the underlying event~\cite{}. These interactions typically involve coloured particles, which can ``talk" to the particles in the hard scattering. As a result, the underlying event can influence the properties of the process of interest. Like the parton shower, the free parameters of the underlying event model are tuned to match what is observed in data~\cite{}. 
+
+\subsubsection{Detector simulation}
+The particle-level events are propagated through a simulation of the CMS detector. This is typically done using the \textsc{Geant4} package~\cite{} which models the geometry of each subdetector, and describes how particles traverse through the CMS solenoidal field and subsequently interact with the detector material. The outputs are hits (deposits of energy) in the various subdetectors, which have been designed to match the true electronic read-out channels of the detector. Consequently, we can apply the same event reconstruction techniques on the MC simulation as to what is used in data. 
+
+To accurately model the detector response in terms of the efficiency and reconstruction performance, the detector simulation must be calibrated. This typically involves using a set of measurements e.g. the jet momentum distribution, and tuning the simulation to match what is observed in data. A mis-modeling of the detector response introduces (experimental) systematic uncertainties into the analysis. For example, in the context of the \Hgg analysis, the mis-modeling of the photon energy resolution will affect the predicted signal shape, and consequently the extracted results. Therefore, there is an extensive programme of work in the CMS experiment that concerns the calibration of the simulation to match data.
+
+It is worth introducing some terminology at this stage. Throughout this thesis, \textit{truth-level} quantities correspond to the event properties in the simulation before the detector modelling. On the other hand, \textit{reconstruction-level} quantities refer to the event properties after the detector. For example, the Higgs boson transverse momentum, $p_T^H$, is a truth-level quantity, whilst the transverse momentum of reconstructed photon pair, $p_T^{\gamma\gamma}$, is the equivalent reconstruction-level quantity. The difference between the two is purely a result of the detector efficiency and resolution. As discussed at the beginning of this section, the ultimate goal of the experiment is to infer knowledge about the parameters of the model lagrangian. In the context of STXS measurements, this requires unfolding the response of the detector, or in other words using the reconstruction-level information to infer the truth-level event information.
+
+\subsubsection{Generators}
+A number of tools are used to perform the different stages of MC event generation. In this thesis, the \textsc{MG5\_aMC@NLO}~\cite{Alwall:2014hca}, \textsc{Powheg}~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2008tz,Nason:2009ai,Alioli:2010xd,Hartanto:2015uka} and \textsc{sherpa}~\cite{Gleisberg:2008ta} generators are used to simulate the parton-level event. This includes the modelling of the PDFs and the computation of the hard scattering matrix element to some fixed order in the perturbative expansion. The generators are typically interfaced with \textsc{Pythia8}~\cite{Sjostrand:2014zea} for parton showering and hadronisation. Finally, the \textsc{Geant4} and \textsc{Delphes} packages are used to performed a detailed and fast simulation the CMS detector, respectively.
 
 \section{ML algorithms}\label{sec:ml_algo}
 Machine learning (ML) algorithms have become a widely used tool in high energy physics. This is particularly true for the \Hgg analysis described in chapters~\ref{chap:hgg_overview}--\ref{chap:hgg_results}, where ML algorithms are used for a number of tasks including the photon energy regression and the event categorisation. Because of this, it is worth spending some time introducing the concept of ML. 
@@ -314,7 +378,7 @@ The field of machine learning concerns developing sophisticated algorithms with 
 to \textit{predict an outcome}, $Y$, based on the feature vector, $\vec{x}$, given a set of model parameters, $\vec{w}$. We can identify two main types of ML algorithm based on the form of the predicted outcome:
 
 \begin{itemize}
-    \item A \textit{classification task} equates to predicting one of $k$ possible \textit{output classes}: $f(\vec{x}\,|\,\vec{w})\rightarrow y$, where $y\in \{1,...,k\}$. The obvious example here is a binary signal-vs-background event classifier, which aims to predict if an event looks signal-like or background-like based on a set of kinematic features. Many classification algorithms are introduced throughout this thesis, including the HGCAL L1T algorithm introduced in the following section.
+    \item A \textit{classification task} equates to predicting one of $k$ possible \textit{output classes}: $f(\vec{x}\,|\,\vec{w})\rightarrow y$, where $y\in \{1,...,k\}$. The obvious example here is a binary signal-vs-background event classifier, which aims to predict if an event looks signal-like or background-like based on a set of kinematic features. Many classification algorithms are introduced throughout this thesis, including the HGCAL L1T algorithm introduced in section~\ref{sec:egid}.
     
     \item A \textit{regression task} equates to predicting a quantitative outcome, or in other words a continuous value: $f(\vec{x}\,|\,\vec{w})\rightarrow y$, where $y\in \mathbb{R}$. An example in this thesis is the SC energy regression described in section \ref{sec:photon_reconstruction}, where the regressor predicts the true energy of the SC (and its uncertainty) using a combination of shower shape, seed crystal, and pileup-related features.
 \end{itemize}
