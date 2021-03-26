@@ -69,7 +69,7 @@ One of the main goals of the CMS physics programme was the discovery, and is now
     \item Achieve a good momentum resolution for charged particles, as well as have the ability to locate secondary vertices consistent with originating from $\tau$'s and b quarks.
     \item Measure the energy of electrons and photons with excellent resolution over a wide geometrical coverage. Additionally, the detector is able to isolate photons and electrons efficiently in a high occupancy environment. These characteristics are key to the \Hgg measurement described in chapters \ref{chap:hgg_overview}-\ref{chap:hgg_results}.
     \item Identify sprays of hadrons, known as jets, which originate from the hadronisation of quarks and gluons, and achieve a good dijet mass resolution.
-    \item Accurately calculate the missing energy in an event, which is the key signature of neutrinos or potential BSM particles which do not interact with the detector material.
+    \item Accurately calculate the missing momentum in an event, which is the key signature of neutrinos or potential BSM particles which do not interact with the detector material.
 \end{itemize}
 
 \begin{figure}[htb!]
@@ -148,7 +148,9 @@ One of the disadvantages of PbWO$_4$ is the relatively low light yield, which de
 An additional subdetector, referred to as the preshower detector (ES), is mounted in front of each endcap, providing a coverage of the pseudorapidity region: $1.65<|\eta|<2.6$. The ES is a 20~cm thick sampling calorimeter composed of two alternating layers of lead (to initiate the electromagnetic showers from incoming photons and electrons), and silicon strips (to measure the deposited energy and the transverse shower profile). The main aim of the ES is to distinguish neutral pions ($\pi^0$), from true photons in this $\eta$ range. 
 
 \subsubsection{Electromagnetic shower energy reconstruction}
-As described in section \ref{sec:hgg_introduction}, the ECAL energy resolution drives the sensitivity in the \Hgg analysis. The intrinsic energy resolution of the ECAL crystals is modelled according to,
+The total width of the Higgs boson, $\Gamma^H$, is many orders of magnitude smaller than it's mass ($\sim$4~MeV in the SM). This means the width of the Higgs boson decay products invariant mass distribution is entirely driven by the experimental resolution. Consequently, in the case of the \Hgg analysis, the sensitivity is driven by the ECAL energy resolution.
+
+The intrinsic energy resolution of the ECAL crystals is modelled according to,
 \begin{equation}
     \Big(\frac{\sigma}{E}\Big)^2 =  \Big(\frac{S}{\sqrt{E}}\Big)^2 + \Big(\frac{N}{E}\Big)^2 + C^2,
 \end{equation}
@@ -278,7 +280,7 @@ A given final-state particle can give rise to several tracks and clusters in the
 \noindent
 Collections of PF candidates are then used in CMS physics analyses. Chapter \ref{chap:hgg_overview} details how they are used in the \Hgg analysis
 
-\section{Monte Carlo generators}\label{sec:mc}
+\section{Simulating hadron collisions}\label{sec:mc}
 The goal of the CMS experiment is ultimately to use the final state objects in the detector to infer some knowledge on the parameters of the model Lagrangian, $\vec{\alpha}$. This could be, for example, the mass of the Higgs boson, the couplings of the Higgs boson to other SM fields, or even the Wilson coefficients of an EFT. We can establish a likelihood function~\cite{Brehmer:2020cvb} which quantifies the probability of observing an event, x, given the model parameters, $\vec{\alpha}$,
 
 \begin{equation}\label{eq:mc_integral}
@@ -360,7 +362,7 @@ The particle-level events are propagated through a simulation of the CMS detecto
 
 To accurately model the detector response in terms of the efficiency and reconstruction performance, the detector simulation must be calibrated. This typically involves using a set of measurements e.g. the jet momentum distribution, and tuning the simulation to match what is observed in data. A mis-modeling of the detector response introduces (experimental) systematic uncertainties into the analysis. For example, in the context of the \Hgg analysis, the mis-modeling of the photon energy resolution will affect the predicted signal shape, and consequently the extracted results. Therefore, there is an extensive programme of work in the CMS experiment that concerns the calibration of the detector simulation to match data.
 
-It is worth introducing some terminology at this stage. Throughout this thesis, \textit{truth-level} quantities correspond to the event properties in the simulation before the detector modelling i.e. their true values. On the other hand, \textit{reconstruction-level} quantities refer to the event properties after the detector. For example, the Higgs boson transverse momentum, $p_T^H$, is a truth-level quantity, whilst the transverse momentum of reconstructed photon pair, $p_T^{\gamma\gamma}$, is the equivalent reconstruction-level quantity. The difference between the two is purely a result of the detector efficiency and resolution. As discussed at the beginning of this section, the ultimate goal of the experiment is to infer knowledge about the parameters of the model lagrangian. In the context of STXS measurements, this requires unfolding the response of the detector, or in other words using the reconstruction-level information to infer the truth-level event information.
+It is worth introducing some terminology at this stage. Throughout this thesis, \textit{truth-level} quantities correspond to the event properties in the simulation before the detector modelling i.e. their true values. These are the quantities which are used in the STXS event classification into the different bins. On the other hand, \textit{reconstruction-level} quantities refer to the event properties after the detector. For example, the Higgs boson transverse momentum, $p_T^H$, is a truth-level quantity, whilst the transverse momentum of reconstructed photon pair, $p_T^{\gamma\gamma}$, is the equivalent reconstruction-level quantity. The difference between the two is purely a result of the detector efficiency and resolution. As discussed at the beginning of this section, the ultimate goal of the experiment is to infer knowledge about the parameters of the model lagrangian. In the context of STXS measurements, this requires unfolding the response of the detector, or in other words using the reconstruction-level information to infer the truth-level event information.
 
 \subsubsection{Generators}
 A number of tools are used to perform the different stages of MC event generation. In this thesis, the \textsc{MG5\_aMC@NLO}~\cite{Alwall:2014hca}, \textsc{Powheg}~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2008tz,Nason:2009ai,Alioli:2010xd,Hartanto:2015uka} and \textsc{sherpa}~\cite{Gleisberg:2008ta} generators are used to simulate the parton-level event. This includes the modelling of the PDFs and the computation of the hard scattering matrix element to some fixed order in the perturbative expansion. The generators are typically interfaced with \textsc{Pythia8}~\cite{Sjostrand:2014zea} for parton showering and hadronisation. Finally, the \textsc{Geant4} and \textsc{Delphes} packages are used to performed a detailed and fast simulation the CMS detector, respectively.
