@@ -1,0 +1,54 @@
+\chapter{Machine learning algorithms}\label{app:ML}
+Machine learning (ML) algorithms have become a widely used tool in high energy physics. This is particularly true for the \Hgg analysis described in chapters~\ref{chap:hgg_overview}--\ref{chap:hgg_results}, where ML algorithms are used for a number of tasks including the photon energy regression and the event categorisation. Additionally, an ML algorithm is described in section~\ref{sec:egid} to discriminate electromagnetic activity from hadronic activity in the HGCAL L1T. Because of this, it is worth providing an introduction to the foundations of ML in this Appendix. 
+
+The field of machine learning concerns developing sophisticated algorithms with the ability to \textit{learn} from data, and subsequently apply the learnt information to solve complex problems. A generic ML problem can be formulated as follows~\cite{hastie01statisticallearning}. The data are expressed as a vector space of dimension $m$: $X = \mathbb{R}^m$, where each dimension corresponds to an observable quantity referred to as a \textit{feature}. An element of the data set, for example an event in a event classification task or a SC in an energy regression task, corresponds to a single feature vector, $\vec{x} \in X$. The full data set of $N$ elements is defined by the set of feature vectors, $\vec{x}_i$, where $i=1,...,N$. The purpose of the ML algorithm is to develop a model,
+
+\begin{equation}
+    f(\vec{x}\,|\,\vec{w}) \rightarrow Y,
+\end{equation}
+
+\noindent
+to \textit{predict an outcome}, $Y$, based on the feature vector, $\vec{x}$, given a set of model parameters, $\vec{w}$. We can identify two main types of ML algorithm based on the form of the predicted outcome:
+
+\begin{itemize}
+    \item A \textit{classification task} equates to predicting one of $k$ possible \textit{output classes}: $f(\vec{x}\,|\,\vec{w})\rightarrow y$, where $y\in \{1,...,k\}$. The obvious example here is a binary signal-vs-background event classifier, which aims to predict if an event looks signal-like or background-like based on a set of kinematic features. Many classification algorithms are introduced throughout this thesis, including the HGCAL L1T algorithm introduced in section~\ref{sec:egid}.
+    
+    \item A \textit{regression task} equates to predicting a quantitative outcome, or in other words a continuous value: $f(\vec{x}\,|\,\vec{w})\rightarrow y$, where $y\in \mathbb{R}$. An example in this thesis is the SC energy regression described in section \ref{sec:cms_ecal}, where the regressor predicts the true energy of the SC (and its uncertainty) using a combination of shower shape, seed crystal, and pileup-related features.
+\end{itemize}
+
+There are two stages when developing an ML algorithm. The learning process is referred to as \textit{training} the model, where the values of the model parameters, $\vec{w}$, are optimised to maximise the performance. Following this, the performance of the model is evaluated using so-far unseen data; this is referred to as the \textit{testing} stage.
+
+A loss function, $L$, is constructed to measure the performance of the model, $f$, for a given set of input features, $\vec{x}$:
+\begin{equation}
+    L[\,f(\vec{x}\,|\,\vec{w})\,] \rightarrow \mathbb{R}.
+\end{equation}
+\noindent
+\textit{Supervised} learning algorithms refer to the case where the target values, $y$, are known for each element of the training data set, $\vec{x}$. In this case, the loss function is constructed to minimise the discrepancy between the true and estimated values of the outcome, $y$. An additional class of algorithms where the target values are not known are referred to as \textit{unsupervised} learning algorithms~\cite{10.5555/3086952}; these do not feature in this thesis and are therefore not described further. Learning effectively corresponds to reducing the value of $L$ by optimising the parameters, $\vec{w}$. In practice, for most ML algorithms this consists of some gradient based optimisation, where one descents the gradient of $L$ with respect to $\vec{w}$ in order to find the minimum,
+\begin{equation}\label{eq:loss_minimum}
+    \vec{\nabla}_{\vec{w}}\,L = 0.
+\end{equation}
+\noindent
+It is often not viable to evaluate this expression over the entire training dataset, especially in the case of large statistics with a high number of input features (dimensionality). A number of powerful optimisation algorithms have been developed to combat this~\cite{10.5555/3086952,pmlr-v28-sutskever13,kingma2017adam}. These typically involve calculating the gradient for small batches of training data and optimising $\vec{w}$ iteratively, and extending this with the concept of \textit{momentum}, where the update to the parameter vector, $\vec{w}$, depends on the size of the gradient at that point.
+
+Crucially, it is not sufficient to simply find the configuration of $\vec{w}$ which minimises the loss for the training data set. In addition, the model is also required to generalise to new data. Therefore, the performance is evaluated on an independent test set, which is chosen to be representative of the whole data set. If the performance is significantly degraded for the test set, then the model is said to have \textit{over-trained} and has become specific to properties of the training set. One approach to controlling the level of over-training is to introduce regularisation terms into the loss function~\cite{10.5555/3086952}.
+
+A large variety of ML algorithms are used in high energy physics. In this thesis, the most commonly used is the Boosted Decision Tree (BDT) algorithm~\cite{Yang_2005}, which is described in the remainder of this section. Neural networks are also used for discriminating between the ttH and tH production modes in the \Hgg event classification (section \ref{sec:event_categorisation}), as well as for identifying jets originating from the decay of b quarks (section \ref{sec:hgg_otherobjects}); further detail concerning neural networks can be found in Refs.~\cite{hastie01statisticallearning,10.5555/3086952,bishop:2006:PRML}.
+
+BDTs are an example of \textit{ensembling}, where multiple models are trained (base learners) and combined in some way to improve the overall performance of the algorithm. The base learners in this case are Decision Trees (DT)~\cite{Quinlan86inductionof}, which are built according to the following procedure:
+
+\begin{itemize}
+    \item The feature space is partitioned into regions according to some selection (cut) on one or more of the input features. The choice and position of the cut is optimised according to a measure of purity for classification tasks, or a loss function such as the mean-squared error for regression tasks.
+    
+    \item This partitioning is repeated in each region, creating further subregions based on a new, optimised selection cut.
+    
+    \item The procedure terminates when a stopping criterion is reached. This can either be due to a predefined \textit{max depth} (maximum number of splittings), or when a particular value of the splitting quantity (e.g. purity) has been reached. The final regions of the feature space that are not further split are referred to as \textit{leaves}. Each leaf is assigned an output value according to the data points in that region: for classification, this is the most common output class; for regression, this is the mean of the data values.
+    
+    \item DTs are regularised by \textit{pruning} branches which use unimportant features and give no performance improvement. This help mitigate over-training.
+\end{itemize}
+
+An ensemble of DTs is then constructed using a \textit{boosting algorithm}~\cite{10.1214/aos/1024691079,10.1214/aos/1013203451}. Here, multiple DTs are trained in succession, where each iteration aims to improve upon the weaknesses of the previous base learners. The final ensemble (BDT) is defined as a weighted linear combination of the individual DTs, $f_j(\vec{x}\,|\,\vec{w}_j)$, with corresponding selection cuts, $\vec{w}_j$, according to,
+\begin{equation}
+    F(\vec{x}\,|\,\vec{\gamma},\vec{w}) = \sum^{N_{\rm{DT}}}_j \gamma_j \cdot f_j(\vec{x}\,|\,\vec{w}_j).
+\end{equation}
+\noindent
+The set of coefficients, $\vec{\gamma} = (\gamma_1,...,\gamma_{N_{\rm{DT}}})$, are determined by the boosting algorithm. Building an ensemble, $F$, in this way produces a more powerful predictor and helps to overcome the disadvantages of individual DTs. One important consequence for classification tasks is the BDT outputs are no longer restricted to discrete values, but become continuous variables representing the output class probabilities. For a binary signal-vs-background classifier, a value close to 1 corresponds to a signal-like event, whereas a value close to -1 corresponds to a background-like event. Selection criteria on these so-called \textit{output scores} are a common feature of the \Hgg analysis in chapter \ref{chap:hgg_overview}. 

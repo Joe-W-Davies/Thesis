@@ -30,7 +30,8 @@
 \cfoot{}
 \renewcommand{\headrulewidth}{1pt}
 \usepackage{url}
-\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+\usepackage[backend=biber,style=numeric-comp,sorting=none,url=false,isbn=false]{biblatex}
+\renewbibmacro{in:}{}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xspace}
 \usepackage{xfrac}
@@ -73,8 +74,11 @@
 \newlength{\thickarrayrulewidth}
 \setlength{\thickarrayrulewidth}{2\arrayrulewidth}
 
+% bibtex
+\DeclareFieldFormat{title}{``{#1}"}
+
 %useful commands
-\newcommand{\xsbr}{\ensuremath{\sigma_{\rm{obs}}\,B}\xspace}
+\newcommand{\xsbr}{\ensuremath{\sigma_{\rm{obs}}\,\mathcal{B}}\xspace}
 \newcommand{\pt}{\ensuremath{p_T}\xspace}
 \newcommand{\ptgg}{\ensuremath{p_T^{\gamma\gamma}}\xspace}
 \newcommand{\ptH}{\ensuremath{p_T^H}\xspace}

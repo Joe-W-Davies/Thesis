@@ -1,5 +1,6 @@
 \chapter*{\centering Abstract}
-
+This thesis details the precision measurements of Higgs boson properties at the Compact Muon Solenoid experiment. The measurements use proton-proton collision data at a centre-of-mass energy of 13~TeV, collected during Run 2 of the LHC, corresponding to a total integrated luminosity of 137~\fbinv. Production cross sections and Higgs boson couplings are measured in the diphoton decay channel. Events with two isolated photons are selected and subsequently categorised to target different kinematic regions of the Higgs boson production phase space. The total Higgs boson signal strength, relative to the standard model prediction, is measured to be $1.12 \pm 0.09$. Other properties of the Higgs boson are measured. This includes a simultaneous measurement of 27 independent kinematic regions, representing the most granular measurement of Higgs boson production in a single decay channel to-date.
+Following this, a beyond-the-standard model interpretation of Higgs boson cross section measurements is provided. The interpretation is performed in an effective field theory framework, which benefits from being agnostic to the specifics of the complete beyond-the-standard model theory. Measurements from multiple Higgs boson decay channels are combined, enabling tighter constraints on a larger number of effective field theory parameters, and thereby reducing the parameter space for potential beyond-the-standard model physics. Ultimately, all results presented in this thesis are found to be consistent with the predictions of the standard model.
 
 \chapter*{\centering }% Dedication}
 \begin{center}
@@ -9,8 +10,9 @@
 
 
 \chapter*{\centering Declaration}
-All plots that do not explicitly contain the label CMS are my own work but have not been approved (or something like that!)
+I, the author, declare that all work presented in this thesis is my own. The studies have been conducted in collaboration with several individuals, as members of the Compact Muon Solenoid (CMS) Collaboration. All figures produced by the author, or in collaboration with the author, are labelled as ``CMS" if taken directly from a CMS publication, ``CMS Preliminary" if taken from a CMS preliminary public document, and figures which have not explicitly been made public by the CMS Collaboration attain the label ``CMS Work in Progress", or are simply left unlabelled. The figures and studies that are taken from external sources, and are not produced directly by the author, or in collaboration with the author, are appropriately referenced throughout.
 
+% Chapters~\ref{chap:intro}--\ref{chap:cms} introduce the motivation for the work contained in this thesis, describe the theoretical foundations, and 
 
 \begin{flushright}
     Jonathon Mark Langford
@@ -18,16 +20,30 @@ All plots that do not explicitly contain the label CMS are my own work but have 
 
 
 \chapter*{\centering Acknowledgements}
+First and foremost, I would like to thank the Imperial HEP group for inviting me to perform my doctoral research at the college. The group is a collection of fascinating and vibrant minds, that have imparted on me an unwavering enthusiasm for the subject. Also, I thank the President's PhD Scholarship scheme at Imperial College for providing my funding over the course of this PhD, and allowing me to travel to CERN, in addition to other international schools and conferences. 
+
+Although there are many people at Imperial that have had a measurable impact on my PhD experience, there are a few individuals that I would like to thank in particular. Nick, thank you for always directing me towards, what I would say are, interesting analyses. All the way through the PhD, your experience and knowledge has been invaluable, and without which, a large part of this thesis would not have been possible. It has been a pleasure working together, and I am looking forward to carrying this on in the future. Gavin, you have always been there if I have needed anything; it's quite remarkable considering how much you are doing. Thank you for your incredible guidance, and always making me feel valued within the group. Ed, I could not have asked for a better mentor. I think the way you approach your work has rubbed off on me, enabling me to stay calm (and sane), and always appreciate the bigger picture. Together with Joe and Shameena, I am very proud of our work on the \Hgg analysis, which makes up a large part of this thesis. Most importantly, thanks for keeping my drink shelf stocked. Finally, to all my friends doing a PhD at both Imperial and CERN, it has been a great pleasure going through this experience with you. Although cut short, I am grateful for the times we did have, which were always filled with interesting conversation and laughter. Good luck to you all!
+
+Of course, thank you to the CMS Collaboration. This thesis is built upon the hard work of thousands of CMS members in designing, building, and operating a beautiful experiment at the LHC. I am honoured to be a part of it all.
+
+Ultimately, this thesis not only represents the accumulation of my work over the past three years, but it serves as a reflection of the many amazing people that have cared for, helped and influenced me throughout my life. To my friends and family, thanks for the laughter and all-round good times. You have helped me escape from physics when I have needed it most. Olivia, thank you for enriching my life with your beautiful soul. The emotional support you have provided has kept me going through the hardest times in the past few years. To Hannah, thank you for all you have done for me in our growing up together; I am immensely proud to call you my sister, and to little Zo, your smile and laughter provides unrivalled joy and I cannot wait to read this thesis to you next Christmas at bedtime. To Dad, thanks for teaching me (through Wigan Athletic) that the hard times make the good times so much sweeter. Despite not being able to see you over the last year, I know that your support is ever present and our celebrations, when possible, will make it all seem worthwhile. Your guidance and knowledge put me on the trajectory towards this PhD, and for that I am truly thankful. And to Mum, I cannot stress the impact your love and support has had on my life. Thanks to you and Jim for welcoming me back into your home, and providing a calm and (almost) distraction-free space in which to write this thesis. It was a time that I did not expect to have with you, but it was filled with many happy memories, and for that I am extremely grateful. I love you very much.
 
 \tableofcontents
 \listoffigures
 \listoftables
 
+\chapter*{\centering Preface}
+This thesis includes a complete description of the \Hgg analysis documented in Ref.~\cite{Sirunyan:2021ybb}. The analysis targets Higgs boson production cross sections and couplings, using proton-proton collision data collected by the CMS experiment during Run 2 of the LHC. The paper has recently been submitted to the journal of high energy physics (JHEP). I, the author, was predominantly responsible for the statistical inference and the extraction of results, detailed in chapters~\ref{chap:hgg_stats}~and~\ref{chap:hgg_results}, respectively. The event reconstruction and categorisation, described in chapter~\ref{chap:hgg_overview}, was developed and optimised by other members of the \Hgg analysis group at the CMS Collaboration. Nevertheless, the techniques have been summarised in my own words, and I am responsible for the derivation of the final analysis category yields.
+
+Described in chapter~\ref{chap:eft}, is a beyond-the-standard model interpretation of Higgs boson cross section measurements at CMS, using an effective field theory approach. The interpretation was made public by the CMS Collaboration in the preliminary public document of Ref.~\cite{CMS-PAS-HIG-19-005}, which describes the combination of Higgs boson measurements across the major Higgs boson decay channels using the partial Run 2 data set. Whilst the strategy for such an interpretation was developed by others, I was responsible for implementing this strategy at the CMS experiment, deriving the signal cross section parametrisation, and subsequently extracting  the results. Furthermore, the progression of EFT measurements at CMS, described at the end of the chapter, includes only my own studies.
+
+Finally, chapter~\ref{chap:hllhc} looks ahead to the High-Luminosity operation of the LHC machine (HL-LHC). The training of the algorithm responsible for distinguishing electrons and photons from hadronic activity is my own work. A description of this algorithm was included in the CMS Phase-2 Level-1 Trigger technical design report~\cite{CERN-LHCC-2020-004}. The chapter also details a projection study looking at the sensitivity to top-associated Higgs boson differential cross sections with the CMS Phase-2 detector. I am responsible for all elements of this analysis, including the extraction of constraints on the Higgs boson self-coupling. This study was published in a collection of HL-LHC sensitivity studies for the CERN Yellow Report in Ref.~\cite{Cepeda:2019klc}.
+
 \chapter*{}
 \epigraph{
   \textit{``Things are so hard to figure out \\ \\
             when you live from day to day \\ \\
-            in this feverish and silly world''}}
+            in this feverish and silly world."}}
           {Jack Kerouac, On the Road}
-
 \cleardoublepage
+
