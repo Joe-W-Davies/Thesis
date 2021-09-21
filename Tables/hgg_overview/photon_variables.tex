@@ -1,4 +1,5 @@
 \begin{tabular}{r|p{0.85\textwidth}}
+    \hline
     \multicolumn{2}{c}{\textbf{Shower shape variables}} \\ \hline
     $\RNINE$ & (=$E_{3\times3}/\Eraw$) The ratio of the energy sum in the $3\times3$ grid surrounding the SC seed to the energy of the SC before corrections. The value of \RNINE is typically high ($>0.85$) for unconverted photons, and typically lower ($<0.85$) for photons that have undergone a conversion upstream of the ECAL. \\
     $E_{2\times2}/E_{5\times5}$ & The ratio of the energy sum in the $2\times2$ grid containing the most energetic crystals in the SC, to the energy in the $5\times5$ grid surrounding the SC seed. \\
@@ -6,13 +7,13 @@
     $\sigma_{i\eta i\eta}$ & The standard deviation of the shower in $\eta$ in terms of the absolute number of crystal cells. \\
     $\sigma_{\phi}$ & A measure of the lateral extension of the shower, defined as the standard deviation of single crystal $\phi$ values within the SC, weighted by the logarithm of the crystal energy.  \\
     ${\rm{cov}}_{i\eta i\phi}$ & The covariance of the single crystal $\eta$ and $\phi$ values for the $5\times5$ grid centred around the crystal with the most energy.  \\
-    $\sigma_{RR}$ & For photons in the ECAL endcaps only, the standard deviation of the shower spread in the x-y plane of the preshower detector. \\
+    $\sigma_{RR}$ & For photons in the ECAL endcaps only. The standard deviation of the shower spread in the $x$-$y$ plane of the preshower detector. \\
     $n_{\rm{clusters}}$ & The number of clusters in the SC. \\
     \hline
     \multicolumn{2}{c}{\textbf{Isolation variables}} \\ \hline
     $H/\Eraw$ & Ratio of the energy in the HCAL cells directly behind the SC to the energy of the SC. \\
     $\mathcal{I}_{\rm{ph}}$ & Photon isolation, defined as the sum of transverse energy of PF photons falling inside a cone of radius ${\Delta}R=\sqrt{\Delta\eta^2+\Delta\phi^2}=0.3$ around the SC. The transverse energies are corrected using $\rho$ to mitigate the effect of pileup. \\
-    $\mathcal{I}_{\rm{ch}}$ & Charged hadron isolation, defined as the sum of transverse energy of the PF charged hadrons falling inside a cone of radius ${\Delta}R=0.3$ around the SC. This is measured with respect to both the selected and the worst vertex; the benefit of this is that true photons are generally isolated from other vertices, but fake photons are not. \\
+    $\mathcal{I}_{\rm{ch}}$ & Charged-hadron isolation, defined as the sum of transverse energy of the PF charged hadrons falling inside a cone of radius ${\Delta}R=0.3$ around the SC. This is measured with respect to both the selected and the worst vertex; the benefit of this is that true photons are generally isolated from other vertices, but fake photons are not. \\
     $\mathcal{I}_{\rm{tk}}$ & Track isolation, defined as the sum of transverse energy of all tracks in a hollow cone with a smaller (larger) annulus of ${\Delta}R=0.04$ (${\Delta}R=0.3$). \\
     \hline
     \multicolumn{2}{c}{\textbf{Other variables}} \\ \hline  
@@ -21,4 +22,5 @@
     \Eraw & Uncorrected supercluster energy. \\
     \Etrue & True photon energy. \\
     $E_\gamma$ & Reconstructed photon energy. \\
+    \hline
 \end{tabular}
