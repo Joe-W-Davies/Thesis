@@ -1,6 +1,6 @@
 \chapter{The \Hgg event categorisation}\label{app:event_categorisation}
 \vspace{-.3cm}
-This Appendix provides supplementary details regarding the event categorisation in the \Hgg analysis, described in section~\ref{sec:event_categorisation}. First, the input features ($\vec{x}$) which are used for each ML classifier are listed. Figure~\ref{fig:categorisation_schematic} then provides a schematic of the event categorisation, highlighting the category priority sequence that is implemented.
+This Appendix provides supplementary details regarding the event categorisation in the \Hgg analysis, described in Section~\ref{sec:event_categorisation}. First, the input features ($\vec{x}$) which are used for each ML classifier are listed. Figure~\ref{fig:categorisation_schematic} then provides a schematic of the event categorisation, highlighting the category priority sequence that is implemented.
 
 % \vspace{-.5cm}
 \section{ML classifier input features}
@@ -16,7 +16,7 @@ Table~\ref{tab:categorisation_input_features} provides a full list of the input 
     \end{equation}
     \noindent
     where $\eta_1$, $\eta_2$, and $\eta_{\gamma\gamma}$, are the lead jet, sublead jet and diphoton $\eta$, respectively. This quantity is extremely useful for identifying the VBF-like topology with two forward jets.
-    \item $\cos{\theta^*}$: cosine of the difference of two angles, namely the diphoton system in the diphoton-dijet centre-of-mass frame, and the diphoton-dijet system in the lab frame.
+    \item $\cos{\theta^*}$: $\theta^*$ is the angle that the diphoton system makes in the diphoton-dijet centre-of-mass frame, with respect to the direction of motion of the diphoton-dijet system in the lab frame
     \item $H_T$: scalar sum of the transverse energy of all reconstructed particles in the event.
     \item $m_T$: transverse mass, defined as,
     \begin{equation}
@@ -33,7 +33,7 @@ Table~\ref{tab:categorisation_input_features} provides a full list of the input 
     \item Top tagger BDT score: a ML algorithm developed for the analysis in Ref.~\cite{Sirunyan:2017wif}, is used to distinguish events with top quarks decaying to three jets, from events that do not contain top quarks. The algorithm is trained on jet triplets from the simulation of tt production events, with input features related to the event kinematics, b tag scores, and the jet shape. The signal is defined as a jet triplet which is matched at truth-level to a top quark, and the background is taken as random jet triplets.
 \end{itemize}
 
-\begin{table}[htb]
+\begin{table}
     \caption[Input features to the \Hgg event classifiers]{Input features to the ML event classifiers used in the \Hgg analysis. Photons, jets, b-tagged jets and leptons are labelled as $\gamma$, $j$, $bj$, and $\ell$, respectively,  and the numbers represent the $p_T$-ordered list of the respective objects e.g. $\gamma 1$ corresponds to the leading photon. The diphoton (dijet) variables are labelled by $\gamma\gamma$ ($jj$). In the final two classifiers, $\rm{fwd}$ corresponds to the jet with the highest $|\eta|$ value, which provides a useful handle on identifying events originating from tHq production. Definitions of the less obvious input features are provided in the main text of this Appendix.}
     \label{tab:categorisation_input_features}
     % \vspace{.5cm}
@@ -46,7 +46,7 @@ Table~\ref{tab:categorisation_input_features} provides a full list of the input 
     % \hspace*{-0.5cm}
 \end{table}
 
-\begin{figure}[htb!]
+\begin{figure}
   \centering
   \includegraphics[width=.9\textwidth]{Figures/app_categorisation/categorisation_schematic.pdf}
   \caption[Schematic of the \Hgg event categorisation]

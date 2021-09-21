@@ -74,6 +74,9 @@
 \newlength{\thickarrayrulewidth}
 \setlength{\thickarrayrulewidth}{2\arrayrulewidth}
 
+% Stop footnote page breaks
+\interfootnotelinepenalty=10000
+
 % bibtex
 \DeclareFieldFormat{title}{``{#1}"}
 
@@ -105,12 +108,14 @@
 \newcommand{\mgg}{\ensuremath{m_{\gamma\gamma}}\xspace}
 \newcommand{\mH}{\ensuremath{m_{H}}\xspace}
 \newcommand{\Etrue}{\ensuremath{E_{\mathrm{true}}}\xspace}
-\newcommand{\Eraw}{\ensuremath{E_{SC}}\xspace}
+\newcommand{\Eraw}{\ensuremath{E_{\rm{SC}}}\xspace}
 \newcommand{\fbinv}{\ensuremath{\textrm{fb}^{-1}}\xspace}
 \newcommand{\abinv}{\ensuremath{\textrm{ab}^{-1}}\xspace}
 \newcommand{\pbw}{\ensuremath{\textrm{PbWO}_4}\xspace}
-\newcommand{\met}{\ensuremath{p^\textrm{miss}_{T}}\xspace}
-\newcommand{\metv}{\ensuremath{\vec{p}^{\,\textrm{miss}}_{T}}\xspace}
+% \newcommand{\met}{\ensuremath{p^\textrm{miss}_{T}}\xspace}
+% \newcommand{\metv}{\ensuremath{\vec{p}^{\,\textrm{miss}}_{T}}\xspace}
+\newcommand{\met}{\ensuremath{p^{miss}_{T}}\xspace}
+\newcommand{\metv}{\ensuremath{\vec{p}^{\,miss}_{T}}\xspace}
 \newcommand{\lumi}{\ensuremath{\textrm{cm}^{-2}\,\textrm{s}^{-1}}\xspace}
 \newcommand{\RNINE}{\ensuremath{R_9}\xspace}
 \newcommand{\akt}{anti-\ensuremath{k_T}\xspace}
