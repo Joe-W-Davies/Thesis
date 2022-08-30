@@ -40,6 +40,9 @@
 \usepackage{placeins}
 \usepackage{slashed}
 
+%Feynman diagram packages
+\usepackage[compat=1.0.0]{tikz-feynman}
+
 %Figure and table caption style
 \usepackage[font=small, labelfont=bf, justification=justified, format=hang]{caption}
 %\usepackage[font=small, labelfont=bf, justification=raggedright, format=hang]{caption}
@@ -80,48 +83,45 @@
 % bibtex
 \DeclareFieldFormat{title}{``{#1}"}
 
+% user defined mathmetical operators
+\DeclareMathOperator*{\argmin}{argmin}
+
 %useful commands
-\newcommand{\xsbr}{\ensuremath{\sigma_{\rm{obs}}\,\mathcal{B}}\xspace}
 \newcommand{\pt}{\ensuremath{p_T}\xspace}
+\newcommand{\Et}{\ensuremath{E_T}\xspace}
 \newcommand{\ptgg}{\ensuremath{p_T^{\gamma\gamma}}\xspace}
 \newcommand{\ptH}{\ensuremath{p_T^H}\xspace}
-\newcommand{\ptV}{\ensuremath{p_T^V}\xspace}
 \newcommand{\ptHjj}{\ensuremath{p_T^{Hjj}}\xspace}
 \newcommand{\SUN}{\ensuremath{\mathrm{SU}(N)}\xspace}
 \newcommand{\MET}{\ensuremath{E_{T}^{\mathrm{miss}}}\xspace}
 \newcommand{\Hgg}{\ensuremath{\mathrm{H}\,\rightarrow\,\gamma\gamma}\xspace}
-\newcommand{\Htautau}{\ensuremath{\mathrm{H}\,\rightarrow\,\tau\tau}\xspace}
-\newcommand{\Hbb}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{b}\mathrm{b}}\xspace}
-\newcommand{\Hcc}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{c}\mathrm{c}}\xspace}
-\newcommand{\Hgluglu}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{g}\mathrm{g}}\xspace}
-\newcommand{\HZZ}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{Z}\mathrm{Z}}\xspace}
-\newcommand{\HWW}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{W}\mathrm{W}}\xspace}
-\newcommand{\Hlnulnu}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{W}\mathrm{W}\,\rightarrow\,\ell\nu\ell\nu}\xspace}
-\newcommand{\HZg}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{Z}\gamma}\xspace}
 \newcommand{\Hmumu}{\ensuremath{\mathrm{H}\,\rightarrow\,\mu\mu}\xspace}
-\newcommand{\Hfl}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{Z}\mathrm{Z}\,\rightarrow\,4\ell}\xspace}
-\newcommand{\Zee}{\ensuremath{\mathrm{Z}\rightarrow{\mathrm{e}^{+}\mathrm{e}^{-}}}\xspace}
-\newcommand{\ee}{\ensuremath{{\mathrm{e}^{+}\mathrm{e}^{-}}}\xspace}
+\newcommand{\Hee}{\ensuremath{\mathrm{H}\,\rightarrow\,\mathrm{ee}}\xspace}
+\newcommand{\BHee}{\ensuremath{\mathcal{B}(\Hee)}\xspace}
+\newcommand{\mee}{\ensuremath{m_{ee}}\xspace}
+\newcommand{\ptee}{\ensuremath{\pt^{ee}}\xspace} 
+%\newcommand{\Zee}{\ensuremath{\mathrm{Z}\rightarrow{\mathrm{e}^{+}\mathrm{e}^{-}}}\xspace}
+\newcommand{\Zee}{\ensuremath{\mathrm{Z}\rightarrow{\mathrm{e}\mathrm{e}}}\xspace}
 \newcommand{\Zmumu}{\ensuremath{\mathrm{Z}\rightarrow{\mu^{+}\mu^{-}}}\xspace}
 \newcommand{\Zmumug}{\ensuremath{\mathrm{Z}\rightarrow{\mu^{+}\mu^{-}\gamma}}\xspace}
 \newcommand{\ttH}{\ensuremath{\mathrm{t}\bar{\mathrm{t}}\mathrm{H}}\xspace}
+\newcommand{\ggH}{gg\ensuremath{\mathrm{H}}\xspace}
+\newcommand{\Z}{\ensuremath{\mathrm{Z}}\xspace}
+\newcommand{\ttbar}{\ensuremath{\mathrm{t}\bar{\mathrm{t}}}\xspace}
 \newcommand{\mgg}{\ensuremath{m_{\gamma\gamma}}\xspace}
 \newcommand{\mH}{\ensuremath{m_{H}}\xspace}
 \newcommand{\Etrue}{\ensuremath{E_{\mathrm{true}}}\xspace}
-\newcommand{\Eraw}{\ensuremath{E_{\rm{SC}}}\xspace}
+\newcommand{\Eraw}{\ensuremath{E_{SC}}\xspace}
 \newcommand{\fbinv}{\ensuremath{\textrm{fb}^{-1}}\xspace}
-\newcommand{\abinv}{\ensuremath{\textrm{ab}^{-1}}\xspace}
 \newcommand{\pbw}{\ensuremath{\textrm{PbWO}_4}\xspace}
-% \newcommand{\met}{\ensuremath{p^\textrm{miss}_{T}}\xspace}
-% \newcommand{\metv}{\ensuremath{\vec{p}^{\,\textrm{miss}}_{T}}\xspace}
-\newcommand{\met}{\ensuremath{p^{miss}_{T}}\xspace}
-\newcommand{\metv}{\ensuremath{\vec{p}^{\,miss}_{T}}\xspace}
+\newcommand{\met}{\ensuremath{E^\textrm{miss}_{T}}\xspace}
 \newcommand{\lumi}{\ensuremath{\textrm{cm}^{-2}\,\textrm{s}^{-1}}\xspace}
 \newcommand{\RNINE}{\ensuremath{R_9}\xspace}
 \newcommand{\akt}{anti-\ensuremath{k_T}\xspace}
 \newcommand{\srv}{\ensuremath{\sigma_{rv}}\xspace}
 \newcommand{\swv}{\ensuremath{\sigma_{wv}}\xspace}
 \newcommand{\mjj}{\ensuremath{m_{jj}}\xspace}
+\newcommand{\dEtajj}{\ensuremath{\Delta\eta_{\text{jj}}}\xspace} 
 \newcommand{\seff}{\ensuremath{\sigma_{\text{eff}}}\xspace}
 \newcommand{\shm}{\ensuremath{\sigma_{HM}}\xspace}
 \newcommand{\Like}{\ensuremath{\mathcal{L}}\xspace}
@@ -129,7 +129,7 @@
 \newcommand{\dNLL}{\ensuremath{2\Delta\textrm{NLL}}\xspace}
 \newcommand{\sigmaSM}{\ensuremath{\sigma_{SM}}\xspace}
 \newcommand{\Largs}{\ensuremath{\textrm{data}\,|\,\vec{\sigma},\mH,\vec{\theta}}\xspace}
-\newcommand{\sqrtS}{\ensuremath{\sqrt{s}}\xspace}
+\newcommand{\sqrts}{\ensuremath{\sqrt{s}=13}\xspace}
+\newcommand{\intlumi}{\ensuremath{138~\fbinv}\xspace} 
 \newcommand{\psibar}{\ensuremath{\bar{\psi}}\xspace}
-\newcommand{\Mink}{\ensuremath{g^{\mu\nu}}\xspace}
-\newlength\cmsTabSkip\setlength{\cmsTabSkip}{1ex}
+\newcommand{\Mink}{\ensuremath{g^{\mu\nu}}\xspace} 
