@@ -10,9 +10,18 @@ To extract a potential \Hee signal, a fit is performed to the dielectron invaria
 \end{equation}
 
 
-\noindent where $E_{e_1}$ and $E_{e_1}$ are the energies of the leading and subleading-\Et electron respectively, and $\theta$ is the opening angle between them. In order to resolve the signal peak resulting from \Hee decays over the background continuum, Eqn~\ref{eqn:hee_mee} demonstrates that both the electron energies and directions, as well as the position of the primary interaction vertex, must be well measured. Since the analysis sensitivity depends on the signal-to-background ratio, $S/B$, electrons from the \Hee decay must also be correctly identified against those resulting from background processes. 
+\noindent where $E_{e_1}$ and $E_{e_1}$ are the energies of the leading and subleading-\Et electron respectively, and $\theta$ is the opening angle between them. In order to resolve the signal peak resulting from \Hee decays over the background continuum, Eqn~\ref{eqn:hee_mee} demonstrates that both the electron energies and directions, as well as the position of the primary interaction vertex, must be well measured. Since the analysis sensitivity depends on the signal-to-background ratio, $S/B$, electrons from the \Hee decay must also be correctly identified against those resulting from background processes. The improvement in sensitivity as a result of improved \mee resolution and $S/B$ ratio is shown graphically in Figure~\ref{fig:hee_mee_cartoon}.
 
 This chapter firstly outlines the simulated samples and data used within the event categorisation and to produce the analysis' results. The remainder of the chapter describes the reconstruction of physics objects at CMS, many of which are used within the \Hee search, and the corrections applied to them. A particular focus is placed on the reconstruction of electrons, including the per-electron identification techniques. Additional suppression of background events at the per-event level is also discussed in chapter~\ref{chap:eventCategorisation}. 
+
+
+\begin{figure}[htbp!]                                        
+\centering                                                   
+\includegraphics[width=0.9\linewidth]{Figures/Hee/Misc/mee_cartoon.pdf}\hfill
+
+\caption[An illustration of the means of improving the sensitivity for the \Hee search.]{An illustration of the means of improving the sensitivity for the \Hee search. Top: the effect of improving the \mee resolution, resulting in a narrower signal peak. Bottom: The effect of improving the $S/B$ ratio, due to better discrimination of signal and background events.}
+\label{fig:hee_mee_cartoon}                                 
+\end{figure} 
 
 \section{Samples}
 
@@ -82,14 +91,16 @@ For the inner tracker, a generic set of PF tracks are reconstructed using a mult
 \subsubsection{Primary vertex location}
 
 
-Location of the primary interaction vertex corresponding to the hard scattering event is determined using information from the tracker~\cite{primary_vertex_finding}. The assignment of this vertex is critical in mitigating the impact of pileup interactions, which typically produce many vertices with low associated \pt. For each candidate vertex, all compatible tracks are clustered with the anti-$k_{t}$~\cite{anti-kt} algorithm into pseudo-jets, as described in Section~\ref{subsec:hadrons_and_jets}. The sum of the squared transverse energy, $\sum p^{2}_{T}$, is then evaluated for each pseudo-jet and combined with the $p^{2}_{T}$ of any remaining associated single tracks. Finally, the squared missing transverse momentum associated with the vertex is added to the sum, to account for contributions from neutral particles. The candidate vertex with the largest $\sum p^{2}_{T}$ is chosen as the primary vertex.
+Location of the primary interaction vertex corresponding to the hard scattering event is determined using information from the tracker~\cite{primary_vertex_finding}. The assignment of this vertex is critical in mitigating the impact of pileup interactions, which typically produce many vertices with low associated \pt. For each candidate vertex, all compatible tracks are clustered with the anti-$k_{t}$~\cite{anti-kt} algorithm into pseudo-jets, as described in Section~\ref{subsec:hadrons_and_jets}. The sum of the squared transverse energy, $\sum p^{2}_{T}$, is then evaluated for each pseudo-jet and combined with the $p^{2}_{T}$ of any remaining associated single tracks. Finally, the squared missing transverse momentum associated with the vertex is added to the sum, to account for contributions from neutral particles. The candidate vertex with the largest $\sum p^{2}_{T}$ is chosen as the primary vertex. 
+
+In general, if the location of the primary vertex is correctly determined within 1~cm of the true vertex, the dielectron mass resolution is dominated by the electron energy resolution. For electrons considered in the search for \Hee decays, the primary vertex resolution in the $z$-direction varies between approximately 16 and 100$~\mu\mathrm{m}$ in 2016, and between 12 and 70~$\mu\mathrm{m}$ in 2017 and 2018. Therefore, the uncertainty on the electron energy dominates the overall uncertainty on \mee. The efficiency of reconstructing the primary vertex for \Hee decays is close to unity.
 
 \subsection{Calorimeter clustering}
 
 In the calorimeters, inputs to the PF algorithm use energy deposits collected together to form clusters. This is particularly important for electrons and photons, which have a significant probability of showering when traversing the tracker. The resulting ECAL deposits must be combined into a single (super)cluster that captures the energy of the original electron/photon. The clustering algorithm is performed separately in each calorimeter subdetector, excluding the HF. The procedure for clustering in the ECAL~\cite{particle_flow,CMS_egamma_performance} is described here, although the HCAL procedure is similar:
 
 \begin{enumerate}
-    \item Seeds for clustering are identified as calorimeter cells with some minimum energy threshold, that must also be larger than neighbouring cells (those that share an edge with the seed).
+    \item Seeds for clustering are identified as calorimeter cells with a minimum energy threshold of 0.18 and 1~GeV for seeds in the endcap and barrel regions respectively. Seeds cells are also required to be larger in energy than neighbouring cells (those that share an edge with the seed).
     \item So-called \textit{topological clusters} are built iteratively by aggregating cells that share a corner or edge in common with the growing cluster, provided the candidate cell has energy greater than twice the noise level. For crystals that could belong to multiple clusters, the energy is shared assuming a Gaussian shower profile. A seed cluster is then defined as the one containing most of the energy deposited.
     \item Topological clusters within a geometric window around the seed cluster are grouped into so-called superclusters. The supercluster energy is defined previously in Eqn~\ref{eqn:egamma_reco_energy}, while its position is given by the \pt weighted values of its constituent clusters. 
 \end{enumerate}
@@ -210,12 +221,12 @@ Tracks resulting from muons are reconstructed independently in the inner tracker
 \subsection{Hadrons}
 \label{subsec:hadrons_and_jets}
 
-At this stage, only charged hadrons including $\pi^{\pm}$, $K^{\pm}$, and protons, and neutral hadrons such a $K^{0}$ and neutrons, remain to be identified. In practise, these are considered in the same processing step as non-isolated photons, described earlier. Within the tracker acceptance, all HCAL reconstructed clusters not linked to tracks are identified as neutral hadrons. The situation is complicated outside of the tracker acceptance where charged and neutral hadrons cannot be separated. Instead, ECAL clusters that are also linked to clusters in the HCAL are assigned to either charged or neutral hadron showers.
+At this stage, only charged hadrons including $\pi^{\pm}$, $K^{\pm}$, and protons, and neutral hadrons such a $K^{0}$ and neutrons, remain to be identified. In practise, these are considered in the same processing step as non-isolated photons, described earlier. Within the tracker acceptance, all HCAL reconstructed clusters not linked to tracks are identified as neutral hadrons. The situation is complicated outside of the tracker acceptance where charged and neutral hadrons cannot be separated. Instead, ECAL clusters that are also linked to clusters in the HCAL are assigned as hadron showers with unknown charge, while those with ECAL clusters without this link are considered as photons.
 
 \subsubsection{Jets}
 
 
-Particles produced from the hadronisation of quarks or gluons are collected into collimated sprays known as jets. The clustering at CMS is performed using the anti-$k_{t}$~\cite{anti-kt} jet finding algorithm, which groups PF candidates into conical clusters. Typical jet finding algorithms define a distance metric between constituent particles; in the anti-$k_{t}$ algorithm, this metric is formed in an abstract space of momentum, rapidity, and azimuthal angle. Clustering starts with the two objects that are nearest in distance and repeats iteratively until the shortest distance is between an object and the beampipe. At this point, the resulting jet is removed from consideration and the process may begin again.
+Particles produced from the hadronisation of quarks or gluons are collected into collimated sprays known as jets. The clustering at CMS is performed using the anti-$k_{t}$~\cite{anti-kt} jet finding algorithm, which groups PF candidates into conical clusters. Typical jet finding algorithms define a distance metric between constituent particles; in the anti-$k_{t}$ algorithm, this metric is formed in an abstract space of momentum, rapidity, and azimuthal angle. Clustering starts with the two objects that are nearest in distance and repeats iteratively until the largest distance is between an object and the beampipe. At this point, the resulting jet is removed from consideration and the process may begin again.
 %infrared safe or soft emission safe: add soft emmisions process and have it unchanged (ME not blowing up)
 % collinear safe: ME doesn't blow up when massless particle produce colllinearly from another
     

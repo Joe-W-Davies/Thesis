@@ -46,7 +46,7 @@ Since the \Hee analysis aims to set a limit on a single POI which scales the \BH
 Setting limits on parameters of interest can be interpreted in the context of hypothesis testing. In the case of the \Hee search, the set of all possible values of the POI that scale the signal yield form a set of null hypotheses. The objective is to use the observed data to reject these hypothesis at various confidence levels. The CL is specified by the \textit{size} of the test, $\alpha$, which corresponds to the probability to reject the null hypothesis, even if it was true. 
 %The interpretation of an exclusion limit set at the $100(1-\alpha)\%$ confidence level follows the frequentest paradigm, in that for a series of identical pseudoexperiments, the statement made about POI(s) should be correct $100(1-\alpha$)\% of the time. The choice for $\alpha$ depends on the hypothesis to be excluded, but is commonly chosen as 0.05.  %choice depends on how well separated the null and alternate hypothesis are. Lower alpha means more separation.
 
-In order to set upper limits, a test statistic which summarises the observed data in a single value, $t_{\mu}$, is used. Typical test statistics often use ratios of likelihood functions constructed under a null and alternative hypothesis for $\mu$, since these maximise the \textit{power} of the test for a given test size, and have useful asymptotic properties~\cite{NeymanPearson}. The test statistic distribution, $f(t_{\mu},\vec{\theta})$, is constructed for each considered value of $\mu$. The observed value of $t_{\mu}$ in data, $t_{\mu}^{obs}$, can then be used to compute a $p$-value; comparing the $p$-value with the chosen confidence level informs whether the null hypothesis under test can be excluded. For this analysis, the chosen test statistic is given by:
+In order to set upper limits, a test statistic which summarises the observed data in a single value, $t_{\mu}$, is used. Typical test statistics often use ratios of likelihood functions constructed under a null and alternative hypothesis for $\mu$, since these maximise the \textit{power} of the test for a given test size, and have useful asymptotic properties~\cite{Cowan,NeymanPearson}. The test statistic distribution, $f(t_{\mu},\vec{\theta})$, is constructed for each considered value of $\mu$. The observed value of $t_{\mu}$ in data, $t_{\mu}^{obs}$, can then be used to compute a $p$-value; comparing the $p$-value with the chosen confidence level informs whether the null hypothesis under test can be excluded. For this analysis, the chosen test statistic is given by:
 
 \begin{equation}\label{eqn:hee_test_stat}
      t_{\mu} =
@@ -64,7 +64,7 @@ In this analysis, the $\mathrm{CL}_s$ procedure~\cite{CLs1,CLs2,LHCStatProcedure
 
 \begin{align*}
     CL_{s} &= \frac{p_{s+b}}{1-p_{b}}\\
-           &= \frac{\int_{t_{\mu}^{obs}}^{\infty} f(t_{\mu}|\mu,\vec{\theta}=\hat{\vec{\theta}}_{\mu}^{obs})dt_{\mu}}{1-\int_{t_{0}^{obs}}^{\infty} f(t_{\mu}|0,\vec{\theta}=\hat{\vec{\theta}}_{0}^{obs})dt_{\mu}},
+           &= \frac{\int_{t_{\mu}^{obs}}^{\infty} f(t_{\mu}|\mu,\vec{\theta}=\hat{\vec{\theta}}_{\mu}^{obs})dt_{\mu}}{\int_{t_{0}^{obs}}^{\infty} f(t_{\mu}|0,\vec{\theta}=\hat{\vec{\theta}}_{0}^{obs})dt_{\mu}},
 \end{align*}
 
 \noindent where the nuisance parameters are set to their best-fit values for the chosen $\mu$ being tested. The $CL_{s}$ ratio is designed to make the test more conservative, avoiding excluding values of $\mu$ where the data also does not favour the background-only hypothesis. The smallest value of $\mu$ which satisfies $CL_{s}<\alpha$ is quoted as the upper limit on $\mu$, at the $1-\alpha$ confidence level. 
@@ -75,8 +75,8 @@ This analysis reports exclusion limits on the branching fraction for \Hee decays
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.49\textwidth]{Figures/Hee/Results/SPlusBModels/gghcat0_CMS_hgg_mass.pdf}\hfill%
-\includegraphics[width=0.49\textwidth]{Figures/Hee/Results/SPlusBModels/vbfcat0_CMS_hgg_mass.pdf}\hfill%
+\includegraphics[width=0.49\textwidth]{Figures/Hee/Results/SPlusBModels/gghcat0_CMS_hgg_mass_paper.pdf}\hfill%
+\includegraphics[width=0.49\textwidth]{Figures/Hee/Results/SPlusBModels/vbfcat0_CMS_hgg_mass_paper.pdf}\hfill%
 \caption[The observed dielectron invariant mass distribution for the \ggH Tag 0 and VBF Tag 0 analysis categories.]{The signal-plus-background model fit (solid red line) to the \mee distribution for the highest $S/B$ analysis categories targeting the \ggH (left) and VBF (right) processes. The background-only component is also shown (dashed red line). The signal model for each category is shown (blue), scaled to the observed limit at $\mH=125.38$~GeV. The one (green) and two (yellow) standard deviation bands show the uncertainties in the background component of the fit. The lower panel shows the residual difference after subtraction of this background component.}
 \label{fig:hee_S_plus_B_plots}
 \end{figure}
@@ -87,7 +87,7 @@ Exclusion limits on \BHee are presented in Figure~\ref{fig:hee_limits}, for sele
    \BHee < 3.0\times 10^{-4},
 \end{equation}
 
-\noindent while the expected limit is (also) $\BHee < 3.0\times 10^{-4}$. Limits at alternative Higgs boson mass points are of similar magnitude, with the observed limit consistently within the $1\sigma$ uncertainty interval of the expected value. Limits are presented for each analysis category independently in Figure~\ref{fig:hee_limits_per_cat}, where it can be seen that the overall expected sensitivity is driven equally by \ggH and VBF categories.
+\noindent while the expected limit is (also) $\BHee < 3.0\times 10^{-4}$. The p-value for this fit is 90\%, indicating good compatibility with the SM prediction. Limits at alternative Higgs boson mass points are of similar magnitude, with the observed limit consistently within the $1\sigma$ uncertainty interval of the expected value.  Limits are presented for each analysis category independently in Figure~\ref{fig:hee_limits_per_cat}, where it can be seen that the overall expected sensitivity is driven equally by \ggH and VBF categories.
 
 Finally, the limit on the \Hee branching fraction is translated into an upper bound on the effective coupling modifier to electrons, $|\kappa_{e}|$. The coupling modifier is defined as the ratio of the observed electron-Yukawa coupling, to the SM prediction, $|\kappa_{e}|=|Y_{e}^{obs}|/|Y_{e}^{\mathrm{SM}}|$, such that deviations from $|\kappa_{e}|=1$ indicate non-SM behaviour. It is related to the \Hee branching fraction by
 
@@ -99,7 +99,7 @@ Finally, the limit on the \Hee branching fraction is translated into an upper bo
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.86\textwidth]{Figures/Hee/Results/limits/limitVsMh.pdf}\hfill%
+\includegraphics[width=0.8\textwidth]{Figures/Hee/Results/limits/limitVsMh_paper.pdf}\hfill%
 \caption[Limits on \BHee as a function of the Higgs boson mass.]{Expected and observed limits on \BHee for Higgs boson masses between 120 and 130~GeV, along with the associated 1$\sigma$ (green) and 2$\sigma$ (yellow) CL intervals. The observed limits are within the 1$\sigma$ interval of the expected limits for all considered values of the Higgs boson mass.}
 \label{fig:hee_limits}
 \end{figure}
@@ -107,7 +107,7 @@ Finally, the limit on the \Hee branching fraction is translated into an upper bo
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=0.75\textwidth]{Figures/Hee/Results/limits/per_category_limits.pdf}\hfill%
+\includegraphics[width=0.75\textwidth]{Figures/Hee/Results/limits/per_category_limits_paper.pdf}\hfill%
 \caption[Limits on \BHee per analysis category.]{Expected and observed limits on \BHee for each constructed analysis category, and all categories combined. The relative contribution to the overall sensitivity is similar between the most sensitive categories targeting \ggH and VBF events. The results here assume a SM Higgs boson with mass of 125.38~GeV. }
 \label{fig:hee_limits_per_cat}
 \end{figure}

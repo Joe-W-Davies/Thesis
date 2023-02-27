@@ -3,8 +3,6 @@
 
 \section{Introduction}
 
-%Didn't derive the BR for H->ee... 
-
 The standard model of particle physics is a quantum field theory (QFT) describing the fundamental particles and their interactions through the strong, electromagnetic (EM), and weak forces. In particular, the SM is a type of gauge field theory, described in the Lagrangian formalism, where the symmetries of a physical system manifest as invariances under transformations to particle wavefunctions. The framework allows for interactions between particles to be introduced naturally, as a required consequence of gauge invariance.
 The SM has been an extremely successful theory of nature, with its predictions verified by many experimental results. Most recently, this included the discovery of the Higgs boson by the CMS and ATLAS experiments~\cite{Aad:2012tfa,Chatrchyan:2012xdj,Chatrchyan:2013lba} at the LHC, which provided confirmation of the BEH mechanism postulated almost fifty years prior. 
 
@@ -12,9 +10,9 @@ This chapter firstly outlines the particles described in the SM, including the q
 
 \section{SM particles and forces}
 
-Particles in the SM can be organised into spin-$\frac{1}{2}$ fermions, which are the fundamental constituents of matter, and integer spin gauge bosons, which mediate the three forces described in the SM. Fermions can be further divided into six quarks and six leptons, each of which belongs to one of three generations. Each generation of quark consists of an \textit{up-type} and \textit{down-type} quark, with fractional electric charge of $+2/3$ and $-1/3$ (in units of the elementary charge, $|e|$) respectively. Quarks are also distinguished from leptons by their colour charge, which allows them to interact via the strong force. The lepton generations consist of one charged particle and its corresponding neutrino. Charged leptons interact through either the EM or weak force, whereas neutrinos posses no electric or colour charge and are thus only permitted to interact via the weak force. All quarks and leptons have anti-particle versions of themselves with opposite charge\footnote{With the exception of the three neutrinos, where the corresponding anti-particle also has no charge.}, resulting in twelve additional anti-fermions. %also opposite parity
+Particles in the SM can be organised into spin-${\frac{1}{2}}$ fermions, which are the fundamental constituents of matter, and integer spin gauge bosons, which mediate the three forces described in the SM. Fermions can be further divided into six quarks and six leptons, each of which belongs to one of three generations. Each generation of quark consists of an \textit{up-type} and \textit{down-type} quark, with fractional electric charge of ${+2/3}$ and ${-1/3}$ (in units of the elementary charge, ${|e|}$) respectively. Quarks are also distinguished from leptons by their colour charge, which allows them to interact via the strong force. The lepton generations consist of one charged particle and its corresponding neutrino. Charged leptons interact through either the EM or weak force, whereas neutrinos posses no electric or colour charge and are thus only permitted to interact via the weak force. All quarks and leptons have anti-particle versions of themselves with opposite charge\footnote{With the exception of the three neutrinos, where the corresponding anti-particle also has no charge.}, resulting in twelve additional anti-fermions. %also opposite parity
 
-The interactions between fermions are mediated by the gauge bosons, with each force having at least one associated carrier. The EM force is mediated by the massless photon, resulting in an effectively infinite range. The weak force is mediated by two charged massive bosons ($\mathrm{W}^{\pm}$) and one neutral boson ($\mathrm{Z}$), while the strong force is carried by massless gluons. 
+The interactions between fermions are mediated by the gauge bosons, with each force having at least one associated carrier. The EM force is mediated by the massless photon, resulting in an effectively infinite range. The weak force is mediated by two charged massive bosons (${\mathrm{W}^{\pm}}$) and one neutral boson (${\mathrm{Z}}$), while the strong force is carried by massless gluons. 
 
 The final particle in the SM is the spin-0 Higgs boson, which arises as a consequence of the BEH mechanism. The mechanism is responsible for explaining how the fermions and weak gauge bosons acquire mass, while the photon remains massless. 
 
@@ -31,7 +29,7 @@ The SM is a gauge field theory, described using the Lagrangian formalism. The dy
 
 \subsection{Electromagnetic interactions}
 
-The QFT for electromagnetism is quantum electrodynamics (QED), describing charged fermions and their interactions with the photon. Terms in the corresponding QED Lagrangian that describe the spin-$\frac{1}{2}$ fermion fields, can be grouped into the so-called Dirac Lagrangian, $\mathcal{L}$. This Lagrangian will be used to illustrate how imposing local gauge invariance leads naturally to the introduction of additional gauge fields. 
+The QFT for electromagnetism is quantum electrodynamics (QED), describing charged fermions and their interactions with the photon. Terms in the corresponding QED Lagrangian that describe the spin-${\frac{1}{2}}$ fermion fields, can be grouped into the so-called Dirac Lagrangian, ${\mathcal{L}}$. This Lagrangian will be used to illustrate how imposing local gauge invariance leads naturally to the introduction of additional gauge fields. 
 
 The Dirac Lagrangian~\cite{Thomson} has the form
 
@@ -39,22 +37,22 @@ The Dirac Lagrangian~\cite{Thomson} has the form
     \mathcal{L} = i\bar{\psi}\gamma^{\mu}\partial_{\mu}\psi - m\bar{\psi}\psi,
 \end{equation}
 
-\noindent where $\psi$ is the Dirac spinor, and $\bar{\psi}$ is the adjoint spinor defined as $\bar{\psi}=\psi^{\dagger}\gamma^{0}$. The terms $\gamma^{\mu}$ are the $\gamma$-matrices which obey the anticommutation relation $\{\gamma^{\mu},\gamma^{\nu}\} = 2\eta^{\mu\nu}$, where $\eta^{\mu\nu}$ is the Minkowski metric, and $\mu,\nu \in \{0,1,2,3\}$. Finally, $m$ is the mass of the fermion described by $\psi$.
+\noindent where ${\psi}$ is the Dirac spinor, and ${\bar{\psi}}$ is the adjoint spinor defined as ${\bar{\psi}=\psi^{\dagger}\gamma^{0}}$. The terms ${\gamma^{\mu}}$ are the ${\gamma}$-matrices which obey the anticommutation relation ${\{\gamma^{\mu},\gamma^{\nu}\} = 2\eta^{\mu\nu}}$, where ${\eta^{\mu\nu}}$ is the Minkowski metric, and ${\mu,\nu \in \{0,1,2,3\}}$. Finally, ${m}$ is the mass of the fermion described by ${\psi}$.
 
-The Dirac Langrangian is clearly invariant under a \textit{global} gauge transformation to the fermion fields. This transformation belongs to the U(1) symmetry group, and thus can be described by a single real parameter, $\theta$, as
+The Dirac Langrangian is clearly invariant under a \textit{global} gauge transformation to the fermion fields. This transformation belongs to the U(1) symmetry group, and thus can be described by a single real parameter, ${\theta}$, as
 
 \begin{equation}
     \psi \rightarrow e^{ig\theta}\psi,
 \end{equation}
 
-\noindent where $\theta$ and $g$ are constant, real numbers. Now consider elevating this symmetry to a \emph{local} gauge transformation, of the kind
+\noindent where ${\theta}$ and ${g}$ are constant, real numbers. Now consider elevating this symmetry to a \emph{local} gauge transformation, of the kind
 %g is obviously different for each particle though! For leptons is +/1, for quarks it is fractional
 
 \begin{equation}
     \psi \rightarrow e^{ig\theta(x)}\psi,
 \end{equation}
 
-\noindent where $\theta(x)$ can now be different at any point in space-time, $x$. Unlike for global transformations, where the four-derivative commuted with the position independent value of $\theta$, the corresponding Lagrangian is no longer invariant, acquiring the additional term
+\noindent where ${\theta(x)}$ can now be different at any point in space-time, ${x}$. Unlike for global transformations, where the four-derivative commuted with the position independent value of ${\theta}$, the corresponding Lagrangian is no longer invariant, acquiring the additional term
 %these charged g are eigenvalues of the generators.
 
 \begin{equation}
@@ -64,34 +62,34 @@ The Dirac Langrangian is clearly invariant under a \textit{global} gauge transfo
 
 %The dirac LAGrangian is similat to the dirac EQN, except for it has a psi(bar) to make it LGI under U(1). So in the dirac EQN, you just read off allowed vertices factors, but in the lagrangian, you read off interactions processed
 
-\noindent To remove the residual term and restore gauge invariance, the derivative $\partial_\mu$ is replaced by the covariant derivative, $D_{\mu}$, defined as:
+\noindent To remove the residual term and restore gauge invariance, the derivative ${\partial_\mu}$ is replaced by the covariant derivative, ${D_{\mu}}$, defined as:
 
 \begin{equation}
     D_{\mu} \equiv \partial_{\mu} + igA_{\mu},
 \end{equation}
 
-\noindent where $A_\mu$ is an additional field that has been added to the Dirac Lagrangian. The desired cancellation of the $g\bar{\psi}\gamma^{\mu}(\partial_{\mu}\theta(x))\psi$ term in Eqn~\ref{eqn:theory_LGT_1} is achieved, provided the new field transforms as
+\noindent where ${A_\mu}$ is an additional field that has been added to the Dirac Lagrangian. The desired cancellation of the ${g\bar{\psi}\gamma^{\mu}(\partial_{\mu}\theta(x))\psi}$ term in Eqn~\ref{eqn:theory_LGT_1} is achieved, provided the new field transforms as
 
 \begin{equation}
     A_{\mu} \rightarrow A_{\mu} - \partial_{\mu}\theta(x),
 \end{equation}
 
 %A_mu is g_{munu}/p^2-m^2 as seen in the usual ME. If the photon isn't intermediate, the polarisation vectors must be included
-\noindent exhibiting the same gauge invariance observed in classical electromagnetism. In QED, the new boson is associated with the photon propagator, with $g$ then assuming the electron charge. The modified Dirac Lagrangian, which no longer describes free particle fields, and is now locally gauge invariant, can be written as:
+\noindent exhibiting the same gauge invariance observed in classical electromagnetism. In QED, the new boson is associated with the photon propagator, with ${g}$ then assuming the electron charge. The modified Dirac Lagrangian, which no longer describes free particle fields, and is now locally gauge invariant, can be written as:
 
 \begin{equation}
     \mathcal{L} = i\bar{\psi}\gamma^{\mu}D_{\mu}\psi - m\bar{\psi}\psi - \frac{1}{4}F^{\mu\nu}F_{\mu\nu},
 \end{equation}
 
-\noindent where $F^{\mu\nu}$ is the electromagnetic field strength tensor, which is also invariant under local gauge transformations. %field tensor part gives Maxwell equations when applying equations of motions
+\noindent where ${F^{\mu\nu}}$ is the electromagnetic field strength tensor, which is also invariant under local gauge transformations. %field tensor part gives Maxwell equations when applying equations of motions
 
-Compared with the original Lagrangian, the term $-g\bar{\psi}\gamma^{\mu}A_\mu\psi$ has been added, corresponding to the basic QED interaction vertex between the fermion and photon fields, shown by the Feynman diagram in Figure~\ref{fig:theory_qed_vertex}. The photon and its interactions thus arise naturally from requiring a locally gauge invariant description of fermionic interactions. Note that mass terms for the new field, which would take the form $-\frac{1}{2}m_{A}^{2}A_{\mu}A^{\mu}$, are not included, since the term transforms as 
+Compared with the original Lagrangian, the term ${-g\bar{\psi}\gamma^{\mu}A_\mu\psi}$ has been added, corresponding to the basic QED interaction vertex between the fermion and photon fields, shown by the Feynman diagram in Figure~\ref{fig:theory_qed_vertex}. The photon and its interactions thus arise naturally from requiring a locally gauge invariant description of fermionic interactions. Note that mass terms for the new field, which would take the form ${-\frac{1}{2}m_{A}^{2}A_{\mu}A^{\mu}}$, are not included, since the term transforms as 
 
 \begin{equation}
     \frac{1}{2}m_{A}^{2}A_{\mu}A^{\mu} \rightarrow \frac{1}{2}m_{A}^{2}\left(A_{\mu} - \partial_{\mu}\theta(x)\right)\left(A^{\mu} - \partial^{\mu}\theta(x)\right) \neq \frac{1}{2}m_{A}^{2}A_{\mu}A^{\mu},
 \end{equation}
 
-\noindent breaking the gauge symmetry for values of $m_{A}\neq 0$. This feature will become important when discussing electroweak symmetry breaking, and the non-zero weak gauge boson masses. %how does the mass term break the U(1), symmetry, it looks ok on transformation to me...
+\noindent breaking the gauge symmetry for values of ${m_{A}\neq 0}$. This feature will become important when discussing electroweak symmetry breaking, and the non-zero weak gauge boson masses. 
 
 \begin{figure}[htb]
   \centering
@@ -113,7 +111,7 @@ Compared with the original Lagrangian, the term $-g\bar{\psi}\gamma^{\mu}A_\mu\p
     };
   \end{feynman}
   \end{tikzpicture}
-  \caption[The fundamental QED interaction vertex.]{The fundamental QED vertex, where the photon field, $A_{\mu}$, interacts with a charged fermion field described by $\psi$.}
+  \caption[The fundamental QED interaction vertex.]{The fundamental QED vertex, where the photon field, ${A_{\mu}}$, interacts with a charged fermion field described by ${\psi}$.}
   \label{fig:theory_qed_vertex}
 \end{figure}
 
@@ -126,7 +124,7 @@ The theory of strong interactions is known as quantum chromodynamics (QCD), desc
     \psi \rightarrow e^{ig_{s}\theta(x)^{a}\frac{\lambda^{a}}{2}}\psi,
 \end{equation} %remember this is acting on a 3 component wavefunction
 
-\noindent where $\lambda^{a}$ are the eight generators of the SU(3) group ($a\in\{1,2,...,8\}$), represented by the $3\times3$ the Gell-Mann matrices, and $\theta(x)^{a}$ are eight functions of the spacetime co-ordinate, $x$~\cite{Thomson}. The SU(3) symmetry of the QCD interaction implies a conserved quantity, which in the case of quark and gluon fields, is the colour charge. Particles (anti-particles) with colour charge exist in one of three states, labelled red (anti-red), blue (anti-blue), and green (anti-green). %The particle wavefunctions therefore have three degrees of freedom, with one colour per degree (same maths as the uds approxmate flavour symmetry). In other words, colour is just a label for orthogonal states in colour space. %N.B. no analytical proof for colour confinement, but Lund string model is one example theory. Evidence for color: ee->qq / ee->mu mu
+\noindent where ${\lambda^{a}}$ are the eight generators of the SU(3) group (${a\in\{1,2,...,8\}}$), represented by the ${3\times3}$ the Gell-Mann matrices, and ${\theta(x)^{a}}$ are eight functions of the spacetime co-ordinate, ${x}$~\cite{Thomson}. The SU(3) symmetry of the QCD interaction implies a conserved quantity, which in the case of quark and gluon fields, is the colour charge. Particles (anti-particles) with colour charge exist in one of three states, labelled red (anti-red), blue (anti-blue), and green (anti-green). %The particle wavefunctions therefore have three degrees of freedom, with one colour per degree (same maths as the uds approxmate flavour symmetry). In other words, colour is just a label for orthogonal states in colour space. %N.B. no analytical proof for colour confinement, but Lund string model is one example theory. Evidence for color: ee->qq / ee->mu mu
 
 In order to maintain invariance, the four-derivative is modified to the covariant derivative,
 
@@ -134,7 +132,7 @@ In order to maintain invariance, the four-derivative is modified to the covarian
     D_{\mu} \equiv \partial_{\mu} + ig_{s}\frac{\lambda^{a}}{2}G^{a}_{\mu}.
 \end{equation}
 
-\noindent This necessitates the introduction of eight new fields, $G_{\mu}^{a}$, which correspond to massless gluons, the mediators of the strong interaction. The value of $g_{s}$, therefore, is the strong force coupling strength. 
+\noindent This necessitates the introduction of eight new fields, ${G_{\mu}^{a}}$, which correspond to massless gluons, the mediators of the strong interaction. The value of ${g_{s}}$, therefore, is the strong force coupling strength. 
 
 The QCD lagragian remains invariant, provided the new fields transform as
 
@@ -142,7 +140,7 @@ The QCD lagragian remains invariant, provided the new fields transform as
     G_{\mu}^{c} \rightarrow G_{\mu}^{c} - \partial_{\mu}\theta^{c}(x) - g_{s}f^{abc}\theta^{a}(x)G_{\mu}^{b},
 \end{equation}
 
-\noindent where $f^{abc}$ are the completely antisymmetric structure constants, defined by $\left[ \lambda^{a},\lambda^{b} \right] = if^{abc}\lambda^{c}$, which arise due to the non-abelian nature of the SU(3) group. Unlike in the case of QED, a non-abelian gauge theory permits self-interaction of the accompanying gauge bosons. This can be revealed by the required form of the field strength tensor, which for QCD is
+\noindent where ${f^{abc}}$ are the completely antisymmetric structure constants, defined by ${\left[ \lambda^{a},\lambda^{b} \right] = if^{abc}\lambda^{c}}$, which arise due to the non-abelian nature of the SU(3) group. Unlike in the case of QED, a non-abelian gauge theory permits self-interaction of the accompanying gauge bosons. This can be revealed by the required form of the field strength tensor, which for QCD is
 
 \begin{equation}
       F^{a}_{\mu\nu} = \partial_{\mu}G_{\nu}^{a} - \partial_{\nu}G_{\mu}^{a} - g_{s}f^{abc}G^{b}_{\mu}G^{c}_{\mu}, 
@@ -155,7 +153,7 @@ The QCD lagragian remains invariant, provided the new fields transform as
     \mathcal{L_{\mathrm{QCD}}} = \sum_{f} i\bar{\psi}_{f}(\gamma^{\mu}D_{\mu} - m_{f})\psi_{f} - \frac{1}{4}F^{a\mu\nu}F_{\mu\nu}^{a},
 \end{equation}
 
-\noindent where $f$ indexes the six quark flavours, with corresponding mass $m_{f}$. %psi here are like a 3 vector (color) of 4-vector spinors (page 246 Thompson)
+\noindent where ${f}$ indexes the six quark flavours, with corresponding mass ${m_{f}}$. %psi here are like a 3 vector (color) of 4-vector spinors (page 246 Thompson)
 
 An additional difference between QED and QCD is the relationship between the strength of the QCD interaction, and the interaction energy scale. The strong force interaction strength becomes larger at smaller momentum transfers, a property which results in the confinement of low energy quarks to colourless baryons and mesons. Conversely, at large energies such as those probed at the Large Hadron Collider, quarks and gluons behave as quasi-free particles, in an effect known as \textit{asymptotic freedom}.
 
@@ -174,14 +172,14 @@ It is useful to firstly consider the weak interaction alone, which is invariant 
     \psi \rightarrow e^{ig\theta(x)^{i}\frac{\sigma^{i}}{2}}\psi,
 \end{equation}
 
-\noindent where the generators of the group have been identified as the three Pauli matrices, $\sigma^{i}$, and $g$ is the corresponding charge known as \textit{weak isospin}. Similarly to the previously discussed gauge groups, in order to respect the SU(2) symmetry, the four-derivative must be modified to its covariant form
+\noindent where the generators of the group have been identified as the three Pauli matrices, ${\sigma^{i}}$, and ${g}$ is the corresponding charge known as \textit{weak isospin}. Similarly to the previously discussed gauge groups, in order to respect the SU(2) symmetry, the four-derivative must be modified to its covariant form
 
 \begin{equation}
     D_\mu \equiv \partial_\mu + ig\frac{\sigma^{i}}{2}W_{\mu}^{i},
 \end{equation}
 %In the DH^{dagger}DH terms later on, the form of this derviative gives rise to terms like Const(W1^2+W2^2) where it is clear that physical field with mass M=const is the combination of W1 and W1. Hence the later definitions of W+- = (W1^2+/-iW2^2), and similar for the Photon and Z fields.
 
-\noindent which has resulted in the introduction of three new fields, $W_{\mu}^{i}$. Given that the group generators are 2$\times$2 matrices, the particle states that interact through the weak force should be represented by two component vectors, which are termed \textit{weak isospin doublets}. 
+\noindent which has resulted in the introduction of three new fields, ${W_{\mu}^{i}}$. Given that the group generators are 2${\times}$2 matrices, the particle states that interact through the weak force should be represented by two component vectors, which are termed \textit{weak isospin doublets}. 
 %called isospin because the original isospin formulation uses an approximate SU(2) summetry
 
 Unlike the EM and strong forces, the weak interaction does not conserve parity~\cite{ParityViolation}, meaning it is not invariant under inversion of the spatial co-ordinates. The weak interaction structure has a vector minus axial-vector form %experimental observation - other billinear covariants offer the same thing. Helicity suprressed pion decay and Wu (beta decay) give evidence for parity violation, although exact interaction structure is determined through other exps
@@ -190,24 +188,24 @@ Unlike the EM and strong forces, the weak interaction does not conserve parity~\
     i\frac{g}{2\sqrt{2}} \gamma^{\mu}(1-\gamma^{5})  = i\frac{g}{\sqrt{2}} \gamma^{\mu}P_{L},
 \end{equation}
 
-\noindent where $\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}$, and $P_{L}$ has been identified as the left handed chiral projection operator. Given that the action of $P_{L}$ on right handed particle spinors produces zero, an immediate consequence of parity violation is that only left (right) handed chiral particle (anti-particle) states may participate in weak interactions. To achieve this, only left handed particle and right handed anti-particle states are placed in weak isospin doublets, while right handed particle and left handed anti-particle states become isospin singlets, unaffected by SU(2) transformations. For this reason, the SU(2) symmetry group of the weak interactions is often referred to as SU(2)$_{\mathrm{L}}$. %i.e. acting on singlet will return zero, acting on doublet is a rotation in SU(2) space - similar to baryon and meson approximate symmetries. Note that each particle in the doublet either a combination of weak eigenstate - for neutrinos, this mean we use the PMNS matrix, for quarks its the CKM.
+\noindent where ${\gamma^{5}=i\gamma^{0}\gamma^{1}\gamma^{2}\gamma^{3}}$, and ${P_{L}}$ has been identified as the left handed chiral projection operator. Given that the action of ${P_{L}}$ on right handed particle spinors produces zero, an immediate consequence of parity violation is that only left (right) handed chiral particle (anti-particle) states may participate in weak interactions. To achieve this, only left handed particle and right handed anti-particle states are placed in weak isospin doublets, while right handed particle and left handed anti-particle states become isospin singlets, unaffected by SU(2) transformations. For this reason, the SU(2) symmetry group of the weak interactions is often referred to as SU(2)${_{\mathrm{L}}}$. %i.e. acting on singlet will return zero, acting on doublet is a rotation in SU(2) space - similar to baryon and meson approximate symmetries. Note that each particle in the doublet either a combination of weak eigenstate - for neutrinos, this mean we use the PMNS matrix, for quarks its the CKM.
 %in the relativistic limit, this chirality = helicity which has consequences for allowed spin alignments (Thompson page 294). Note that neutrino spinors have a PMNS factor accounting for the flavour eignestates being a lienar combination of the mass eigenstates. Weak interaction also violates charge conjugation as it also gives RH particles. So, its plausible that CP together could be conserved, even though in reality it isn't. The non-real elements break time reversal symmetry sp, CP must be violated to keep CPT invariant. %also weird that in the WI, both quarks and neutrinos have flavour mixing matrices respectively, but leptons do not. CP violation in quark sector is seen in neutral meson mixing, in preference for particle over anti particles
 
-In its current form, the weak interaction gauge group has three associated gauge bosons, all of which violate parity. This is, however, in contradiction with experiment, where the $\mathrm{Z}$ boson associated with weak neutral current interactions couples to both left handed and right handed chiral particles. The GWS model provides the resolution, where the two neutral bosons of the theory are postulated to arise from combinations of fields generated by an SU(2)$_{\mathrm{L}}\times$U(1) symmetry. To maintain invariance under such a transformation, the covariant derivative associated with the weak interaction is updated with an additional term corresponding to the U(1) symmetry, such that overall
+In its current form, the weak interaction gauge group has three associated gauge bosons, all of which violate parity. This is, however, in contradiction with experiment, where the ${\mathrm{Z}}$ boson associated with weak neutral current interactions couples to both left handed and right handed chiral particles. The GWS model provides the resolution, where the two neutral bosons of the theory are postulated to arise from combinations of fields generated by an SU(2)${_{\mathrm{L}}\times}$U(1) symmetry. To maintain invariance under such a transformation, the covariant derivative associated with the weak interaction is updated with an additional term corresponding to the U(1) symmetry, such that overall
 
 \begin{equation}
 \label{eqn:ew_covariant_derivative}
     D_\mu \equiv \partial_\mu + ig\frac{\sigma^{i}}{2}W_{\mu}^{i} + ig'YB_{\mu},
 \end{equation}
 
-\noindent where $Y$ is known as the \textit{weak hypercharge}, and $g'$ is the associated coupling. In the GWS model, the charged weak bosons are given by combinations of the $W^{1}_{\mu}$ and $W^{2}_{\mu}$ fields,
+\noindent where ${Y}$ is known as the \textit{weak hypercharge}, and ${g'}$ is the associated coupling. In the GWS model, the charged weak bosons are given by combinations of the ${W^{1}_{\mu}}$ and ${W^{2}_{\mu}}$ fields,
 %I again is the identity! Note that in gauage transforms to the field, g can be +1e or 2/3 etc. for charged leptons and quarks respectively; it is not fixed! Hence why Y can take different values (of charge) too.
 
 \begin{equation}
      W^{\pm}_\mu = \frac{1}{\sqrt{2}}(W_\mu^1 \mp iW_\mu^2).
 \end{equation}
 
-\noindent The physical neutral fields of the theory, the $\mathrm{Z}$ boson ($Z_{\mu}$) and the photon, are then expressed as linear combinations of the remaining $W^{3}_{\mu}$ boson, and the new $B_\mu$ field. This can be expressed succinctly as
+\noindent The physical neutral fields of the theory, the ${\mathrm{Z}}$ boson (${Z_{\mu}}$) and the photon, are then expressed as linear combinations of the remaining ${W^{3}_{\mu}}$ boson, and the new ${B_\mu}$ field. This can be expressed succinctly as
 %we know W3 is neutral because it results vertex terms coupling neutral particles (Thompson, page 417-418).
 
 \begin{equation}
@@ -230,7 +228,7 @@ In its current form, the weak interaction gauge group has three associated gauge
 ,
 \end{equation}
 
-\noindent where $\theta_{W}$ is called the Weinberg angle, which controls the mixing. The charges associated with each transformation can be identified by considering the electroweak Lagrangian, using the definition of the covariant derivative in Eqn \ref{eqn:ew_covariant_derivative}. Terms involving right handed fields, $\psi_{\mathrm{R}}$, include
+\noindent where ${\theta_{W}}$ is called the Weinberg angle, which controls the mixing. The charges associated with each transformation can be identified by considering the electroweak Lagrangian, using the definition of the covariant derivative in Eqn \ref{eqn:ew_covariant_derivative}. Terms involving right handed fields, ${\psi_{\mathrm{R}}}$, include
 %sin(thetaW)^2 = 0.222
 
 \begin{equation}
@@ -239,7 +237,7 @@ In its current form, the weak interaction gauge group has three associated gauge
 
 
 \noindent By comparison with the analogous term in the QED lagrangian, 
-the relationship between $g'\cos{\theta_{W}}=|e|$ can be inferred, and the weak hypercharge, $Y$, is identified as the electric charge of the particle. Similarly, action of the covariant derivative on left handed fields, $\psi_{\mathrm{L}}$, yields terms such as,
+the relationship between ${g'\cos{\theta_{W}}=|e|}$ can be inferred, and the weak hypercharge, ${Y}$, is identified as the electric charge of the particle. Similarly, action of the covariant derivative on left handed fields, $\psi_{\mathrm{L}}$, yields terms such as,
 %theta = tan(g'/g). For this part, the GFT notes and equations 6.41-6.45 clear it up, bearing in mind that the \supsets are important in understanding which terms are written explicitly. Its basically expanding the Dmu terms are subbing in for Bmu using the definitions from the rotation matrix
 
 \begin{equation}
@@ -584,7 +582,7 @@ Cross section (pb) & 48.58 & 3.78  & 1.37 & 0.76 & 0.51 & 0.49                  
 
 The Higgs boson is unstable, surviving for an extremely short time before decaying to lighter particles. These decay products are used to reconstruct the properties of the original Higgs boson. Since the Higgs boson coupling strength is proportional to the mass of the coupled particle(s), decay channels involving heavy particles are favoured. Consequently, almost 60\% of all Higgs bosons decay to two $\mathrm{b}$ quarks. It might therefore be concluded that measurements in the $\mathrm{H}\rightarrow\mathrm{b}\bar{\mathrm{b}}$ channel are the most sensitive; however, at the LHC, this considerable branching fraction is offset by the large background resulting from QCD processes, which produce a signature similar to the two jets found in the $\mathrm{H}\rightarrow\mathrm{b}\bar{\mathrm{b}}$ final state. In contrast, although the branching fraction for channels such as $\mathrm{H}\rightarrow\gamma\gamma$ is comparatively small at ${\approx}0.23\%$, the two final state photons produce a particularly clean signature which is more easily resolvable against background processes. The diphoton channel, which proceeds by a heavy particle loop, was therefore observed to have the highest sensitivity of all measured decay channels at the time of the Higgs boson discovery~\cite{Aad:2012tfa,Chatrchyan:2012xdj,Chatrchyan:2013lba}, while the $\mathrm{H}\rightarrow\mathrm{b}\bar{\mathrm{b}}$ process was only observed later in Run 2 of the LHC operation~\cite{CMSHbb,ATLASHbb}. The branching fractions for a range of Higgs boson decay channels are given in Table~\ref{tab:higgs_decay_brs}, with selected Feynman diagrams shown in Figure~\ref{fig:higgs_decay_feynmans}.
 
-Although unsuitable for precision measurements of Higgs boson properties, rarer decay channels may also be used to study the SM predictions. These decays typically involve light particles, including channels such as $\mathrm{H}\rightarrow\mu\mu$, $\mathrm{H}\rightarrow \mathrm{c}\bar{\mathrm{c}}$, and decays to the lightest charged leptons, \Hee. The branching fraction for \Hee decays predicted by the SM is extremely small, at $\BHee \approx 5.2\times10^{-9}$. Clearly, a decay channel of this rarity is inaccessible with the data collected at the LHC during Run 2 operation; however, enhancements to \BHee are predicted under several BSM scenarios. The simplest of these are models postulating additional Higgs doublets~\cite{BSM_vecferm,BSM_2HDM}. Other extensions include the addition of new operators to the SM Lagrangian that could modify the electron Yukawa coupling by a factor of ${\approx}10$~\cite{dim_ten_operators}. 
+Although unsuitable for precision measurements of Higgs boson properties, rarer decay channels may also be used to study the SM predictions. These decays typically involve light particles, including channels such as $\mathrm{H}\rightarrow\mu\mu$, $\mathrm{H}\rightarrow \mathrm{c}\bar{\mathrm{c}}$, and decays to the lightest charged leptons, \Hee. The branching fraction for \Hee decays predicted by the SM is extremely small, at $\BHee \approx 5.2\times10^{-9}$. Clearly, a decay channel of this rarity is inaccessible with the data collected at the LHC during Run 2 operation; however, enhancements to \BHee are predicted under several BSM scenarios. The simplest of these are models postulating additional Higgs doublets (2HDM)~\cite{BSM_vecferm,BSM_2HDM}. Models that allow for an enhancement in $\kappa_e$ are restricted to non-flavour conserving 2HDM scenarios, given current signal strength measurements in the \Hmumu and \Htautau channels~\cite{CMSHMuMu,CMSHtautau,ATLASHtautau}. Other extensions to the SM include the addition of new higher order operators to the SM Lagrangian, including dimension 10 operators that could modify the electron Yukawa coupling by a factor of ${\approx}10$~\cite{dim_ten_operators}. 
 
 \begin{table}[htbp!]
 \centering

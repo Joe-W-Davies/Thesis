@@ -47,8 +47,8 @@ Figure~\ref{fig:hee_smodels} shows the final signal models for the highest $S/B$
 
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width =0.48\linewidth]{Figures/Hee/Results/sigModels/nominal/smodel_gghcat0.pdf}
-\includegraphics[width =0.48\linewidth]{Figures/Hee/Results/sigModels/nominal/smodel_vbfcat0.pdf}
+\includegraphics[width =0.48\linewidth]{Figures/Hee/Results/sigModels/nominal/smodel_gghcat0_paper.pdf}
+\includegraphics[width =0.48\linewidth]{Figures/Hee/Results/sigModels/nominal/smodel_vbfcat0_paper.pdf}
 \caption[The signal model for the \ggH Tag 0 and VBF Tag 0 analysis categories.]{Signal models for the two highest $S/B$ analysis categories targeting \ggH (left) and VBF (right) production, integrated over Higgs boson production processes, for a nominal Higgs boson mass of \mH= 125~GeV. The overall yield is normalised such that the integral is equal to unity. The contribution from each of the three years is shown by the dashed lines. The resolution, parameterised using \seff, is also labelled for each model.}
 \label{fig:hee_smodels}
 \end{figure}
@@ -193,6 +193,7 @@ The sources of theoretical uncertainty considered in this analysis are as follow
   these uncertainties are obtained using dedicated simulated samples which vary the \textsc{Pythia8} tune from that used in the nominal samples, and vary the renormalisation scale for QCD emissions in initial state and final state radiation by a factor of 2 and 0.5. These uncertainties are treated as migrations of events from a given production mode into and out of the VBF and ggH analysis categories. The largest effect comes from the parton shower uncertainty on VBF events, which can change the signal yield in the VBF analysis categories by up to 5\%. 
 \end{itemize}
 
+\noindent The total impact on the \BHee measurement from theoretical systematic uncertainties is ${}^{+0.2}_{-0.1} \times 10^{-4}$, with dominant contributions from uncertainties affecting the \ggH production cross section.
 
 \subsection{Experimental uncertainties}
 
@@ -219,6 +220,8 @@ Experimental uncertainties that affect the shape of the \mee distribution in sig
 \item \textit{Trigger efficiency}:
   the uncertainty on the efficiency of the trigger selection, measured with $\Zee$ events using the tag-and-probe technique. The size of the uncertainty is less than 1\%. An additional uncertainty is introduced to account for a gradual shift in the timing of the inputs to the ECAL L1 Trigger in the region at $|\eta|\; > 2.0$, which caused a specific trigger inefficiency during 2016 and 2017 data taking~\cite{CMS_L1T}. Both electrons, and to a greater extent jets, can be affected by this inefficiency.
 \end{itemize} 
+
+\noindent The total impact on the \BHee measurement from experimental systematic uncertainties is $\pm{0.2\times10^{-4}}$, with the largest contributions arising from uncertainties affecting the electron energy scale.
 
 \section{Summary}
 The maximum likelihood fit used to extract a potential \Hee signal requires modelling of both signal and background events. In this analysis, background models are developed with a data-driven approach using the discrete profiling method. This method naturally handles the uncertainty associated with choosing a function to model the \mee distribution in background events. Conversely, signal models are derived using simulated samples. The dependence on the Higgs boson mass is deliberately built into the parameters of each signal model, such that limits can be extracted as a function of \mH. Systematic uncertainties affecting signal models are handled using nuisance parameters that can modify both the shape of signal models and the overall yields. 
